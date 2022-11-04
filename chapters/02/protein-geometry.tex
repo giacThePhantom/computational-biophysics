@@ -1,1 +1,125 @@
 \chapter{Proteins' geometry}
+
+\section{Introduction}
+The study of the geometry of proteins involve what can be learned from protein coordinates.
+
+\section{The peptide bond}
+A protein is a collection of amino acids linked together by a peptide bond.
+A carboxylic end and an amino end of two amino acid react together losing a water molecule and forming a peptide bond.
+Beside the $\alpha$-carbon there is another one bonded to the oxygen in the carboxylic group and a nitrogen bond in the amino group.
+The $\alpha$ carbon is linked to the nitrogen in the amino group of another amino acid.
+The carbon and nitrogen display $sp2$ hybridization, the central atom and the $3$ that form a bond with it form a plane, so the peptide bond is planar.
+A plane of the peptide bond is formed and rotation of the plane is allowed only around one axis.
+
+	\subsection{Trans and cis}
+	Looking at the peptide bond the carbon atom of the carboxylic group $C'$ and the nitrogen $N$ are each bonded to a different $\alpha$-$C$ and a trans or cis conformation can happen.
+	Trying to visualize the atoms that belong to the molecules these repel through the Van der Waals interactions, that can be computed through the Lennard-Jones potential:
+
+	$$U_{Lj}(r) = E_0\biggl[\biggl(\frac{r_0}{r}\biggr)^{12}-2\biggl(\frac{r_0}{r}\biggr)^6\biggr]$$
+
+	Where:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $r_0$ is the distance where the energy is minimum.
+			\item $r$ is the distance between two atoms.
+			\item $r_{min}$ is the distance at which the energy becomes high.
+		\end{itemize}
+	\end{multicols}
+
+	With atoms most of the time the distance between them will be close to $r_0$.
+	When decreasing the distance a lot of energy is needed and strain is introduced in the molecule.
+	Plotting the values for the energy, $r_0$ and $r_{min}$ the expected distance for each couple of atoms can be seen.
+	Focusing on the $C$-$C$ interaction:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $r_0 = 3.4\si{\angstrom}$.
+			\item $r_{min} = 3.0\si{\angstrom}$.
+		\end{itemize}
+	\end{multicols}
+
+	When two carbons atoms are below the minimum value the conformation is strained.
+	Looking back at the conformation of the peptide bond it can be seen that the cis conformation creates a distance of $2.8\si{\angstrom}$ between the two $\alpha C$, so it is not favourable.
+	So the trans conformation is the least energy-hungry and the most present.
+
+\section{The Ramachandran angles}
+The planes formed by the peptide bonds can rotate with respect to each other.
+So the Ramachandran angles $\phi$ and $\psi$ can be defined between these planes.
+For each $\alpha C$:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\phi$ describes the rotation around its bond with the nitrogen.
+		\item $\psi$ describes the rotation around its bond with the carboxylic group.
+	\end{itemize}
+\end{multicols}
+
+These are the angles between the subsequent planes.
+Some of the angles will require more energy.
+
+	\subsection{Difficulty of rotation}
+	It can be seen how a rotation of the $\phi$ angle could cause the two $C'$ to come at a distance of $2.9\si{\angstrom}$ (where $r_{min} = 3.0\si{\angstrom}$.
+	On the other hand a rotation of the $\psi$ angle could cause the two $N$ to come at the same distance, but in this case $r_{min}(N\dots N) = 2.7\si{\angstrom}$.
+	In the case of carbon atoms the distance is less than the minimum distance, while in the case of nitrogen it is greater than the minimum allowed value.
+	Looking at this it can be seen how the $\psi$ rotation is easier.
+
+	\subsection{Ramachandran plot}
+	A Ramachandran plot is a map with the $\phi$ angle on the $x$ axis and the $\psi$ angle on the $y$ axis.
+	Because a rotation along the $\phi$ angle is highly disfavoured the angle $0$ is strongly disfavoured and is represented like a black stripe (disallowed region).
+	If the amino acids where composed only by carbon and nitrogen atom the Ramachandran map would be \ref{ramachandran-map}, where:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item A forbidden region in the middle.
+			\item Some strained region like for $\psi=0$.
+		\end{itemize}
+	\end{multicols}
+
+	Looking at a real protein the complexity is increased and the other oxygen and nitrogen atoms are included \ref{ramachandran-complex} and other regions become disallowed due to steady clashes.
+	It can be seen how the regions are quite complex.
+	Looking at a glycine and alanine complex it can be seen in \ref{ramachangran-ala-gly} the space becomes even more complex.
+	In this case the white regions is very small and a strained region can be seen and the black one.
+	Including other residues the allowed region reduces \ref{ramachandran-final}.
+	This is due to the presence of larger residues.
+
+		\subsubsection{Observed Ramachandran plot}
+		Trying to plot for each amino acid its angles an amino acid is represented as a dot.
+		Most of the points fall inside of the allowed regions but there are some outliers.
+		In some conformation the protein forces the amino acid to assume strange conformations.
+		This is done to check if the structure places the amino acids in a proper way.
+
+\section{Contact map of proteins}
+Starting from the coordinates a contact can be built.
+It is a matrix that map all the contact between the amino acids.
+A primary structure can be represented as a collection of beads which will be in contact in the 3D structure.
+A square matrix can be built such that each entry in the matrix will determine whether there is a contact or not.
+This matrix will be symmetric with diagonal elements with value $1$ and two parallel diagonals for the neighbouring amino acids.
+Secondary structures will have specific signatures:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\alpha$-helices: is usually represented by a line parallel to the diagonal.
+			This is because the amino acids $i$ is interacting with $i+4$.
+		\item $\beta$-strands: the situation is complicated.
+			For parallel $\beta$ sheets can be parallel to the diagonal.
+			For anti-parallel it can be anti-parallel to the diagonal.
+	\end{itemize}
+\end{multicols}
+
+	\subsection{Defining a contact}
+	The contact between two amino acids needs to be defined.
+	To do so the distance between $\alpha$-$C$ or the distance between the tail of the residue and an $\alpha$-$C$.
+	There is also the need to make a trade-off between computational speed and cost.
+	Also the dimension of the protein need to be considered when choosing the distance.
+
+\section{Topology diagram}
+Having found the secondary structures with a contact map a topology diagram help to understand how those interact with each other.
+In a topology diagram the start is the $N$ terminus and the end the $C$ terminus.
+$\beta$-strands are represented as arrows.
+If the strands always change direction they will form an anti-parallel $\beta$-sheet.
+$\alpha$-helices are represented as small cylinder.
+Usually color codes represent the nature of the structure.
+This helps with numbering of the secondary structures.
+
+Restart at 41:42 of the video.

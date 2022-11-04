@@ -5,12 +5,22 @@
 \contentsline {subsection}{\numberline {1.2.1}Amino-acids}{3}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Structure}{3}{subsection.1.2.2}%
 \contentsline {chapter}{\numberline {2}Proteins' geometry}{4}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Force fields}{5}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Classical mechanics}{6}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Foundations of statistical mechanics}{7}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Microcanonical ensemble}{8}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Molecular dynamics}{9}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Direct translation}{10}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{11}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Canonical ensemble}{12}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Thermostats}{13}{chapter.11}%
+\contentsline {section}{\numberline {2.1}Introduction}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The peptide bond}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Trans and cis}{4}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}The Ramachandran angles}{5}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Difficulty of rotation}{5}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Ramachandran plot}{5}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}Observed Ramachandran plot}{5}{subsubsection.2.3.2.1}%
+\contentsline {section}{\numberline {2.4}Contact map of proteins}{6}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Defining a contact}{6}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Topology diagram}{6}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Force fields}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Classical mechanics}{8}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Foundations of statistical mechanics}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Microcanonical ensemble}{10}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Molecular dynamics}{11}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Direct translation}{12}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{13}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Canonical ensemble}{14}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Thermostats}{15}{chapter.11}%

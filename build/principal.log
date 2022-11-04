@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  1 NOV 2022 15:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.19)  4 NOV 2022 02:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,70 +900,104 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [3]
 Chapter 2.
-) (./chapters/03/force-fields.tex [4
+[4
 
 ]
+
+Package siunitx Warning: Unit macro \angstrom has been deprecated in this
+(siunitx)                release.
+(siunitx)                
+(siunitx)                The BIPM have removed this unit from the SI Brochure.
+(siunitx)                You should define it yourself using \DeclareSIUnit in
+(siunitx)                your source. The current definition is
+(siunitx)                
+(siunitx)                \DeclareSIUnit\angstrom{\text {Å}}
+
+
+LaTeX Warning: Reference `ramachandran-map' on page 5 undefined on input line 7
+0.
+
+
+LaTeX Warning: Reference `ramachandran-complex' on page 5 undefined on input li
+ne 79.
+
+
+LaTeX Warning: Reference `ramachangran-ala-gly' on page 5 undefined on input li
+ne 81.
+
+
+LaTeX Warning: Reference `ramachandran-final' on page 5 undefined on input line
+ 83.
+
+[5]) (./chapters/03/force-fields.tex [6]
 Chapter 3.
-) (./chapters/04/classical-mechanics.tex [5
+) (./chapters/04/classical-mechanics.tex [7
 
 ]
 Chapter 4.
-) (./chapters/05/foundations-statistical-mechanics.tex [6
+) (./chapters/05/foundations-statistical-mechanics.tex [8
 
 ]
 Chapter 5.
-) (./chapters/06/microcanonical-ensemble.tex [7
+) (./chapters/06/microcanonical-ensemble.tex [9
 
 ]
 Chapter 6.
-) (./chapters/07/molecular-dynamics.tex [8
+) (./chapters/07/molecular-dynamics.tex [10
 
 ]
 Chapter 7.
-) (./chapters/08/direct-translation.tex [9
+) (./chapters/08/direct-translation.tex [11
 
 ]
 Chapter 8.
-) (./chapters/09/evaluation-energy-forces.tex [10
+) (./chapters/09/evaluation-energy-forces.tex [12
 
 ]
 Chapter 9.
-) (./chapters/10/canonical-ensemble.tex [11
+) (./chapters/10/canonical-ensemble.tex [13
 
 ]
 Chapter 10.
-) (./chapters/11/thermostats.tex [12
+) (./chapters/11/thermostats.tex [14
 
 ]
 Chapter 11.
-) [13
+) [15
 
 ] (./build/principal.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 0E72C5CD637B4CA1B8C606155D3287AE;2114.
+(rerunfilecheck)             Checksum: 4CCA5FDD07C08FEA4DE88D787E798146;3482.
  ) 
 Here is how much of TeX's memory you used:
- 23559 strings out of 478238
- 431612 string characters out of 5850456
- 749115 words of memory out of 5000000
- 41393 multiletter control sequences out of 15000+600000
- 485502 words of font info for 68 fonts, out of 8000000 for 9000
+ 23589 strings out of 478238
+ 432034 string characters out of 5850456
+ 753127 words of memory out of 5000000
+ 41409 multiletter control sequences out of 15000+600000
+ 487036 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,11n,82p,386b,792s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
 exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1
-000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-frm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (14 pages, 167867 bytes).
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
+sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></
+usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf
+-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
+per/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
+b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on ./build/principal.pdf (16 pages, 233891 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
