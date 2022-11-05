@@ -122,4 +122,109 @@ $\alpha$-helices are represented as small cylinder.
 Usually color codes represent the nature of the structure.
 This helps with numbering of the secondary structures.
 
-Restart at 41:42 of the video.
+\section{Coordinates}
+The coordinates of all atoms in a protein are described in a PDB file.
+This is a tabulated file containing different columns:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item Atom record: ATOM.
+		\item Atom number: a unique identifier for the atom.
+		\item Atom identifier: an identifier for the type of atom.
+		\item Amino type: the amino acid from which the atom is from.
+		\item Chain identifier: identifier for the chain.
+		\item Residue sequence number: the number of the residue in the chain.
+		\item $x$, $y$, $z$: the coordinates in angstrom.
+		\item Occupancy: the probability of an atom to be in that space.
+		\item B-factor: how mobile that atom is in the crystal, it represent the noise in the x-ray diffraction map.
+		\item Element symbol: the symbol of the element of the atom.
+	\end{itemize}
+\end{multicols}
+
+Once the coordinates of a protein is obtained, some geometrical properties can be directly computed.
+
+	\subsection{Protein centre of mass}
+	The protein centre of mass is the average position for the protein centre.
+	It is an average weighted by the mass of the atom.
+
+	$$\vec{R}_{cm} = \frac{\sum\limits_{i=1}^Nm_i\vec{r}_i}{\sum\limits_{i=1}^Nm_i}$$
+
+	\subsection{Radius of gyration}
+	Once the centre of mass is known the radius of gyration can be computed.
+	This measures the size of the protein as if it was a sphere.
+	It is a good indication of the globular size of a protein.
+	The distance of each atom and the centre of mass is computed and the square is taken, weighted with the mass of the atom.
+
+	$$R_g = \sqrt{\frac{\sum\limits_{i=1}^Nm_i(\vec{r}_i-\vec{R}_{cm})^2}{\sum\limits_{i=1}^Nm_i}}$$
+
+	\subsection{Comparing protein structures}
+	Proteins have structures that loop in a similar way, with similar regions within each other.
+	To quantify the similarity between the protein structure a procedure needs to be followed:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Select common regions: a $1$-$1$ correspondence between amino acid need to be found: the parts present only in one protein are not considered.
+				A correspondence is built between the common regions on the single amino-acids.
+				These can be different, usually the coordinates are confronted between the $\alpha$-$C$ atom and the residue is not considered.
+				One of the things that can be done is to look at the secondary structures and add loops only when they look similar.
+			\item Align the two structures: compute the centre of mass of the two proteins and translate the proteins so the centre of masses coincide.
+			\item Finding the optimal rotation: (add algorithm) the principal axes are computed and the proteins are rotated so that they superimpose.
+				Once the optimal rotation is obtained the difference can be quantified.
+			\item Compute RMSD: root mean square deviation: take the coordinates of the amino-acid $i$ in protein $A$ and $A$, their squared difference is computed and an average over all amino acid is computed and squared:
+
+				$$RMSD = \sqrt{\frac{1}{N}\sum\limits_{i=1}^N(\vec{r}_{Ai}-\vec{r}_{Bi})^2}$$
+
+				This can be done for two proteins or for the protein taken at two different time step in a molecular dynamics simulation:
+
+				$$RMSD(t) = \sqrt{\frac{1}{N}\sum\limits_{i=1}^N(\vec{r}_{i}(t)-\vec{r}_{i}(0))^2}$$
+
+				Now the $RMSD$ can be plotted with respect to time.
+				It can be seen how at $t=0$ $RMSD=0$ and after the value will increase.
+				When the number reaches a plateau the protein should be in equilibrium.
+				The plateau can jump to another value, meaning that the state is a meta-stable state of the protein, or the protein has more stable states or a loop is making something.
+				This value is assigned to very complicated structures and different structures can have the same $RMSD$.
+				The $RMSD$ is an indicator of equilibrium: it is a necessary but not sufficient condition.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Native state}
+	The native state is the functional state of a protein.
+	It is not the state found for a crystallized protein, but only closely related to it.
+	This is due to proximity effect and the fact that the protein is not a static system.
+	Proteins are extremely flexible and are moving a lot because the temperature corresponds to a constant movement of water molecule around causes movement in the protein.
+	The native state is an ensemble of closely related states, all compatible with the conditions of the situation studied.
+	Proteins need to be studied in the isothermal-isobaric ensemble.
+	All the calculation need to be done at constant temperature and pressure.
+	The native state is so a collection of functional state.
+
+	In the case of the unfolded state the possibilities are too many to sample all of them.
+
+	\subsection{RMSF}
+	The flexibility of each amino acid can be computed.
+	With flexibility is intended the movement of amino acid with respect to one another.
+	In the $\alpha$-helix, for example, less fluctuation is expected, while in loops more fluctuation is expected.
+	This quantity is computed in the root mean squared fluctuation, which will be computed for each amino acid in the protein.
+	With $f$ referring to the frame, let:
+
+	\begin{itemize}
+		\item $\langle \vec{r}_i\rangle = \frac{1}{M}\sum\limits_{f=1}^M\vec{r}_{i,f}$, the average position of atom $i$.
+		\item $\Delta\vec{r}_{i,f} = \vec{r}_{i,f}-\langle\vec{r}_i\rangle$, the displacement of each atom in each frame with respect to its average.
+		\item $\langle \Delta\vec{r}_o^w\rangle = \frac{1}{M}\sum\limits_{f=1}^M(\vec{r}_{i,f}-\langle\vec{r}_i\rangle)^2$, the average squared distance over the frames.
+	\end{itemize}
+
+	So, the root mean squared fluctuation is:
+
+	$$RMSF_i = \sqrt{\langle\Delta\vec{r}_i\rangle^2}$$
+
+	Plotting the $RMSF$ with respect to residue number and the more mobile residue can be identified.
+	This can be mapped onto the sequence so loops, helices and strands can be recognized.
+	Usually the fluctuating part correspond to loops.
+	The terminus have the highest $RMSF$.
+
+		\subsubsection{B-factors}
+		$RMSF$ can be translated into B-factors.
+		They are the Debye-Waller factors and are a scaled version of the $RMSF$ squared.
+		So the result of a simulation can be compared with the B-factor and a strong correspondence can be seen.
+		The differences are due to the fact that the crystal is a different environment with respect to the normal one and packing effect can happen (some regions of the protein can interact with the image of the protein in the crystal).
+
+		$$B_i = \frac{8\pi^2}{3}\langle\Delta\vec{r}_i^2\rangle = \frac{8\pi^2}{3}RMSF^2_i$$
