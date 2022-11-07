@@ -44,19 +44,58 @@ $$U(\theta_{ABC}) = \frac{1}{2}[k_{ABC}+k^{(3)}_{ABC}(\theta_{ABC}-\theta_{ABC,e
 
 \section{Torsions}
 
+$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
+
 	\subsection{Improper torsions}
 
-\section{Van der Waals interactions}
+$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
 
-	\subsection{Other potentials fro Van der Waals interactions}
+\section{Van der Waals interactions}
+Some force fields reduce $1,4$-interactions by a scale factor through torsions.
+
+	\subsection{Lennard-Jones potential}
+
+	\begin{align*}
+		U_(r_{AB}) &= \frac{a_{AB}}{r^{12}_{AB}}-\frac{b_{AB}}{r^6_{AB}}=\\
+							 &= 4\epsilon_{AB}\biggl[\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^{12}-\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^6\biggr]
+	\end{align*}
+
+	And the distance with minimum energy:
+
+	$$r^*_{AB} = 2^{\frac{1}{6}}\sigma_{AB}$$
+
+	\subsection{Morse potential}
+
+	$$U(r_{AB}) = D_{AB}[1-e^{-a_{AB}(r_{AB}-r_{AB,eq})^2}]$$
+
+	\subsection{Hill potential}
+
+	$$U(r_{AB}) = \epsilon_{AB}\biggl[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\biggl(\frac{r^*_{AB}}{r_{AB}}\biggr)^6\biggr]$$
+
 
 \section{Electrostatic interactions}
+Consider all the electrostatic interactions:
+
+$$U_{AB} = \vec{M}^{(A)}V^{(B)}$$
+
+Now, summing over all molecules:
+
+$$U_{AB} = \sum\limits_{A}\sum\limits_{B>A}\vec{M}^{(A)}\vec{V}^{(B)}$$
 
 	\subsection{Point like charges}
+	All atoms are considered as point-like charges:
+
+	$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
 
 	\subsection{Dipolar interactions}
 
+	$$U_{AB/CD} = \frac{\mu_{AB}\mu_{CD}}{\epsilon_{AB/CD}r^3_{AB/CD}}(\cos\chi_{AB/CD}-3\cos\alpha_{AB}\cos\alpha_{CD})$$
+
 	\subsection{Dielectric constants}
+
+	$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
+
+	$$\epsilon_{AB} = \begin{cases}\infty&\text{ if }A\land B\text{are 1,2- or 1,3-related}\\3.0&\text{ if }A\land B\text{are 1,4-related}\\1.5&\text{otherwise}\end{cases}$$
 
 	\subsection{Cross terms}
 
