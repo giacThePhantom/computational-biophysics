@@ -99,14 +99,79 @@ $$U_{AB} = \sum\limits_{A}\sum\limits_{B>A}\vec{M}^{(A)}\vec{V}^{(B)}$$
 
 	\subsection{Cross terms}
 
+	\begin{align*}
+		U(\vec{q}) = &U(\vec{q}_{eq}) + \sum\limits_{i=1}^{3N-6}(q_i-q_{i,eq})\frac{\partial U}{\partial q_i}|_{\vec{q}=\vec{q}_{eq}} + \\
+								 &+\frac{1}{2!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}(q_i-q_{i.eq})(q_j-q_{j,eq})\frac{\partial^2 U}{\partial q_i\partial q_j}|_{\vec{q}=\vec{q}_{eq}} +\\
+								 &=\frac{1}{3!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sum\limits_{k=1}^{3N-6}(q_i-q_{i,eq})(q_j-q_{j.eq})(q_k-q_{k,eq})\frac{\partial^3 U}{\partial q_i\partial q_j\partial q_k}|_{\vec{q}=\vec{q}_{eq}} + \cdots
+	\end{align*}
+
+	$$U(r_{AB}, \theta_{ABC}) = \frac{1}{2}k_{AB,ACB}(r_{AB}-r_{AB, eq})(\theta_{ABC}-\theta_{ABC, eq})$$
+
 	\subsection{Parametrization}
+	Let:
+
+	$$Z = \biggl[\sum\limits_{i}^{observables}\sum\limits_{j}^{occurrences}\frac{(calc_{i,j}-expt_{i,j})^2}{w_i^2}\biggr]^{\frac{1}{2}}$$
+
+	The penalty function.
+	Consider the number of parameters:
+
+	$$p = N + (N-1)+(N-2)+\cdots = N\frac{N+1}{2}$$
+
+	A possible strategy for parametrization is:
+
+	\begin{align*}
+		\sigma_{AB} &= \sigma_A+\sigma_B
+		\epsilon_{AB} &= (\epsilon_A\epsilon_B)^{\frac{1}{2}}
+	\end{align*}
 
 \section{Force field energies}
 
 	\subsection{Geometry optimization}
 
-	\subsection{Taking derivatives}
+	$$\vec{g}(\vec{q}) = \begin{bmatrix} \frac{\partial U}{\partial q_1} \\ \frac{\partial U}{\partial q_2} \\ \vdots \\ \frac{\partial U}{\partial q_n}\end{bmatrix}$$
+
+	Such that the cost reaches a global minimum $J_{min}(\vec{w})$.
+
+	\subsection{Derivative of the potential function}
+
+	$$\frac{\partial U}{\partial x_A} = \sum\limits_{i\in A}\frac{\partial U}{\partial r_{Ai}}\frac{r_{Ai}}{\partial x_A}$$
+
+	$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k_{AB}^{(3)}(r_{AB}-r_{AB, eq}) + k_{AB}^{(4)}(r_{AB}-r_{AB, eq})^2](r_{AB}-r_{AB,eq})^2$$
+
+	$$\frac{\partial U}{\partial r_{Ai}} = \frac{1}{2}[2k_{Ai}+3k_{Ai}^{(3)}r_{Ai}-r_{Ai, eq}) + 4k^{(4)}_{Ai}(r_{Ai}-r_{Ai, eq})^2](r_{Ai}-r_{Ai, eq})$$
+
+	$$\frac{\partial r_{Ai}}{\partial x_A} = \frac{x_A-x_i}{\sqrt{(x_A-x_i)^2+(y_A-y_i)^2+(z_A-z_i)^2}}$$
 
 		\subsubsection{Newton-Raphson}
 
+		$$U(\vec{q}^{(k+1)}) = U(\vec{q}^{(k)}) + (\vec{q}^{(k+1)} -\vec{q}^{(k)})\vec{g}^{(k)} + \frac{1}{2}(\vec{q}^{(k+1)}-\vec{q}^{(k)})H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})$$
+
+		Where $H$ is the Hessian matrix built:
+
+		$$H_{ij}^{(k)} = \frac{\partial^2 U}{\partial q_i\partial q_j}|_{\vec{q}=\vec{q}^{(k)}}$$
+
+		And:
+
+		$$\frac{\partial U(\vec{q}^{(k+1)})}{\partial q_i^{(k+1)}} = \frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}\vec{g}^{(k)}+ \frac{1}{2}\frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})+\frac{1}{2}(\vec{q}^{(k+1)}-\vec{q}^{(k)})H^{(k)}\frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}$$
+
+		Where:
+
+		$$\vec{g}_i^{(k+1)} = \vec{g}_i^{(k)} + [H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})]_i$$
+
+		With the stationary condition:
+
+		$$\vec{0} = \vec{g}^{(k)} + H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})\Rightarrow \vec{q}^{(k+1)} = \vec{q}^{(k)} - [H^{(k)}]^{-1}\vec{g}^{(k)}$$
+
 	\subsection{Types of force fields}
+	Force fields can be categorized as:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item All atoms: one atom corresponds to one bead.
+			\item More atoms: more atoms correspond to one bead.
+			\item Corse grained: groups of atoms correspond to one bead.
+			\item Polarizable force fields: point charges are variables.
+		\end{itemize}
+	\end{multicols}
+
+	As a golden rule parameters from different force fields should never be mixed.
