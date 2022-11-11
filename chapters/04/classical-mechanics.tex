@@ -1,1 +1,280 @@
 \chapter{Classical mechanics}
+
+\section{Newton's laws}
+
+$$m_i\frac{d^2 \vec{r}_i}{dt^2} = m_i\ddot{\vec{r}}_i = \vec{F}_i$$
+
+Then the forces:
+
+$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{f}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{f}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$$
+
+Now considering the energy already described:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
+		\item Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$.
+		\item Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$.
+		\item Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$.
+		\item Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$.
+	\end{itemize}
+\end{multicols}
+
+	\subsection{Phase space}
+	Consider the particle momenta:
+
+	$$\vec{p}_i = m_i\vec{v}_i = m_i\dot{\vec{r}}_i$$
+
+	And Newton's laws:
+
+	$$\vec{F}_i = m_i\ddot{\vec{r}}_i = \dot{\vec{p}}_i$$
+
+	Then the full dynamics of a system is specified by $6N$ functions, where $N$ is the numbers of the body in the system:
+
+	$$\{\vec{r}_1(t), \dots, \vec{r}_N(t), \vec{p}_1(t), \dots, \vec{p}_N(t)\}$$
+
+	And the microscopic state at time $t$ is specified by $6N$ numbers, the phase space vector:
+
+	$$\vec{x} + \{\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N\}$$
+
+	And the trajectory:
+
+	$$\vec{x}_t = \{\vec{r}_1(t), \dots, \vec{r}_N(t), \vec{p}_1(t), \dots, \vec{p}_N(t)\}$$
+
+	\subsection{One particle in one dimension}
+
+		\subsubsection{Free particle}
+
+		\subsubsection{Harmonic oscillator}
+		On the harmonic oscillator:
+
+		$$m\ddot{x} = -kx$$
+
+		And
+
+		$$\omega = \sqrt{\frac{k}{m}}$$
+
+		Then for an elliptic trajectory with radiuses: $(2mC)^{frac{1}{2}}$ and $(2\frac{C}{m}\omega^2)^{\frac{1}{2}}$, thn the trajectory is:
+		$$x(t) = x(0)\cos\omega t+ \frac{p(0)}{m\omega}\sin\omega t$$
+
+		And:
+
+		$$\frac{p^2(t)}{2m} +\frac{1}{2}m\omega^2x^2(t) = C$$
+
+		\subsubsection{Hill potential}
+
+\section{Lagrangian formulation}
+
+Consider the conservative forces:
+
+$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N) = -\nabla_i U(\vec{r}_1, \dots, r_N)$$
+
+And the work for the conservative forces:
+
+$$W_{AB} = \int_A^B\vec{F}_id\vec{l} = U_A-U_B = -\Delta U_{AB}$$
+
+And on closed pathways:
+
+$$\oint\vec{F}_id\vec{l} = 0$$
+
+The kinetic energy:
+
+$$K(\dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = \frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_i^2$$
+
+And the Lagrangian:
+
+$$\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = K(\dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N)- U(\vec{r}_1, \dots, \vec{r}_N)$$
+
+	\subsection{Euler-Lagrange equations}
+
+	$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial \dot{\vec{r}}_i}\biggr)-\frac{\partial\mathcal{L}}{\partial r_i} = 0$$
+
+	Now:
+
+	$$\mathcal{L} = \frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - U(\vec{r}_1, \dots, \vec{r}_N)$$
+
+	And:
+
+	$$\frac{\partial\mathcal{L}}{\partial\dot{\vec{r}}_i} = m_i\dot{\vec{r}}_i$$
+
+	$$\frac{\partial\mathcal{L}}{\partial\vec{r}_i} = -\frac{\partial U}{\partial\vec{r}_i}$$
+
+	So that:
+
+	$$m_i\ddot{\vec{r}}_i +\frac{\partial U}{\partial\vec{r}_i} = 0\rightarrow m_i\ddot{\vec{r}}_i = \vec{F}_i$$
+
+		\subsubsection{Harmonic oscillator}
+		Considering for example the harmonic oscillator the Lagrangian will be:
+
+		$$\mathcal{L}(x, \dot{x}) = \frac{1}{2}m\dot{x}^2-\frac{1}{2}kx^2$$
+
+		And:
+
+		$$\frac{d}{dt}(m\dot{x}) + kx = 0\Rightarrow m\ddot{x} - kx$$
+
+	\subsection{Conservation of energy}
+	Let the equation of the energy:
+
+	$$E = \frac{1}{@}\sum\limits_{i}m_i\dot{\vec{r}}_i^2 + U(\vec{r}_i, \dots, \vec{r}_N)$$
+
+	Then:
+
+	\begin{align*}
+		\frac{dE}{dt}&= \sum\limits_im_i\dot{\vec{r}}_i\ddot{\vec{r}}_i + \sum\limits_i\frac{\partial U}{\partial \vec{r}_i}\dot{\vec{r}}_i=\\
+								 &=\sum\limits_i\dot{\vec{r}}_i\biggl[m_i\ddot{\vec{r}}_i+\frac{\partial U}{\partial\vec{r}_i}\biggr] = \\
+								 &=\sum\limits_i\dot{\vec{r}}_i[m_i\ddot{vec{r}}_i-\vec{F}_i] = 0
+	\end{align*}
+
+	\subsection{Generalized coordinates}
+	Let the generalized coordinates:
+
+	\begin{align*}
+			q_\alpha &= f_\alpha(\vec{r_1}, \dots, \vec{r}_N)\qquad \alpha &= 1, \dots, 3N\\
+			\vec{r}_i &=\vec{g}_i(q_1, d\dots, q_{3N}) i &=1, \dots, N
+	\end{align*}
+
+	Then:
+
+	$$\dot{\vec{r}}_i = \sum\limits_{\alpha=1}^{3N}\frac{\partial \vec{r}_i}{\partial q_\alpha}\dot{q}_\alpha$$
+
+	And let:
+
+	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}\biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]\dot{q}_\alpha\dot{q}_\beta$$
+
+	And introducing the mteric mass tensor $G_{\alpha\beta} = \biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]$:
+
+	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta$$
+
+	Then the Lagrangian in generalized coordinates becomes:
+
+	$$\mathcal{L}(q, \dot{q}) =\frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta - U(q_1, \dots, q_{3N})$$
+
+	And the Euler-Lagrange equations:
+
+	$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) -\frac{\partial\mathcal{L}}{\partial q_\alpha} = 0$$
+
+	\subsection{Legendre transforms}
+	The aim of a Legendre transform is to express the function $f(x)$ in terms of its first derivative $s$:
+
+	$$s = f'(x) \equiv g(x)$$
+
+	Then:
+
+	$$f(x_0) = f'(x_0)x_o + b(x_0)$$
+
+	And:
+
+	$$f(x) = f'(x)x+b(x)$$
+
+	But:
+
+	$$f'(x) = g(x) = s \Rightarrow x = g^{-1}(s)$$
+
+	Hence $b(x)$ contains the same information as $f(x)$, however:
+
+	$$b(g^{-1}(s)) = f(g^{-1}(s))-sg^{-1}(s) \equiv\tilde{f}(s)$$
+
+	The Legendre transom is then:
+
+	$$\tilde{f}(s) = f(x(s))-sx(s)$$
+
+		\subsubsection{Legendre transform for multiple variables}
+		Considering $n$ variables:
+
+		$$s_1 = \frac{\partial f}{\partial x_1} = g_1(x_1, \dots, x_n), \dots, s_n = \frac{\partial f}{\partial x_n} = g_1(x_1, \dots, x_n)$$
+
+		So the Legendre transform:
+
+		$$\tilde{f}(s_1, \dots, s_n) = f(x_1(s_1, \dots, s_n), \dots, x_n(s_1, \dots, s_n))-\sum\limits_i s_ix_i(s_1, \dots, s_n)$$
+
+		This holds for a subset of variables.
+
+\section{Hamiltonian formulation}
+Consider:
+
+$$\vec{p}_i\equiv\frac{\partial\mathcal{L}}{\partial\dot{\vec{r}}_i} = \frac{\partial}{\partial\dot{\vec{r}}_i}\biggl[\frac{1}{2}\sum\limits_{j=1}^Nm_j\dot{\vec{r}}_j^2 - U(\vec{r}_1, \dots, \vec{r}_N)\biggr] = m_i\dot{\vec{r}}_i$$
+
+Considering the Legendre transform of the Lagrangian:
+
+\begin{align*}
+	\tilde{\mathcal{L}}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) &= \mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1(\vec{p}_1), \dots, \dot{\vec{r}}_N(\vec{p}_N))-\sum\limits_{i}\vec{p}_i\dot{\vec{r}}_i(\vec{p}_i) = \\
+																																								&=\frac{1}{2}\sum\limits_{i=1}^Nm_i\biggl(\frac{\vec{p}_i}{m_i}\biggr)^2-U(\vec{r}_1, \dots, \vec{r}_N)-\sum\limits_{i=1}^N\vec{p}_i\frac{\vec{p}_i}{m_i} = \\
+																																								&=-\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} - U(\vec{r}_1, \dots, \vec{r}_N)
+\end{align*}
+
+Now let:
+
+$$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = -\tilde{\mathcal{L}}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N)$$
+
+So that:
+
+$$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\limits_i\vec{p}_i\dot{\vec{r}}_i(\vec{p}_i) - \mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}(\vec{p}_1), \dots, \dot{\vec{r}}_N(\vec{p}_N))$$
+
+And:
+
+$$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N)$$
+
+	\subsection{Generalized coordinates}
+	Consider the generalized coordinates:
+
+	$$p_\alpha = \frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha} = \sum\limits_\beta G_{\alpha\beta}\dot{q}_\beta\Rightarrow \dot{q}_\alpha = \sum\limits_\beta G^{-1}_{\alpha\beta}p_\beta$$
+
+	So that the Hamiltonian becomes:
+
+	\begin{align*}
+		\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) &= \sum\limits_\alpha p_\alpha\dot{q}_\alpha - \mathcal{L}(q_1, \dots, q_{3N}, \dot{q}_1, \dots, \dot{q}_{3N}) =\\
+																												&=\frac{1}{2}\sum\limits_\alpha\sum\limits_\beta p_\alpha G_{\alpha\beta}^{-1}p_\beta + U(q_1, \dots, q_{3N})
+	\end{align*}
+
+	\subsection{Hamilton's equations}
+	Consider that:
+
+	$$\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad\dot{p}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha}$$
+
+	Considering the first order differential equation:
+
+	$$\frac{d\mathcal{H}}{dt} = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}\alpha + \frac{\partial\mathcal{H}}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = 0$$
+
+	So that:
+
+	$$\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) = const$$
+
+	\subsection{Conservation laws}
+	For any property $a(x_t)$:
+
+	$$\frac{da}{dt} = \frac{\partial a}{\partial x_t} \dot{x}_t = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\dot{q}_\alpha + \frac{\partial a}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = \{a, \mathcal{H}\}$$
+
+	Where the Poisson brackets:
+
+	$$\{a, b\} = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial b}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}{\partial b}{\partial q_\alpha}\biggr]$$
+
+	And:
+
+	$$\{a, \mathcal{H}\} = 0\Rightarrow\frac{da}{dt} = 0$$
+
+	\subsection{Cpmpressibility}
+	Define:
+
+	$$\dot{x} = \eta(x) = (\dot{q}_1, \dots, \dot{q}_{3N}, \dot{p}_1, \dots, \dot{p}_{3N})$$
+
+	Where:
+
+	$$\eta(x) = \biggl(\frac{\partial\mathcal{H}}{\partial p_1}, \dots, \frac{\partial\mathcal{H}}{\partial p_{3N}}, -\frac{\partial\mathcal{H}}{\partial q_1}, \dots, -\frac{\partial\mathcal{H}}{\partial q_{3N}}\biggr)$$
+
+	Now:
+
+	$$\nabla_x\dot{x} = \sum\limits_\alpha\biggl[\frac{\partial\dot{p}_\alpha}{\partial p_\alpha} + \frac{\partial\dot{q}_\alpha}{\partial q_\alpha}\biggr] = \sum\limits_\alpha\biggl[-\frac{\partial}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha} + \frac{\partial}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] = \sum\limits_\alpha\biggl[-\frac{\partial^2\mathcal{H}}{\partial p_\alpha\partial q_\alpha} + \frac{\partial^2\mathcal{H}}{\partial q_\alpha\partial p_\alpha}\biggr] = 0$$
+
+	And $\nabla_x\dot{x} = 0$, so it can be seen how Hamilton's equations are incompressible.
+
+	\subsection{Symplectic structure}
+	Hamilton's equations can be written in the form:
+
+	$$\dot{x} = M\frac{\partial\mathcal{H}}{\partial x}\qquad M = \begin{pmatrix} 0 & I\\ -I & 0\end{pmatrix}$$
+
+	A trajectory $x_t = x_t(x_0)$ can be viewed as a transformation of variables.
+	This is done through the Jacobian:
+
+	$$J_{kl} = \frac{\partial x_t^k}{\partial x_o^l}$$
+
+	Then considering the symplectic property it can be seen how: $M = J^TMJ$, so Hamilton's equation satisfy the symplectic property.
