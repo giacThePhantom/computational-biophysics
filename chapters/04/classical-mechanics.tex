@@ -1,123 +1,167 @@
 \chapter{Classical mechanics}
 
 \section{Newton's laws}
+So the mass times the acceleration is equal to the force.
+A dot on top of a vector is a derivative with respect to the time.
 
 $$m_i\frac{d^2 \vec{r}_i}{dt^2} = m_i\ddot{\vec{r}}_i = \vec{F}_i$$
 
-Then the forces:
+The index $i$ in a simulation represent a particle, usually atoms.
 
-$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{f}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{f}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$$
+	\subsection{Forces}
+	In all the force fields the forces come always from pairs of atoms: all the forces depend on the distance between atom.
+	This is not true for angles and torsions, but they can be re-conducted to forces that involve two atoms, respecting Newton's third law.
+	The forces acting on each particle depend on the coordinates of all the atoms and they might depend on the velocity of atom $i$.
+	Sometimes some frictional forces depend on the velocity.
+	All the forces can be represented as forces between pairs of atom that depend on their mutual distance, in particular $\vec{f}_{ij} = -\vec{f}_{ji}$.
+	All the external forces like friction or some fields depend on the position of atom $i$ and its velocity.
+	In the case of biological system viscosity and temperature are the major external forces.
 
-Now considering the energy already described:
+	$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{f}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{f}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$$
 
-\begin{multicols}{2}
-	\begin{itemize}
-		\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
-		\item Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$.
-		\item Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$.
-		\item Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$.
-		\item Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$.
-	\end{itemize}
-\end{multicols}
+	The forces are computed starting from the interactions:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
+			\item Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$.
+			\item Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$.
+			\item Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$.
+			\item Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$.
+				Where factor $332$ is necessary to compute in in $\frac{kcal}{mol}$.
+		\end{itemize}
+	\end{multicols}
 
 	\subsection{Phase space}
-	Consider the particle momenta:
+	When dealing with a system with $N$ atoms, each with $3$ dimensions their position and momenta need to be considered:
 
 	$$\vec{p}_i = m_i\vec{v}_i = m_i\dot{\vec{r}}_i$$
 
-	And Newton's laws:
+	Newton's law can be re-written in term of particle momenta.
 
 	$$\vec{F}_i = m_i\ddot{\vec{r}}_i = \dot{\vec{p}}_i$$
 
-	Then the full dynamics of a system is specified by $6N$ functions, where $N$ is the numbers of the body in the system:
+	Then the full dynamics of a system in $3$ dimension is specified by $6N$ functions, where $N$ is the numbers of the body in the system:
 
 	$$\{\vec{r}_1(t), \dots, \vec{r}_N(t), \vec{p}_1(t), \dots, \vec{p}_N(t)\}$$
 
-	And the microscopic state at time $t$ is specified by $6N$ numbers, the phase space vector:
+	In this way at each instant of time each position and momenta of each particle is specified.
+	Each microscopic state at time $t$ is completely specified by $6N$ numbers, as each position and momenta need to be described.
+	This creates the phase space vector which is $6N$ dimensional:
 
 	$$\vec{x} + \{\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N\}$$
 
-	And the trajectory:
+	A state of a system is a point in this $6N$ dimensional space.
+	The trajectory represent a curve in the space:
 
 	$$\vec{x}_t = \{\vec{r}_1(t), \dots, \vec{r}_N(t), \vec{p}_1(t), \dots, \vec{p}_N(t)\}$$
 
 	\subsection{One particle in one dimension}
-
-		\subsubsection{Free particle}
+	Considering one particle in one dimension the phase space is $2$ dimensional.
+	On the $x$ axis there are the coordinates and on the $y$ axis the momentum.
+	In the case of motion at constant velocity the trajectory will be an horizontal line.
+	This is the case of a free particle.
 
 		\subsubsection{Harmonic oscillator}
-		On the harmonic oscillator:
+		In the case of an harmonic oscillator, it will be described by equation:
 
 		$$m\ddot{x} = -kx$$
 
-		And
+		Where the acceleration is equal to minus the elastic force.
+		And:
 
 		$$\omega = \sqrt{\frac{k}{m}}$$
 
-		Then for an elliptic trajectory with radiuses: $(2mC)^{frac{1}{2}}$ and $(2\frac{C}{m}\omega^2)^{\frac{1}{2}}$, thn the trajectory is:
+		Then the solution for the trajectory:
+
 		$$x(t) = x(0)\cos\omega t+ \frac{p(0)}{m\omega}\sin\omega t$$
 
-		And:
+		That depends on the initial velocity and initial position.
+		The momentum as a function of time and the coordinate verify the equation:
 
 		$$\frac{p^2(t)}{2m} +\frac{1}{2}m\omega^2x^2(t) = C$$
 
+		This equation represent an ellipse and is the conservation of energy.
+		The constant $C$ will have an effect on the length of the two axes on the ellipse, which will be: $(2mC)^{frac{1}{2}}$ and $(2\frac{C}{m}\omega^2)^{\frac{1}{2}}$.
+
 		\subsubsection{Hill potential}
+		The Hill potential is important in chemistry.
+		A bead may approach the hill of potential from the left with positive momentum or from the right with negative momentum.
+		If it is slow the kinetic energy will be not sufficient to overcome the hill, so the particle will stop and go back.
+		For a particle coming from the right the momentum is negative and if it is slow it will not overcome the hill and go back.
+		If the velocity is enough to reach the top of the hill the particle will stay forever on top of it.
+		If the velocity is more than that the bead will traverse the hill and fall on the other side.
+		A trajectory in the phase space can be different with the one considering just the position.
 
 \section{Lagrangian formulation}
-
-Consider the conservative forces:
+Classical mechanics can be formulated using the Lagrangian formalism.
+In order to have the Lagrangian formulation only conservative forces are considered, from which potential forces are obtained:
 
 $$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N) = -\nabla_i U(\vec{r}_1, \dots, r_N)$$
 
-And the work for the conservative forces:
+Where $\nabla_i$ is the gradient of the potential and is the force.
+For conservative forces the work done is computed as the difference of the potential energy and the path can be excluded:
 
 $$W_{AB} = \int_A^B\vec{F}_id\vec{l} = U_A-U_B = -\Delta U_{AB}$$
 
-And on closed pathways:
+And on closed pathways, according to the previous formula:
 
 $$\oint\vec{F}_id\vec{l} = 0$$
 
-The kinetic energy:
+To define the Lagrangian, one term is the kinetic energy, which in the case for $N$ particles, the total kinetic energy of the system is:
 
 $$K(\dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = \frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_i^2$$
 
-And the Lagrangian:
+Which depends on the mass and their velocity.
+And the Lagrangian is defined as the difference of the potential and kinetic energy:
 
 $$\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = K(\dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N)- U(\vec{r}_1, \dots, \vec{r}_N)$$
 
+It can be seen how the Lagrangian depends on all the coordinates and all the velocities.
+Here momenta is not included, but only velocity and position.
+It can be seen how the kinetic energy depends only on the velocity and the potential one only from the position.
+
 	\subsection{Euler-Lagrange equations}
+	Once the Lagrangian is obtained the Euler-Lagrange equation can be computed.
+	Where the difference of the derivative with respect to time of the derivative of the Lagrangian with respect to the velocity and the derivative of the Lagrangian with respect to the position is equal to $0$:
 
 	$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial \dot{\vec{r}}_i}\biggr)-\frac{\partial\mathcal{L}}{\partial r_i} = 0$$
 
-	Now:
+	Now, as an example consider:
 
-	$$\mathcal{L} = \frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - U(\vec{r}_1, \dots, \vec{r}_N)$$
+	$$\mathcal{L} = \underbrace{\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2}_{\text{Kinetic energy}} - U(\vec{r}_1, \dots, \vec{r}_N)$$
 
-	And:
+	And computing the equation of the Euler-Lagrange equation:
 
 	$$\frac{\partial\mathcal{L}}{\partial\dot{\vec{r}}_i} = m_i\dot{\vec{r}}_i$$
 
 	$$\frac{\partial\mathcal{L}}{\partial\vec{r}_i} = -\frac{\partial U}{\partial\vec{r}_i}$$
 
-	So that:
+	So that, putting everything together:
 
-	$$m_i\ddot{\vec{r}}_i +\frac{\partial U}{\partial\vec{r}_i} = 0\rightarrow m_i\ddot{\vec{r}}_i = \vec{F}_i$$
+	$$m_i\ddot{\vec{r}}_i +\underbrace{\frac{\partial U}{\partial\vec{r}_i}}_{=\vec{F}_i} = 0\Rightarrow \overbrace{m_i\ddot{\vec{r}}_i = \vec{F}_i}^{\text{Newton's equation}}$$
 
 		\subsubsection{Harmonic oscillator}
 		Considering for example the harmonic oscillator the Lagrangian will be:
 
-		$$\mathcal{L}(x, \dot{x}) = \frac{1}{2}m\dot{x}^2-\frac{1}{2}kx^2$$
+		$$\mathcal{L}(x, \dot{x}) = \underbrace{\frac{1}{2}m\dot{x}^2}_{K}-\underbrace{\frac{1}{2}kx^2}_{U}$$
 
-		And:
+		And, taking all the derivatives:
 
 		$$\frac{d}{dt}(m\dot{x}) + kx = 0\Rightarrow m\ddot{x} - kx$$
 
+		The equation for the harmonic oscillator is obtained.
+
 	\subsection{Conservation of energy}
-	Let the equation of the energy:
+	The Lagrangian equation can be applied even to very complex systems.
+	Another issue involves the energy.
+	Let the equation of the energy be:
 
-	$$E = \frac{1}{@}\sum\limits_{i}m_i\dot{\vec{r}}_i^2 + U(\vec{r}_i, \dots, \vec{r}_N)$$
+	$$E = \underbrace{\frac{1}{2}\sum\limits_{i}m_i\dot{\vec{r}}_i^2}_{K} + U(\vec{r}_i, \dots, \vec{r}_N)$$
 
-	Then:
+	The sum of the potential and kinetic energy.
+
+	Then, taking the derivative of energy with respect to time:
 
 	\begin{align*}
 		\frac{dE}{dt}&= \sum\limits_im_i\dot{\vec{r}}_i\ddot{\vec{r}}_i + \sum\limits_i\frac{\partial U}{\partial \vec{r}_i}\dot{\vec{r}}_i=\\
@@ -125,23 +169,32 @@ $$\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}
 								 &=\sum\limits_i\dot{\vec{r}}_i[m_i\ddot{vec{r}}_i-\vec{F}_i] = 0
 	\end{align*}
 
+	So that the energy is conserved in time.
+	Following Lagrangian mechanics then the energy will be conserved.
+	If energy is not conserved serious mistake are done in a molecular simulation.
+
 	\subsection{Generalized coordinates}
-	Let the generalized coordinates:
+	Introducing generalized coordinates, for example when studying small molecules in chemistry:
 
-	\begin{align*}
-			q_\alpha &= f_\alpha(\vec{r_1}, \dots, \vec{r}_N)\qquad \alpha &= 1, \dots, 3N\\
-			\vec{r}_i &=\vec{g}_i(q_1, d\dots, q_{3N}) i &=1, \dots, N
-	\end{align*}
+	$$q_\alpha = f_\alpha(\vec{r_1}, \dots, \vec{r}_N)\qquad \alpha = 1, \dots, 3N$$
 
-	Then:
+	These are functions of the coordinates and are $3N$ generalized coordinates that take the place of the Cartesian coordinates.
+	To go back from generalized to Cartesian coordinates:
+
+	$$\vec{r}_i =\vec{g}_i(q_1, d\dots, q_{3N})\qquad i =1, \dots, N$$
+
+	Trying to write the Lagrangian in generalized coordinates the kinetic part has to be recomputed.
+	The velocity of particle $i$ with respect to the new generalized coordinates.
+	So the derivative of $\vec{r}_i$ with respect to $q_\alpha$ multiplied by the derivative in time of $q_\alpha$.
+	This is summed over all the generalized coordinates.
 
 	$$\dot{\vec{r}}_i = \sum\limits_{\alpha=1}^{3N}\frac{\partial \vec{r}_i}{\partial q_\alpha}\dot{q}_\alpha$$
 
-	And let:
+	Writing the kinetic energy as a function of the generalized coordinates the velocity has to be included twice.
 
 	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}\biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]\dot{q}_\alpha\dot{q}_\beta$$
 
-	And introducing the mteric mass tensor $G_{\alpha\beta} = \biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]$:
+	And introducing the metric mass tensor $G_{\alpha\beta} = \biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]$:
 
 	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta$$
 
@@ -153,24 +206,36 @@ $$\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}
 
 	$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) -\frac{\partial\mathcal{L}}{\partial q_\alpha} = 0$$
 
+	In a molecular simulations the objective is to solve the Lagrangian's equation in the Hamiltonian form.
+
 	\subsection{Legendre transforms}
+	Legendre transforms will be used to go from a Lagrangian to an Hamiltonian description and are also useful in thermodynamics.
+	Thermodynamics potentials are all Legendre transforms of one another.
+	To go from one ensemble to another a Legendre transform is used.
 	The aim of a Legendre transform is to express the function $f(x)$ in terms of its first derivative $s$:
 
 	$$s = f'(x) \equiv g(x)$$
 
-	Then:
+	The derivative of a function is the slope of the function in each point.
+	In principle from the slope the function at each point it is not possible to reconstruct the original function.
+	The reason for that is that translation information is lost when taking the derivative.
+	To be able to perform this operation the intersection of the tangent at each point with the $x$ axis in the curve the full function can be reconstructed.
+	So at each point the slope and where the tangent intersect the $x$ axis is needed to reconstruct the original function:
 
 	$$f(x_0) = f'(x_0)x_o + b(x_0)$$
 
-	And:
+	Where $b(x_0)$ is the intersection of the tangent with the $x$ axis.
+	Considering the general form:
 
 	$$f(x) = f'(x)x+b(x)$$
 
-	But:
+	$b$ represent the functions in term of $s$.
+	There is a need to isolate the $b$ contribution and then write everything in term of $s$.
+	So there is a need to invert $g$ to obtain $x$ as a function of $s$.
 
 	$$f'(x) = g(x) = s \Rightarrow x = g^{-1}(s)$$
 
-	Hence $b(x)$ contains the same information as $f(x)$, however:
+	Hence $b(x)$ contains the same information as $f(x)$:
 
 	$$b(g^{-1}(s)) = f(g^{-1}(s))-sg^{-1}(s) \equiv\tilde{f}(s)$$
 
@@ -188,34 +253,40 @@ $$\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}
 		$$\tilde{f}(s_1, \dots, s_n) = f(x_1(s_1, \dots, s_n), \dots, x_n(s_1, \dots, s_n))-\sum\limits_i s_ix_i(s_1, \dots, s_n)$$
 
 		This holds for a subset of variables.
+		This is important as most of the thermodynamics quantities can be expressed as derivatives of some other quantity, so everything is expressed in term of another variable.
 
 \section{Hamiltonian formulation}
-Consider:
+In the Hamiltonian formulation the conjugate momentum is obtained from the Lagrangian: the derivative of the Lagrangian with respect to velocity is the momentum.
 
 $$\vec{p}_i\equiv\frac{\partial\mathcal{L}}{\partial\dot{\vec{r}}_i} = \frac{\partial}{\partial\dot{\vec{r}}_i}\biggl[\frac{1}{2}\sum\limits_{j=1}^Nm_j\dot{\vec{r}}_j^2 - U(\vec{r}_1, \dots, \vec{r}_N)\biggr] = m_i\dot{\vec{r}}_i$$
 
-Considering the Legendre transform of the Lagrangian:
+To express everything as a function of coordinate and momenta a Legendre transform of the Lagrangian needs to be performed, observing that the momentum is the derivative of the Lagrangian with respect to velocity.
 
 \begin{align*}
 	\tilde{\mathcal{L}}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) &= \mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1(\vec{p}_1), \dots, \dot{\vec{r}}_N(\vec{p}_N))-\sum\limits_{i}\vec{p}_i\dot{\vec{r}}_i(\vec{p}_i) = \\
-																																								&=\frac{1}{2}\sum\limits_{i=1}^Nm_i\biggl(\frac{\vec{p}_i}{m_i}\biggr)^2-U(\vec{r}_1, \dots, \vec{r}_N)-\sum\limits_{i=1}^N\vec{p}_i\frac{\vec{p}_i}{m_i} = \\
-																																								&=-\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} - U(\vec{r}_1, \dots, \vec{r}_N)
+																																								&=\underbrace{\frac{1}{2}\sum\limits_{i=1}^Nm_i\biggl(\frac{\vec{p}_i}{m_i}\biggr)^2-U(\vec{r}_1, \dots, \vec{r}_N)}_{\text{Lagrangian}}-\sum\limits_{i=1}^N\vec{p}_i\frac{\vec{p}_i}{m_i} = \\
+																																								&=-\underbrace{\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}}_{\text{Kinetic energy}} - U(\vec{r}_1, \dots, \vec{r}_N)
 \end{align*}
 
-Now let:
+It can be seen how the Legendre transform of the Lagrangian is the opposite of the total energy of the system.
+The Hamiltonian is then defined as the opposite of the Legendre transform of the Lagrangian:
 
 $$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = -\tilde{\mathcal{L}}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N)$$
 
-So that:
+So that it is the sum of the kinetic and potential energy:
 
 $$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\limits_i\vec{p}_i\dot{\vec{r}}_i(\vec{p}_i) - \mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}(\vec{p}_1), \dots, \dot{\vec{r}}_N(\vec{p}_N))$$
 
-And:
+Or the total energy of the system:
 
 $$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N)$$
 
+The Hamiltonian is related to the Legendre transform of the Lagrangian.
+Using the Hamiltonian description, it is expected that the Hamiltonian formulation has the same results from the Lagrangian formulation.
+Another equation needs to be added.
+
 	\subsection{Generalized coordinates}
-	Consider the generalized coordinates:
+	The same thing can be done to generalized coordinates:
 
 	$$p_\alpha = \frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha} = \sum\limits_\beta G_{\alpha\beta}\dot{q}_\beta\Rightarrow \dot{q}_\alpha = \sum\limits_\beta G^{-1}_{\alpha\beta}p_\beta$$
 
@@ -227,54 +298,77 @@ $$\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\l
 	\end{align*}
 
 	\subsection{Hamilton's equations}
-	Consider that:
+	Now two sets of equations are obtained, but both are first order derivative in time, so that they are easier to solve both analytically and numerically with respect to the Euler-Lagrangian equation.
+	Because of this the simulations will use Hamilton's equation.
 
 	$$\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad\dot{p}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha}$$
 
-	Considering the first order differential equation:
+	Taking the derivative of the Hamiltonian with respect to time:
 
-	$$\frac{d\mathcal{H}}{dt} = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}\alpha + \frac{\partial\mathcal{H}}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = 0$$
+	\begin{align*}
+		\frac{d\mathcal{H}}{dt} &= \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}\alpha + \frac{\partial\mathcal{H}}{\partial p_\alpha}\dot{p}_\alpha\biggr] =\\
+														&= \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] =\\
+														&= \sum\limits_\alpha\biggl[\xcancel{\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}} - \xcancel{\frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}}\biggr] = 0
+	\end{align*}
 
-	So that:
+	Because the Hamiltonian is the total energy of the system it should be conserved as it describe the same system as the Lagrangian.
+	In conclusion Hamiltonian mechanics keeps energy constant:
 
 	$$\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) = const$$
 
+	So energy conservation should hold for any simulation written for Hamiltonian mechanics.
+
 	\subsection{Conservation laws}
-	For any property $a(x_t)$:
+	This process can be generalized for any conserved quantity.
+	Let $a(x_t)$ a property that depend on the trajectory of the system.
+	In order to check if the property is conserved or not the derivative with respect to time have to be taken:
 
 	$$\frac{da}{dt} = \frac{\partial a}{\partial x_t} \dot{x}_t = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\dot{q}_\alpha + \frac{\partial a}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = \{a, \mathcal{H}\}$$
 
-	Where the Poisson brackets:
+	Where the Poisson brackets of two quantities depending on $q$ and $p$:
 
-	$$\{a, b\} = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial b}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}{\partial b}{\partial q_\alpha}\biggr]$$
+	$$\{a, b\} = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial b}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}\frac{\partial b}{\partial q_\alpha}\biggr]$$
 
-	And:
+	To check if a quantity is conserved its Poisson bracket with the Hamiltonian need to be considered.
+	If it is $0$, then the quantity is conserved:
 
 	$$\{a, \mathcal{H}\} = 0\Rightarrow\frac{da}{dt} = 0$$
 
-	\subsection{Cpmpressibility}
+	So conservation laws are directly translated into this property of the Poisson brackets.
+
+	\subsection{Compressibility}
+	Compressibility of an equation is the divergence of the velocities.
 	Define:
 
 	$$\dot{x} = \eta(x) = (\dot{q}_1, \dots, \dot{q}_{3N}, \dot{p}_1, \dots, \dot{p}_{3N})$$
 
-	Where:
+	The time derivative of all points in the phase space.
+	This vector $\eta$ because of Hamilton equation will be equal to:
 
 	$$\eta(x) = \biggl(\frac{\partial\mathcal{H}}{\partial p_1}, \dots, \frac{\partial\mathcal{H}}{\partial p_{3N}}, -\frac{\partial\mathcal{H}}{\partial q_1}, \dots, -\frac{\partial\mathcal{H}}{\partial q_{3N}}\biggr)$$
 
-	Now:
+	The divergence of this quantity is computed, taking the derivative of each component with respect to the coordinate itself.
 
-	$$\nabla_x\dot{x} = \sum\limits_\alpha\biggl[\frac{\partial\dot{p}_\alpha}{\partial p_\alpha} + \frac{\partial\dot{q}_\alpha}{\partial q_\alpha}\biggr] = \sum\limits_\alpha\biggl[-\frac{\partial}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha} + \frac{\partial}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] = \sum\limits_\alpha\biggl[-\frac{\partial^2\mathcal{H}}{\partial p_\alpha\partial q_\alpha} + \frac{\partial^2\mathcal{H}}{\partial q_\alpha\partial p_\alpha}\biggr] = 0$$
+	\begin{align*}
+		\nabla_x\dot{x} &= \sum\limits_\alpha\biggl[\frac{\partial\dot{p}_\alpha}{\partial p_\alpha} + \frac{\partial\dot{q}_\alpha}{\partial q_\alpha}\biggr] =\\
+										&= \sum\limits_\alpha\biggl[-\frac{\partial}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha} + \frac{\partial}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] =\\
+										&= \sum\limits_\alpha\biggl[-\frac{\partial^2\mathcal{H}}{\partial p_\alpha\partial q_\alpha} + \frac{\partial^2\mathcal{H}}{\partial q_\alpha\partial p_\alpha}\biggr] = \\
+										&= \sum\limits_\alpha\biggl[\xcancel{-\frac{\partial^2\mathcal{H}}{\partial p_\alpha\partial q_\alpha}} + \xcancel{\frac{\partial^2\mathcal{H}}{\partial q_\alpha\partial p_\alpha}}\biggr] = 0
+	\end{align*}
 
-	And $\nabla_x\dot{x} = 0$, so it can be seen how Hamilton's equations are incompressible.
+	So, in conclusion $\nabla_x\dot{x} = 0$ and the divergence of the velocity is $0$, then Hamilton's equations are incompressible: they lead to an incompressible flow of points in phase-space.
+	This is a way to check whether a system is Hamiltonian.
 
 	\subsection{Symplectic structure}
-	Hamilton's equations can be written in the form:
+	Hamilton's equations have a symplectic structure and can be written as:
 
 	$$\dot{x} = M\frac{\partial\mathcal{H}}{\partial x}\qquad M = \begin{pmatrix} 0 & I\\ -I & 0\end{pmatrix}$$
 
-	A trajectory $x_t = x_t(x_0)$ can be viewed as a transformation of variables.
+	A trajectory in phase space $x_t = x_t(x_0)$ is a function of the initial positions and momenta or velocity.
+	However it can be viewed also as a transformation of variables.
 	This is done through the Jacobian:
 
 	$$J_{kl} = \frac{\partial x_t^k}{\partial x_o^l}$$
 
-	Then considering the symplectic property it can be seen how: $M = J^TMJ$, so Hamilton's equation satisfy the symplectic property.
+	Applying the Jacobian transformation to the symplectic matrix $M$ the original matrix is obtained: $M = J^TMJ$.
+	This is called the symplectic property and Hamilton's equations satisfy it.
