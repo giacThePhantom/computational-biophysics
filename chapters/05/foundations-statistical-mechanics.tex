@@ -1,1 +1,212 @@
-\chapter{Foundations of statistical mechanics}
+\chapter{Theoretical foundations of statistical mechanics}
+
+\section{Introduction}
+
+	\subsection{Loschmidt's paradox}
+
+	\subsection{States of matter}
+
+\section{Thermodynamics recap}
+
+	\subsection{Thermodynamic system}
+	A thermodynamic system is any macroscopic system.
+	A system is defined as isolated whenever no energy or mass transfer can be seen across its boundary.
+
+	\subsection{Thermodynamic equilibrium}
+	A thermodynamic system is in thermodynamic equilibrium if its thermodynamic state does not change in time.
+
+	\subsection{Thermodynamic state}
+	A thermodynamic state is specified in terms of macroscopic parameters that are measurable quantities like:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Pressure $P$.
+			\item Volume $V$.
+			\item Temperature $T$.
+			\item Total mass $M$.
+			\item Number of particles $N$.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Equation of state}
+	An equation of state describes only equilibrium states:
+
+	$$g(N, P, V, T) = 0$$
+
+	And for the ideal gas is:
+
+	$$PV-nRT=0$$
+
+	\subsection{Thermodynamic transformations}
+	A thermodynamic transformation is a change of thermodynamic state.
+	At equilibrium it is effected by a change in the eternal conditions.
+	These transformations can be reversible or irreversible.
+
+	\subsection{State function}
+	A state function is defined as:
+
+	$$f(n, P, V, R)$$
+
+	And its change depends only on the initial and final states.
+
+	\subsection{Work}
+	A reversible work performed on a system is defined as:
+
+	$$dW_{rev} = -PdV + \mu dN$$
+
+	\subsection{Heat}
+	The heat added to the system is:
+
+	$$dQ_{rev} = CdT$$
+
+	\subsection{First law of thermodynamics}
+	In any thermodynamic transformation if a system absorbs an amount of heat $\Delta Q$ and has an amount of work $\Delta W$ performed on it, its internal energy will change by an amount $\Delta E$ given by:
+
+	$$\Delta e = \Delta Q + \Delta W$$
+
+	Where $E$ is a state function:
+
+	$$\Delta E = \Delta Q_{rev} + \Delta W_{rev} = \Delta Q_{irrev} + \Delta W_{irrev}$$
+
+	\subsection{Second law of thermodynamics}
+
+		\subsubsection{Kelvin's postulate}
+		There exists no thermodynamic transformation whose sole effect is to extract a quantity of heat from a high-temperature source and convert it entirely into work,
+
+		\subsubsection{Clausius' postulate}
+		There exists no thermodynamic transformationists no thermodynamic transformation whose sole effect is to extract a quantity of heat from a cold source and deliver it to a hot source.
+
+	\subsection{Entropy}
+	Entropy is a state function defined as:
+
+	$$\Delta S = S_2-S_1 = \int_1^2\frac{dQ_{rev}}{T}$$
+
+	\subsection{Third law of thermodynamics}
+	The entropy of a system at the absolute zero of temperature is a universal constant, which can be taken to be zero.
+
+\section{The ensemble}
+A collection of systems described by the same set of microscopic interactions and sharing a common set of macroscopic properties is said to be an ensemble.
+In equilibrium ensembles the systems in them evolve in time, but average quantities remain the same.
+Now considering a macroscopic observable $A$:
+
+$$A = \frac{1}{Z}\sum\limits_{\lambda=1}^N\underbrace{a(x_\lambda)}_{\text{Phase space microscopic function}}\equiv\overbrace{\langle a\rangle}^{\text{Ensemble average}}$$
+
+	\subsection{Phase space volume}
+	Let a microstate:
+
+	$$x_0 = (q_1(0), \dots, q_{3N}(0), p_1(0), \dots, p_{3N}(0))$$
+
+	The phase space volume element $dx_0$ contains a collection of microstates.
+	This volume element evolves according to Hamilton's equation into $dx_t$:
+
+	$$dx_t = J(x_t;x_0)dx_0$$
+
+	Where:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $J(x_t;x_0) = det J$.
+			\item $J_{kl} = \frac{\partial x_t^k}{\partial x_0^l}$ is the Jacobian.
+		\end{itemize}
+	\end{multicols}
+
+	The time evolution of the phase space volume requires knowledge of the time evolution of the Jacobian.
+
+		\subsubsection{Time evolution of the Jacobian}
+		Consider the determinant of the Jacobian:
+
+		$$det J = e^{Tr(\ln J)}$$
+
+		Where:
+
+		$$Tr J = \sum\limits_k J_{kk} = \sum\limits_k\lambda_k$$
+
+		Where $\lambda_k$ are the eigenvalues.
+		Then:
+
+		$$e^{Tr(\ln J)} = e^{\sum\limits_k\ln\lambda_k} = \prod\limits_k\lambda_k$$
+
+		Now the time evolution of the Jacobian:
+
+		\begin{align*}
+			\frac{d}{dt}J(x_t;x_0) &= \frac{d}{dt} det J = \frac{d}{dt}e^{Tr(\ln J)} = e^{Tr(\ln J)}Tr\biggl(\frac{dJ}{dt}J^{-1}\biggr) = \\
+														 &= J(x_t;x_0)\sum\limits_{k, l}\biggl(\frac{d J_{kl}}{dt}J_{lk}^{-1}\biggr) = J(x_t;x_0)\sum\limits_{k,l}\biggl(\frac{\partial\dot{x}_t^k}{\partial x_0^l}\frac{\partial x_0^l}{\partial x_t^k}\biggr) =\\
+														 &=j(x_t;x_0)\sum\limits_k\frac{\partial\dot{x}_t^k}{\partial x_t^k} = 0
+		\end{align*}
+
+	\subsection{Liouville's  theorem}
+	The phase space element $dx_0$ does not change in time and $dx_t = dx_0$.
+	In particular:
+
+	$$\frac{dJ(x_t;x_0)}{dt} = 0\Rightarrow J(x_t;x_0) = const$$
+
+	However:
+
+	$$J(x_0;x_0) = 1\Rightarrow J(x_t;x_0) = 1$$
+
+	\subsection{Ensemble distribution function}
+	$f(x,t)dx$ is the fraction of the total ensemble members contained in the phase space volume element $dx$ at time $t$.
+	$f(x,t)$ verifies the typical properties of a probability density:
+
+	$$f(x,t) \ge 0$$
+
+	$$\int f(x,t)dx = 1$$
+
+	\subsection{Outward flux}
+	The rate of decrease of ensemble members on $\Omega$ is:
+
+	$$-\frac{d}{dt}\int_\Omega f(x_t, t)dx_t = -\int_\Omega dx_t\frac{\partial f(x,t)}{\partial t}$$
+
+	The flux of ensemble members leaving $\Omega$ is:
+
+	$$\int_S\dot{x}_t\cdot\hat{n} f(x_t,t)$$
+
+	Then, according to the divergence theorem:
+
+	$$\int_S\dot{x}_t\cdot\hat{n}f(x_t,t) = \int_\Omega\nabla_{x_t}\cdot[\dot{x}_tf(x_t,t)]dx_t$$
+
+	\subsection{Liouville's equation}
+
+	$$\int_\Omega\nabla_{x_t}\cdot[\dot{x}_tf(x_t, t)]dx_t = -\int_\Omega\frac{\partial f(x_t, t)}{\partial t}dx_t$$
+
+	$$\int_\Omega\biggl\{\frac{\partial f(x_t, t)}{\partial t} + \nabla_{x_t}\cdot[\dot{x}_tf(x_t, t)]\biggr\}dx_t = 0\Rightarrow \frac{\partial f(x_t, t)}{\partial t} + \nabla_{x_t}\cdot[\dot{x}_tf(x_t, t)] = 0$$
+
+	$$\frac{\partial f(x_t, t)}{\partial t} + (\nabla_{x_t}\cdot\dot{x}_t)f(x_t, t) + \dot{x}\cdot\nabla_{x_t}f(x_t, t) = 0$$
+
+	$$\frac{\partial f(x_t, t)}{\partial t} + \dot{x}_t\cdot\nabla_{x_t}f(x_t, t) = 0\Rightarrow \frac{df(x_t, t)}{dt} = 0$$
+
+		\subsubsection{Consequence on averages}
+		Considering:
+
+		$$\frac{df(x_t, t)}{dt} = 0\Rightarrow f(x_t, t) = f(x_0, 0)$$
+
+		And Liouville's theorem and equation:
+
+		$$f(x_t, t)dx_t = f(x_0, 0)dx_0$$
+
+		So that there is a conserved fraction of ensemble members and averages can be performed at any time.
+
+		\subsubsection{A more elegant form}
+
+		$$\frac{\partial f(x,t)}{\partial t} + \dot{x}\cdot\nabla_x f(x,t) = \frac{\partial f(x,t)}{\partial f} + \eta(x,t)\cdot\nabla_{x}f(x,t) = 0$$
+
+		Introducing Poisson's brackets:
+
+		$$\frac{\partial f(x,t)}{\partial t} + \{f(x,t), \mathcal{H}(x,t)\} = 0$$
+
+	\subsection{Equilibrium solutions}
+	For a macroscopic observable $A$:
+
+	$$A = \langle a(x)\rangle = \int a(x)f(x,t)dx$$
+
+	An explicit time dependence of $t$ implies an explicit time dependence of $A$< hence at equilibrium it is required that:
+
+	$$\frac{\partial f(x,t)}{\partial t} = 0\Rightarrow \{f(x,t), \mathcal{H}(x, t)\} = 0$$
+
+	Giving a general solution:
+
+	$$f(x)\propto\mathcal{F}(\mathcal{H}(x))$$
+
+	Considering a partition function:
+
+	$$Z = \int dx\mathcal{F}(\mathcal{H}(x))\Rightarrow f(x) = \frac{1}{Z}\mathcal{F}(\mathcal{H}(x))$$
