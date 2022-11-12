@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  12 NOV 2022 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  12 NOV 2022 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -953,40 +953,49 @@ Chapter 5.
 ] [32] [33] [34] [35] [36] [37]) (./chapters/06/microcanonical-ensemble.tex
 [38]
 Chapter 6.
-) (./chapters/07/molecular-dynamics.tex [39
+[39
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.48724pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.48724pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.48724pt}.
+
+[40] [41] [42] [43]) (./chapters/07/molecular-dynamics.tex [44]
 Chapter 7.
-) (./chapters/08/direct-translation.tex [40
+) (./chapters/08/direct-translation.tex [45
 
 ]
 Chapter 8.
-) (./chapters/09/evaluation-energy-forces.tex [41
+) (./chapters/09/evaluation-energy-forces.tex [46
 
 ]
 Chapter 9.
-) (./chapters/10/canonical-ensemble.tex [42
+) (./chapters/10/canonical-ensemble.tex [47
 
 ]
 Chapter 10.
-) (./chapters/11/thermostats.tex [43
+) (./chapters/11/thermostats.tex [48
 
 ]
 Chapter 11.
-) [44
+) [49
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 0F8FD963F567E54BEBDB849CA97AB6B0;13612.
+(rerunfilecheck)             Checksum: 16804AD13DFF2E0833199397CD29F002;16113.
  ) 
 Here is how much of TeX's memory you used:
- 23762 strings out of 478238
- 434587 string characters out of 5850455
- 760177 words of memory out of 5000000
- 41474 multiletter control sequences out of 15000+600000
+ 23796 strings out of 478238
+ 435059 string characters out of 5850455
+ 766192 words of memory out of 5000000
+ 41488 multiletter control sequences out of 15000+600000
  487036 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,498b,940s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1009,10 +1018,10 @@ usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf
 e1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
 per/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
 b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (45 pages, 431646 bytes).
+Output written on ./build/principal.pdf (50 pages, 456263 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
- 707 compressed objects within 8 object streams
- 150 named destinations out of 1000 (max. 500000)
- 705 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 901 PDF objects out of 1000 (max. 8388607)
+ 798 compressed objects within 8 object streams
+ 170 named destinations out of 1000 (max. 500000)
+ 817 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,1 +1,246 @@
 \chapter{Microcanonical ensemble}
+
+\section{State function depending on number of particle, volume and energy}
+Considering the first law of thermodynamics:
+
+$$dE = dQ_{rev} + dW_{rev}$$
+
+However:
+
+$$dS = \frac{dQ_{rev}}{T}\Rightarrow dQ_{rev} = TdS$$
+
+And:
+
+$$dW_{rev} = -PdV + \mu dN$$
+
+So:
+
+$$dE = TdS - PdV + \mu dN$$
+
+So that the state function considering entropy is:
+
+$$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
+
+	\subsection{Thermodynamic derivatives}
+	Now, starting from the state function:
+
+	\begin{align*}
+		dS &= \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN = \\
+			 &= \biggl(\frac{\partial S}{\partial E}\biggr)_{V, N}dE +\biggl(\frac{\partial S}{\partial V}\biggr)_{N, E} dV + \biggl(\frac{\partial S}{\partial N}\biggr)_{V, E}dN
+	\end{align*}
+
+	Considering that:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item $\biggl(\frac{\partial S}{\partial E}\biggr)_{V, N} = \frac{1}{T}$.
+			\item $\biggl(\frac{\partial S}{\partial V}\biggr)_{N, E} = \frac{P}{T}$.
+			\item $\biggl(\frac{\partial S}{\partial N}\biggr)_{V, E} = \frac{\mu}{T}$.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Dirac's delta function}
+
+	$$\delta(x) = \begin{cases}+\infty & x = 0\\ 0 &otherwise\end{cases}$$
+
+	This function has some interesting properties:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\delta(x) = \delta(-x)$.
+			\item $\delta(x) = \frac{d\theta(x)}{dx}$, where: $\theta(x) = \begin{cases}1 &x\ge 0\\0 &x< 0\end{cases}$.
+			\item $\int_{-\infty}^{+\infty}dx\delta(x) = 1$.
+			\item $\int_{-\infty}^{+\infty}dx\delta(x)f(x) = f(0)$.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Computing entropy}
+	Considering Boltzmann's relation $S(N, V, E) = k\ln\Omega(N, V, E)$, where $\Omega(N, V, E)$ is the number of microscopic states of the system and considering the distribution function $f(x) = \mathcal{F}(\mathcal{H}(x)) = M\Delta(\mathcal{H}(x)-E)$:
+
+	$$\Omega(N, V, E) = M_N\int d\vec{p}_1\cdots\int d\vec{p}_N\int_{D(V)}d\vec{r}_1\cdots\int_{D(V)}d\vec{r}_N\delta(\mathcal{H}(\vec{r}, \vec{p})-E)$$
+
+	Or, for simplicity:
+
+	$$\Omega(N, V, E) = M_N\int d\vec{p}\int_{D(V)}d\vec{r}\delta(\mathcal{H}(\vec{r}, \vec{p})-E) = M\int dx\delta(\mathcal{H}(x)-E)$$
+
+	Where
+
+	$$M_N = \frac{E_0}{N!h^{3N}}$$
+
+	\subsection{Average quantities}
+
+	$$A = \langle a\rangle = \frac{M_N}{\Omega(N, V, E)}\int dx a(x)\delta(\mathcal{H}(x)-E) = \frac{\int dxa(x)\delta(\mathcal{H}(x)-E)}{\int dx\delta(\mathcal{H}-E)}$$
+
+	Computing:
+
+	\begin{align*}
+		\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle &= \frac{M_n}{\Omega(N, V, E)}\int dxx_i\frac{\partial\mathcal{H}}{\partial x_j}\delta(E-\mathcal{H}(x))=\\
+																																					 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int dxx_i\frac{\partial\mathcal{H}}{\partial x_j}\theta(E-\mathcal{H}(x)) =\\
+																																					 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)<E}dxx_i\frac{\partial\mathcal{H}}{\partial x_j} = \\
+																																					 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)<E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j}
+	\end{align*}
+
+\section{Virial theorem}
+
+\begin{align*}
+	\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle &= \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)< E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j} = \\
+																																				 &= \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}<E} dx\delta_{ij}(E-\mathcal{H}) = \\
+																																				 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int dx\delta_{ij}(E-\mathcal{H})\theta(E-\mathcal{H}) = \\
+																																				 &=\frac{E_0}{N!h^{3N}\Omega(N, V, E)}\delta_{ij}\int dx\theta(E-\mathcal{H}) =\\
+																																				 &= \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}}
+\end{align*}
+
+Where:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\Sigma(N, V, E) = \frac{1}{N!h^{3N}}\int dx\theta(E-\mathcal{H})$.
+		\item $\Omega(N, V, E) = E_0\frac{\partial\Sigma(N, V, E)}{\partial E}$.
+	\end{itemize}
+\end{multicols}
+
+So:
+
+$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}} = \delta_{ij}\biggl(\frac{\partial\ln\Sigma(E)}{\partial E}\biggr)^{-1}$$
+
+Considering Boltzmann's relation:
+
+$$S(N, V, E) = k\ln\Omega(N, V, E)\simeq k\ln\Sigma(N, V, E) = \tilde{S}(N, V, E)$$
+
+Then:
+
+$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = k\delta_{ij}\biggl(\frac{\partial\tilde{S}(E)}{\partial E}\biggr)^{-1}\simeq k\delta_{ij}\biggl(\frac{\partial S(E)}{\partial E}\biggr)^{-1} =kT\delta_{ij}$$
+
+So that:
+
+$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
+
+	\subsection{Application of Virial theorem}
+
+	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
+
+	Microscopic phase space functions whose ensemble averages yield macroscopic thermodynamics observables can be built.
+
+		\subsubsection{An example}
+
+		$$\mathcal{H} = \sum\limits_i\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N)\Rightarrow\biggl\langle p_i\frac{\partial\mathcal{H}}{\partial p_i}\biggr\rangle = kT$$
+
+		So that:
+
+		$$\biggl\langle p_i\frac{\partial\mathcal{H}}{\partial p_i}\biggr\rangle = \biggl\langle\frac{p_i^2}{m_i}\biggr\rangle = kT$$
+
+		So the total kinetic energy is:
+
+		$$\sum\limits_{i=1}^N\biggl\langle\frac{p_i^2}{2m_i}\biggr\rangle = \frac{3}{2}NkT$$
+
+\section{Thermal contact}
+Let two systems $1$ and $2$ be divided by a heat conducting divider.
+Considering them together:
+
+$$N = N_1+N_2\qquad\land\qquad V = V_1+V_2\qquad\land\qquad\mathcal{H}(x) = \mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)$$
+
+And the state equations:
+
+$$S_1(N_1, V_1, E_1) = k\ln\Omega_1(N_1, V_1, E_1)\qquad\land\qquad S_2(N_2, V_2, E_2) = k\ln\Omega_2(N_2, V_2, E_2)$$
+
+Now considering the two $\omega$ functions:
+
+$$\omega_1(N_1, V_1, E_1) = M_{N_1}\int dx_1\delta(\mathcal{H}_1-E_1)\qquad\land\qquad\omega_2(N_2, V_2, E_2) = M_{N_2}\int dx_2\delta(\mathcal{H}_2-E_2)$$
+
+Then:
+
+$$\Omega(N, V, E) = M_N\int dx\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)\neq\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E_2)$$
+
+In particular:
+
+$$\Omega(N, V, E) = C\int_0^EdE_1\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$$
+
+However, assuming that $\bar{E}_1$ is the value that maximises the product $\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$:
+
+$$S(N, V, E) = k\ln\Omega(N, V, E)\simeq k\ln[\Omega_1(N_1, V_1, \bar{E}_1)\Omega_2(N_2, V_2, E-\bar{E}_1)] + o(\ln N)$$
+
+So, in the thermodynamics limit:
+
+$$S(N, V< E) = k\ln\Omega_1(N_1, V_1, \bar{E}_1) + k\ln\Omega_2(N_2, V_2, E-\bar{E}_1) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, E - \bar{E}_1)$$
+
+	\subsection{Temperature}
+	Considering the last equation $\bar{E}_1$ is the value of $E_1$ that maximizes the quantity:
+
+	$$k\ln\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$$
+
+	Since $\bar{E}_1+\bar{E}_2 = E$ and $E$ is fixed, $d\bar{E}_1 + d\bar{E}_2 = 0\Rightarrow d\bar{E}_1 = -d\bar{E}_2$
+
+	$$S(N, V, E) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, \bar{E}_2)$$
+
+	$$0 = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} + \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_1} = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} - \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_2}$$
+
+	And:
+
+	$$\frac{1}{T_1}-\frac{1}{T_2} = 0\Rightarrow T_1 = T_2$$
+
+\section{Some examples}
+
+	\subsection{Free particle in one dimension}
+
+	$$\Omega(1, L, E) = \frac{E_0}{h}\int_0^Ldx\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr) = \frac{E_0L}{h}\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr)$$
+
+	$$\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr) = \sqrt{2m}\int_{-\infty}^{+\infty}dy\delta(y^2-E)$$
+
+	$$\delta(f(x)) = \sum\limits_{i\in\ zeros\ of\ f(x)}\frac{1}{|f'(x_i)|}\delta(x-x_i)\Rightarrow\delta(y^2-E) = \frac{1}{2\sqrt{E}}[\delta(y-\sqrt{E}) + \delta(y+\sqrt{E})]$$
+
+	$$\sqrt{2m}\int_{-\infty}^{+\infty}dy\delta(y^2-E) = \sqrt{2m}{E}\Rightarrow\Omega(1, V, E) = \frac{E_0L}{h}\sqrt{\frac{2m}{E}}$$
+
+	\subsection{Classical ideal gas}
+
+	$$\Omega(N, V, E) = \frac{E_0}{N!h^{3N}}\int d^N\vec{p}\int_{D(V)}d^N\vec{r}\delta\biggl(\sum\limits_{i=1}^N\frac{\vec{p}^2_i}{2m_i}-E\biggr) = \frac{E_0V^N}{N!h^{3N}}\int d^N\vec{p}\biggl(\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}-E\biggr)$$
+
+	$$\Omega(N, V, E) = \frac{1}{N!}\biggl[\frac{V}{h^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr]^Ne^{\frac{3N}{2}}\Rightarrow S(N, V, E) = Nk\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi mE}{3N}\biggr)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2}-k\ln N!$$
+
+	$$\frac{1}{T} = \biggl(\frac{\partial S}{\partial E}\biggr)_{N, V} = \frac{3Nk}{2E}\Rightarrow E = \frac{3}{2}NkT$$
+
+	$$\frac{p}{T} = \biggl(\frac{\partial S}{\partial V}\biggr)_{N, E} = \frac{Nk}{V}\Rightarrow pV = NkT$$
+
+	$$\frac{\mu}{T} = -\biggl(\frac{\partial S}{\partial N}\biggr)_{V, E} = k\ln N-k\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi mE}{3N}\biggr)^{\frac{3}{2}}\biggr] \Rightarrow \mu = -kT\ln\biggl[\frac{V}{Nh^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr]$$
+
+\section{Gibbs paradox}
+
+$$S(N, V, E) = Nk\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2} - \xcancel{k\ln N!}$$
+
+$$S^{(cl)}(N, V, T) = Nk\ln\biggl[\frac{V}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2}$$
+
+$$S_1^{(cl)}(N_1, V_1, T) = N_1k\ln\biggl[\frac{V_1}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3N_1k}{2} \quad S_2^{(cl)}(N_2, V_2, T) = N_2k\ln\biggl[\frac{V_2}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3N_2k}{2}$$
+
+$$S^{(cl)}(N_1 + N_2, V_1+V_2, T) = (N_1 + N_2)k\ln\biggl[\frac{V_1+V_2}{h^3}(23\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3(N_1+N_2)k}{2}$$
+
+\begin{align*}
+	\Delta S_{mix}^{(cl)} &= S^{(cl)}(N_1 + N_2) - S_1^{(cl)}(N_1) - S_2^{(cl)}(N_2) =\\
+												&= (N_1 + N_2)k\ln(V_1+V_2) - N_1k\ln V_1- N_2k\ln V_2 = \\
+												&= N_1 k\ln\frac{V}{V_1} + N_2k\ln\frac{V}{V_2}>0
+\end{align*}
+
+Now considering the cases where:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\Delta S_{mix}^{(cl)} > 0$:
+		\item $\Delta S_{mix}^{(cl)} \neq 0$:
+	\end{itemize}
+\end{multicols}
+
+\section{Correct Boltzmann counting}
+Considering:
+
+$$S^{(ST)}(N, V, T) = Nk\ln\biggl[\frac{V}{Nh^3}(2\pi mkT)^{\frac{5}{2}}\biggr] + \frac{3Nk}{2}$$
+
+And:
+
+$$\Delta S_{mix} = N_1k\ln\frac{V}{V_1}+N_2k\ln\frac{V}{V_2}$$
+
+Now, in the following cases:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\Delta S_{mix} > 0$:
+		\item $\Delta S_{mix} = 0$:
+	\end{itemize}
+\end{multicols}

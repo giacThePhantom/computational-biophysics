@@ -98,8 +98,23 @@
 \contentsline {subsubsection}{\numberline {5.3.5.2}A more elegant form}{38}{subsubsection.5.3.5.2}%
 \contentsline {subsection}{\numberline {5.3.6}Equilibrium solutions}{38}{subsection.5.3.6}%
 \contentsline {chapter}{\numberline {6}Microcanonical ensemble}{39}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Molecular dynamics}{40}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Direct translation}{41}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{42}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Canonical ensemble}{43}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Thermostats}{44}{chapter.11}%
+\contentsline {section}{\numberline {6.1}State function depending on number of particle, volume and energy}{39}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Thermodynamic derivatives}{39}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Dirac's delta function}{40}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Computing entropy}{40}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Average quantities}{40}{subsection.6.1.4}%
+\contentsline {section}{\numberline {6.2}Virial theorem}{41}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Application of Virial theorem}{41}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}An example}{42}{subsubsection.6.2.1.1}%
+\contentsline {section}{\numberline {6.3}Thermal contact}{42}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Temperature}{43}{subsection.6.3.1}%
+\contentsline {section}{\numberline {6.4}Some examples}{43}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Free particle in one dimension}{43}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Classical ideal gas}{43}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Gibbs paradox}{44}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Correct Boltzmann counting}{44}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Molecular dynamics}{45}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Direct translation}{46}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{47}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Canonical ensemble}{48}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Thermostats}{49}{chapter.11}%
