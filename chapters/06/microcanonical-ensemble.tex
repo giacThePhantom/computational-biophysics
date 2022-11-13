@@ -1,35 +1,45 @@
 \chapter{Microcanonical ensemble}
 
+\section{Introduction}
+All the other algorithm used in molecular simulation are evolution of the microcanonical ensemble.
+The microcanonical ensemble is a collection of systems which share the same macroscopic parameters and corresponds to different microstates.
+When comparing with an experimental observable the average of these quantities has to be taken.
+The microcanonical is the starting point of statistical mechanics.
+The number of particles, the total volume and the energy are kept fixed.
+This has some resemblance on Hamiltonian ensemble and so the microcanonical ensemble will be the natural ensemble for Hamiltonian mechanics.
+
 \section{State function depending on number of particle, volume and energy}
-Considering the first law of thermodynamics:
+Since volume, number of energy and number of particles are fixed a state function has to be defined.
+Starting from the first law of thermodynamics:
 
 $$dE = dQ_{rev} + dW_{rev}$$
 
-However:
+From the definition of entropy an infinitesimal variation of entropy will be:
 
 $$dS = \frac{dQ_{rev}}{T}\Rightarrow dQ_{rev} = TdS$$
 
-And:
+Looking now at $dW$:
 
 $$dW_{rev} = -PdV + \mu dN$$
 
-So:
+Where $\mu$ is the chemical potential.
+Putting everything together with the energy:
 
 $$dE = TdS - PdV + \mu dN$$
 
-So that the state function considering entropy is:
+So that the state function of $N$, $V$ and $E$ is entropy:
 
 $$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
 
 	\subsection{Thermodynamic derivatives}
-	Now, starting from the state function:
+	Now, starting from the state function, the infinitesimal variation of $S$ with respect to the variables can be written as:
 
 	\begin{align*}
 		dS &= \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN = \\
 			 &= \biggl(\frac{\partial S}{\partial E}\biggr)_{V, N}dE +\biggl(\frac{\partial S}{\partial V}\biggr)_{N, E} dV + \biggl(\frac{\partial S}{\partial N}\biggr)_{V, E}dN
 	\end{align*}
 
-	Considering that:
+	Now a formula for the three elements of the state function can be found:
 
 	\begin{multicols}{3}
 		\begin{itemize}
@@ -39,7 +49,10 @@ $$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
 		\end{itemize}
 	\end{multicols}
 
+	If entropy is known as a function of energy, volume and number of molecule, temperature, pressure and the chemical potential all the thermodynamics can be reconstructed.
+
 	\subsection{Dirac's delta function}
+	Dirac's delta function is a function in the form:
 
 	$$\delta(x) = \begin{cases}+\infty & x = 0\\ 0 &otherwise\end{cases}$$
 
@@ -55,23 +68,37 @@ $$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
 	\end{multicols}
 
 	\subsection{Computing entropy}
-	Considering Boltzmann's relation $S(N, V, E) = k\ln\Omega(N, V, E)$, where $\Omega(N, V, E)$ is the number of microscopic states of the system and considering the distribution function $f(x) = \mathcal{F}(\mathcal{H}(x)) = M\Delta(\mathcal{H}(x)-E)$:
+	The problem in the microcanonical ensemble is to find $S$.
+	Considering Boltzmann's relation $S(N, V, E) = k\ln\Omega(N, V, E)$, where $\Omega(N, V, E)$ is the number of microscopic states of the system.
+	The number of microscopic states of the system compatible with the condition of the system given by the values of $N$, $V$ and $E$.
+	To compute $\Omega$ the distribution function in the case of the microcanonical function: $f(x) = \mathcal{F}(\mathcal{H}(x)) = M\Delta(\mathcal{H}(x)-E)$.
+	So that the energy is equal to the Hamiltonian.
+	The constant $M$ is a normalization constant to make $f$ a distribution function.
+	Now to count the number of the microscopic state all the microstate compatible with a given condition need to be summed over:
 
 	$$\Omega(N, V, E) = M_N\int d\vec{p}_1\cdots\int d\vec{p}_N\int_{D(V)}d\vec{r}_1\cdots\int_{D(V)}d\vec{r}_N\delta(\mathcal{H}(\vec{r}, \vec{p})-E)$$
 
-	Or, for simplicity:
+	So integrating over all the momenta and all the coordinates in the domain of $V$ $D(V)$, so the coordinates vary in the coordinate of $V$ which is fixed.
+	Or, for simplicity the function can be written as:
 
 	$$\Omega(N, V, E) = M_N\int d\vec{p}\int_{D(V)}d\vec{r}\delta(\mathcal{H}(\vec{r}, \vec{p})-E) = M\int dx\delta(\mathcal{H}(x)-E)$$
 
-	Where
+	Where $x$ is a point in phase space and $M_N$ is:
 
 	$$M_N = \frac{E_0}{N!h^{3N}}$$
 
-	\subsection{Average quantities}
+	Where $h$ is Planck's constant and $N!$ is added in order to solve Gibbs paradox and is correct Boltzmann counting.
+
+\section{Average quantities}
+	An average quantity can be obtained through:
 
 	$$A = \langle a\rangle = \frac{M_N}{\Omega(N, V, E)}\int dx a(x)\delta(\mathcal{H}(x)-E) = \frac{\int dxa(x)\delta(\mathcal{H}(x)-E)}{\int dx\delta(\mathcal{H}-E)}$$
 
-	Computing:
+	There is no time dependence so equilibrium is assumed.
+	The last term is a typical formula, with at the numerator an integral over the average of the microscopic property and at the denominator an integral of a partition function.
+	Considering a given variable $x_i$, an object in phase space times the derivative on the Hamiltonian over another object in phase space.
+	$x_i$ and $x_j$ are two distinct objects.
+	To do so:
 
 	\begin{align*}
 		\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle &= \frac{M_n}{\Omega(N, V, E)}\int dxx_i\frac{\partial\mathcal{H}}{\partial x_j}\delta(E-\mathcal{H}(x))=\\
@@ -80,48 +107,58 @@ $$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
 																																					 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)<E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j}
 	\end{align*}
 
-\section{Virial theorem}
+	\subsection{Virial theorem}
+	The Virial theorem allows to find the ensemble average of that quantity:
 
-\begin{align*}
-	\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle &= \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)< E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j} = \\
-																																				 &= \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}<E} dx\delta_{ij}(E-\mathcal{H}) = \\
-																																				 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int dx\delta_{ij}(E-\mathcal{H})\theta(E-\mathcal{H}) = \\
-																																				 &=\frac{E_0}{N!h^{3N}\Omega(N, V, E)}\delta_{ij}\int dx\theta(E-\mathcal{H}) =\\
-																																				 &= \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}}
-\end{align*}
+	\begin{align*}
+		\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle &= \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)< E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j} = \\
+																																					 &=\underbrace{\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}<E} dx\delta_{ij}(E-\mathcal{H})}_{\text{Integrating by part}} = \\
+																																					 &=\frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int dx\delta_{ij}(E-\mathcal{H})\theta(E-\mathcal{H}) = \\
+																																					 &=\frac{E_0}{N!h^{3N}\Omega(N, V, E)}\delta_{ij}\int dx\theta(E-\mathcal{H}) =\\
+																																					 &= \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}}
+	\end{align*}
 
-Where:
+	Where:
 
-\begin{multicols}{2}
-	\begin{itemize}
-		\item $\Sigma(N, V, E) = \frac{1}{N!h^{3N}}\int dx\theta(E-\mathcal{H})$.
-		\item $\Omega(N, V, E) = E_0\frac{\partial\Sigma(N, V, E)}{\partial E}$.
-	\end{itemize}
-\end{multicols}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\Sigma(N, V, E) = \frac{1}{N!h^{3N}}\int dx\theta(E-\mathcal{H})$, the uniform ensemble and is all the points where the Hamiltonian is less than the energy.
+			\item $\Omega(N, V, E) = E_0\frac{\partial\Sigma(N, V, E)}{\partial E}$.
+		\end{itemize}
+	\end{multicols}
 
-So:
+	So:
 
-$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}} = \delta_{ij}\biggl(\frac{\partial\ln\Sigma(E)}{\partial E}\biggr)^{-1}$$
+	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}} = \delta_{ij}\biggl(\frac{\partial\ln\Sigma(E)}{\partial E}\biggr)^{-1}$$
 
-Considering Boltzmann's relation:
+	Considering Boltzmann's relation:
 
-$$S(N, V, E) = k\ln\Omega(N, V, E)\simeq k\ln\Sigma(N, V, E) = \tilde{S}(N, V, E)$$
+	$$S(N, V, E) = k\ln\Omega(N, V, E)\simeq k\ln\Sigma(N, V, E) = \tilde{S}(N, V, E)$$
 
-Then:
+	The difference between $S$ and $\tilde{S}$ is close to the logarithm of $N$.
+	If $N$ is very big the difference is not very significative.
 
-$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = k\delta_{ij}\biggl(\frac{\partial\tilde{S}(E)}{\partial E}\biggr)^{-1}\simeq k\delta_{ij}\biggl(\frac{\partial S(E)}{\partial E}\biggr)^{-1} =kT\delta_{ij}$$
+	Then:
 
-So that:
+	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = k\delta_{ij}\biggl(\frac{\partial\tilde{S}(E)}{\partial E}\biggr)^{-1}\simeq k\delta_{ij}\biggl(\frac{\partial S(E)}{\partial E}\biggr)^{-1} =kT\delta_{ij}$$
 
-$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
-
-	\subsection{Application of Virial theorem}
+	So that $\ln\Sigma(E)$ can be substituted with $k\tilde{S}(E)$
 
 	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
 
-	Microscopic phase space functions whose ensemble averages yield macroscopic thermodynamics observables can be built.
+	So that the ensemble average of e quantity made in that way its average is $kT\delta_{ij}$.
+
+	\subsection{Application of Virial theorem}
+	This is useful because it allows to construct microscopic phase space functions whose ensemble averages yield macroscopic thermodynamics observables.
+
+	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
+
+	In this way calculation can be not performed and a direct exact result starting from macroscopic phase-space variables and compute ensemble averages exactly.
+	This theorem need to be respected in simulations.
+
 
 		\subsubsection{An example}
+		Consider an Hamiltonian like the following and take the ensemble average of $\biggl\langle p_i\frac{\partial\mathcal{H}}{\partial p_i}\biggr\rangle$.
 
 		$$\mathcal{H} = \sum\limits_i\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N)\Rightarrow\biggl\langle p_i\frac{\partial\mathcal{H}}{\partial p_i}\biggr\rangle = kT$$
 
@@ -129,12 +166,20 @@ $$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\de
 
 		$$\biggl\langle p_i\frac{\partial\mathcal{H}}{\partial p_i}\biggr\rangle = \biggl\langle\frac{p_i^2}{m_i}\biggr\rangle = kT$$
 
-		So the total kinetic energy is:
+		So that the kinetic energy of a single particle in three dimensions:
+
+		$$\biggl\langle \frac{p_i}{2m_i}\biggr\rangle = \frac{3}{2}kT$$
+
+		And the total kinetic energy:
 
 		$$\sum\limits_{i=1}^N\biggl\langle\frac{p_i^2}{2m_i}\biggr\rangle = \frac{3}{2}NkT$$
 
+		The temperature of the simulation can be computed starting from the kinetic energy of the particles, so that an instantaneous temperature of the system can be computed.
+		In the microcanonical ensemble the energy is fixed, but the temperature is not.
+
+
 \section{Thermal contact}
-Let two systems $1$ and $2$ be divided by a heat conducting divider.
+Consider an isolated system composed by two systems $1$ and $2$ be divided by a heat conducting divider: volumes are fixed and molecules do not travel across it, only heat.
 Considering them together:
 
 $$N = N_1+N_2\qquad\land\qquad V = V_1+V_2\qquad\land\qquad\mathcal{H}(x) = \mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)$$
@@ -147,54 +192,85 @@ Now considering the two $\omega$ functions:
 
 $$\omega_1(N_1, V_1, E_1) = M_{N_1}\int dx_1\delta(\mathcal{H}_1-E_1)\qquad\land\qquad\omega_2(N_2, V_2, E_2) = M_{N_2}\int dx_2\delta(\mathcal{H}_2-E_2)$$
 
-Then:
+To compute the entropy of the total system $\Omega$ of the entire system needs to be computed:
 
 $$\Omega(N, V, E) = M_N\int dx\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)\neq\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E_2)$$
 
-In particular:
+So $\Omega$ is not the product of the two $\Omega_1$ and $\Omega_2$.
+In particular, fixing the value of energy of system $1$ in $E_1$ and doing so the energy for the second system is fixed as $E-E_1$.
+For each microstate in system $1$ there are $\Omega_2$ microstates for system $2$.
+So the product of the combination for each single value of $E_1$ has to be taken into account for the total $\Omega$:
 
 $$\Omega(N, V, E) = C\int_0^EdE_1\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$$
 
-However, assuming that $\bar{E}_1$ is the value that maximises the product $\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$:
+This integration should be solved exactly, however, assuming that $\bar{E}_1$ is the value that maximises the product $\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$.
+Now the sum will be greater than the maximum but it will be less than the maximum times the number of elements.
+In the case where the number of trial is great this difference becomes negligible:
 
 $$S(N, V, E) = k\ln\Omega(N, V, E)\simeq k\ln[\Omega_1(N_1, V_1, \bar{E}_1)\Omega_2(N_2, V_2, E-\bar{E}_1)] + o(\ln N)$$
 
 So, in the thermodynamics limit:
 
-$$S(N, V< E) = k\ln\Omega_1(N_1, V_1, \bar{E}_1) + k\ln\Omega_2(N_2, V_2, E-\bar{E}_1) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, E - \bar{E}_1)$$
+$$S(N, V, E) = k\ln\Omega_1(N_1, V_1, \bar{E}_1) + k\ln\Omega_2(N_2, V_2, E-\bar{E}_1) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, E - \bar{E}_1)$$
+
+So in the thermodynamic limit entropy is additive.
 
 	\subsection{Temperature}
-	Considering the last equation $\bar{E}_1$ is the value of $E_1$ that maximizes the quantity:
+	Another consequence of the previous result is that considering the last equation $\bar{E}_1$ is the value of $E_1$ that maximizes the quantity:
 
 	$$k\ln\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E - E_1)$$
 
-	Since $\bar{E}_1+\bar{E}_2 = E$ and $E$ is fixed, $d\bar{E}_1 + d\bar{E}_2 = 0\Rightarrow d\bar{E}_1 = -d\bar{E}_2$
+	Since $\bar{E}_1+\bar{E}_2 = E$ and $E$ is fixed, $d\bar{E}_1 + d\bar{E}_2 = 0\Rightarrow d\bar{E}_1 = -d\bar{E}_2$.
+	Considering the formula:
 
 	$$S(N, V, E) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, \bar{E}_2)$$
 
+	Taking the derivative with respect to $\bar{E}_1$ and $\bar{E_2}$L
+
 	$$0 = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} + \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_1} = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} - \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_2}$$
 
-	And:
+	And so, remembering the derivative of the entropy with respect to energy:
 
 	$$\frac{1}{T_1}-\frac{1}{T_2} = 0\Rightarrow T_1 = T_2$$
+
+	Obtaining that two system in thermal contact have the same temperature at equilibrium.
 
 \section{Some examples}
 
 	\subsection{Free particle in one dimension}
+	In order to study the ideal gas the free particle in $1D$ have to be solved.
+	This particle has Hamiltonian:
+
+	$$\mathcal{H} = \frac{p^2}{2m}$$
+
+	Considering a particle confined in a length $L$:
 
 	$$\Omega(1, L, E) = \frac{E_0}{h}\int_0^Ldx\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr) = \frac{E_0L}{h}\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr)$$
 
+	Considering $y^2 = \frac{p^2}{2m}$:
+
 	$$\int_{-\infty}^{+\infty}dp\delta\biggl(\frac{p^2}{2m}-E\biggr) = \sqrt{2m}\int_{-\infty}^{+\infty}dy\delta(y^2-E)$$
 
+	And remembering another property of the $\delta$ function:
+
 	$$\delta(f(x)) = \sum\limits_{i\in\ zeros\ of\ f(x)}\frac{1}{|f'(x_i)|}\delta(x-x_i)\Rightarrow\delta(y^2-E) = \frac{1}{2\sqrt{E}}[\delta(y-\sqrt{E}) + \delta(y+\sqrt{E})]$$
+
+	Computing the integral:
 
 	$$\sqrt{2m}\int_{-\infty}^{+\infty}dy\delta(y^2-E) = \sqrt{2m}{E}\Rightarrow\Omega(1, V, E) = \frac{E_0L}{h}\sqrt{\frac{2m}{E}}$$
 
 	\subsection{Classical ideal gas}
+	Considering $N$ free particles in $3D$, or the classical ideal gas, which it will be close to one particle in $1D$:
 
 	$$\Omega(N, V, E) = \frac{E_0}{N!h^{3N}}\int d^N\vec{p}\int_{D(V)}d^N\vec{r}\delta\biggl(\sum\limits_{i=1}^N\frac{\vec{p}^2_i}{2m_i}-E\biggr) = \frac{E_0V^N}{N!h^{3N}}\int d^N\vec{p}\biggl(\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}-E\biggr)$$
 
+	Where $N!$ is correct Boltzmann counting and $h$ is Plank's constant, the sum of all kinetic energy is because they are all free particles.
+	Computing the integral and using Boltzmann relation the entropy can be computed:
+
 	$$\Omega(N, V, E) = \frac{1}{N!}\biggl[\frac{V}{h^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr]^Ne^{\frac{3N}{2}}\Rightarrow S(N, V, E) = Nk\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi mE}{3N}\biggr)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2}-k\ln N!$$
+
+	So the entropy for the ideal gas can be obtained starting from the Hamiltonian.
+	Now the thermodynamics derivatives can be used to obtain all thermodynamic properties:
 
 	$$\frac{1}{T} = \biggl(\frac{\partial S}{\partial E}\biggr)_{N, V} = \frac{3Nk}{2E}\Rightarrow E = \frac{3}{2}NkT$$
 
@@ -203,14 +279,22 @@ $$S(N, V< E) = k\ln\Omega_1(N_1, V_1, \bar{E}_1) + k\ln\Omega_2(N_2, V_2, E-\bar
 	$$\frac{\mu}{T} = -\biggl(\frac{\partial S}{\partial N}\biggr)_{V, E} = k\ln N-k\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi mE}{3N}\biggr)^{\frac{3}{2}}\biggr] \Rightarrow \mu = -kT\ln\biggl[\frac{V}{Nh^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr]$$
 
 \section{Gibbs paradox}
+Considering Boltzmann equation the factorial factor is due to the fact that particles are undistinguishable.
 
 $$S(N, V, E) = Nk\ln\biggl[\frac{V}{h^3}\biggl(\frac{4\pi m E}{3N}\biggr)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2} - \xcancel{k\ln N!}$$
 
+If the factorial is not added Gibbs paradox comes into play, obtaining the formula for classical entropy.
+
 $$S^{(cl)}(N, V, T) = Nk\ln\biggl[\frac{V}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2}$$
+
+Assume that there are $N_1$ particles in one box and $N_2$ particles in another box.
+Now, computing the entropy of the total system and of the mixed system:
 
 $$S_1^{(cl)}(N_1, V_1, T) = N_1k\ln\biggl[\frac{V_1}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3N_1k}{2} \quad S_2^{(cl)}(N_2, V_2, T) = N_2k\ln\biggl[\frac{V_2}{h^3}(2\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3N_2k}{2}$$
 
 $$S^{(cl)}(N_1 + N_2, V_1+V_2, T) = (N_1 + N_2)k\ln\biggl[\frac{V_1+V_2}{h^3}(23\pi m k T)^{\frac{3}{2}}\biggr] + \frac{3(N_1+N_2)k}{2}$$
+
+Now the entropy of the mixed system:
 
 \begin{align*}
 	\Delta S_{mix}^{(cl)} &= S^{(cl)}(N_1 + N_2) - S_1^{(cl)}(N_1) - S_2^{(cl)}(N_2) =\\
@@ -218,29 +302,32 @@ $$S^{(cl)}(N_1 + N_2, V_1+V_2, T) = (N_1 + N_2)k\ln\biggl[\frac{V_1+V_2}{h^3}(23
 												&= N_1 k\ln\frac{V}{V_1} + N_2k\ln\frac{V}{V_2}>0
 \end{align*}
 
-Now considering the cases where:
+This result is greater then $0$, so mixing the two gases entropy will increase.
 
 \begin{multicols}{2}
 	\begin{itemize}
-		\item $\Delta S_{mix}^{(cl)} > 0$:
-		\item $\Delta S_{mix}^{(cl)} \neq 0$:
+		\item $\Delta S_{mix}^{(cl)} > 0$: this results makes sense if the two gases are different.
+		\item $\Delta S_{mix}^{(cl)} \neq 0$: if the same gas is present in the two boxes it should be equal to $0$, but the formula predicts that the entropy increases.
+			This is because when inserting back the wall the same situation at the start should be obtained and this is not possible because entropy is a state function.
 	\end{itemize}
 \end{multicols}
 
-\section{Correct Boltzmann counting}
-Considering:
+	\subsection{Correct Boltzmann counting}
+	To solve the paradox correct Boltzmann counting is introduced, the $N!$ factor.
+	In fact inserting it the correct formula becomes:
 
-$$S^{(ST)}(N, V, T) = Nk\ln\biggl[\frac{V}{Nh^3}(2\pi mkT)^{\frac{5}{2}}\biggr] + \frac{3Nk}{2}$$
+	$$S^{(ST)}(N, V, T) = Nk\ln\biggl[\frac{V}{Nh^3}(2\pi mkT)^{\frac{3}{2}}\biggr] + \frac{5Nk}{2}$$
 
-And:
+	Or the Sackur-Tetrode formula.
+	Using Stirling's approximation for the factorial.
+	Using this formula:
 
-$$\Delta S_{mix} = N_1k\ln\frac{V}{V_1}+N_2k\ln\frac{V}{V_2}$$
 
-Now, in the following cases:
+	Now, in the following cases:
 
-\begin{multicols}{2}
-	\begin{itemize}
-		\item $\Delta S_{mix} > 0$:
-		\item $\Delta S_{mix} = 0$:
-	\end{itemize}
-\end{multicols}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\Delta S_{mix}= N_1k\ln\frac{V}{V_1}+N_2k\ln\frac{V}{V_2} > 0$: for two different gases.
+			\item $\Delta S_{mix} = N_1k\ln\frac{V}{N}\frac{N_1}{V_1} + N_2 k\ln\frac{V}{N}\frac{N_2}{V_2}= 0$: for the same gas.
+		\end{itemize}
+	\end{multicols}
