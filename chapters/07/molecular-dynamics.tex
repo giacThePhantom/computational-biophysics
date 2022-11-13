@@ -1,1 +1,32 @@
-\chapter{Molecular dynamics}
+\chapter{Introduction to molecular dynamics}
+
+\section{Introduction}
+
+	\subsection{Hamilton's equations}
+
+	$$\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad\dot{p}_\alpha = - \frac{\partial\mathcal{H}}{\partial q_\alpha}$$
+
+	$$\frac{d\mathcal{H}}{dt} = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}_\alpha + \frac{\partial\mathcal{H}}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}-\frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = 0$$
+
+	$$\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) = const$$
+
+	\subsection{Ergodicity}
+
+	$$A = \langle a\rangle = \frac{\int dxa(x)\delta(\mathcal{H}(x)-E)}{\int dx\delta(\mathcal{H}(x)-E)} = \lim\limits_{\tau\rightarrow\infty}\frac{1}{\tau}\int_0^\tau dta(x_t)\equiv\bar{a}$$
+
+	The discretized time average:
+
+	$$A = \langle a\rangle = \frac{1}{M}\sum\limits_{n=1}^M a(x_{n\Delta t})$$
+
+	\subsection{Basic components of a molecular dynamics simulation}
+	The basic components of a MD simulation are:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item The model: the chosen force field.
+			\item Calculation of energies and forces: accurate and efficient.
+			\item The algorithm: used to integrate the equations of motion.
+		\end{itemize}
+	\end{multicols}
+
+\section{Verlet algorithm}
