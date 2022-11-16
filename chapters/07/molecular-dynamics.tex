@@ -39,4 +39,187 @@ Consider the Taylor expansion:
 
 Similarly:
 
-$$\vec{r}_i(t+\Delta t)$$
+$$\vec{r}_i(t-\Delta t) \approx\vec{r}_i(t)-\Delta t\vec{v}_i(t)+\frac{\Delta t^2}{2m_i}\vec{F}_i(t)$$
+
+Now:
+
+$$\vec{r}_i(t+\Delta t) + \vec{r}_i(t-\Delta t) = 2\vec{r}_i(t) + \frac{\Delta t^2}{m_i}\vec{f}_i(t)$$
+
+Hence:
+
+$$\vec{r}_i(t+\Delta t) = 2\vec{r}_i(t) - \vec{r}_i(t-\Delta t) + \frac{\Delta t^2}{m_i}\vec{F}_i(t)$$
+
+And the velocities:
+
+$$\vec{v}_i(t) = \frac{\vec{r}_i(t+\Delta t)-\vec{r}_i(t-\Delta t)}{2\Delta t}$$
+
+
+	\subsection{Velocity Verlet}
+
+	$$\vec{r}_i(t+\Delta t) = \vec{r}_i(t) + \Delta t\vec{v}_i(t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t)$$
+
+	$$\vec{r}_i(t) = \vec{r}_i*t+\Delta t) -\Delta t\vec{v}_i(t + \Delta t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t+\Delta t)$$
+
+	By sobstitution:
+
+	$$\vec{v}_i(t+\Delta t) = \vec{v}_i(t) + \frac{\Delta t}{2m_i}[\vec{F}_i(t) + \vec{F}_i(t+\Delta t)]$$
+
+	The time reversibility property comes from Hamilton's equation, while the symplectic structure gives numerical stability.
+
+	\subsection{Initial condition}
+	The coordinates of the initial condition are either taken from experimental data or guessed.
+	The velocities are taken randomly from a Maxwell-Boltzmann distribution:
+
+	$$f(v) = \biggl(\frac{m}{2\pi kT}\biggr)^\frac{1}{2}e^{-\frac{mv^2}{2kT}}$$
+
+	Consider the Gaussian probability distribution:
+
+	$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}$$
+
+	\subsection{Action integral}
+	Consider:
+
+	$$Q \equiv\{q_1, \dots, q_{3N}\}\qquad \dot{Q}\equiv\{\dot{q}_1, \dots, \dot{q}_{3N}\}$$
+
+	The action integral:
+
+	$$A[Q] = \int_{t_1}^{t_2}\mathcal{L}(Q(t), \dot{Q}(t))dt$$
+
+	The path $Q$ that renders the action stationary is:
+
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item $Q(t_1) = Q_1$.
+			\item $Q(t_2) = Q_2$.
+			\item $\dot{Q}(t_1) = \dot{Q}_1$.
+			\item $\dot{Q}(t_2) = \dot{Q}_2$.
+		\end{itemize}
+	\end{multicols}
+
+	Now:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\delta Q(t_1) = \delta Q(t_2) = 0$.
+			\item $\delta\dot{Q}(t_1) = \delta\dot{Q}(t_2) = 0$.
+		\end{itemize}
+	\end{multicols}
+
+	\begin{align*}
+		\delta A &= \int_{t_1}^{t_2}\mathcal{L}(Q(t) + \delta Q(t), \dot{Q}(t)+\delta\dot{Q}(t))dt - \int_{t_1}^{t_2}\mathcal{L}(Q(t), \dot(Q)(t))dt = \\
+						 &=\int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha}\delta q_\alpha(t) + \frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\delta\dot{q}_\alpha(t)\biggr]dt=\\
+						 &=\sum\limits_{\alpha=1}^{3N}\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\delta q_\alpha(t)|_{t_1}^{t_2} + \int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha}\delta q_\alpha(t) - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr)\delta q_\alpha(t)\biggr] dt = 0
+	\end{align*}
+
+	Thus:
+
+	$$\frac{\partial\mathcal{L}}{\partial q_\alpha} - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) = 0\Rightarrow \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr)-\frac{\partial\mathcal{L}}{\partial q_\alpha} = 0$$
+
+\section{Constraints}
+
+\begin{itemize}
+	\item Holonomic constraints: $\sigma_k(q_1, \dots, q_{3N}, t) = 0\qquad k = 1, \dots, N_C$.
+	\item Nonholonomic constraints: $\zeta(q_1, \dots, q_{3N}, \dot{q}_1, \dots, \dot{q}_{3N}) = 0$.
+\end{itemize}
+
+For example consider:
+
+$$\frac{1}{2}\sum\limits_{i}m_i\dot{\vec{r}}_i^2-C = 0$$
+
+Considering the minimal set of coordinates in generalized coordinates $3N-N_C$.
+This is an example of spherical coordinates at fixed radius.
+
+	\subsection{Differential forms}
+
+	$$\sum\limits_{\alpha = 1}^{3N} a_{k\alpha}dq_\alpha + a_{kt}dt = 0\qquad k = 1, \dots, N_C$$
+
+
+		\subsubsection{Holomonic constraints}
+
+		$$\sum\limits_{\alpha=1}^{3N}\frac{\partial\sigma_k}{\partial q_\alpha}dq_\alpha + \frac{\partial\sigma_k}{\partial t} dt = 0\qquad k = 1, \dots, N_N\qquad a_{k\alpha} = \frac{\partial\sigma_k}{\partial q_\alpha}\qquad a _{kt} = \frac{\partial\sigma_k}{\partial t}$$
+
+		\subsubsection{Nonholonomic constraints}
+
+		$$\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - C = 0\Rigtharrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i\frac{d\vec{r}_i}{dt} - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_id\vec{r}_i-Cdt = 0$$
+
+		$$a_{1i}=\frac{1}{2}m_i\dot{\vec{r}}_i\qquad a_{1t} = -C$$
+
+		So the integrable form:
+
+		$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}dq_\alpha=0$$
+
+			\paragraph{Lagrange multipliers}
+
+			$$\int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha} - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) + \sum\limits_{k=1}^{N_N}\lambda_ka_{k\alpha}\biggr]\delta q_\alpha(t)dt = 0$$
+
+			$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) - \frac{\partial\mathcal{L}}{\partial q_\alpha} = \sum\limits_{k=1}^{N_C}\lambda_k a_{k\alpha}$$
+
+			$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\dot{q}_\alpha + a_{kt} = 0\qquad k = 1, \dots, N_C$$
+
+			So there are $3N+N_C$ equations for $3N+N_c$ unknowns.
+
+	\subsection{Hamiltonian formulation}
+	Considering the time-independent holonomic constraints:
+
+	$$\begin{cases}\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\\\dot{q}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha} - \sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}\\\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} = 0\end{cases}$$
+
+	So that:
+
+	\begin{align*}
+		\frac{d\mathcal{H}}{dt} &= \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}_\alpha +\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] = \\
+														&=\sum\limits_\alpha\biggl[\frac{\partial\mahtcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} + \frac{\partial\mathcal{H}}{\partial p_\alpha}\biggl(\frac{\partial\mathcal{H}}{\partial q_\alpha} + \sum\limits_k \lambda_ka_{k\alpha}\biggr)\biggr] = \\
+														&=\sum\limits_k\lambda_k\sum\limits_\alpha\frac{\partial\mathcal{H}}{\partial p_\alpha}a_{k\alpha} = 0
+	\end{align*}
+
+	So no work is done on a system by the imposition of holonomic constraints.
+
+	\subsection{Constraints in a simulation}
+
+	$$m_i\ddot{r}_i = \vec{F}_i + \sum\limits_{k=1}^{N_C}\lambda_k\nabla_i\sigma_k$$
+
+	$$\frac{d}{dt}\sigma_k(\vec{r}_1, \dots, \vec{r}_N) = 0\Rightarrow\dot{\sigma}_k = \sum\limits_{i=1}^N\nabla_i\sigma_k\cdot\dot{\vec{r}}_i = 0$$
+
+	Including the constraints on the integration algorithm:
+
+	$$\vec{r}_i(\Delta t) = \vec{r}_i(0) + \Delta t\vec{v}_i(0) + \frac{\Delta t^2}{2m_i}\vec{F}_i(0) + \frac{\Delta t^2}{2m_i}\sum\limits_{k}\lambda_k\nabla_i\sigma_k(0)$$
+
+	TO obtain $\lambda_k$:
+
+	$$\vec{r}_i' = \vec{r}_i(0) + \Delta t\vec{v}_i(0) + \frac{\Delta t^2}{2m_i}\vec{F}_i(0)$$
+
+	$$\vec{r}_i(\Delta t) = \vec{r}'_i + \frac{1}{m_i}\sum\limits_k\tilde{\lambda}_k\nabla_i\sigma_k(0)$$
+
+	So that:
+
+	$$\tilde{\lambda}_k = \frac{\Delta t^2}{2}\lambda_k$$
+
+	\subsection{Constraint condition}
+
+	$$\sigma_l)\vec{r}_1(\Delta t), \dots, \vec{r}_N(\Delta t)) = 0\qquad l = 1, \dots, N_C$$
+
+	$$\sigma_l\biggl(\vec{r}_1' + \frac{1}{m_1}\sum\limits_k\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N' + \frac{1}{m_N}\sum\limits_k\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0\qquad l = 1, \dots, N_C$$
+
+	Considering SHAKE, an iterative solution from an initial guess $\tilde{\lambda}_k^{(1)}$:
+
+	$$\vec{r}_i^{(1)} = \vec{r}_i' + \frac{1}{m_i}\sum\limits_k\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
+
+	The exact solution: $\tilde{\lambda}_k = \tilde{\lambda}_k^{(1)} + \delta\tilde{\lambda}_k^{(1)}$:
+
+	$$\vec{r}_i(\Delta t) = \vec{r}_i^{(1)} + \frac{1}{m_i}\sum\limits_k\delta\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
+
+	$$\sigma_l\biggl(\vec{r}_1^{(1)} = \frac{1}{m_1}\sum\limits_k\delta\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N^{(1)} + \frac{1}{m_N}\sum\limits_{k}\delta\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0$$
+
+	Considering the Taylor series:
+
+	$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
+
+\section{Possible algorithms}
+
+$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
+
+\begin{itemize}
+	\item Direct inversion: Matrix-shake or M-SHAKE: hte procedure must be repeated because the equation above is a linear approximation.
+	\item Quick trick: only diagonal element are considered without any matrix inversion.
+	\item The same procedure can be employed for velocities like in RATTLE.
+	\item LINCS or linear constraint solver is based on the same principle and implemented in GROMACS.
+\end{itemize}
