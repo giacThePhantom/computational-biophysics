@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  16 NOV 2022 12:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  18 NOV 2022 08:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,36 +886,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ...ipolar interactions}{20}{subsection.3.6.2}
+l.42 ...ipolar interactions}{21}{subsection.3.6.2}
                                                   % [1
 
-] [2])
+] [2] [3])
 \tf@toc=\write4
 \openout4 = `principal.toc'.
 
 
-(./chapters/01/intro-proteins.tex [3]
+(./chapters/01/intro-proteins.tex [4]
 Chapter 1.
-[4
+[5
 
-]) (./chapters/02/protein-geometry.tex [5]
+]) (./chapters/02/protein-geometry.tex [6]
 Chapter 2.
-<chapters/02/images//planar.png, id=625, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=682, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 
 (pdftex.def)             Requested size: 263.37933pt x 125.86801pt.
-[6
+[7
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=638, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=694, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
 39.
 (pdftex.def)             Requested size: 290.27936pt x 249.32707pt.
- [7 <./chapters/02/images//potential.png>]
+ [8 <./chapters/02/images//potential.png>]
 
 Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 (siunitx)                release.
@@ -927,78 +927,78 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 (siunitx)                \DeclareSIUnit\angstrom{\text {Å}}
 
 
-LaTeX Warning: Reference `rama' on page 8 undefined on input line 87.
+LaTeX Warning: Reference `rama' on page 9 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=651, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=706, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
 8.
 (pdftex.def)             Requested size: 334.85358pt x 223.13535pt.
-[8]
+[9]
 
-LaTeX Warning: Reference `ramachandran-complex' on page 9 undefined on input li
-ne 103.
+LaTeX Warning: Reference `ramachandran-complex' on page 10 undefined on input l
+ine 103.
 
 
-LaTeX Warning: Reference `ala_gly' on page 9 undefined on input line 105.
+LaTeX Warning: Reference `ala_gly' on page 10 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=656, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=711, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
 9.
 (pdftex.def)             Requested size: 411.03879pt x 196.03387pt.
 
-LaTeX Warning: Reference `ramachandran-final' on page 9 undefined on input line
- 116.
+LaTeX Warning: Reference `ramachandran-final' on page 10 undefined on input lin
+e 116.
 
-[9 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=669, 1340.00626pt x 849.1725pt>
+[10 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
+<chapters/02/images//contact.png, id=724, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 6.
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
-[10 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=679, 1514.65875pt x 778.91pt>
+[11 <./chapters/02/images//contact.png>]
+<chapters/02/images//topology.png, id=733, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
- [11 <./chapters/02/images//topology.png>] [12]
-<chapters/02/images//rmsd.png, id=691, 1161.33875pt x 809.0225pt>
+ [12 <./chapters/02/images//topology.png>] [13]
+<chapters/02/images//rmsd.png, id=745, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
 (pdftex.def)             Requested size: 232.26363pt x 161.80164pt.
- [13 <./chapters/02/images//rmsd.png>]) (./chapters/03/force-fields.tex [14]
+ [14 <./chapters/02/images//rmsd.png>]) (./chapters/03/force-fields.tex [15]
 Chapter 3.
-[15
+[16
 
 ]
 
-LaTeX Warning: Reference `chem-bond' on page 16 undefined on input line 42.
+LaTeX Warning: Reference `chem-bond' on page 17 undefined on input line 42.
 
 
-LaTeX Warning: Reference `chem-bond' on page 16 undefined on input line 50.
+LaTeX Warning: Reference `chem-bond' on page 17 undefined on input line 50.
 
-[16] [17] [18] [19] [20] [21] [22]) (./chapters/04/classical-mechanics.tex
-[23]
+[17] [18] [19] [20] [21] [22] [23]) (./chapters/04/classical-mechanics.tex
+[24]
 Chapter 4.
-[24
+[25
 
-] [25] [26] [27] [28] [29] [30] [31] [32])
-(./chapters/05/foundations-statistical-mechanics.tex [33]
+] [26] [27] [28] [29] [30] [31] [32] [33])
+(./chapters/05/foundations-statistical-mechanics.tex [34]
 Chapter 5.
-[34
+[35
 
-] [35] [36] [37] [38] [39] [40]) (./chapters/06/microcanonical-ensemble.tex
-[41]
+] [36] [37] [38] [39] [40] [41]) (./chapters/06/microcanonical-ensemble.tex
+[42]
 Chapter 6.
-[42
+[43
 
 ]
 Overfull \hbox (14.66551pt too wide) in paragraph at lines 71--78
@@ -1015,83 +1015,111 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-10.48724pt}.
 
-[43] [44] [45] [46] [47] [48] [49]) (./chapters/07/molecular-dynamics.tex
-[50]
+[44] [45] [46] [47] [48] [49] [50]) (./chapters/07/molecular-dynamics.tex
+[51]
 Chapter 7.
-[51
+[52
 
-] [52] [53]) (./chapters/08/direct-translation.tex [54]
+] [53] [54] [55] [56]) (./chapters/08/direct-translation.tex [57]
 Chapter 8.
-) (./chapters/09/evaluation-energy-forces.tex [55
+[58
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\endgroup' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@@over' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 58.
+
+[59]) (./chapters/09/evaluation-energy-forces.tex [60]
 Chapter 9.
-) (./chapters/10/canonical-ensemble.tex [56
+) (./chapters/10/canonical-ensemble.tex [61
 
 ]
 Chapter 10.
-) (./chapters/11/thermostats.tex [57
+) (./chapters/11/thermostats.tex [62
 
 ]
 Chapter 11.
-) (./chapters/12/isobaric-ensembles.tex [58
+) (./chapters/12/isobaric-ensembles.tex [63
 
 ]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [59
+) (./chapters/13/grand-canonical-ensemble.tex [64
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [60
+) (./chapters/14/uncertainties-sampling-quality.tex [65
 
 ]
 Chapter 14.
-) [61
+) [66
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: ED3C87CBE07CEB2C680B0DF91F1E058A;18537.
+(rerunfilecheck)             Checksum: 5063A7605A578B3D9B61A8019A7142C7;20181.
  ) 
 Here is how much of TeX's memory you used:
- 23949 strings out of 478238
- 438540 string characters out of 5850455
- 762958 words of memory out of 5000000
- 41581 multiletter control sequences out of 15000+600000
+ 23976 strings out of 478238
+ 438925 string characters out of 5850455
+ 762969 words of memory out of 5000000
+ 41591 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,19n,82p,521b,903s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 79i,19n,82p,522b,928s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
 exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb>
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.
-pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share
-/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fon
-ts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (62 pages, 2109306 bytes).
+cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/te
+xmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/fonts/
+type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm
+-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440
+.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fo
+nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
+0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
+share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on ./build/principal.pdf (67 pages, 2173613 bytes).
 PDF statistics:
- 1090 PDF objects out of 1200 (max. 8388607)
- 945 compressed objects within 10 object streams
- 204 named destinations out of 1000 (max. 500000)
- 964 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1190 PDF objects out of 1200 (max. 8388607)
+ 1031 compressed objects within 11 object streams
+ 221 named destinations out of 1000 (max. 500000)
+ 1044 words of extra memory for PDF output out of 10000 (max. 10000000)
 

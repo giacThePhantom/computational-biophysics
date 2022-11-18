@@ -1,1 +1,80 @@
 \chapter{Direct translation}
+
+\section{Liouville operator}
+
+$$\frac{da}{dt} = \frac{\partial a}{\partial x_t}\dot{x}_t = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\dot{q}_a + \frac{\partial a}{\partial p_a}\dot{p}_a\biggr] = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\frac{\partial\mathcal{H}}{\partial p_a} - \frac{\partial a}{\partial p_a}\frac{\partial\mathcal{H}}{\partial q_a}\biggr] = \{a, \mathcal{H}\}$$
+
+Liouville operator:
+
+$$iLa = \{a, \mathcal{H}\}\Rightarrow\frac{da}{dt} = iLa$$
+
+In abstract terms: $iL\cdots = \{\cdots, \mathcal{H}\}$
+
+$$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr]$$
+
+Considering a formal solution:
+
+$$\frac{da}{dt} = iLa\Rightarrow a(x_t) = e^{\overbrace{iLt}^{\text{Classical propagator}}}a(x_0)$$
+
+	\subsection{Liouville operator split}
+
+	$$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr] = iL_1 + iL_2$$
+
+	$$iL_1 = \sum\limits_a\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} \qquad iL_2 = -\sum\limits_a\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}$$
+
+	These are non-commuting operators:
+
+	$$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)$$
+
+	And the commutator:
+
+	$$iL_1iL_2-iL_2iL_1\equiv [iL_1, iL_2]$$
+
+
+	\subsection{One dimensional example}
+
+	$$\mathcal{H} = \frac{p^2}{2m} + U(x)$$
+
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial}{\partial x} = \frac{p}{m}\frac{\partial}{\partial x}\qquad iL_2 = -\frac{\partial\mathcal{H}}{\partial x}\frac{\partial}{\partial p} = -\frac{\partial U}{\partial x}\frac{\partial}{\partial p} = F(x)\frac{\partial}{\partial p}$$
+
+	$$iL_1iL_2\phi(x, p) = \frac{p}{m}\frac{\partial}{\partial x}\biggl[F(x)\frac{\partial}{\partial p}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{p}{m}F'(x)\frac{\partial\phi}{\partial p}$$
+
+	$$iL_2iL_1\phi(x, p) = F(x)\frac{\partial}{\partial p}\biggl[\frac{p}{m}\frac{\partial}{\partial x}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{F(x)}{m}\frac{\partial \phi}{\partial x}$$
+
+	$$[iL_1, iL_2]\phi(x, p) = \frac{p}{m}F'(x)\frac{\partial \phi}{\partial p} -\frac{F(x)}{m}\frac{\partial \phi}{\partial x}\neq 0$$
+
+\section{Trotter theorem}
+
+$$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)\Rightarrow e^{iLt}\neq e^{iL_1t}e^{iL_2t}$$
+
+However:
+
+$$e^{A+B} = \lim\limits_{P\rightarrow\infty}[e^{\frac{B}{2P}}e^{\frac{A}{P}}e^{\frac{B}{2P}}]^P$$
+
+Therefore:
+
+$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
+
+	\subsection{$\Delta t = \frac{t}{P}$}
+
+	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
+
+	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty, \Delta t\rightarrow 0}[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P$$
+
+	For finite $P$:
+
+	$$e^{iLt}\approx[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P + \underbrace{o(P\Delta t^3)}_{\text{Global error}}$$
+
+	Taking the $\frac{1}{P}$ power:
+
+	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + \underbrace{o(\Delta t^3)}_{\text{Local error}}$$
+
+	\subsection{One-dimensional example}
+
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial }{\partial x} = \frac{p}{m}\frac{\partial }{\partial x}\qquad iL_2 = F(X)\frac{\partial}{\partial p}$$
+
+	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + o(\Delta t^3)$$
+
+	$$e^{iL\Delta t}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}} + o(\Delta t^3)$$
+
+	$$\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}=e^{iL\Delta t}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}$$

@@ -3,68 +3,105 @@
 \section{Introduction}
 
 	\subsection{Hamilton's equations}
+	The starting point to a Molecular dynamics simulation is Hamilton's equation.
+	Hamilton's equation will yield Newton's equation at the end, allowing to study the system as first order differential equations.
 
 	$$\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad\dot{p}_\alpha = - \frac{\partial\mathcal{H}}{\partial q_\alpha}$$
 
+	The objective is to obtain a numerical result from these equation.
+	Remembering that solving Hamilton's equation means integrating them keeping the energy constant.
+
 	$$\frac{d\mathcal{H}}{dt} = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}_\alpha + \frac{\partial\mathcal{H}}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}-\frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = 0$$
+
+	All the work is done in the microcanonical ensemble.
 
 	$$\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) = const$$
 
+	The quantities obtained through Hamilton's equations are representative of the microcanonical ensemble.
+	The time-dependent solutions will be rigorous, conformations or state that are separated by an energy barrier, local minima cannot be escaped.
+
 	\subsection{Ergodicity}
+	When a property has to be measured in an ensemble, what is measured is the average over an ensemble:
 
 	$$A = \langle a\rangle = \frac{\int dxa(x)\delta(\mathcal{H}(x)-E)}{\int dx\delta(\mathcal{H}(x)-E)} = \lim\limits_{\tau\rightarrow\infty}\frac{1}{\tau}\int_0^\tau dta(x_t)\equiv\bar{a}$$
 
-	The discretized time average:
+	Assuming that the system will visit during in dynamics all the possible state of its ensemble the average over the ensemble can be substituted over an average over time.
+	Usually the time average is indicated by a bar: $\bar{a}$.
+	The numerical integrator will give the value of $a(x_t)$ at different time steps and from that a discretized time average will be obtained:
 
 	$$A = \langle a\rangle = \frac{1}{M}\sum\limits_{n=1}^M a(x_{n\Delta t})$$
+
+	This discretized time average for sure is not the ensemble average.
+	In order for this to be true the system has to have the property of ergodicity.
+	Ergodicity means that in a simulation, while exploring different state and point in time, all possible states compatible with a macrostate are being explored.
+	So all the state belonging to the ensemble are being explored in the phase-space.
+	This is not easy to assume for complex states and depends on the energy profile of the system.
+
 
 	\subsection{Basic components of a molecular dynamics simulation}
 	The basic components of a MD simulation are:
 
 	\begin{multicols}{2}
 		\begin{itemize}
-			\item The model: the chosen force field.
+			\item The model: the chosen force field, the model used to represent chemical bonds and reality.
 			\item Calculation of energies and forces: accurate and efficient.
+				So how to compute the energies and forces, numerical steps in the model characterized by some error.
 			\item The algorithm: used to integrate the equations of motion.
+
 		\end{itemize}
 	\end{multicols}
 
 \section{Verlet algorithm}
-Consider the Taylor expansion:
+An algorithm used to integrate the equations of motion is the Verlet algorithm.
+Starting from the Taylor expansion of the coordinates at time $t+\Delta t$ and then they can be written using Newton's law.
 
 \begin{align*}
 	\vec{r}_i(t+\Delta t)&\approx \vec{r}_i(t) + \Delta t\dot{\vec{r}}_i(t) + frac{1}{2}\Delta t^2\ddot{\vec{r}}_i(t)
 											 &\approx\vec{r}_i(t+\Delta t)+\Delta t\vec{v}_i(t)+\frac{\Delta t^2}{2m_i}\vec{F}_i(t) \\
 \end{align*}
 
-Similarly:
+
+Similarly, integrating backward in time:
 
 $$\vec{r}_i(t-\Delta t) \approx\vec{r}_i(t)-\Delta t\vec{v}_i(t)+\frac{\Delta t^2}{2m_i}\vec{F}_i(t)$$
 
-Now:
+Summing up the two equations the first order terms will cancel:
 
 $$\vec{r}_i(t+\Delta t) + \vec{r}_i(t-\Delta t) = 2\vec{r}_i(t) + \frac{\Delta t^2}{m_i}\vec{f}_i(t)$$
 
-Hence:
+In these equations the third order terms will also cancel, so that this sum is correct until the forth order term.
+So this equation is correct up to the forth order term
+So the coordinates at time $t+\Delta t$ are:
 
 $$\vec{r}_i(t+\Delta t) = 2\vec{r}_i(t) - \vec{r}_i(t-\Delta t) + \frac{\Delta t^2}{m_i}\vec{F}_i(t)$$
 
-And the velocities:
+In order to get the coordinates at the previous instant in time have to be stored.
+The velocity can be computed using velocity's definition:
 
 $$\vec{v}_i(t) = \frac{\vec{r}_i(t+\Delta t)-\vec{r}_i(t-\Delta t)}{2\Delta t}$$
 
+The best thing to do is to compute the average velocity over $2$ time step as to have a numerically more stable solution.
+This algorithm is time-reversible and will keep energy constant.
+Some problem about it is that the velocity are the kinetic energy and is related to the temperature of the system.
 
 	\subsection{Velocity Verlet}
+	A variation over Verlet providing the same trajectory, but computing velocities and coordinates at the same time.
+	Again the starting point is the Taylor expansion:
 
 	$$\vec{r}_i(t+\Delta t) = \vec{r}_i(t) + \Delta t\vec{v}_i(t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t)$$
 
+	Now integrating backward in time considering the velocities:
+
 	$$\vec{r}_i(t) = \vec{r}_i*t+\Delta t) -\Delta t\vec{v}_i(t + \Delta t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t+\Delta t)$$
 
-	By sobstitution:
+	By substituting $\vec{r}_i*t + \Delta t)$ with the first equation:
 
 	$$\vec{v}_i(t+\Delta t) = \vec{v}_i(t) + \frac{\Delta t}{2m_i}[\vec{F}_i(t) + \vec{F}_i(t+\Delta t)]$$
 
-	The time reversibility property comes from Hamilton's equation, while the symplectic structure gives numerical stability.
+	With the average of the forces at the two time steps.
+	The velocities and the coordinates are updated at the same time.
+	Time reversibility is necessary because Hamilton's equations are being solved.
+	Moreover these algorithms have a symplectic structure, a property related with their numerical stability: this means that the trajectories that are obtained using this algorithms although it is not exactly the same, the errors will not diverge from the classical trajectory.
 
 	\subsection{Initial condition}
 	The coordinates of the initial condition are either taken from experimental data or guessed.
@@ -140,7 +177,7 @@ This is an example of spherical coordinates at fixed radius.
 
 		\subsubsection{Nonholonomic constraints}
 
-		$$\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - C = 0\Rigtharrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i\frac{d\vec{r}_i}{dt} - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_id\vec{r}_i-Cdt = 0$$
+		$$\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i\frac{d\vec{r}_i}{dt} - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_id\vec{r}_i-Cdt = 0$$
 
 		$$a_{1i}=\frac{1}{2}m_i\dot{\vec{r}}_i\qquad a_{1t} = -C$$
 
@@ -167,7 +204,7 @@ This is an example of spherical coordinates at fixed radius.
 
 	\begin{align*}
 		\frac{d\mathcal{H}}{dt} &= \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}_\alpha +\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] = \\
-														&=\sum\limits_\alpha\biggl[\frac{\partial\mahtcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} + \frac{\partial\mathcal{H}}{\partial p_\alpha}\biggl(\frac{\partial\mathcal{H}}{\partial q_\alpha} + \sum\limits_k \lambda_ka_{k\alpha}\biggr)\biggr] = \\
+														&=\sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} + \frac{\partial\mathcal{H}}{\partial p_\alpha}\biggl(\frac{\partial\mathcal{H}}{\partial q_\alpha} + \sum\limits_k \lambda_ka_{k\alpha}\biggr)\biggr] = \\
 														&=\sum\limits_k\lambda_k\sum\limits_\alpha\frac{\partial\mathcal{H}}{\partial p_\alpha}a_{k\alpha} = 0
 	\end{align*}
 
