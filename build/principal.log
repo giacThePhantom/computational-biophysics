@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  18 NOV 2022 08:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  19 NOV 2022 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,7 +900,7 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [6]
 Chapter 2.
-<chapters/02/images//planar.png, id=682, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=677, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
@@ -909,7 +909,7 @@ Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 [7
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=694, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=689, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
@@ -929,7 +929,7 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 
 LaTeX Warning: Reference `rama' on page 9 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=706, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=701, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
@@ -943,7 +943,7 @@ ine 103.
 
 LaTeX Warning: Reference `ala_gly' on page 10 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=711, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=706, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
@@ -954,7 +954,7 @@ LaTeX Warning: Reference `ramachandran-final' on page 10 undefined on input lin
 e 116.
 
 [10 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=724, 1340.00626pt x 849.1725pt>
+<chapters/02/images//contact.png, id=719, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
@@ -962,14 +962,14 @@ Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
 [11 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=733, 1514.65875pt x 778.91pt>
+<chapters/02/images//topology.png, id=728, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
  [12 <./chapters/02/images//topology.png>] [13]
-<chapters/02/images//rmsd.png, id=745, 1161.33875pt x 809.0225pt>
+<chapters/02/images//rmsd.png, id=740, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
@@ -1020,9 +1020,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Chapter 7.
 [52
 
-] [53] [54] [55] [56]) (./chapters/08/direct-translation.tex [57]
+] [53] [54] [55] [56] [57] [58] [59]) (./chapters/08/direct-translation.tex
+[60]
 Chapter 8.
-[58
+[61
 
 ]
 
@@ -1049,42 +1050,42 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 58.
 
-[59]) (./chapters/09/evaluation-energy-forces.tex [60]
+[62]) (./chapters/09/evaluation-energy-forces.tex [63]
 Chapter 9.
-) (./chapters/10/canonical-ensemble.tex [61
+) (./chapters/10/canonical-ensemble.tex [64
 
 ]
 Chapter 10.
-) (./chapters/11/thermostats.tex [62
+) (./chapters/11/thermostats.tex [65
 
 ]
 Chapter 11.
-) (./chapters/12/isobaric-ensembles.tex [63
+) (./chapters/12/isobaric-ensembles.tex [66
 
 ]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [64
+) (./chapters/13/grand-canonical-ensemble.tex [67
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [65
+) (./chapters/14/uncertainties-sampling-quality.tex [68
 
 ]
 Chapter 14.
-) [66
+) [69
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 5063A7605A578B3D9B61A8019A7142C7;20181.
+(rerunfilecheck)             Checksum: 126CDFF431CEAC2C55E76B19F576E60B;20027.
  ) 
 Here is how much of TeX's memory you used:
- 23976 strings out of 478238
- 438925 string characters out of 5850455
+ 23982 strings out of 478238
+ 439021 string characters out of 5850455
  762969 words of memory out of 5000000
- 41591 multiletter control sequences out of 15000+600000
+ 41590 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,522b,928s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1116,10 +1117,10 @@ nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (67 pages, 2173613 bytes).
+Output written on ./build/principal.pdf (70 pages, 2186407 bytes).
 PDF statistics:
- 1190 PDF objects out of 1200 (max. 8388607)
- 1031 compressed objects within 11 object streams
- 221 named destinations out of 1000 (max. 500000)
- 1044 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1203 PDF objects out of 1440 (max. 8388607)
+ 1041 compressed objects within 11 object streams
+ 228 named destinations out of 1000 (max. 500000)
+ 1036 words of extra memory for PDF output out of 10000 (max. 10000000)
 

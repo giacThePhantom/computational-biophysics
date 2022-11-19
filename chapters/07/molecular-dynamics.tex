@@ -37,7 +37,6 @@
 	So all the state belonging to the ensemble are being explored in the phase-space.
 	This is not easy to assume for complex states and depends on the energy profile of the system.
 
-
 	\subsection{Basic components of a molecular dynamics simulation}
 	The basic components of a MD simulation are:
 
@@ -59,7 +58,6 @@ Starting from the Taylor expansion of the coordinates at time $t+\Delta t$ and t
 	\vec{r}_i(t+\Delta t)&\approx \vec{r}_i(t) + \Delta t\dot{\vec{r}}_i(t) + frac{1}{2}\Delta t^2\ddot{\vec{r}}_i(t)
 											 &\approx\vec{r}_i(t+\Delta t)+\Delta t\vec{v}_i(t)+\frac{\Delta t^2}{2m_i}\vec{F}_i(t) \\
 \end{align*}
-
 
 Similarly, integrating backward in time:
 
@@ -104,24 +102,40 @@ Some problem about it is that the velocity are the kinetic energy and is related
 	Moreover these algorithms have a symplectic structure, a property related with their numerical stability: this means that the trajectories that are obtained using this algorithms although it is not exactly the same, the errors will not diverge from the classical trajectory.
 
 	\subsection{Initial condition}
-	The coordinates of the initial condition are either taken from experimental data or guessed.
-	The velocities are taken randomly from a Maxwell-Boltzmann distribution:
+	When starting a simulation initial coordinates have to be provided.
+	This can be done by taking data from experimental data or guessed.
+	Also the initial velocities are needed for the Verlet algorithm.
+	The best thing to guess the velocities are to take them randomly from a Maxwell-Boltzmann distribution:
 
 	$$f(v) = \biggl(\frac{m}{2\pi kT}\biggr)^\frac{1}{2}e^{-\frac{mv^2}{2kT}}$$
 
-	Consider the Gaussian probability distribution:
+	This is a Gaussian distribution whose variance depends on the temperature:
 
 	$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}$$
 
+	The wider the spread the higher the temperature.
+	So in a simulation an initial temperature is given and then the velocities are extracted from the Maxwell-Boltzmann distribution.
+	In the microcanonical simulation the energy is fixed but the temperature is not, so most of the time the temperature will not be kept fixed and after some time it will reach a constant value, depending on the initial conditions.
+
 	\subsection{Action integral}
-	Consider:
+	Because the molecules present bonds these will oscillates, but the characteristic time for their oscillation will be smaller of the $\Delta t$ of the time step of the algorithm.
+	If the oscillation needs to be represented the time step should be smaller than their oscillation, so smaller than a femtosecond.
+	This time step should be larger so, the bonds can be treated as rigid bonds.
+	Constraints will be posed on the chemical bonds so that their length will be kept fixed.
+	This constraints allow to use a time step in the order of femtoseconds.
+	In order to implement a constraint in the Verlet algorithm the Lagrangian formalism should be obtained from an action integral.
+	Consider the coordinates such that $Q$ is the coordinates and $\dot{Q}$ is the velocities, both generalized.
 
 	$$Q \equiv\{q_1, \dots, q_{3N}\}\qquad \dot{Q}\equiv\{\dot{q}_1, \dots, \dot{q}_{3N}\}$$
 
-	The action integral:
+	Now the action integral is:
 
 	$$A[Q] = \int_{t_1}^{t_2}\mathcal{L}(Q(t), \dot{Q}(t))dt$$
 
+	This is a number that integrates a path from $(Q(t_1), \dot{Q}(t_1))$ and $(Q(t_2), \dot{Q}(t_2))$ and summing over all the trajectory.
+	The value of the action depends on the path taken when changing position in the phase-space.
+	Each path will be characterized a different value of the action integral.
+	So $A$ is a function of a function, the path.
 	The path $Q$ that renders the action stationary is:
 
 	\begin{multicols}{4}
@@ -133,7 +147,9 @@ Some problem about it is that the velocity are the kinetic energy and is related
 		\end{itemize}
 	\end{multicols}
 
-	Now:
+	Stationary means that making a small variation to the path the corresponding variation of the action is zero in the first order.
+	So the starting and ending coordinates will be exactly the same for all the paths.
+	So that the variation at time $t_1$ and at time $t_2$ will be equal to zero:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -142,65 +158,108 @@ Some problem about it is that the velocity are the kinetic energy and is related
 		\end{itemize}
 	\end{multicols}
 
+	So at the boundaries the variation will be equal to zero.
+	Now computing the variation on the action when changing the path.
+	Since the variation is small a Taylor expansion can be performed on the integral, considering all the partial derivatives, making the derivative equal to zero:
+
 	\begin{align*}
 		\delta A &= \int_{t_1}^{t_2}\mathcal{L}(Q(t) + \delta Q(t), \dot{Q}(t)+\delta\dot{Q}(t))dt - \int_{t_1}^{t_2}\mathcal{L}(Q(t), \dot(Q)(t))dt = \\
 						 &=\int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha}\delta q_\alpha(t) + \frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\delta\dot{q}_\alpha(t)\biggr]dt=\\
 						 &=\sum\limits_{\alpha=1}^{3N}\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\delta q_\alpha(t)|_{t_1}^{t_2} + \int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha}\delta q_\alpha(t) - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr)\delta q_\alpha(t)\biggr] dt = 0
 	\end{align*}
 
-	Thus:
+	Thus, remembering the boundaries conditions and since the formula will be valid for any $\alpha$, so the integral itself will be equal to zero, because all the $\delta q_\alpha$ are independent from each other if there are no constraints:
 
 	$$\frac{\partial\mathcal{L}}{\partial q_\alpha} - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) = 0\Rightarrow \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr)-\frac{\partial\mathcal{L}}{\partial q_\alpha} = 0$$
 
+	Obtaining the Euler-Lagrangian equations from a variational principles.
+	The Euler-Lagrangian equations correspond to the path that will render the action integral stationary.
+	So the two formulation are completely equivalent to each other.
+
 \section{Constraints}
+Constraints refer to chemical bond that are kept fixed during the simulation time.
+Defining constraints:
 
 \begin{itemize}
 	\item Holonomic constraints: $\sigma_k(q_1, \dots, q_{3N}, t) = 0\qquad k = 1, \dots, N_C$.
-	\item Nonholonomic constraints: $\zeta(q_1, \dots, q_{3N}, \dot{q}_1, \dots, \dot{q}_{3N}) = 0$.
+		This means that the equation corresponding to the constraint can be written as above.
+		There will be one equation for each constraint in the system, so that the contraint is an equation that depends on all coordinates and time.
+		So fixing a bond is a holonomic contraints.
+	\item Nonholonomic constraints: there is also a relation on the velocities $\zeta(q_1, \dots, q_{3N}, \dot{q}_1, \dots, \dot{q}_{3N}) = 0$.
+		Coordinates and velocities are not independent.
 \end{itemize}
 
-For example consider:
+Each constraint adds an equation to the system, reducing the degrees of freedom, from $3N$ to $3N-N_C$ because the coordinates will depend on each other.
+This means that the number of generalized coordinates will be $3N-N_C$.
+A particular condition from non-holonomic constraint is an example:
 
 $$\frac{1}{2}\sum\limits_{i}m_i\dot{\vec{r}}_i^2-C = 0$$
 
-Considering the minimal set of coordinates in generalized coordinates $3N-N_C$.
-This is an example of spherical coordinates at fixed radius.
+Constraining the total kinetic energy to be constant.
+This is a nonholonomic constraint.
 
 	\subsection{Differential forms}
+	These constraints can be written in a differential form, defined as:
 
 	$$\sum\limits_{\alpha = 1}^{3N} a_{k\alpha}dq_\alpha + a_{kt}dt = 0\qquad k = 1, \dots, N_C$$
 
+	Depending on the variation of coordinates and time.
+	$\alpha$ refers to the coordinates ant $k$ to the constraints.
 
 		\subsubsection{Holomonic constraints}
+		Going from their equation to their differential form, taking the derivative of the holonomic constraint equation:
 
 		$$\sum\limits_{\alpha=1}^{3N}\frac{\partial\sigma_k}{\partial q_\alpha}dq_\alpha + \frac{\partial\sigma_k}{\partial t} dt = 0\qquad k = 1, \dots, N_N\qquad a_{k\alpha} = \frac{\partial\sigma_k}{\partial q_\alpha}\qquad a _{kt} = \frac{\partial\sigma_k}{\partial t}$$
 
 		\subsubsection{Nonholonomic constraints}
+		For nonholonomic constraints is easy for some exception, for example on the one on kinetic energy:
 
 		$$\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i\frac{d\vec{r}_i}{dt} - C = 0\Rightarrow\frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_id\vec{r}_i-Cdt = 0$$
 
+		So that:
+
 		$$a_{1i}=\frac{1}{2}m_i\dot{\vec{r}}_i\qquad a_{1t} = -C$$
 
-		So the integrable form:
+		In general only constraint that can be written as:
 
 		$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}dq_\alpha=0$$
 
-			\paragraph{Lagrange multipliers}
+		Will be considered.
+		So Holonomic constraints without an explicit time dependence.
 
-			$$\int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha} - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) + \sum\limits_{k=1}^{N_N}\lambda_ka_{k\alpha}\biggr]\delta q_\alpha(t)dt = 0$$
+	\subsection{Lagrange multipliers}
+	If the constraints can be written in an integrable form then the Euler-Lagrange equations can be written directly following a variational principle.
+	This can be done writing Lagrange multipliers.
+	The problem is that the derivation of the Euler-Lagrange equation was based on the fact that the coordinates were independent from each other.
+	Dealing with constraints this cannot be done: there are $3N-N_C$ independent coordinates and the $\delta q_\alpha$.
+	To make them independent other variables need to be introduced: the Lagrange multipliers, so that the sum will be equal to zero because of the integrable form.
+	Now looking inside the square brackets a sum introduced that is equal to zero.
+	$N_C$ unknowns ($\lambda_k$) are introduced so that there are $3N-N_C+N_C=3N$ independent coordinates.
+	The last thing to do so is to obtain the values for $\lambda_k$ which will have specific values.
 
-			$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) - \frac{\partial\mathcal{L}}{\partial q_\alpha} = \sum\limits_{k=1}^{N_C}\lambda_k a_{k\alpha}$$
+	$$\int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\biggl[\frac{\partial\mathcal{L}}{\partial q_\alpha} - \frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) + \sum\limits_{k=1}^{N_N}\lambda_ka_{k\alpha}\biggr]\delta q_\alpha(t)dt = 0$$
 
-			$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\dot{q}_\alpha + a_{kt} = 0\qquad k = 1, \dots, N_C$$
+	A modified version of the Euler-Lagrange equation is obtained.
 
-			So there are $3N+N_C$ equations for $3N+N_c$ unknowns.
+	$$\frac{d}{dt}\biggl(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\biggr) - \frac{\partial\mathcal{L}}{\partial q_\alpha} = \sum\limits_{k=1}^{N_C}\lambda_k a_{k\alpha}$$
+
+	To obtain all the $\lambda_k$ $N_C$ additional equations are needed.
+	These are the equations of the constraints:
+
+	$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\dot{q}_\alpha + a_{kt} = 0\qquad k = 1, \dots, N_C$$
+
+	So that all the velocities, coordinates and $\lambda_k$ can be computed.
+
+	So there are $3N+N_C$ equations for $3N+N_c$ unknowns.
 
 	\subsection{Hamiltonian formulation}
-	Considering the time-independent holonomic constraints:
+	The Hamiltonian formulation can be obtained for these constraints.
+	For time-independent holonomic constraints:
 
 	$$\begin{cases}\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\\\dot{q}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha} - \sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}\\\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} = 0\end{cases}$$
 
-	So that:
+	The constraints equations appear in the same place of the forces: whenever constraints are introduced in the system constraints forces are added to the system.
+	So that integrating the system of equation, its derivative with respect to time should be equal to $0$:
 
 	\begin{align*}
 		\frac{d\mathcal{H}}{dt} &= \sum\limits_\alpha\biggl[\frac{\partial\mathcal{H}}{\partial q_\alpha}\dot{q}_\alpha +\frac{\partial\mathcal{H}}{\partial p_\alpha}\biggr] = \\
@@ -211,52 +270,86 @@ This is an example of spherical coordinates at fixed radius.
 	So no work is done on a system by the imposition of holonomic constraints.
 
 	\subsection{Constraints in a simulation}
+	To implement the constraints in a simulation, forces coming from the constraints are called the constraints forces, so the forces are:
 
-	$$m_i\ddot{r}_i = \vec{F}_i + \sum\limits_{k=1}^{N_C}\lambda_k\nabla_i\sigma_k$$
+	$$m_i\ddot{r}_i = \vec{F}_i + \underbrace{\sum\limits_{k=1}^{N_C}\lambda_k\nabla_i\sigma_k}_{\text{Constraint forces}}$$
+
+	So these equations need to keep the constraints, adding a condition on the gradient of $\sigma_k$:
 
 	$$\frac{d}{dt}\sigma_k(\vec{r}_1, \dots, \vec{r}_N) = 0\Rightarrow\dot{\sigma}_k = \sum\limits_{i=1}^N\nabla_i\sigma_k\cdot\dot{\vec{r}}_i = 0$$
 
-	Including the constraints on the integration algorithm:
+	Now a condition on the velocities is added: they need to be perpendicular to the gradient of the constraint equation.
+	To compute $\lambda_k$ while the simulation is running the constraints are implemented directly in the algorithm.
+	Considering the velocity Verlet:
 
 	$$\vec{r}_i(\Delta t) = \vec{r}_i(0) + \Delta t\vec{v}_i(0) + \frac{\Delta t^2}{2m_i}\vec{F}_i(0) + \frac{\Delta t^2}{2m_i}\sum\limits_{k}\lambda_k\nabla_i\sigma_k(0)$$
 
-	TO obtain $\lambda_k$:
+	To obtain $\lambda_k$:
 
 	$$\vec{r}_i' = \vec{r}_i(0) + \Delta t\vec{v}_i(0) + \frac{\Delta t^2}{2m_i}\vec{F}_i(0)$$
 
 	$$\vec{r}_i(\Delta t) = \vec{r}'_i + \frac{1}{m_i}\sum\limits_k\tilde{\lambda}_k\nabla_i\sigma_k(0)$$
 
-	So that:
+	Considering the notation:
 
 	$$\tilde{\lambda}_k = \frac{\Delta t^2}{2}\lambda_k$$
 
-	\subsection{Constraint condition}
+		\subsubsection{Constraint condition}
+		Considering that the new coordinates need to satisfy the constraints equations.
+		This is where the constraint equations come into place:
 
-	$$\sigma_l)\vec{r}_1(\Delta t), \dots, \vec{r}_N(\Delta t)) = 0\qquad l = 1, \dots, N_C$$
+		$$\sigma_l(\vec{r}_1(\Delta t), \dots, \vec{r}_N(\Delta t)) = 0\qquad l = 1, \dots, N_C$$
 
-	$$\sigma_l\biggl(\vec{r}_1' + \frac{1}{m_1}\sum\limits_k\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N' + \frac{1}{m_N}\sum\limits_k\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0\qquad l = 1, \dots, N_C$$
+		Now there are $N_C$ equations for the new coordinates, with $N_C$ unknowns.
+		These equations will allow to compute the $\lambda_k$ and to solve the constraint equations:
 
-	Considering SHAKE, an iterative solution from an initial guess $\tilde{\lambda}_k^{(1)}$:
+		$$\sigma_l\biggl(\vec{r}_1' + \frac{1}{m_1}\sum\limits_k\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N' + \frac{1}{m_N}\sum\limits_k\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0\qquad l = 1, \dots, N_C$$
 
-	$$\vec{r}_i^{(1)} = \vec{r}_i' + \frac{1}{m_i}\sum\limits_k\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
+		There are different strategies to solve this system.
+		The first thing to do is to assume that all the sum of the sum over the $\lambda_k$ are slight corrections to the new coordinates.
+		The new values of the coordinates are those obtained without constraints with a slight modification given by the constraints.
+		Because of this a Taylor expansion can be done and considering the method SHAKE, an iterative solution is given from an initial guess $\tilde{\lambda}_k^{(1)}$:
 
-	The exact solution: $\tilde{\lambda}_k = \tilde{\lambda}_k^{(1)} + \delta\tilde{\lambda}_k^{(1)}$:
+		$$\vec{r}_i^{(1)} = \vec{r}_i' + \frac{1}{m_i}\sum\limits_k\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
 
-	$$\vec{r}_i(\Delta t) = \vec{r}_i^{(1)} + \frac{1}{m_i}\sum\limits_k\delta\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
+		In SHAKE an initial guess on $\tilde{\lambda}_k^{(1)}$ is done and then a Taylor expansion is done.
+		The exact solution: $\tilde{\lambda}_k = \tilde{\lambda}_k^{(1)} + \delta\tilde{\lambda}_k^{(1)}$, so related with the initial guess with an assumed small variation, then the coordinates at $\delta t$ will be:
 
-	$$\sigma_l\biggl(\vec{r}_1^{(1)} = \frac{1}{m_1}\sum\limits_k\delta\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N^{(1)} + \frac{1}{m_N}\sum\limits_{k}\delta\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0$$
+		$$\vec{r}_i(\Delta t) = \vec{r}_i^{(1)} + \frac{1}{m_i}\sum\limits_k\delta\tilde{\lambda}_k^{(1)}\nabla_1\sigma_k(0)$$
 
-	Considering the Taylor series:
+		Now adding the guess to the initial formula:
 
-	$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
+		$$\sigma_l\biggl(\vec{r}_1^{(1)} = \frac{1}{m_1}\sum\limits_k\delta\tilde{\lambda}_k\nabla_1\sigma_k(0), \dots, \vec{r}_N^{(1)} + \frac{1}{m_N}\sum\limits_{k}\delta\tilde{\lambda}_k\nabla_N\sigma_k(0)\biggr) = 0$$
 
-\section{Possible algorithms}
+		And the Taylor expansion is performed assuming a small $\delta\tilde{\lambda}$ to be small and stopping at the first term (linearising the equation):
 
-$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
+		$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
 
-\begin{itemize}
-	\item Direct inversion: Matrix-shake or M-SHAKE: hte procedure must be repeated because the equation above is a linear approximation.
-	\item Quick trick: only diagonal element are considered without any matrix inversion.
-	\item The same procedure can be employed for velocities like in RATTLE.
-	\item LINCS or linear constraint solver is based on the same principle and implemented in GROMACS.
-\end{itemize}
+		Now assuming that to be $0$ the $\delta\tilde{\lambda}_k$ can be obtained inverting the resulting matrix.
+		This will be a linear system that can be solved efficiently.
+		So the matrix can be inverted or it can be simplified.
+		This guess is done iteratively to continuously obtain corrections on the guesses, making the constraints equations to become more and more accurate.
+		The process will stop when the equation will be less than an arbitrary tolerance.
+		This is important because if it is too strict this will require a lot of iterations, making the simulation too slow.
+		If the tolerance is too high the constraints will not be satisfied any more and systems will explode, making the particles far apart, because the forces will be to high.
+
+		\subsubsection{Possible algorithms}
+
+		$$\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)}) + \sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_l(\vec{r}_1^{(1)}, \dots, \vec{r}_N^{(1)})\nabla_i\sigma_k(\vec{r}_1(0), \dots, \vec{r}_N(0))\delta\tilde{\lambda}_k\approx 0$$
+
+		There are different techniques to solve this matrix.
+
+			\paragraph{Direct inversion}
+			In direct inversion method like Matrix-shake or M-SHAKE the matrix is inverted and the $\tilde{\lambda}$ are computed and this procedure must be repeated because the equation above is a linear approximation.
+
+			\paragraph{Quick trick}
+			In Quick trick only diagonal elements are considered without any matrix inversion.
+
+			\paragraph{RATTLE}
+			The same procedure can be employed for velocities like in RATTLE.
+			The algorithm is the same thing as in Shake and the same thing is done for velocities, where the Lagrange multipliers for the velocities will be called $\tilde{\mu}$.
+
+
+			\paragraph{LINCS}
+			LINCS or linear constraint solver is based on the same principle and it is implemented in GROMACS.
+			It is a slight variation on the Matrix-Shake.
