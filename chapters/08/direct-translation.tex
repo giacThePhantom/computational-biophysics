@@ -1,57 +1,85 @@
 \chapter{Direct translation}
 
+\section{Introduction}
+The direct translation method is a formal representation of the Verlet and the Velocity Verlet algorithms.
+It has direct effect on those.
+
 \section{Liouville operator}
+The Liouville operator can be computed for any quantity $a$ that depends on the coordinates in phase space.
+And its derivative is:
 
 $$\frac{da}{dt} = \frac{\partial a}{\partial x_t}\dot{x}_t = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\dot{q}_a + \frac{\partial a}{\partial p_a}\dot{p}_a\biggr] = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\frac{\partial\mathcal{H}}{\partial p_a} - \frac{\partial a}{\partial p_a}\frac{\partial\mathcal{H}}{\partial q_a}\biggr] = \{a, \mathcal{H}\}$$
 
-Liouville operator:
+The iouville operator is defined as:
 
 $$iLa = \{a, \mathcal{H}\}\Rightarrow\frac{da}{dt} = iLa$$
 
-In abstract terms: $iL\cdots = \{\cdots, \mathcal{H}\}$
+The operation of the Liouville operator is to compute the Poisson brackets of $a$ with $\mathcal{H}$.
+So that the dependence on time of $a$ can be written.
+In abstract terms the operator acts on something and computes the Poisson brackets with the Hamiltonian: $iL\cdots = \{\cdots, \mathcal{H}\}$.
+It can also be written as:
 
 $$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr]$$
 
-Considering a formal solution:
+A formal solution to the equation can be written:
 
 $$\frac{da}{dt} = iLa\Rightarrow a(x_t) = e^{\overbrace{iLt}^{\text{Classical propagator}}}a(x_0)$$
 
+Obtaining the value of $a(x_t)$.
+It is called a classical propagator because it propagates $a$ from time $0$ to $t$.
+
 	\subsection{Liouville operator split}
+	This classical propagator is difficult to solve analytically so it needs to be approximated.
+	The Liouville operator can be split in two operators:
 
 	$$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr] = iL_1 + iL_2$$
 
 	$$iL_1 = \sum\limits_a\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} \qquad iL_2 = -\sum\limits_a\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}$$
 
-	These are non-commuting operators:
+	These two operators are non-commuting:
 
 	$$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)$$
 
-	And the commutator:
+	Formally, the commutator:
 
 	$$iL_1iL_2-iL_2iL_1\equiv [iL_1, iL_2]$$
 
+	If it is equal to zero the operators are commuting.
+	In the case for the Liouville's operator split they are not commuting.
 
 	\subsection{One dimensional example}
+	To demonstrate that the two Liouville's operator are not commuting consider the Hamiltonian:
 
 	$$\mathcal{H} = \frac{p^2}{2m} + U(x)$$
 
+	So that the two operators are:
+
 	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial}{\partial x} = \frac{p}{m}\frac{\partial}{\partial x}\qquad iL_2 = -\frac{\partial\mathcal{H}}{\partial x}\frac{\partial}{\partial p} = -\frac{\partial U}{\partial x}\frac{\partial}{\partial p} = F(x)\frac{\partial}{\partial p}$$
+
+	Applying the two operators in sequence to a function $\phi(x, p)$.
+	Here the operator $iL_2$ is applied first:
 
 	$$iL_1iL_2\phi(x, p) = \frac{p}{m}\frac{\partial}{\partial x}\biggl[F(x)\frac{\partial}{\partial p}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{p}{m}F'(x)\frac{\partial\phi}{\partial p}$$
 
+	Here the operator $iL_1$ is applied first:
+
 	$$iL_2iL_1\phi(x, p) = F(x)\frac{\partial}{\partial p}\biggl[\frac{p}{m}\frac{\partial}{\partial x}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{F(x)}{m}\frac{\partial \phi}{\partial x}$$
+
+	Computing the commutator:
 
 	$$[iL_1, iL_2]\phi(x, p) = \frac{p}{m}F'(x)\frac{\partial \phi}{\partial p} -\frac{F(x)}{m}\frac{\partial \phi}{\partial x}\neq 0$$
 
 \section{Trotter theorem}
+Since the two operators do not commute this equality is false:
 
 $$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)\Rightarrow e^{iLt}\neq e^{iL_1t}e^{iL_2t}$$
 
-However:
+This is important because although the classical propagator cannot be written, in many situation the propagator corresponding to $iL_1$ and $iL_2$, so that the classical propagator could be obtained.
+However, according to the Trotter theorem:
 
 $$e^{A+B} = \lim\limits_{P\rightarrow\infty}[e^{\frac{B}{2P}}e^{\frac{A}{P}}e^{\frac{B}{2P}}]^P$$
 
-Therefore:
+Therefore, considering the Liouville's split:
 
 $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
 
@@ -59,33 +87,58 @@ $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2
 
 	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
 
+	This formula  can be written as:
+
 	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty, \Delta t\rightarrow 0}[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P$$
 
-	For finite $P$:
+	Assuming that $\Delta t = \frac{t}{P}$.
+	When a simulation there will be a finite value of $P$, which will be a natural value:
 
 	$$e^{iLt}\approx[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P + \underbrace{o(P\Delta t^3)}_{\text{Global error}}$$
 
+	So that the classical propagator is equal to the term in the limit with an error due to the truncation to a finite value of $P$.
 	Taking the $\frac{1}{P}$ power:
 
 	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + \underbrace{o(\Delta t^3)}_{\text{Local error}}$$
 
+	For a small time step $\Delta t$.
+	So following a trajectory for a huge number of step the error is $o(\Delta t^2)$.
+	In this way an algorithm that comes from Trotter factorization can be built.
+	This algorithm will have a limited global error of the order of $o(\Delta t^2)$, so it will have a strong numerical stability.
+
 	\subsection{One-dimensional example}
+	In one-dimensional example everything can be written as:
 
 	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial }{\partial x} = \frac{p}{m}\frac{\partial }{\partial x}\qquad iL_2 = F(X)\frac{\partial}{\partial p}$$
 
+	So the Trotter algorithm can be written as:
+
 	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + o(\Delta t^3)$$
 
+	And making everything explicit:
+
 	$$e^{iL\Delta t}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}} + o(\Delta t^3)$$
+
+	Applying the operator to the coordinates in phase space:
 
 	$$\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}=e^{iL\Delta t}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}$$
 
 	\subsection{Exponential operators}
+	An exponential operator can be computed as:
 
-	$$e^{c\frac{\partial}{\partial x}} = \sum\limits_{k=0}^\infty\frac{1}{k!}\biggl(c\frac{\partial}{\partial x}\biggr)^kg(x) = \sum\limits_{k=0}^\infty\frac{1}{k!}c^k\frac{d^kg(x)}{dx^k} = g(x+c)$$
+	$$e^{c\frac{\partial}{\partial x}}g(x) = \sum\limits_{k=0}^\infty\frac{1}{k!}\biggl(c\frac{\partial}{\partial x}\biggr)^kg(x) = \sum\limits_{k=0}^\infty\frac{1}{k!}c^k\frac{d^kg(x)}{dx^k} = g(x+c)$$
+
+	This is another way to compute the Taylor expansion of $g$ in $x+c$.
+	So the operator translates the argument of $g$ by a quantity $c$.
+	Now applying the exponential operators to the points:
 
 	$$\begin{pmatrix}x(\Delta t)\\p(\Delta t)\end{pmatrix} = e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial}{\partial x(0)}}e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix}$$
 
+	Computing the first exponential operator:
+
 	$$e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix} = \begin{pmatrix}x(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+	Now doing the same for all the other operators:
 
 	\begin{align*}
 		\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} &= e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial }{\partial x(0)}}\begin{pmatrix} x(0)\\p(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix} =\\
@@ -94,12 +147,15 @@ $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2
 	\end{align*}
 
 \section{Trotter algorithm}
+This is the result of Trotter algorithm:
 
 $$\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} =\begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}$$
 
+Looking at the first line:
+
 $$x(\Delta t) = x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\Rightarrow x(\Delta t) = x(0) + v(0)\Delta t + \frac{\Delta t^2}{2m}F(0)$$
 
-And like in the Velocity Verlet:
+And considering the second line:
 
 $$p(\Delta t) = p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{2}F\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(o) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)$$
 
@@ -107,25 +163,46 @@ So that:
 
 $$p(\Delta t) = p(0) + \frac{\Delta t}{2}[F(x(0)) + F(x(\Delta t))]\Rightarrow v(\Delta t) = v(0) + \frac{\Delta t}{2m}[F(0) + F(\Delta t)]$$
 
+So that inside the square brackets it is an average of the forces at time $0$ and at time $\Delta t$.
+The two final formulae are the one needed to update the positions and velocities of the system.
+These two formulas are the Velocity Verlet algorithm.
+This is an important result telling that the Velocity Verlet is the best algorithm for molecular dynamics.
+
 	\subsection{Direct translation}
+	There is a quick way to compute the results of the Trotter algorithm, which leads to direct translation.
+	What there is to do is to work in a sloppy matter on the operators.
+	In this way the formulae can be written directly into lines of code.
 
 		\subsubsection{Momentum translation}
+		Considering the first operator, it is translating the momentum by the quantity $\frac{\Delta t}{2}F(x)$.
+		So this will translate $p$ from time zero to time $\frac{\Delta t}{2}$.
+		So when applying this operator $p$ will change and $x$ will remain the same.
 
 		$$e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix} = \begin{pmatrix} x(0)\\ p\biggl(\frac{\Delta t}{2}\biggr) = p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+		Corresponding code:
 
 		\begin{lstlisting}[escapeinside={(*}{*)}]
 			p = p + 0.5 * (*$\Delta t$*) * F
 		\end{lstlisting}
 
 		\subsubsection{Position translation}
+		Applying the second operator only $x$ will be translated:
 
 		$$e^{\frac{\Delta}{m}p\biggl(\frac{\Delta t}{2}\biggr)\frac{\partial}{\partial x}}\begin{pmatrix}x(0)\\p\biggl(\frac{\Delta t}{2}\biggr) = p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+		Corresponding code:
 
 		\begin{lstlisting}[escapeinside={(*}{*)}]
 			x = x + (*$\Delta t$*) * F * p/m
 		\end{lstlisting}
 
 		\subsubsection{Momentum translation with updated forces}
+		Now applying the third operator $p$ will be translated by another $\frac{\Delta t}{2}$.
+		Looking at this formula the same result of the Trotter theorem is obtained.
+		In this third step also the forces are updated.
+
+		Corresponding code:
 
 		$$e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(\Delta t)\biggl(\frac{\Delta t}{2}\biggr)\end{pmatrix} = \begin{pmatrix} x(\Delta t) \\ p(\Delta t) = p\biggl(\frac{\Delta t}{2}\biggr) + \frac{\Delta t}{2}F(x(\Delta t))\end{pmatrix}$$
 
@@ -134,31 +211,49 @@ $$p(\Delta t) = p(0) + \frac{\Delta t}{2}[F(x(0)) + F(x(\Delta t))]\Rightarrow v
 		\end{lstlisting}
 
 	\subsection{Multiple time step integration}
-	Consider a typical force field:
+	The problem when studying a force field, there are several term that correspond to the bonded interactions and the non-bonded interactions:
 
 	\begin{align*}
 		U(\vec{r}_1, \dots, \vec{r}_N) =& \frac{1}{2}\sum\limits_{bonds} K_{bond}(r - r_0)^2 + \frac{1}{2}\sum\limits_{bends}K_{bend}(\theta - \theta_0)^2 + \sum\limits_{torsions}\sum\limits_{n=0}^6 A_n[1 + \cos(C_n\phi + \delta_n)] + \\
 																		&+\sum\limits_{i, j\in nb}\biggl\{\biggl[ 4\epsilon_{ij}\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^6\biggr] + \frac{q_iq_j}{r_{ij}}\biggr\}
 	\end{align*}
 
+	It can be assumed that the atoms will be subject to forces with different time scales: the bonded interactions will change more rapidly than the non-bonded interactions.
+	This is because the positions on the atoms do not change so much.
+	It can be seen how the non-bonded interaction, which are the slow forces are very expensive to compute.
+	So there is no reason to recompute the non-bonded interactions every time the fast forces are changing.
+	So the Hamiltonian can be split into a reference Hamiltonian corresponding to the fast forces and another corresponding to the slow ones:
+
 	$$\mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)\qquad \dot{x} = \frac{p}{m}\qquad \dot{p} = F_{fast}(x) + F_{slow}(x)$$
+
+	In this case the Liouville;s operator will be:
 
 	$$iL = \frac{p}{m}\frac{\partial }{\partial x} + [F_{fast}(x) + F_{slow}(x)]\frac{\partial}{\partial p}$$
 
+	So that there will be a fast Liouville's operator and a slow one.
+
 	\subsection{Reference system propagator}
+	The reference system propagator is referred to the reference Hamiltonian.
+	Considering:
 
 	$$iL = \frac{p}{m}\frac{\partial }{\partial x} + [F_{fast}(x) + F_{slow}(x)]\frac{\partial}{\partial p} = iL_{fast} + iL_{slow}$$
 
+	And:
+
 	$$\mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)$$
+
+	The reference system propagation for the fast forces and the slow part of the slow propagator:
 
 	$$iL_{fast} = \frac{p}{m}\frac{\partial}{\partial x} + F_{fast}(x)\frac{\partial}{\partial p}\qquad iL_{slow} = F_{slow}(x)\frac{\partial}{\partial p}$$
 
-	Considering Trotter factorisation:
+	Applying Trotter factorisation:
 
 	$$e^{iL\Delta t} = e^{iL_{slow}\frac{\Delta t}{2}}e^{iL_{fast}\Delta t}e^{iL_{slow}\frac{\Delta t}{2}}$$
 
 	\subsection{RESPA}
-	RESPA is the reference system propagator algorithm, where $\Delta t$ is chosen according to the time scale of the slow forces.
+	RESPA is the reference system propagator algorithm, where $\Delta t$ is chosen according to the time scale of the slow forces, allowing to use a much bigger $\Delta t$ with respect to the one considering all the forces together.
+	It comes from the split of the Hamiltonian into a slow and fast part.
+	It allow to compute the electrostatic and Van der Waals forces less times than the calculation of the bonded interactions, saving a lot of computational power.
 
 	$$e^{iL_{fast}\Delta t} = \biggl[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\biggr]^n\qquad \delta t = \frac{\Delta t}{n}$$
 

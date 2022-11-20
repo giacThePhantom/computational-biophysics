@@ -35,7 +35,7 @@ The strategy is to divide en impera the long and short ranged contributions.
 		\end{itemize}
 	\end{multicols}
 
-	$$\frac{1}{r} = \overbrace{\frac{erfc{\alpha r}}{r}^{\text{short-ranged}} + \oberbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}}$$
+	$$\frac{1}{r} = \overbrace{\frac{erfc{\alpha r}}{r}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}}$$
 
 	\subsection{Divide et impera}
 
@@ -43,7 +43,7 @@ The strategy is to divide en impera the long and short ranged contributions.
 
 	$$U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\biggl\{4\epsilon_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij,\vec{S}}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^6\biggr] + \frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}\biggr\}$$
 
-	$$U_{long}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limiits_S\sum\limits_{i>j\in nb} \fra{q_iq_j erf(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}$$
+	$$U_{long}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_S\sum\limits_{i>j\in nb} \frac{q_iq_j erf(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}$$
 
 	$$r_{ij, \vec{S}} = |\vec{r}_i-\vec{r}_j + \vec{S}|\qquad \vec{S} = \vec{m}L$$
 

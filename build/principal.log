@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  20 NOV 2022 08:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  20 NOV 2022 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,7 +900,7 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [6]
 Chapter 2.
-<chapters/02/images//planar.png, id=712, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=732, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
@@ -909,7 +909,7 @@ Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 [7
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=724, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=744, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
@@ -929,7 +929,7 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 
 LaTeX Warning: Reference `rama' on page 9 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=736, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=756, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
@@ -943,7 +943,7 @@ ine 103.
 
 LaTeX Warning: Reference `ala_gly' on page 10 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=741, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=761, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
@@ -954,7 +954,7 @@ LaTeX Warning: Reference `ramachandran-final' on page 10 undefined on input lin
 e 116.
 
 [10 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=754, 1340.00626pt x 849.1725pt>
+<chapters/02/images//contact.png, id=774, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
@@ -962,14 +962,14 @@ Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
 [11 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=763, 1514.65875pt x 778.91pt>
+<chapters/02/images//topology.png, id=783, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
  [12 <./chapters/02/images//topology.png>] [13]
-<chapters/02/images//rmsd.png, id=775, 1161.33875pt x 809.0225pt>
+<chapters/02/images//rmsd.png, id=795, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
@@ -1025,72 +1025,72 @@ Chapter 7.
 Chapter 8.
 [61
 
-]
+] [62]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 58.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 58.
+(hyperref)                removing `math shift' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 58.
+(hyperref)                removing `\Delta' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 58.
+(hyperref)                removing `\begingroup' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 58.
+(hyperref)                removing `\endgroup' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 58.
+(hyperref)                removing `\@@over' on input line 86.
 
-[62] [63]
-Overfull \hbox (4.16992pt too wide) detected at line 142
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 86.
+
+[63] [64] [65]
+Overfull \hbox (4.16992pt too wide) detected at line 219
 []
  []
 
-[64]) (./chapters/09/evaluation-energy-forces.tex [65]
+[66]) (./chapters/09/evaluation-energy-forces.tex [67]
 Chapter 9.
-) (./chapters/10/canonical-ensemble.tex [66
+[68
 
-]
+]) (./chapters/10/canonical-ensemble.tex [69]
 Chapter 10.
-) (./chapters/11/thermostats.tex [67
+) (./chapters/11/thermostats.tex [70
 
 ]
 Chapter 11.
-) (./chapters/12/isobaric-ensembles.tex [68
+) (./chapters/12/isobaric-ensembles.tex [71
 
 ]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [69
+) (./chapters/13/grand-canonical-ensemble.tex [72
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [70
+) (./chapters/14/uncertainties-sampling-quality.tex [73
 
 ]
 Chapter 14.
-) [71
+) [74
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: AED3B242CFE382ED804598BF36771314;21156.
+(rerunfilecheck)             Checksum: 3E02B2E9C1E9B7731A281818AF528FB4;21782.
  ) 
 Here is how much of TeX's memory you used:
- 24280 strings out of 478238
- 441559 string characters out of 5850455
- 814972 words of memory out of 5000000
- 41860 multiletter control sequences out of 15000+600000
+ 24291 strings out of 478238
+ 441696 string characters out of 5850455
+ 814978 words of memory out of 5000000
+ 41864 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,522b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1122,10 +1122,10 @@ nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (72 pages, 2199183 bytes).
+Output written on ./build/principal.pdf (75 pages, 2210165 bytes).
 PDF statistics:
- 1272 PDF objects out of 1440 (max. 8388607)
- 1107 compressed objects within 12 object streams
- 256 named destinations out of 1000 (max. 500000)
- 1092 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1307 PDF objects out of 1440 (max. 8388607)
+ 1139 compressed objects within 12 object streams
+ 263 named destinations out of 1000 (max. 500000)
+ 1124 words of extra memory for PDF output out of 10000 (max. 10000000)
 
