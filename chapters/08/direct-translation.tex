@@ -254,8 +254,13 @@ This is an important result telling that the Velocity Verlet is the best algorit
 	RESPA is the reference system propagator algorithm, where $\Delta t$ is chosen according to the time scale of the slow forces, allowing to use a much bigger $\Delta t$ with respect to the one considering all the forces together.
 	It comes from the split of the Hamiltonian into a slow and fast part.
 	It allow to compute the electrostatic and Van der Waals forces less times than the calculation of the bonded interactions, saving a lot of computational power.
+	Focussing on the fast part of the RESPA algorithm:
 
 	$$e^{iL_{fast}\Delta t} = \biggl[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\biggr]^n\qquad \delta t = \frac{\Delta t}{n}$$
+
+	This part can be factorized again using the fact that $\Delta t$ is sub-divided in $n$ intervals, where $\delta t$ is the time-step where the fast forces will act.
+	This will be applied $n$ times so it corresponds to one time step.
+	Writing down the entire classical propagator the fast operator is in-between the slow one.
 
 	$$e^{iL\Delta t} = e^{\frac{\Delta t}{2}F_{slow}\frac{\partial}{\partial p}}\biggl[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\biggr]^ne^{\frac{\Delta t}{2}F_{slow}\frac{\partial}{\partial p}}$$
 
@@ -274,7 +279,9 @@ This is an important result telling that the Velocity Verlet is the best algorit
 	\end{lstlisting}
 
 \section{Symplectic solver}
-The Velocity Verlet is an example of a symplectic aglorithm.
+By demonstrating the applicability of the Trotter algorithm, the symplectic property of the Verlet algorithm has been demonstrated.
 The Hamiltonian is not strictly conserved, however it conserves a shadow Hamiltonian $\tilde{\mathcal{H}}(x, \Delta t)$ that is close to the true Hamiltonian $\mathcal{H}(x)$ such that:
 
 $$\lim\limits_{\Delta t\rightarrow 0}\tilde{\mathcal{H}}(x, \Delta t) = \mathcal{H}(x)$$
+
+This property guarantees that this algorithm is numerically stable for any amount of time.
