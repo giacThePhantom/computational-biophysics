@@ -47,4 +47,60 @@ The strategy is to divide en impera the long and short ranged contributions.
 
 	$$r_{ij, \vec{S}} = |\vec{r}_i-\vec{r}_j + \vec{S}|\qquad \vec{S} = \vec{m}L$$
 
-	So the original distribution of charges is equal to the sum in direct space of the screened electrostatic interactions and the sum in reciprocal space os the Gaussian clouds of charges.
+	So the original distribution of charges is equal to the sum in direct space of the screened electrostatic interactions and the sum in reciprocal space of the Gaussian clouds of charges.
+
+\section{Short range forces}
+
+$$U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\biggl\{4\epsilon_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^{12} - \biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^{6}\biggr] + \frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}r_{ij, \vec{S}}\biggr\}$$
+
+Considering a cutoff radius $r_C\approx 10$-$12\si{\angstrom}$ and $\alpha = \frac{3.5}{r_C}$:
+
+$$\tilde{U}_{short}(r_{ij}) = \begin{cases} U_{short}(r_{ij}) - U_{short}(r_C) & r<r_C\\ 0 & r>r_C\end{cases}$$
+
+So the force is discontinuous.
+
+	\subsection{Switching function}
+
+	$$\tilde{U}_{short}(r-{ij}) = U_{short}(r_{ij})S(r_{ij})\qquad S(r) = \begin{cases} 1 & r<r_C-\lambda\\ 1 + \biggl(\frac{r-r_C+\lambda}{\lambda}\biggr)^2\biggl(2\frac{r-r_C + \lambda}{\lambda} - 3\biggr) & r_c -\lambda < r\le r_C\\0 & r> r_C\end{cases}$$
+
+	Corrections to energy and pressure are required.
+
+\section{Minimum image convention}
+Particle $i$ interacts with the periodic image of particle $j$ to which it is closest.
+
+	\subsection{Verlet Neighbour list}
+
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item A list of neighbours for all particles is given.
+			\item At each time step $k\Delta t$ the displacements $\Delta_i = |\vec{r}_i(k\Delta t) - \vec{r}_i(0)|$ is computed.
+			\item $\Delta_{\max} = \max\Delta_i$.
+			\item If $\Delta_{\max} > \frac{\delta}{2}$ the lists are updated.
+		\end{enumerate}
+	\end{multicols}
+
+	In a more efficient alternative the system is divided into cells of size equal or slightly larger than $r_C$.
+
+\section{Long range forces}
+Considering a cubic cell of volume $V = L^3$ the reciprocal space vectors are $\vec{g} = \frac{2\pi}{L}\vec{n}$.
+Considering the Poisson summation rule:
+
+$$\sum\limits_{\vec{S}}\frac{erf(\alpha|\vec{r} + \vec{S}|)}{|\vec{r}+\vec{S}|} = \frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}}$$
+
+$$C_{\vec{g}} = \sum\limits_{\vec{S}}\int_{D(V)} d\vec{r}\frac{erf(\alpha|\vec{r}+\vec{S}|)}{|\vec{r}+\vec{S}|}e^{-i\vec{g}\cdot\vec{r}} = \int_{\text{all space}}d\vec{r}\frac{erf(\alpha r)}{r}e^{i\vec{g}\cdot\vec{r}} = \frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+
+The term $\vec{n} = \begin{pmatrix} 0&0&0\end{pmatrix}$ is not included.
+The sum is truncated with $|\vec{g}|<g_{max}$.
+
+	\subsection{Summing up}
+	Considering that $C_{\vec{g}} = C_{-\vec{g}}$ and $\mathcal{S}$ the positive hemisphere:
+
+	$$\frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}} = \frac{2}{V}\sum\limits_{i>j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{2\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}$$
+
+	Adding and subtracting the term with $i = j$:
+
+	$$U_{long} = \frac{1}{V}\sum\limits_{i, j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|}{4\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}-\frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+
+	Thus:
+
+	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
