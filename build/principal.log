@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  21 NOV 2022 02:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  21 NOV 2022 05:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,7 +900,7 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [6]
 Chapter 2.
-<chapters/02/images//planar.png, id=767, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=787, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
@@ -909,7 +909,7 @@ Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 [7
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=779, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=799, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
@@ -929,7 +929,7 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 
 LaTeX Warning: Reference `rama' on page 9 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=791, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=811, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
@@ -943,7 +943,7 @@ ine 103.
 
 LaTeX Warning: Reference `ala_gly' on page 10 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=796, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=816, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
@@ -954,7 +954,7 @@ LaTeX Warning: Reference `ramachandran-final' on page 10 undefined on input lin
 e 116.
 
 [10 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=809, 1340.00626pt x 849.1725pt>
+<chapters/02/images//contact.png, id=829, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
@@ -962,14 +962,14 @@ Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
 [11 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=818, 1514.65875pt x 778.91pt>
+<chapters/02/images//topology.png, id=839, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
  [12 <./chapters/02/images//topology.png>] [13]
-<chapters/02/images//rmsd.png, id=831, 1161.33875pt x 809.0225pt>
+<chapters/02/images//rmsd.png, id=851, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
@@ -1059,38 +1059,43 @@ Overfull \hbox (4.16992pt too wide) detected at line 219
 Chapter 9.
 [68
 
-] [69]) (./chapters/10/canonical-ensemble.tex [70]
+] [69] [70]
+Underfull \hbox (badness 6220) in paragraph at lines 153--154
+[]\T1/cmr/m/n/10 Maxwell equa-tion molec-u-lar dy-nam-ics
+ []
+
+) (./chapters/10/canonical-ensemble.tex [71]
 Chapter 10.
-) (./chapters/11/thermostats.tex [71
+) (./chapters/11/thermostats.tex [72
 
 ]
 Chapter 11.
-) (./chapters/12/isobaric-ensembles.tex [72
+) (./chapters/12/isobaric-ensembles.tex [73
 
 ]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [73
+) (./chapters/13/grand-canonical-ensemble.tex [74
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [74
+) (./chapters/14/uncertainties-sampling-quality.tex [75
 
 ]
 Chapter 14.
-) [75
+) [76
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 49B5BC48ADAC419E5E606B4266B22D0D;22820.
+(rerunfilecheck)             Checksum: 4299B1C19D1BBBA53BF6664E56F2FBD1;23556.
  ) 
 Here is how much of TeX's memory you used:
- 24310 strings out of 478238
- 441935 string characters out of 5850455
- 815987 words of memory out of 5000000
- 41871 multiletter control sequences out of 15000+600000
+ 24319 strings out of 478238
+ 442068 string characters out of 5850455
+ 815990 words of memory out of 5000000
+ 41875 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,522b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1122,10 +1127,10 @@ nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (76 pages, 2220352 bytes).
+Output written on ./build/principal.pdf (77 pages, 2224167 bytes).
 PDF statistics:
- 1352 PDF objects out of 1440 (max. 8388607)
- 1183 compressed objects within 12 object streams
- 275 named destinations out of 1000 (max. 500000)
- 1180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1378 PDF objects out of 1440 (max. 8388607)
+ 1207 compressed objects within 13 object streams
+ 280 named destinations out of 1000 (max. 500000)
+ 1212 words of extra memory for PDF output out of 10000 (max. 10000000)
 

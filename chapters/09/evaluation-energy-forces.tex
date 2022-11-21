@@ -109,5 +109,47 @@ The sum is truncated with $|\vec{g}|<g_{max}$.
 
 	\begin{align*}
 		U_{long} &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}} = \\
-						 &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{1}{2V}\sum\limits_{i}q_i^2\sum\limits_{g\neq(0,0,0)}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}
+						 &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{1}{2V}\sum\limits_{i}q_i^2\sum\limits_{g\neq\begin{pmatrix} 0&0&0\end{pmatrix}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}
 	\end{align*}
+
+	However:
+
+	$$\frac{1}{V}\sum\limits_{\vec{g}\neq\begin{pmatrix}0&0&0&0\end{pmatrix}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}} = \lim\limits_{r\rightarrow 0}\frac{erf(\alpha r)}{r} = \lim\limits_{r\rightarrow 0}\frac{2}{r\sqrt{\pi}}\int_0^{\alpha r}e^{-t^2}dt = \lim\limits_{r\rightarrow 0}\frac{2\alpha e^{-\alpha^2r^2}}{\sqrt{\pi}} = \frac{2\alpha}{\sqrt{\pi}}$$
+
+	Considering the self-interaction correction:
+
+	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{\alpha}{\sqrt{\pi}}\sum\limits_iq_i^2$$
+
+\section{Alternatives}
+The structure factor $S(\vec{g})$ leads to an interaction between all charged particles, so unwanted interactions need to be subtracted.
+
+	\subsection{Smooth particle mesh Ewald}
+	The smooth particle mesh Ewald SPME method uses splines to interpolate charge distributions on a grid.
+
+	\subsection{Particle-particle particle-mesh Ewald}
+	The particle-particle particle mesh Ewald or PPPM or P3M uses the density function to compute the structure factor:
+
+	$$\rho(\vec{g}) = \int d\vec{r}\rho(\vec{r})e^{i\vec{g}\cdot\vec{r}} = \sum\limits_i q_i e^{i\vec{g}\cdot\vec{r}_i}$$
+
+	$$\rho(\vec{r}) = \sum\limits_{i}q_i\delta(\vec{r}-\vec{r}_i)$$
+
+	Considering Poisson equation:
+
+	$$\nabla^2\phi(\vec{r}) = -\nabla\cdot\vec{E} = -4\pi\rho(\vec{r})$$
+
+	And the reciprocal space:
+
+	$$g^2\phi(\vec{g}) = 4\pi\rho(\vec{g}) = 4\pi S(\vec{G})$$
+
+	\subsection{Other cheap options}
+	Other cheap options include:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Spherical truncation.
+			\item Reaction field on a molecule.
+			\item Fast multiple methods FMM.
+			\item Multilevel summation method MSM,
+			\item Maxwell equation molecular dynamics MEMD.
+		\end{itemize}
+	\end{multicols}
