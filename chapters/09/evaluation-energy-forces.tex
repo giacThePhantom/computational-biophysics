@@ -104,3 +104,10 @@ The sum is truncated with $|\vec{g}|<g_{max}$.
 	Thus:
 
 	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+
+	\subsection{Ewald sum}
+
+	\begin{align*}
+		U_{long} &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}} = \\
+						 &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{1}{2V}\sum\limits_{i}q_i^2\sum\limits_{g\neq(0,0,0)}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}
+	\end{align*}

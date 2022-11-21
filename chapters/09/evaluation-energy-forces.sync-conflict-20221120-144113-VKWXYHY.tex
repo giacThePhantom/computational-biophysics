@@ -1,0 +1,50 @@
+\chapter{Evaluation of energies and forces}
+
+\section{Periodic boundary conditions}
+
+$$U_{nb}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{i>j\in nb}\biggl\{4e_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^6\biggr] + \frac{q_iq_j}{r_{ij}}\biggr\}$$
+
+Periodic boundary conditions are a Fourier representation.
+The idea is that any function that is long ranged in space will be short ranged in the reciprocal or Fourier space.
+The strategy is to divide en impera the long and short ranged contributions.
+
+	\subsection{The error function}
+	An error function is defined such that:
+
+	$$erf(x) = \frac{2}{\sqrt{\pi}}\int_o^x dte^{-t^2}$$
+
+	This has some properties:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\lim\limits_{x\rightarrow \infty}erf(x) = 1$.
+			\item $erf(0) = 0$
+		\end{itemize}
+	\end{multicols}
+
+	The complement error function is:
+
+	$$erfc(x) = 1- erf(x) = \frac{2}{\sqrt{\pi}}\int_x^\infty dte^{-t^2}$$
+
+	Such that:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\lim\limits_{x\rightarrow\infty} erfc = 0$.
+			\item $erf(x) + erfc(x) = 1$.
+		\end{itemize}
+	\end{multicols}
+
+	$$\frac{1}{r} = \overbrace{\frac{erfc{\alpha r}}{r}^{\text{short-ranged}} + \oberbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}}$$
+
+	\subsection{Divide et impera}
+
+	$$U_{nb}(\vec{r}_1, \dots, \vec{r}_N) = U_{short}(\vec{r}_1, \dots, \vec{r}_N) + U_{long}(\vec{r}_1, \dots, \vec{r}_n)$$
+
+	$$U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\biggl\{4\epsilon_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij,\vec{S}}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^6\biggr] + \frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}\biggr\}$$
+
+	$$U_{long}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limiits_S\sum\limits_{i>j\in nb} \fra{q_iq_j erf(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}$$
+
+	$$r_{ij, \vec{S}} = |\vec{r}_i-\vec{r}_j + \vec{S}|\qquad \vec{S} = \vec{m}L$$
+
+	So the original distribution of charges is equal to the sum in direct space of the screened electrostatic interactions and the sum in reciprocal space os the Gaussian clouds of charges.

@@ -1,0 +1,185 @@
+\chapter{Direct translation}
+
+\section{Liouville operator}
+
+$$\frac{da}{dt} = \frac{\partial a}{\partial x_t}\dot{x}_t = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\dot{q}_a + \frac{\partial a}{\partial p_a}\dot{p}_a\biggr] = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\frac{\partial\mathcal{H}}{\partial p_a} - \frac{\partial a}{\partial p_a}\frac{\partial\mathcal{H}}{\partial q_a}\biggr] = \{a, \mathcal{H}\}$$
+
+Liouville operator:
+
+$$iLa = \{a, \mathcal{H}\}\Rightarrow\frac{da}{dt} = iLa$$
+
+In abstract terms: $iL\cdots = \{\cdots, \mathcal{H}\}$
+
+$$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr]$$
+
+Considering a formal solution:
+
+$$\frac{da}{dt} = iLa\Rightarrow a(x_t) = e^{\overbrace{iLt}^{\text{Classical propagator}}}a(x_0)$$
+
+	\subsection{Liouville operator split}
+
+	$$iL = \sum\limits_a\biggl[\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} - \frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}\biggr] = iL_1 + iL_2$$
+
+	$$iL_1 = \sum\limits_a\frac{\partial\mathcal{H}}{\partial p_a}\frac{\partial}{\partial q_a} \qquad iL_2 = -\sum\limits_a\frac{\partial\mathcal{H}}{\partial q_a}\frac{\partial}{\partial p_a}$$
+
+	These are non-commuting operators:
+
+	$$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)$$
+
+	And the commutator:
+
+	$$iL_1iL_2-iL_2iL_1\equiv [iL_1, iL_2]$$
+
+
+	\subsection{One dimensional example}
+
+	$$\mathcal{H} = \frac{p^2}{2m} + U(x)$$
+
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial}{\partial x} = \frac{p}{m}\frac{\partial}{\partial x}\qquad iL_2 = -\frac{\partial\mathcal{H}}{\partial x}\frac{\partial}{\partial p} = -\frac{\partial U}{\partial x}\frac{\partial}{\partial p} = F(x)\frac{\partial}{\partial p}$$
+
+	$$iL_1iL_2\phi(x, p) = \frac{p}{m}\frac{\partial}{\partial x}\biggl[F(x)\frac{\partial}{\partial p}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{p}{m}F'(x)\frac{\partial\phi}{\partial p}$$
+
+	$$iL_2iL_1\phi(x, p) = F(x)\frac{\partial}{\partial p}\biggl[\frac{p}{m}\frac{\partial}{\partial x}\biggr]\phi(x, p) = \frac{p}{m}F(x)\frac{\partial^2\phi}{\partial x\partial p} + \frac{F(x)}{m}\frac{\partial \phi}{\partial x}$$
+
+	$$[iL_1, iL_2]\phi(x, p) = \frac{p}{m}F'(x)\frac{\partial \phi}{\partial p} -\frac{F(x)}{m}\frac{\partial \phi}{\partial x}\neq 0$$
+
+\section{Trotter theorem}
+
+$$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)\Rightarrow e^{iLt}\neq e^{iL_1t}e^{iL_2t}$$
+
+However:
+
+$$e^{A+B} = \lim\limits_{P\rightarrow\infty}[e^{\frac{B}{2P}}e^{\frac{A}{P}}e^{\frac{B}{2P}}]^P$$
+
+Therefore:
+
+$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
+
+	\subsection{$\Delta t = \frac{t}{P}$}
+
+	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}]^P$$
+
+	$$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty, \Delta t\rightarrow 0}[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P$$
+
+	For finite $P$:
+
+	$$e^{iLt}\approx[e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}]^P + \underbrace{o(P\Delta t^3)}_{\text{Global error}}$$
+
+	Taking the $\frac{1}{P}$ power:
+
+	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + \underbrace{o(\Delta t^3)}_{\text{Local error}}$$
+
+	\subsection{One-dimensional example}
+
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial }{\partial x} = \frac{p}{m}\frac{\partial }{\partial x}\qquad iL_2 = F(X)\frac{\partial}{\partial p}$$
+
+	$$e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}} + o(\Delta t^3)$$
+
+	$$e^{iL\Delta t}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}} + o(\Delta t^3)$$
+
+	$$\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}=e^{iL\Delta t}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}\approx e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}e^{\Delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(\Delta t)\\ p(\Delta t)\end{pmatrix}$$
+
+	\subsection{Exponential operators}
+
+	$$e^{c\frac{\partial}{\partial x}} = \sum\limits_{k=0}^\infty\frac{1}{k!}\biggl(c\frac{\partial}{\partial x}\biggr)^kg(x) = \sum\limits_{k=0}^\infty\frac{1}{k!}c^k\frac{d^kg(x)}{dx^k} = g(x+c)$$
+
+	$$\begin{pmatrix}x(\Delta t)\\p(\Delta t)\end{pmatrix} = e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial}{\partial x(0)}}e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix}$$
+
+	$$e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix} = \begin{pmatrix}x(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+	\begin{align*}
+		\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} &= e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial }{\partial x(0)}}\begin{pmatrix} x(0)\\p(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix} =\\
+																													 & = e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0) + \Delta t\frac{p(0)}{m}\\p(0) + \frac{\Delta t}{2}F(x(0) + \Delta t\frac{p(0)}{m})\end{pmatrix} =\\
+																													 &= \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}
+	\end{align*}
+
+\section{Trotter algorithm}
+
+$$\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} =\begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}$$
+
+$$x(\Delta t) = x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\Rightarrow x(\Delta t) = x(0) + v(0)\Delta t + \frac{\Delta t^2}{2m}F(0)$$
+
+And like in the Velocity Verlet:
+
+$$p(\Delta t) = p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{2}F\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(o) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)$$
+
+So that:
+
+$$p(\Delta t) = p(0) + \frac{\Delta t}{2}[F(x(0)) + F(x(\Delta t))]\Rightarrow v(\Delta t) = v(0) + \frac{\Delta t}{2m}[F(0) + F(\Delta t)]$$
+
+	\subsection{Direct translation}
+
+		\subsubsection{Momentum translation}
+
+		$$e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(0)\\p(0)\end{pmatrix} = \begin{pmatrix} x(0)\\ p\biggl(\frac{\Delta t}{2}\biggr) = p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+		\begin{lstlisting}[escapeinside={(*}{*)}]
+			p = p + 0.5 * (*$\Delta t$*) * F
+		\end{lstlisting}
+
+		\subsubsection{Position translation}
+
+		$$e^{\frac{\Delta}{m}p\biggl(\frac{\Delta t}{2}\biggr)\frac{\partial}{\partial x}}\begin{pmatrix}x(0)\\p\biggl(\frac{\Delta t}{2}\biggr) = p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix}$$
+
+		\begin{lstlisting}[escapeinside={(*}{*)}]
+			x = x + (*$\Delta t$*) * F * p/m
+		\end{lstlisting}
+
+		\subsubsection{Momentum translation with updated forces}
+
+		$$e^{\frac{\Delta t}{2}F(x)\frac{\partial}{\partial p}}\begin{pmatrix}x(\Delta t)\biggl(\frac{\Delta t}{2}\biggr)\end{pmatrix} = \begin{pmatrix} x(\Delta t) \\ p(\Delta t) = p\biggl(\frac{\Delta t}{2}\biggr) + \frac{\Delta t}{2}F(x(\Delta t))\end{pmatrix}$$
+
+		\begin{lstlisting}[escapeinside={(*}{*)}]
+			p = p + 0.5 * (*$\Delta t$*) * F
+		\end{lstlisting}
+
+	\subsection{Multiple time step integration}
+	Consider a typical force field:
+
+	\begin{align*}
+		U(\vec{r}_1, \dots, \vec{r}_N) =& \frac{1}{2}\sum\limits_{bonds} K_{bond}(r - r_0)^2 + \frac{1}{2}\sum\limits_{bends}K_{bend}(\theta - \theta_0)^2 + \sum\limits_{torsions}\sum\limits_{n=0}^6 A_n[1 + \cos(C_n\phi + \delta_n)] + \\
+																		&+\sum\limits_{i, j\in nb}\biggl\{\biggl[ 4\epsilon_{ij}\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^6\biggr] + \frac{q_iq_j}{r_{ij}}\biggr\}
+	\end{align*}
+
+	$$\mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)\qquad \dot{x} = \frac{p}{m}\qquad \dot{p} = F_{fast}(x) + F_{slow}(x)$$
+
+	$$iL = \frac{p}{m}\frac{\partial }{\partial x} + [F_{fast}(x) + F_{slow}(x)]\frac{\partial}{\partial p}$$
+
+	\subsection{Reference system propagator}
+
+	$$iL = \frac{p}{m}\frac{\partial }{\partial x} + [F_{fast}(x) + F_{slow}(x)]\frac{\partial}{\partial p} = iL_{fast} + iL_{slow}$$
+
+	$$\mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)$$
+
+	$$iL_{fast} = \frac{p}{m}\frac{\partial}{\partial x} + F_{fast}(x)\frac{\partial}{\partial p}\qquad iL_{slow} = F_{slow}(x)\frac{\partial}{\partial p}$$
+
+	Considering Trotter factorisation:
+
+	$$e^{iL\Delta t} = e^{iL_{slow}\frac{\Delta t}{2}}e^{iL_{fast}\Delta t}e^{iL_{slow}\frac{\Delta t}{2}}$$
+
+	\subsection{RESPA}
+	RESPA is the reference system propagator algorithm, where $\Delta t$ is chosen according to the time scale of the slow forces.
+
+	$$e^{iL_{fast}\Delta t} = \biggl[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\biggr]^n\qquad \delta t = \frac{\Delta t}{n}$$
+
+	$$e^{iL\Delta t} = e^{\frac{\Delta t}{2}F_{slow}\frac{\partial}{\partial p}}\biggl[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\biggr]^ne^{\frac{\Delta t}{2}F_{slow}\frac{\partial}{\partial p}}$$
+
+	And for a direct translation in pseudocode:
+
+	\begin{lstlisting}[escapeinside={(*}{*)}]
+		p = p + 0.5 * (*$\Delta t$*) * (*$F_{slow}$*)
+		for i = 1 to n
+			p = p + 0.5 * *($\delta t$*) * (*$F_{fast}$*)
+			x = x + (*$\delta t$*) * p/m
+			Recompute only fast forces
+			p = p + 0.5 * (*$\delta t$*) * (*$F_{fast}$*)
+		endfor
+		Recompute slow forces
+		p = p + 0.5 * (*$\delta t$*) * (*$F_{slow}$*)
+	\end{lstlisting}
+
+\section{Symplectic solver}
+The Velocity Verlet is an example of a symplectic aglorithm.
+The Hamiltonian is not strictly conserved, however it conserves a shadow Hamiltonian $\tilde{\mathcal{H}}(x, \Delta t)$ that is close to the true Hamiltonian $\mathcal{H}(x)$ such that:
+
+$$\lim\limits_{\Delta t\rightarrow 0}\tilde{\mathcal{H}}(x, \Delta t) = \mathcal{H}(x)$$
