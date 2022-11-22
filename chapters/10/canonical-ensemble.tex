@@ -24,12 +24,120 @@ $$\frac{1}{T} = \biggl(\frac{\partial S}{\partial E}\biggr)_{N, V}\qquad\frac{P}
 
 	\subsection{Thermal contact}
 
+	$$E = E_1 + E_2\qquad E_2\gg E_1$$
+
+	$$N = N_1 + N_2\qquad N_2\gg N_1$$
+
+	$$E = E_1 + E_2\qquad E_2\gg E_1$$
+
+	$$\mathcal{H}(c) =\mathcal{H}(x_1)+\mathcal{H}(x_2)$$
+
+	The microcanonical partition functino of the universe:
+
+	$$\Omega(N, V, E) = M_N\int dx\delta(\mathcal{H}(x)-E) = M_N\int dx_1dx_2(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) - E)$$
+
 	\subsection{Phase space distribution}
+
+	$$f(x_1) = \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)\qquad \ln f(x_1) = \ln \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)$$
+
+
+	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) + \frac{\partial}{\partial\mathcal{H}_1(x_1)}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) -E)|_{\mathcal{H}_1(x_1)=0}\mathcal{H}_1(x_1)$$
+
+	However:
+
+	$$\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) - E = 0\Rightarrow\frac{\partial}{\partial\mathcal{H}_1(x_1)}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E) = -\frac{\partial}{\partial E}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E)$$
+
+	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) - \frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)|_{\mathcal{H}_1(x_1) = 0}\mathcal{H}_1(x_1)$$
+
+	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)-\frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)\mathcal{H}_1(x_1)$$
+
+	However:
+
+	$$\int dx_2\delta(\mathcal{H}_2(x_2) - E) \propto\Omega_2(N_2, V_2, E)$$
+
+	\begin{align*}
+		\ln f(x_1) &\approx\ln\Omega_2(N_2, V_2, E) - \mathcal{H}_1(x_1)\frac{\partial}{\partial E}\ln\Omega_2(N_2, V_2, E)\\
+							 &\approx\frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{k}\frac{\partial S_2(N_2, V_2, E)}{\partial E}
+	\end{align*}
+
+	So that:
+
+	$$\ln f(x_1)\approx \frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{kT}\Rightarrow f(x_1)\propto e^{-\frac{\mathcal{H}_1(x_1)}{kT}}$$
+
+	Omitting subscript $1$:
+
+	$$f(x)\propto e^{-\beta\mathcal{H}(x)}\qquad \beta=\frac{1}{kT}$$
+
+	Normalizing:
+
+	$$\int dxf(x) = 1\Rightarrow f(x) = \frac{e^{-\beta\mathcal{H}(x)}}{N!h^{3N}Q(N, V, T)}$$
+
+	Where $Q$ is the partition function:
+
+	$$Q(N, V, T) = \frac{1}{N!h^{3N}}\int dx e^{-\beta\mathcal{H}(x)}$$
 
 \section{From micro to macro}
 
+Notice that:
+
+$$A = E-TS = E+T\biggl(\frac{\partial A}{\partial T}\biggr)_{N, V} = E-\beta\biggl(\frac{\partial A}{\partial \beta}\biggr)_{N, V}$$
+
+However:
+
+$$E = \langle\mathcal{H}\rangle = \frac{1}{N!h^{3N}}\frac{\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{\int dx e^{-\beta\mathcal{H}(x)}} = -\frac{1}{Q(N, V, \beta)}\frac{\partial Q(N, V, \beta)}{\partial \beta} = -\frac{\partial\ln Q(N, V, \beta)}{\partial \beta}$$
+
+Hence:
+
+$$A + \frac{\partial \ln Q}{\partial \beta} +\beta\frac{\partial A}{\partial \beta} = 0\Rightarrow \ln Q(N, V, \beta)  = -\beta A(N, V, \beta)$$
+
+$$A(N, V, T) = -kT\ln Q(N, V, T)$$
+
 	\subsection{Energy and temperature}
+
+	$$E = \langle\mathcal{H}(x)\rangle = \frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial Q}{\partial \beta}\qquad C_N\frac{1}{N!h^{3N}}$$
+
+	Considering $\mathcal{H}(x)$ the energy estimator.
+
+	$$\biggl\langle\sum\limits_{i}\frac{\vec{p}_i^2}{2m_i}\biggr\rangle = \frac{3}{2}NkT\Rightarrow T = \frac{2}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{2m_i}\biggr\rangle = \frac{1}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{m_i}\biggr\rangle = \langle\mathcal{T}(x)\rangle$$
+
+	$$\mathcal{T}(x) = \frac{1}{3Nk}\sum\limits_i\frac{\vec{p}_i^2}{m_i}\qquad T = \langle\mathcal{T}(x)\rangle = \frac{C_N\int dx\mathcal{T}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dx e^{-\beta\mathcal{H}(x)}}$$
+
+	Where $\mathcal{T}(x)$ is the temperature estimator.
 
 		\subsubsection{Energy fluctuations}
 
+		$$\Delta E = \sqrt{\langle(\mathcal{H}(x)-\langle\mathcal{H}(x)\rangle)^2\rangle}\qquad \langle(\mathcal{H}(x)-\langle\mathcal{H}(x)\rangle)^2\rangle = \langle\mathcal{H}^2(x)\rangle - \langle\mathcal{H}(x)\rangle^2$$
+
+		$$\langle\mathcal{H}^2(x)\rangle = \frac{C_N\int dx\mathcal{H}^2(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial^2 Q}{\partial \beta^2}\quad\langle\mathcal{H}(x)\rangle^2 = \biggl[\frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dx e^{-\beta\mathcal{H}(x)}}\biggr]^2 = \biggl[\frac{1}{Q}\frac{\partial Q}{\partial\beta}\biggr]^2$$
+
+		$$\frac{\partial^2\ln Q}{\partial \beta^2} = \frac{\partial}{\partial\beta}\biggl[\frac{1}{Q}\frac{\partial Q}{\partial\beta}\biggr] = -\frac{1}{Q^2}\biggl[\frac{\partial Q}{\partial\beta}\biggr]^2 + \frac{1}{Q}\frac{\partial^2 Q}{\partial\beta^2} = \langle\mathcal{H}^2(x)\rangle-\langle\mathcal{H}(x)\rangle^2 = \Delta E^2$$
+
+		$$\Delta E^2 = \frac{\partial^2\ln Q}{\partial\beta^2} = -\frac{\partial E}{\partial\beta} = -\biggl(\frac{\partial E}{\partial T}\biggr)\frac{\partial T}{\partial\beta} = kT^2\frac{\partial E}{\partial T} = kT^2C_V$$
+
+		$$\frac{\Delta E}{E} = \frac{\sqrt{kT^2C_V}}{E}\sim\frac{\sqrt{N}}{N}\sim\frac{1}{\sqrt{N}}$$
+
 	\subsection{Pressure estimator}
+
+	$$P = -\biggl(\frac{\partial A}{\partial V}\biggr)_{N, T} = kT\biggl(\frac{\partial \ln Q}{\partial V}\biggr)_{N, T} = \frac{kT}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T}$$
+
+	$$\frac{1}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T} = \frac{1}{\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta\mathcal{H}(\vec{r},\vec{p})}}\frac{\partial}{\partial V}\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_N e^{-\beta\mathcal{H}(\vec{r},\vec{p})}$$
+
+	$$\frac{1}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T} = \frac{1}{\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}}\frac{\partial}{\partial V}\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_N e^{-\beta U(\vec{r})} = \frac{1}{Z}\frac{\partial Z}{\partial V}$$
+
+
+	$$P = \frac{kT}{Z}\frac{\partial Z}{\partial V}\qquad Z(N, V, T) = \int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}$$
+
+	$$\vec{s}_i = \frac{1}{L}\vec{r}_i = V^{-\frac{1}{3}}\vec{r}_i \Rightarrow d\vec{r}_1 = V^{\frac{1}{3}}d\vec{s}_i\qquad Z(N, V, T) = \int d\vec{r_1}\cdots d\vec{r}_Ne^{-\beta U(\vec{r}) = V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})}}$$
+
+	\begin{align*}
+		\frac{\partial Z(N, V, T)}{\partial V} &= \frac{N}{V}V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})} + V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})}\sum\limits_{i=1}^N\biggl(-\beta\frac{\partial U}{\partial V^{\frac{1}{3}}\vec{s}_i}\biggr)\biggl(\frac{1}{3}V^{-\frac{2}{3}}\vec{s}_i\biggr) = \\
+																					 &=\frac{N}{V}Z - \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\frac{\partial U}{\partial\vec{r}_i} = \frac{N}{V}Z + \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i
+	\end{align*}
+
+	$$P = \frac{kT}{Z}\frac{\partial Z}{\partial V} = \frac{NkT}{V} + \frac{1}{3VZ}\int d\vec{r}_1\cdots d\vec{r}_N e^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i = \frac{NkT}{V} + \frac{1}{3V}\biggl\langle\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i\biggr\rangle$$
+
+	$$T = \frac{1}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{m_i}\biggr\rangle\Rightarrow P = \frac{1}{3V}\biggl\langle\sum\limits_i\frac{\vec{p}^2_i}{m_i}\biggr\rangle + \frac{1}{3V}\biggl\langle\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i\biggr\rangle$$
+
+	$$P = \frac{1}{3V}\biggl\langle\sum\limits_i\biggl[\frac{\vec{p}_i}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]\biggr\rangle = \langle\mathcal{P}(\vec{r}, \vec{p})\rangle$$
+
+	$$\mathcal{p}(\vec{r}, \vec{p}) = \frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]$$
