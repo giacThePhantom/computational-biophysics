@@ -1,19 +1,37 @@
 \chapter{Evaluation of energies and forces}
 
+\section{Introduction}
+During a simulation some parameters deal with how energies and forces are computed.
+This determine the accuracy of the simulation, especially for electrostatic interactions.
+
 \section{Periodic boundary conditions}
+The first thing to deal with are periodic boundary conditions.
+These are implemented because the number of particles that can be simulated is limited.
+Since the system is small many particles are at the boundary.
+Boundary effects matter for small systems.
+In a system of one hundred thousand particles, at least $40\%$ of the particle deal with the boundary.
+To deal with this effect an infinite number of cells are considered such that when a particle cross a boundary it enters the system in the other direction.
+The system should be at the centre of the cell and its distance with the boundaries should be high to avoid interaction between the system of interest and any periodic image.
+In the case of electrostatic interaction besides the cutoff the system will interact with its periodic image, but if there is enough space that interaction can be neglected.
+For example it can be screened by counter ions above the bi-length distance.
+This length can be much more, so it is always good to give a certain distance between the system and the boundary.
+Using periodic boundary conditions do not complicate the computations and can be exploited to compute long range forces using Fourier transforms, using beside the space the reciprocal space.
+The reciprocal space has the property that anything that is long range in the normal space is short range in the reciprocal one.
+The typical non-bonded interaction in a simulation looks like:
 
 $$U_{nb}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{i>j\in nb}\biggl\{4e_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij}}\biggr)^6\biggr] + \frac{q_iq_j}{r_{ij}}\biggr\}$$
 
-Periodic boundary conditions are a Fourier representation.
-The idea is that any function that is long ranged in space will be short ranged in the reciprocal or Fourier space.
-The strategy is to divide en impera the long and short ranged contributions.
+Wan der Waals can be regarded as short range, while electrostatic interactions are long range.
+Periodic boundary conditions allow to obtain a Fourier representation of the system.
+This is useful because interaction that is long ranged in space will be short ranged in the reciprocal or Fourier space.
+The strategy is to divide en impera the long and short ranged contributions: the system is divided into small systems and the problem will be divided into two problems, one dealing with short range and one with long range contribution.
 
 	\subsection{The error function}
 	An error function is defined such that:
 
 	$$erf(x) = \frac{2}{\sqrt{\pi}}\int_o^x dte^{-t^2}$$
 
-	This has some properties:
+	This is the integral of a Gaussian has some properties:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -22,7 +40,7 @@ The strategy is to divide en impera the long and short ranged contributions.
 		\end{itemize}
 	\end{multicols}
 
-	The complement error function is:
+	The complement error function is one minus the error function:
 
 	$$erfc(x) = 1- erf(x) = \frac{2}{\sqrt{\pi}}\int_x^\infty dte^{-t^2}$$
 
@@ -30,86 +48,141 @@ The strategy is to divide en impera the long and short ranged contributions.
 
 	\begin{multicols}{2}
 		\begin{itemize}
-			\item $\lim\limits_{x\rightarrow\infty} erfc = 0$.
+			\item $\lim\limits_{x\rightarrow\infty} erfc(x) = 0$.
 			\item $erf(x) + erfc(x) = 1$.
 		\end{itemize}
 	\end{multicols}
 
+	So the error function starts from $0$ and goes to $1$ and the complement goes from $1$ to $0$.
+	Looking at the error function it is a representation of a long range function, while the complement is a short range function.
+	An interaction that goes with the reciprocal of the distance can be represented as the sum of the complementary and normal error function, respectively for long and short range contribution.
+
 	$$\frac{1}{r} = \overbrace{\frac{erfc{\alpha r}}{r}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}}$$
 
+	So the complement take care of the short range contribution of the electrostatic interaction and the normal of the short range part.
+
 	\subsection{Divide et impera}
+	The non-bonded interaction is divided into a short and long range contribution.
 
 	$$U_{nb}(\vec{r}_1, \dots, \vec{r}_N) = U_{short}(\vec{r}_1, \dots, \vec{r}_N) + U_{long}(\vec{r}_1, \dots, \vec{r}_n)$$
 
+	Looking at the short range contribution:
+
 	$$U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\biggl\{4\epsilon_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij,\vec{S}}}\biggr)^{12}-\biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^6\biggr] + \frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}\biggr\}$$
+
+	Looking at the long term contribution:
 
 	$$U_{long}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_S\sum\limits_{i>j\in nb} \frac{q_iq_j erf(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}$$
 
+	In this formulae interactions for all particles are counted only once.
+	The vector $\vec{S}$ represent the periodic images of the cells:
+
 	$$r_{ij, \vec{S}} = |\vec{r}_i-\vec{r}_j + \vec{S}|\qquad \vec{S} = \vec{m}L$$
 
+	In case of a cubic box $\vec{S}$ is a vector where each component is an integer number of the side of the box, so $\vec{m}$ is always composed of integer numbers.
+	The distances have to be computed for all periodic representations.
+	The sum over $\vec{S}$ is the sum over an infinite number of term.
+	Two methods can be used to compute the short contribution and another for the long range ones.
+	The factor $\alpha$ has as dimension the reciprocal of length and has to be found during the simulation.
+	In this representation charges are point-like.
+	To each point charge a Gaussian distribution of charges of opposite sign is summed up.
+	Then the same distribution is summed with the same sign, so to not change anything, but from the point of view of electrostatic then in this case a distribution of charges is obtained.
+	From Gauss' theorem the electric field will be equal to zero, so after a given distance there is no more electric charge.
+	So the point-charge is screened with the cloud and then the opposite cloud is used to compute the long-range contribution.
+	This allow to separate the long and short contributions.
 	So the original distribution of charges is equal to the sum in direct space of the screened electrostatic interactions and the sum in reciprocal space of the Gaussian clouds of charges.
 
 \section{Short range forces}
+The short range forces are due to the Wan der Waals interaction described with the Lennard-Jones potential and the short range part of the electrostatic potential, which corresponds to a point charge with a Gaussian cloud with opposite charges.
 
 $$U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\biggl\{4\epsilon_{ij}\biggl[\biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^{12} - \biggl(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\biggr)^{6}\biggr] + \frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}r_{ij, \vec{S}}\biggr\}$$
 
-Considering a cutoff radius $r_C\approx 10$-$12\si{\angstrom}$ and $\alpha = \frac{3.5}{r_C}$:
+
+$\alpha$ will affect the spread of the Gaussian distribution and is chosen by a cutoff radius.
+Considering a cutoff, the distance over which the short term part is computed, $r_C\approx 10$-$12\si{\angstrom}$, then $\alpha = \frac{3.5}{r_C}$.
+Now the problem is that the cutoff is used to assume that beyond a given distance the short-range interactions are negligible and can be assumed equal to $0$:
 
 $$\tilde{U}_{short}(r_{ij}) = \begin{cases} U_{short}(r_{ij}) - U_{short}(r_C) & r<r_C\\ 0 & r>r_C\end{cases}$$
 
-So the force is discontinuous.
+The short contribution are shifted by $r_C$ so that when the distance is the cutoff radius the potential is assumed exactly equal to zero, eliminating the problem of the Lennard-Jones potential.
+Doing something like this, the derivative of the potential is not continuous, so the force is discontinuous, which means that when travelling across the cutoff the force goes abruptly from $0$ to a high amount, generating problems, allowing to violates the third law of thermodynamics, and the new force will affect the constraint equations, making satisfying them impossible and making the simulation stop.
 
 	\subsection{Switching function}
+	To avoid this discontinuity switching functions are applied so that they will provide a continuous potential and derivative:
 
-	$$\tilde{U}_{short}(r-{ij}) = U_{short}(r_{ij})S(r_{ij})\qquad S(r) = \begin{cases} 1 & r<r_C-\lambda\\ 1 + \biggl(\frac{r-r_C+\lambda}{\lambda}\biggr)^2\biggl(2\frac{r-r_C + \lambda}{\lambda} - 3\biggr) & r_c -\lambda < r\le r_C\\0 & r> r_C\end{cases}$$
+	$$\tilde{U}_{short}(r_{ij}) = U_{short}(r_{ij})S(r_{ij})\qquad S(r) = \begin{cases} 1 & r<r_C-\lambda\\ 1 + \biggl(\frac{r-r_C+\lambda}{\lambda}\biggr)^2\biggl(2\frac{r-r_C + \lambda}{\lambda} - 3\biggr) & r_c -\lambda < r\le r_C\\0 & r> r_C\end{cases}$$
 
-	Corrections to energy and pressure are required.
+	Where $S$ is the switching function, where $\lambda$ is the switching distance.
+	So there are many interactions for which after a given distance is equal to zero.
+	So the interactions can be computed only with a list of neighbours, reducing the amount of calculations.
+	Applying the switching function modifies the short range interaction and this modification could change the dynamics of the system, but it will affect the total energy and the pressure, so they must be corrected.
+	These corrections will add up, but this can be computed and has to be taken into account when comparing them with experimental data.
 
-\section{Minimum image convention}
-Particle $i$ interacts with the periodic image of particle $j$ to which it is closest.
+	\subsection{Minimum image convention}
+	Particle $i$ interacts with the periodic image of particle $j$ to which it is closest.
+	Given a short range interactions, for each particle $i$ only the interactions with other particles and the periodic images of the one with the shortest distance.
+	This is enough because the cutoff radius is much less than half of the cell.
+	So for each couple of interactions the minimum distance between the particle and its periodic image is enough.
+	Reducing the computational cost to only one periodic image for each particle.
 
 	\subsection{Verlet Neighbour list}
+	Another trick to compute short functions quicker is to compute the Verlet Neighbour list.
+	For each particle a list of close particles is built, so particles that are beyond a cutoff and a small distance or skin depth $\delta$ and the interactions only in the list are computed.
 
 	\begin{multicols}{2}
 		\begin{enumerate}
 			\item A list of neighbours for all particles is given.
-			\item At each time step $k\Delta t$ the displacements $\Delta_i = |\vec{r}_i(k\Delta t) - \vec{r}_i(0)|$ is computed.
-			\item $\Delta_{\max} = \max\Delta_i$.
-			\item If $\Delta_{\max} > \frac{\delta}{2}$ the lists are updated.
+			\item At each time step $k\Delta t$ the displacements for each particle is: $\Delta_i = |\vec{r}_i(k\Delta t) - \vec{r}_i(0)|$, which is computed.
+			\item Now the maximum displacement at each time step is computed: $\Delta_{\max} = \max\Delta_i$.
+			\item If $\Delta_{\max} > \frac{\delta}{2}$ the lists are updated because the displacement has moved a particle away from the crown or inside the cutoff range.
 		\end{enumerate}
 	\end{multicols}
 
-	In a more efficient alternative the system is divided into cells of size equal or slightly larger than $r_C$.
+	In this way the computation scales with $n\log n$.
+	In a more efficient alternative like the linked list algorithm the system is divided into cells of size equal or slightly larger than $r_C$, separating the simulation box in small cells and doing it for small cells.
 
 \section{Long range forces}
-Considering a cubic cell of volume $V = L^3$ the reciprocal space vectors are $\vec{g} = \frac{2\pi}{L}\vec{n}$.
+The problem in the long range part is reduced to a system with Gaussian clouds of charges, allowing to perform exact computations.
+In order to compute them the Fourier transformations have to be employed.
+Assume a cubic cell of volume $V = L^3$ the reciprocal space vectors are $\vec{g} = \frac{2\pi}{L}\vec{n}$, where $\vec{n}$ is a vector of all the possible combination of integers.
 Considering the Poisson summation rule:
 
 $$\sum\limits_{\vec{S}}\frac{erf(\alpha|\vec{r} + \vec{S}|)}{|\vec{r}+\vec{S}|} = \frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}}$$
 
+Where $\vec{S}$ are the vectors that corresponds to the distance between the cells.
+This grants a perfect representation of the system.
+Now $C_{\vec{g}}$ is computed as:
+
 $$C_{\vec{g}} = \sum\limits_{\vec{S}}\int_{D(V)} d\vec{r}\frac{erf(\alpha|\vec{r}+\vec{S}|)}{|\vec{r}+\vec{S}|}e^{-i\vec{g}\cdot\vec{r}} = \int_{\text{all space}}d\vec{r}\frac{erf(\alpha r)}{r}e^{i\vec{g}\cdot\vec{r}} = \frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
 
-The term $\vec{n} = \begin{pmatrix} 0&0&0\end{pmatrix}$ is not included.
-The sum is truncated with $|\vec{g}|<g_{max}$.
+So $C_{\vec{g}}$ is the integral over all the space in each coordinates, where $r$ is the distance and the final formula is valid for each vector $\vec{g}$ except for $\vec{n} = \begin{pmatrix} 0&0&0\end{pmatrix}$, and that case has to be treated separately.
+The problem has been transformed into something that is known and $C_{\vec{g}}$ is a contribution that decrease with $\vec{g}$, so for large values of $\vec{g}$ the contribution is negligible so the sum can be computed up to a maximum value of $\vec{g}$.
+So the sum is truncated with $|\vec{g}|<g_{max}$.
 
 	\subsection{Summing up}
-	Considering that $C_{\vec{g}} = C_{-\vec{g}}$ and $\mathcal{S}$ the positive hemisphere:
+	Performing the sum of the previous formula.
+	Considering the property that $C_{\vec{g}} = C_{-\vec{g}}$ and $\mathcal{S}$ the positive hemisphere, the contribution of positive and negative $\vec{g}$ is exactly the same.
 
-	$$\frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}} = \frac{2}{V}\sum\limits_{i>j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{2\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}$$
+	\begin{align*}
+		\frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}} &= \frac{2}{V}\sum\limits_{i>j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{2\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}\\
+																																				&=\frac{1}{V}\sum\limits_{i\neq j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{2\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}
+	\end{align*}
 
+	This is the computation of the Poisson summation rule for the long range contribution of the electrostatic interactions.
 	Adding and subtracting the term with $i = j$:
 
-	$$U_{long} = \frac{1}{V}\sum\limits_{i, j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|}{4\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}-\frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+	$$U_{long} = \frac{1}{V}\sum\limits_{i, j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|}{4\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}\underbrace{-\frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}}_{\text{Self interaction term}}$$
 
-	Thus:
+	Looking at this formula it can be seen how the two sums are independent and the sum over $q_e^{i\vec{g}\vec{r}_i}$ is the structure factor and doing the same with $j$ is the complex conjugate of the structure factor, a measurable of the system, indicated as the modulus squared:
 
-	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}\underbrace{|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2}_{\text{Structure factor}} - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
 
 	\subsection{Ewald sum}
+	The Ewald sums allow to speed up computations:
 
 	\begin{align*}
 		U_{long} &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}} = \\
-						 &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{1}{2V}\sum\limits_{i}q_i^2\sum\limits_{g\neq\begin{pmatrix} 0&0&0\end{pmatrix}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}
+						 &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{1}{2V}\underbrace{\sum\limits_{i}q_i^2}_{\text{do not change during the simulation}}\sum\limits_{g\neq\begin{pmatrix} 0&0&0\end{pmatrix}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}
 	\end{align*}
 
 	However:
@@ -120,28 +193,41 @@ The sum is truncated with $|\vec{g}|<g_{max}$.
 
 	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(g)|^2-\frac{\alpha}{\sqrt{\pi}}\sum\limits_iq_i^2$$
 
+	This is the potential energy for the long range interactions.
+
 \section{Alternatives}
-The structure factor $S(\vec{g})$ leads to an interaction between all charged particles, so unwanted interactions need to be subtracted.
+The alternatives to Ewald sum consider some properties of the system.
+The structure factor $S(\vec{g})$ leads to an interaction between all charged particles, because they are already counted in the bonded interactions, so unwanted interactions need to be subtracted.
 
 	\subsection{Smooth particle mesh Ewald}
 	The smooth particle mesh Ewald SPME method uses splines to interpolate charge distributions on a grid.
+	Major algorithms use variations of the Ewald sum, representing the continuous functions on a grid.
+	A grid is placed on the simulation box and many functions can be regarded as continuous and can be represented as smooth function instead as point like functions, then splines are interpolated between the grid.
+	So only the charge density is kept track of for each point on the grid and the splines are used to interpolate with any other point in the system.
+	The representation of a charge grid is more accurate if the dimension of the grid is the dimension of the atom.
+	Using too many grid point makes the mesh too crowded.
+
 
 	\subsection{Particle-particle particle-mesh Ewald}
-	The particle-particle particle mesh Ewald or PPPM or P3M uses the density function to compute the structure factor:
-
-	$$\rho(\vec{g}) = \int d\vec{r}\rho(\vec{r})e^{i\vec{g}\cdot\vec{r}} = \sum\limits_i q_i e^{i\vec{g}\cdot\vec{r}_i}$$
+	The particle-particle particle mesh Ewald or PPPM or P3M uses the density function to compute the structure factor.
+	This is an hybrid system where the charges are represented as a charge density and to compute the structure factor, the Fourier transform of the charge density can be used.
 
 	$$\rho(\vec{r}) = \sum\limits_{i}q_i\delta(\vec{r}-\vec{r}_i)$$
+
+	$$\rho(\vec{g}) = \int d\vec{r}\rho(\vec{r})e^{i\vec{g}\cdot\vec{r}} = \sum\limits_i q_i e^{i\vec{g}\cdot\vec{r}_i}$$
 
 	Considering Poisson equation:
 
 	$$\nabla^2\phi(\vec{r}) = -\nabla\cdot\vec{E} = -4\pi\rho(\vec{r})$$
 
-	And the reciprocal space:
+	The potential can be found, which is related to the structure factor:
 
 	$$g^2\phi(\vec{g}) = 4\pi\rho(\vec{g}) = 4\pi S(\vec{G})$$
 
-	\subsection{Other cheap options}
+	The Fourier transform has to be computed through special packages like $FFT$ or $FFTW$.
+	This is the one used in a lot of software.
+
+	\subsection{Other less computationally intensive options}
 	Other cheap options include:
 
 	\begin{multicols}{2}
