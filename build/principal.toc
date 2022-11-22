@@ -174,13 +174,13 @@
 \contentsline {section}{\numberline {10.1}Thermodynamics derivatives}{75}{section.10.1}%
 \contentsline {subsection}{\numberline {10.1.1}Legendre transform of E}{75}{subsection.10.1.1}%
 \contentsline {subsection}{\numberline {10.1.2}The Helmholtz free energy}{75}{subsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.1.3}Thermal contact}{76}{subsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.1.3}Thermal contact}{75}{subsection.10.1.3}%
 \contentsline {subsection}{\numberline {10.1.4}Phase space distribution}{76}{subsection.10.1.4}%
-\contentsline {section}{\numberline {10.2}From micro to macro}{76}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Energy and temperature}{76}{subsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.1.1}Energy fluctuations}{76}{subsubsection.10.2.1.1}%
-\contentsline {subsection}{\numberline {10.2.2}Pressure estimator}{76}{subsection.10.2.2}%
-\contentsline {chapter}{\numberline {11}Thermostats}{77}{chapter.11}%
-\contentsline {chapter}{\numberline {12}The isobaric ensembles}{78}{chapter.12}%
-\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{79}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{80}{chapter.14}%
+\contentsline {section}{\numberline {10.2}From micro to macro}{77}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Energy and temperature}{77}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Energy fluctuations}{78}{subsubsection.10.2.1.1}%
+\contentsline {subsection}{\numberline {10.2.2}Pressure estimator}{78}{subsection.10.2.2}%
+\contentsline {chapter}{\numberline {11}Thermostats}{80}{chapter.11}%
+\contentsline {chapter}{\numberline {12}The isobaric ensembles}{81}{chapter.12}%
+\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{82}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{83}{chapter.14}%
