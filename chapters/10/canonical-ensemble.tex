@@ -158,51 +158,95 @@ $$A(N, V, T) = -kT\ln Q(N, V, T)$$
 Now when dealing with the canonical ensemble the partition function has to be found and once that is computed the Helmholtz free energy can be computed.
 
 	\subsection{Energy and temperature}
+	The energy can be obtained by performing an average in the canonical ensemble:
 
 	$$E = \langle\mathcal{H}(x)\rangle = \frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial Q}{\partial \beta}\qquad C_N\frac{1}{N!h^{3N}}$$
 
-	Considering $\mathcal{H}(x)$ the energy estimator.
+	Where $\mathcal{H}(x)$ is the energy estimator.
+	Taking the average of the Hamiltonian the energy is obtained.
+	Also an estimator of temperature can be obtained, and this will be related to the kinetic energy by applying the equipartition theorem:
 
 	$$\biggl\langle\sum\limits_{i}\frac{\vec{p}_i^2}{2m_i}\biggr\rangle = \frac{3}{2}NkT\Rightarrow T = \frac{2}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{2m_i}\biggr\rangle = \frac{1}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{m_i}\biggr\rangle = \langle\mathcal{T}(x)\rangle$$
 
+	So $\mathcal{T}(x)$ is the temperature estimator, so that temperature is the average of the estimator:
+
 	$$\mathcal{T}(x) = \frac{1}{3Nk}\sum\limits_i\frac{\vec{p}_i^2}{m_i}\qquad T = \langle\mathcal{T}(x)\rangle = \frac{C_N\int dx\mathcal{T}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dx e^{-\beta\mathcal{H}(x)}}$$
 
-	Where $\mathcal{T}(x)$ is the temperature estimator.
-
 		\subsubsection{Energy fluctuations}
+		Energy will be fluctuating, so computing the energy fluctuations, which are defined as:
 
 		$$\Delta E = \sqrt{\langle(\mathcal{H}(x)-\langle\mathcal{H}(x)\rangle)^2\rangle}\qquad \langle(\mathcal{H}(x)-\langle\mathcal{H}(x)\rangle)^2\rangle = \langle\mathcal{H}^2(x)\rangle - \langle\mathcal{H}(x)\rangle^2$$
 
+		Now, computing:
+
 		$$\langle\mathcal{H}^2(x)\rangle = \frac{C_N\int dx\mathcal{H}^2(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial^2 Q}{\partial \beta^2}\quad\langle\mathcal{H}(x)\rangle^2 = \biggl[\frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dx e^{-\beta\mathcal{H}(x)}}\biggr]^2 = \biggl[\frac{1}{Q}\frac{\partial Q}{\partial\beta}\biggr]^2$$
+
+		Computing the second derivative of the logarithm of $Q$ with respect to $\beta$:
 
 		$$\frac{\partial^2\ln Q}{\partial \beta^2} = \frac{\partial}{\partial\beta}\biggl[\frac{1}{Q}\frac{\partial Q}{\partial\beta}\biggr] = -\frac{1}{Q^2}\biggl[\frac{\partial Q}{\partial\beta}\biggr]^2 + \frac{1}{Q}\frac{\partial^2 Q}{\partial\beta^2} = \langle\mathcal{H}^2(x)\rangle-\langle\mathcal{H}(x)\rangle^2 = \Delta E^2$$
 
+		So the fluctuation squared and considering that $\frac{\partial\ln Q}{\partial\beta} = -E$:
+
 		$$\Delta E^2 = \frac{\partial^2\ln Q}{\partial\beta^2} = -\frac{\partial E}{\partial\beta} = -\biggl(\frac{\partial E}{\partial T}\biggr)\frac{\partial T}{\partial\beta} = kT^2\frac{\partial E}{\partial T} = kT^2C_V$$
+
+		Where $C_V$ is the specific heat of the system.
+		Comparing the fluctuation of the energy with the energy to see if they are negligible or big.
+		Considering that $C_V$ and $E$ increase linearly with the number of particles:
 
 		$$\frac{\Delta E}{E} = \frac{\sqrt{kT^2C_V}}{E}\sim\frac{\sqrt{N}}{N}\sim\frac{1}{\sqrt{N}}$$
 
+		So if $N$ is small the factor is not negligible, and becomes more negligible as it increases.
+		So when working with a thermodynamics system the fluctuation with respect to energy are negligible.
+		So in the thermodynamics limit the energy fluctuations in the canonical ensemble are negligible.
+		The difference between the microcanonical and canonical ensemble is that the energy is fixed only in the first, but in the second the fluctuation of the energy is negligible, so that from a practical point of view all the results from the two ensembles are equivalent.
+
 	\subsection{Pressure estimator}
+	Considering pressure:
 
 	$$P = -\biggl(\frac{\partial A}{\partial V}\biggr)_{N, T} = kT\biggl(\frac{\partial \ln Q}{\partial V}\biggr)_{N, T} = \frac{kT}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T}$$
 
+	The objective is to look on the dependence of the partition function on volume and not considering normalization constant:
+
 	$$\frac{1}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T} = \frac{1}{\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta\mathcal{H}(\vec{r},\vec{p})}}\frac{\partial}{\partial V}\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_N e^{-\beta\mathcal{H}(\vec{r},\vec{p})}$$
+
+	Considering the Hamiltonian it will have the kinetic and potential energy part.
+	The kinetic part will always be the same and do not depend on the volume and it will be integrated out, this is called configuration partition function, so the integral can be written only over the coordinates and only the potential energy.
 
 	$$\frac{1}{Q}\biggl(\frac{\partial Q}{\partial V}\biggr)_{N, T} = \frac{1}{\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}}\frac{\partial}{\partial V}\int d\vec{p}_1\cdots d\vec{p}_Nd\vec{r}_1\cdots d\vec{r}_N e^{-\beta U(\vec{r})} = \frac{1}{Z}\frac{\partial Z}{\partial V}$$
 
+	Where $Z$ is the configuration partition function:
 
 	$$P = \frac{kT}{Z}\frac{\partial Z}{\partial V}\qquad Z(N, V, T) = \int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}$$
 
+	Now considering $Z$ it is an integral over all the coordinates and $U$ is the force fields.
+	The problem is that the integral depends on volume through its limits, in order to do that all the possible dependencies on the integral on the volume.
+	The best thing to do is to consider dimensionless coordinates.
+	Changing coordinates and considering a cubic box, the coordinates are scaled into $\vec{s}_i$, where $L$ is the side of the cube and considering there are $3N$ coordinates:
+
 	$$\vec{s}_i = \frac{1}{L}\vec{r}_i = V^{-\frac{1}{3}}\vec{r}_i \Rightarrow d\vec{r}_1 = V^{\frac{1}{3}}d\vec{s}_i\qquad Z(N, V, T) = \int d\vec{r_1}\cdots d\vec{r}_Ne^{-\beta U(\vec{r}) = V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})}}$$
+
+	In this way the dependence on volume has been highlighted and the derivative of $Z$ with respect to volume can be taken:
 
 	\begin{align*}
 		\frac{\partial Z(N, V, T)}{\partial V} &= \frac{N}{V}V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})} + V^N\int d\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s})}\sum\limits_{i=1}^N\biggl(-\beta\frac{\partial U}{\partial V^{\frac{1}{3}}\vec{s}_i}\biggr)\biggl(\frac{1}{3}V^{-\frac{2}{3}}\vec{s}_i\biggr) = \\
-																					 &=\frac{N}{V}Z - \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\frac{\partial U}{\partial\vec{r}_i} = \frac{N}{V}Z + \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i
+																					 &=\frac{N}{V}Z - \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\frac{\partial U}{\partial\vec{r}_i} =\\
+																					 &=\frac{N}{V}Z + \frac{\beta}{3V}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i
 	\end{align*}
+
+	Reconsidering now the formula for pressure and considering $kT\beta = 1$:
 
 	$$P = \frac{kT}{Z}\frac{\partial Z}{\partial V} = \frac{NkT}{V} + \frac{1}{3VZ}\int d\vec{r}_1\cdots d\vec{r}_N e^{-\beta U(\vec{r})}\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i = \frac{NkT}{V} + \frac{1}{3V}\biggl\langle\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i\biggr\rangle$$
 
+	This formula makes sense as when considering ideal gas there are no internal forces, so they are all equal to $0$, obtaining the ideal gas law.
+	So the second part contains the correction that considers these internal forces.
+	Considering that temperature can be expressed as an average:
+
 	$$T = \frac{1}{3Nk}\biggl\langle\sum\limits_i\frac{\vec{p}_i^2}{m_i}\biggr\rangle\Rightarrow P = \frac{1}{3V}\biggl\langle\sum\limits_i\frac{\vec{p}^2_i}{m_i}\biggr\rangle + \frac{1}{3V}\biggl\langle\sum\limits_{i=1}^N\vec{F}_i\cdot\vec{r}_i\biggr\rangle$$
 
+	Now, recollecting everything into one single formula:
+
 	$$P = \frac{1}{3V}\biggl\langle\sum\limits_i\biggl[\frac{\vec{p}_i}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]\biggr\rangle = \langle\mathcal{P}(\vec{r}, \vec{p})\rangle$$
+
+	So the pressure estimator is:
 
 	$$\mathcal{p}(\vec{r}, \vec{p}) = \frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]$$
