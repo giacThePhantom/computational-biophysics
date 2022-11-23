@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  23 NOV 2022 12:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  23 NOV 2022 16:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,36 +886,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ...ipolar interactions}{21}{subsection.3.6.2}
+l.42 ...ipolar interactions}{22}{subsection.3.6.2}
                                                   % [1
 
-] [2] [3])
+] [2] [3] [4])
 \tf@toc=\write4
 \openout4 = `principal.toc'.
 
 
-(./chapters/01/intro-proteins.tex [4]
+(./chapters/01/intro-proteins.tex [5]
 Chapter 1.
-[5
+[6
 
-]) (./chapters/02/protein-geometry.tex [6]
+]) (./chapters/02/protein-geometry.tex [7]
 Chapter 2.
-<chapters/02/images//planar.png, id=848, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=902, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 
 (pdftex.def)             Requested size: 263.37933pt x 125.86801pt.
-[7
+[8
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=860, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=914, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
 39.
 (pdftex.def)             Requested size: 290.27936pt x 249.32707pt.
- [8 <./chapters/02/images//potential.png>]
+ [9 <./chapters/02/images//potential.png>]
 
 Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 (siunitx)                release.
@@ -927,78 +927,78 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 (siunitx)                \DeclareSIUnit\angstrom{\text {Å}}
 
 
-LaTeX Warning: Reference `rama' on page 9 undefined on input line 87.
+LaTeX Warning: Reference `rama' on page 10 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=872, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=926, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
 8.
 (pdftex.def)             Requested size: 334.85358pt x 223.13535pt.
-[9]
+[10]
 
-LaTeX Warning: Reference `ramachandran-complex' on page 10 undefined on input l
+LaTeX Warning: Reference `ramachandran-complex' on page 11 undefined on input l
 ine 103.
 
 
-LaTeX Warning: Reference `ala_gly' on page 10 undefined on input line 105.
+LaTeX Warning: Reference `ala_gly' on page 11 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=877, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=931, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
 9.
 (pdftex.def)             Requested size: 411.03879pt x 196.03387pt.
 
-LaTeX Warning: Reference `ramachandran-final' on page 10 undefined on input lin
+LaTeX Warning: Reference `ramachandran-final' on page 11 undefined on input lin
 e 116.
 
-[10 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=890, 1340.00626pt x 849.1725pt>
+[11 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
+<chapters/02/images//contact.png, id=944, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 6.
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
-[11 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=899, 1514.65875pt x 778.91pt>
+[12 <./chapters/02/images//contact.png>]
+<chapters/02/images//topology.png, id=954, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
- [12 <./chapters/02/images//topology.png>] [13]
-<chapters/02/images//rmsd.png, id=911, 1161.33875pt x 809.0225pt>
+ [13 <./chapters/02/images//topology.png>] [14]
+<chapters/02/images//rmsd.png, id=965, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
 (pdftex.def)             Requested size: 232.26363pt x 161.80164pt.
- [14 <./chapters/02/images//rmsd.png>]) (./chapters/03/force-fields.tex [15]
+ [15 <./chapters/02/images//rmsd.png>]) (./chapters/03/force-fields.tex [16]
 Chapter 3.
-[16
+[17
 
 ]
 
-LaTeX Warning: Reference `chem-bond' on page 17 undefined on input line 42.
+LaTeX Warning: Reference `chem-bond' on page 18 undefined on input line 42.
 
 
-LaTeX Warning: Reference `chem-bond' on page 17 undefined on input line 50.
+LaTeX Warning: Reference `chem-bond' on page 18 undefined on input line 50.
 
-[17] [18] [19] [20] [21] [22] [23]) (./chapters/04/classical-mechanics.tex
-[24]
+[18] [19] [20] [21] [22] [23] [24]) (./chapters/04/classical-mechanics.tex
+[25]
 Chapter 4.
-[25
+[26
 
-] [26] [27] [28] [29] [30] [31] [32] [33])
-(./chapters/05/foundations-statistical-mechanics.tex [34]
+] [27] [28] [29] [30] [31] [32] [33] [34])
+(./chapters/05/foundations-statistical-mechanics.tex [35]
 Chapter 5.
-[35
+[36
 
-] [36] [37] [38] [39] [40] [41]) (./chapters/06/microcanonical-ensemble.tex
-[42]
+] [37] [38] [39] [40] [41] [42]) (./chapters/06/microcanonical-ensemble.tex
+[43]
 Chapter 6.
-[43
+[44
 
 ]
 Overfull \hbox (14.66551pt too wide) in paragraph at lines 71--78
@@ -1015,17 +1015,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-10.48724pt}.
 
-[44] [45] [46] [47] [48] [49] [50]) (./chapters/07/molecular-dynamics.tex
-[51]
+[45] [46] [47] [48] [49] [50] [51]) (./chapters/07/molecular-dynamics.tex
+[52]
 Chapter 7.
-[52
+[53
 
-] [53] [54] [55] [56] [57] [58] [59]) (./chapters/08/direct-translation.tex
-[60]
+] [54] [55] [56] [57] [58] [59] [60]) (./chapters/08/direct-translation.tex
+[61]
 Chapter 8.
-[61
+[62
 
-] [62]
+] [63]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 86.
@@ -1050,69 +1050,87 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 86.
 
-[63] [64] [65]
+[64] [65] [66]
 Overfull \hbox (4.16992pt too wide) detected at line 219
 []
  []
 
-[66]) (./chapters/09/evaluation-energy-forces.tex [67]
+[67]) (./chapters/09/evaluation-energy-forces.tex [68]
 Chapter 9.
-[68
+[69
 
-] [69] [70] [71] [72] [73]
+] [70] [71] [72] [73] [74]
 Underfull \hbox (badness 6220) in paragraph at lines 239--240
 []\T1/cmr/m/n/10 Maxwell equa-tion molec-u-lar dy-nam-ics
  []
 
-) (./chapters/10/canonical-ensemble.tex [74]
+) (./chapters/10/canonical-ensemble.tex [75]
 Chapter 10.
-[75
+[76
 
-] [76] [77] [78] [79]
+] [77] [78] [79] [80]
 Overfull \hbox (37.06064pt too wide) detected at line 234
 []
  []
 
-[80]) (./chapters/11/thermostats.tex [81]
+[81]) (./chapters/11/thermostats.tex [82]
 Chapter 11.
-) (./chapters/12/isobaric-ensembles.tex [82
+[83
 
-]
+] [84] [85]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.1638pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.1638pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.1638pt}.
+
+[86]) (./chapters/12/isobaric-ensembles.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.1638pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.1638pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.1638pt}.
+
+[87]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [83
+) (./chapters/13/grand-canonical-ensemble.tex [88
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [84
+) (./chapters/14/uncertainties-sampling-quality.tex [89
 
 ]
 Chapter 14.
-) (./chapters/15/protein-motions.tex [85
+) (./chapters/15/protein-motions.tex [90
 
 ]
 Chapter 15.
-) (./chapters/16/clustering-protein-structure-networks.tex [86
+) (./chapters/16/clustering-protein-structure-networks.tex [91
 
 ]
 Chapter 16.
-) (./chapters/17/monte-carlo.tex [87
+) (./chapters/17/monte-carlo.tex [92
 
 ]
 Chapter 17.
-) [88
+) [93
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: FC03E8188D9C188A727DD68B7D89C133;25685.
+(rerunfilecheck)             Checksum: 0106C732E6354F3A9BBBCFF526FC7368;27244.
  ) 
 Here is how much of TeX's memory you used:
- 24378 strings out of 478238
- 443274 string characters out of 5850455
- 815996 words of memory out of 5000000
- 41896 multiletter control sequences out of 15000+600000
+ 24406 strings out of 478238
+ 443647 string characters out of 5850455
+ 816008 words of memory out of 5000000
+ 41906 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,522b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1144,10 +1162,10 @@ nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (89 pages, 2264120 bytes).
+Output written on ./build/principal.pdf (94 pages, 2285182 bytes).
 PDF statistics:
- 1496 PDF objects out of 1728 (max. 8388607)
- 1312 compressed objects within 14 object streams
- 306 named destinations out of 1000 (max. 500000)
- 1308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1573 PDF objects out of 1728 (max. 8388607)
+ 1384 compressed objects within 14 object streams
+ 324 named destinations out of 1000 (max. 500000)
+ 1388 words of extra memory for PDF output out of 10000 (max. 10000000)
 
