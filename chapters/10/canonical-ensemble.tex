@@ -1,28 +1,72 @@
 \chapter{Canonical ensemble}
 
+\section{Introduction}
+In the canonical ensemble energy can fluctuate and is not conserved, temperature is conserved.
+The system is put into contact with an heat reservoir, which it will exchange energy with the system maintaining constant the temperature.
+
 \section{Thermodynamics derivatives}
+In the canonical ensemble the thermodynamics parameters that are fixed are the number of particles, the volume and temperature.
+Everything will be expressed in term of these parameters.
+Entropy, the state function for the microcanonical ensemble, will not be useful, because it do not depend on the fixed variables.
+From the microcanonical ensemble and thermodynamics:
 
 $$\frac{1}{T} = \biggl(\frac{\partial S}{\partial E}\biggr)_{N, V}\qquad\frac{P}{T} = \biggl(\frac{\partial S}{\partial V}\biggr)_{N, E}\qquad -\frac{\mu}{T} = \biggl(\frac{\partial S}{\partial N}\biggr)_{V, E}$$
 
+These thermodynamics derivatives can always be re conducted to the first law of thermodynamics, which in differential form is:
+
+$$dE = TdS - PdV + \mu dN$$
+
+Expressing $S$ as a differential form the three previous derivatives are found.
+The temperature will be the derivative of the energy with respect to entropy:
+
+$$T = \biggl(\frac{\partial E}{\partial S}\biggr)_{N, V}\qquad -P = \biggl(\frac{\partial E}{\partial V}\biggr)_{N, S}\qquad \mu = \biggl(\frac{\partial E}{\partial N}\biggr)_{V, S}$$
+
+Pressure can be obtained as the derivative of the energy with respect to the volume, this works keeping fixed the number of particles and entropy.
+Keeping entropy fixed is complex on the experimental side.
+The chemical potential is the derivative of the energy with respect to the number of particles keeping fixed entropy and volume.
+The objective is to express everything in terms of number of particles, volume and temperature.
+Because temperature is the derivative of the energy with the respect of entropy, the energy should be expressed as a function of its derivative with respect to entropy.
+
 	\subsection{Legendre transform of E}
+	To do so energy is Legendre transformed.
+	Recalling the formula for a Legendre transform:
 
 	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
 
+	Applying this to energy:
+
 	$$\tilde{E}\biggl(N, V, \frac{\partial E}{\partial S}\biggr) = E\biggl(N, V, S\biggl(N, V, \frac{\partial E}{\partial S}\biggr)\biggr)-\biggl(\frac{\partial E}{\partial S}\biggr)_{N, V}S\biggl(N, V, \frac{\partial E}{\partial S}\biggr)$$
+
+	The Legendre transformed is called $A$, which will have the form:
 
 	$$A(N, V, T) = E(N, V, T)-TS(N, V, T)$$
 
 	\subsection{The Helmholtz free energy}
+	The function $A$ is the Helmholtz free energy, the Legendre transform of Energy when it is expressed as a function of number of particles, volume and temperature.
+	This is the state function of the canonical ensemble:
 
 	$$A(N, V, T) = E(N, V, T)-TS(N, V, T)$$
 
-	$$dA = dE - TdS - SdT = TdS - PdV + \mu dN- TdS - SdT$$
+	Computing the differential of $A$, its infinitesimal variation:
+
+	$$dA = dE - TdS - SdT = \underbrace{TdS - PdV + \mu dN- TdS - SdT}_{\text{first law of thermodynamics}}$$
+
+	So that:
 
 	$$dA = -SdT - PdV +\mu dN$$
 
+	Writing the thermodynamics derivatives with respect to this formula:
+
 	$$S = -\biggl(\frac{\partial A}{\partial T}\biggr)_{N, V}\qquad P = -\biggl(\frac{\partial A}{\partial V}\biggr)_{N, T}\qquad \mu = \biggl(\frac{\partial A}{\partial N}\biggr)_{V, T}$$
 
+	So now the thermodynamics of the systems can be computed.
+
 	\subsection{Thermal contact}
+	To link the macroscopic quantities to the microscopic ones the distribution function has to be found.
+	Looking at the canonical ensemble there is a thermal reservoir that surrounding the system, so much that the energy will remain constant.
+	It can be assumed that the energy of system one is so small that $E_2$ is much more than $E_1$.
+	Assume that the system is in the microcanonical ensemble and that the two system exchange energies.
+	The universe can be described with the microcanonical ensemble.
 
 	$$E = E_1 + E_2\qquad E_2\gg E_1$$
 
@@ -32,65 +76,86 @@ $$\frac{1}{T} = \biggl(\frac{\partial S}{\partial E}\biggr)_{N, V}\qquad\frac{P}
 
 	$$\mathcal{H}(c) =\mathcal{H}(x_1)+\mathcal{H}(x_2)$$
 
-	The microcanonical partition functino of the universe:
+	The microcanonical partition function of the universe is:
 
 	$$\Omega(N, V, E) = M_N\int dx\delta(\mathcal{H}(x)-E) = M_N\int dx_1dx_2(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) - E)$$
 
-	\subsection{Phase space distribution}
+	The objective is to compute the distribution function for system $1$.
+	The energy can assume all values between $0$ and total energy $E$, all with some probability.
+	The objective is to find the function that represent the probability of system $1$ to have energy $E$.
+	To do that the distribution function of the system (the Dirac delta function) is used and all variables corresponding to system $2$ needs to be integrated out.
 
-	$$f(x_1) = \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)\qquad \ln f(x_1) = \ln \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)$$
+		\subsubsection{Phase space distribution}
+		Doing this the phase space distribution for system $1$ is obtained, so the objective.
+		So assume phase space distribution function $f$ of the micrcocanonical ensemble, so the distribution function of the universe is considered and all the terms corresponding to system $2$ are integrated out.
+		It is better to consider the logarithm of $f$:
 
+		$$f(x_1) = \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)\qquad \ln f(x_1) = \ln \int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2) -E)$$
 
-	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) + \frac{\partial}{\partial\mathcal{H}_1(x_1)}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) -E)|_{\mathcal{H}_1(x_1)=0}\mathcal{H}_1(x_1)$$
+		Considering that $E_1$ is very small when compared to $E_2$, so $\mathcal{H}_1\ll\mathcal{H}_2$, so a Taylor expansion from $\mathcal{H}_1(x_1)=0$ can be performed, approximating the logarithm to the first order:
 
-	However:
+		$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) + \frac{\partial}{\partial\mathcal{H}_1(x_1)}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) -E)|_{\mathcal{H}_1(x_1)=0}\mathcal{H}_1(x_1)$$
 
-	$$\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) - E = 0\Rightarrow\frac{\partial}{\partial\mathcal{H}_1(x_1)}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E) = -\frac{\partial}{\partial E}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E)$$
+		Considering the fact that the sum of the two Hamiltonian is equal to the energy the dependence of the delta function is linear with respect to the Hamiltonian and the Energy.
 
-	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) - \frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)|_{\mathcal{H}_1(x_1) = 0}\mathcal{H}_1(x_1)$$
+		$$\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2) - E = 0\Rightarrow\frac{\partial}{\partial\mathcal{H}_1(x_1)}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E) = -\frac{\partial}{\partial E}\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E)$$
 
-	$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)-\frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)\mathcal{H}_1(x_1)$$
+		So the derivative with respect to $\mathcal{H}$ can be substituted with $-$ the derivative with respect to $E$:
 
-	However:
+		$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E) - \frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)|_{\mathcal{H}_1(x_1) = 0}\mathcal{H}_1(x_1)$$
 
-	$$\int dx_2\delta(\mathcal{H}_2(x_2) - E) \propto\Omega_2(N_2, V_2, E)$$
+		Considering $\mathcal{H}_1(x_1) = 0$:
 
-	\begin{align*}
-		\ln f(x_1) &\approx\ln\Omega_2(N_2, V_2, E) - \mathcal{H}_1(x_1)\frac{\partial}{\partial E}\ln\Omega_2(N_2, V_2, E)\\
-							 &\approx\frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{k}\frac{\partial S_2(N_2, V_2, E)}{\partial E}
-	\end{align*}
+		$$\ln f(x_1) \approx\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)-\frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_2(x_2) - E)\mathcal{H}_1(x_1)$$
 
-	So that:
+		The first integral is $\Omega$ depending on $N_2$, $V_2$ and $E$, so the formula for the microcanonical ensemble:
 
-	$$\ln f(x_1)\approx \frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{kT}\Rightarrow f(x_1)\propto e^{-\frac{\mathcal{H}_1(x_1)}{kT}}$$
+		$$\int dx_2\delta(\mathcal{H}_2(x_2) - E) \propto\Omega_2(N_2, V_2, E)$$
 
-	Omitting subscript $1$:
+		Or the number of micro states corresponding to those state variables not considering a normalization constant.
+		Remembering that $\Omega_2$ is related to the entropy and remembering that $k$ is the Boltzmann constant:
 
-	$$f(x)\propto e^{-\beta\mathcal{H}(x)}\qquad \beta=\frac{1}{kT}$$
+		\begin{align*}
+			\ln f(x_1) &\approx\ln\Omega_2(N_2, V_2, E) - \mathcal{H}_1(x_1)\frac{\partial}{\partial E}\ln\Omega_2(N_2, V_2, E)\\
+								 &\approx\frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{k}\frac{\partial S_2(N_2, V_2, E)}{\partial E}
+		\end{align*}
 
-	Normalizing:
+		Considering that the derivative of entropy with respect to energy is $\frac{1}{T}$ and taking the exponential:
 
-	$$\int dxf(x) = 1\Rightarrow f(x) = \frac{e^{-\beta\mathcal{H}(x)}}{N!h^{3N}Q(N, V, T)}$$
+		$$\ln f(x_1)\approx \frac{S_2(N_2, V_2, E)}{k}-\frac{\mathcal{H}_1(x_1)}{kT}\Rightarrow f(x_1)\propto e^{-\frac{\mathcal{H}_1(x_1)}{kT}}$$
 
-	Where $Q$ is the partition function:
+		So there is a given probability at which system $1$ will assume a value $\mathcal{H}_1(x_1)$.
+		Omitting subscript $1$:
 
-	$$Q(N, V, T) = \frac{1}{N!h^{3N}}\int dx e^{-\beta\mathcal{H}(x)}$$
+		$$f(x)\propto e^{-\beta\mathcal{H}(x)}\qquad \beta=\frac{1}{kT}$$
+
+		This is the probability distribution function for the canonical ensemble, where $\beta$ is the Boltzmann factor.
+		Normalizing the probability distribution:
+
+		$$\int dxf(x) = 1\Rightarrow f(x) = \frac{e^{-\beta\mathcal{H}(x)}}{N!h^{3N}Q(N, V, T)}$$
+
+		Where $Q$ is the partition function:
+
+		$$Q(N, V, T) = \frac{1}{N!h^{3N}}\int dx e^{-\beta\mathcal{H}(x)}$$
 
 \section{From micro to macro}
-
 Notice that:
 
 $$A = E-TS = E+T\biggl(\frac{\partial A}{\partial T}\biggr)_{N, V} = E-\beta\biggl(\frac{\partial A}{\partial \beta}\biggr)_{N, V}$$
 
-However:
+However, energy varies in the canonical ensemble and the Hamiltonian assume values from the Botlzmann distribution, so to find a measurable value of the energy an average over the ensemble has to be found, so energy is the average value of the Hamiltonian over the canonical ensemble:
 
 $$E = \langle\mathcal{H}\rangle = \frac{1}{N!h^{3N}}\frac{\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{\int dx e^{-\beta\mathcal{H}(x)}} = -\frac{1}{Q(N, V, \beta)}\frac{\partial Q(N, V, \beta)}{\partial \beta} = -\frac{\partial\ln Q(N, V, \beta)}{\partial \beta}$$
 
-Hence:
+Hence the function of $A$ and its solution are:
 
 $$A + \frac{\partial \ln Q}{\partial \beta} +\beta\frac{\partial A}{\partial \beta} = 0\Rightarrow \ln Q(N, V, \beta)  = -\beta A(N, V, \beta)$$
 
+So the relationship between the Helmholtz free energy and the partition function is:
+
 $$A(N, V, T) = -kT\ln Q(N, V, T)$$
+
+Now when dealing with the canonical ensemble the partition function has to be found and once that is computed the Helmholtz free energy can be computed.
 
 	\subsection{Energy and temperature}
 
