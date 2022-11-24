@@ -285,3 +285,170 @@ The microcanonical partition function for the extended Nos\`e Hamiltonian corres
 	\end{multicols}
 
 These are the dynamics of the thermostat.
+
+\section{Non Hamiltonian statistical mechanics}
+The unison of system and surroundings creates an isolated system which can be described through Hamiltonian dynamcis.
+Integrating out variables of the surroundings create non Hamiltonian dynamics.
+The non-Hamiltonian equations of motion are:
+
+$$\dot{x} = \xi(x, t)$$
+
+Considering phase space compressibility: $\nabla\cdot\dot{x} = \nabla\cdot\xi(x, t) = \kappa(x, t)\neq 0$ in general: this property may vanish even in non-Hamiltonian systems
+
+	\subsection{Phase space metric}
+
+	$$\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\nabla\cdot\dot{x}_t\Rightarrow\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\kappa(x_t, t)$$
+
+	The Liouville theorem $dx_t = dx_0$ no longer holds, but the solution is:
+
+	$$J(x_t;x_0) = e^{\int_0^tds\kappa(x_s, s)}$$
+
+	There exists a function $w(x_t,t)$ whose derivative is $\kappa(x_t, t)$:
+
+	$$\kappa(x_t, t) = \frac{dw(x_t, t)}{dt}\qquad J(x_t; x_0) = e^{w(x_t, t)-w(x_0, 0)}$$
+
+	$$dx_t = J(x_t;x_0)\Rightarrow dx_t = e^{w(x_t, t) - w(x_0, 0)}dx_0$$
+
+	$$e^{-w(x_t, t)}dx_t = e^{-x_0, 0)}dx_0$$
+
+	The weighted phase space volume is conserved.
+	The phase space is a non Euclidean space or Reimannian manifold, which is locally curved.
+	The Jacobian is the ratio of the metric determinant factors:
+
+	$$J(x; y) = \frac{\sqrt{g(y)}}{\sqrt{g(x)}}\Rightarrow J(x_t;x_0) = \frac{\sqrt{g(x_0, 0)}}{\sqrt{g(x_t, t)}}\qquad \sqrt{g(x_t, t)} = e^{-w(x_t, t)}$$
+
+	Any phase space integral or ensemble average should be performed using $\sqrt{g(x)}dx$ as a volume element without time dependence.
+
+	\subsection{Liouville equation}
+
+
+	$$\frac{\partial}{\partial t}(f(x, t)\sqrt{g(x, t)})+\nabla\cdot(\dot{x}\sqrt{g(x, t)}f(x,t)) = 0$$
+
+	However:
+
+	$$\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\kappa(x_t, t)\Rightarrow \frac{d}{dt}\frac{\sqrt{g(x_0, 0)}}{\sqrt{(x_t,t)}} = \frac{\sqrt{g(x_0.0)}}{\sqrt{g(x_t,t)}}\kappa(x_t, t)$$
+
+	So in the end:
+
+	$$\frac{d}{dt}\sqrt{g(x_t, t)} = -\kappa(x_t, t) \sqrt{g(x_t,t)}$$
+
+	Substituting into the generalized Liouville equation:
+
+	$$\frac{\partial}{\partial t} f(x,t) + \dot{x}\cdot\nabla f(x,t) = 0\Rightarrow \frac{d}{dt}f(x,t) = 0$$
+
+	The ensemble distribution function is conserved in a space with a non-trivial metric:
+
+	$$f(x_t, t)\sqrt{g(x_t, t)}dx_t = f(x_0,0)\sqrt{g(x_0,0)}dx_0$$
+
+	\subsection{Equilibrium solutions}
+
+	$$f(x_t, t)\sqrt{g(x_t, t)}dx_t = f(x_0, 0)\sqrt{g(x_0,0)}dx_0$$
+
+	There is no explicit time dependence:
+
+	$$f(x_t)\sqrt{g(x_t)}dx_t = f(x_0)\sqrt{g(x_0)}dx_0$$
+
+	Averages can be performed at any instant of time with the correct metric factor.
+	The same expression as in the equilibrium Liouville equation:
+
+	$$\xi(x)\cdot\nabla f(x) = 0$$
+
+	Since there is no Hamiltonian there are no Poissons brackets.
+	However since $\frac{df}{dt} = 0$ a general equilibrium solution can be built inserting all the conservation laws satisfied by the equation of motion.
+	Consider $N_C$ conservation laws: $\Lambda_k(x_t)-C_k = 0$, $\frac{d\Lambda_k(x_t)}{dt} = 0$, $k = 1, \dots, N_C$:
+
+	$$f(x) = \prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t) - C_k)$$
+
+	The number of microstates available to the systems is determined by $f(x)$ when it is integrated with respect to the conserved volume element $\sqrt{g(x)}dx$.
+	Considering the microcanonical partition function:
+
+	$$\mathcal{E} = \int dx\sqrt{g(x)}f(x) = \int dx\sqrt{g(x)}\prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t) -C_k)$$
+
+	\subsection{Analysis of non Hamiltonian equations}
+
+	$$\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}\qquad\dot{\vec{p}}_i = \vec{F}_i-\frac{p_\eta}{Q}\vec{p}_i\qquad\dot{\eta} = \frac{p_\eta}{Q}\qquad\dot{p}_\eta = \sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT$$
+
+	The conserved quantity:
+
+	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta\qquad \frac{d\mathcal{H}'}{dt} = 0$$
+
+	$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$ is not an Hamiltonian, but a conserved quantity: there is no way to obtain the Nos\`e-Hoover equations applying Hamiltons equations to $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$.
+
+	Compressibility:
+
+	$$\kappa = \sum\limits_{i=1}^N[\nabla_{\vec{p}_i}\cdot\dot{\vec{p}}_i + \nabla_{\vec{r}_i}\cdot\dot{\vec{r}}_i] + \frac{\partial\dot{\eta}}{\partial\eta} + \frac{\partial\dot{p}_\eta}{\partial p_\eta} = -Nd\frac{p_\eta}{Q} = -Nd\dot{\eta}$$
+
+	However:
+
+	$$\kappa = \frac{dw}{dt}\Rightarrow w = -dN\eta\Rightarrow\sqrt{g} = e^{-w} = e^{dN\eta}$$
+
+	\subsection{Partition function}
+	The conserved quantity:
+
+	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta\qquad \sqrt{g} = e^{dN\eta}$$
+
+	$$\mathcal{E} = \int dx\sqrt{g(x)}\prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t) - C_k)$$
+
+	$$\mathcal{E}_T(N, V, C_1) = \int d^N\vec{p}\int_{\mathcal{D}(V)}d^n\vec{r}\int dp_\eta d\eta e^{dN\eta}\delta\biggl(\mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta - C_1\biggr)$$
+
+	$$\delta\biggl(\mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta - C_1\biggr) = \frac{1}{dNkT}\delta(\eta-\eta_0)\qquad \eta_0 = \frac{1}{dNkT}\biggl(C_1-\mathcal{H}(\vec{r}, \vec{p}) - \frac{p_\eta^2}{2Q}\biggr)$$
+
+	$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\int dp_\eta e^{-\frac{\beta p_\eta^2}{2Q}}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
+
+	$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}\sqrt{2\pi Qk T}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
+
+	In the absence of external forces $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$ is not the only conserved quantity.
+	There are three conservation laws, one of which is:
+
+	$$\vec{P} = \sum\limits_{i=1}^N\vec{p}_i\qquad \vec{K} = \vec{P}e^\eta\Rightarrow \frac{d\vec{K}}{d t} = 0$$
+
+	\subsection{Harmonic oscillator}
+
+	\subsection{Nos\`e-Hoover chains}
+	Considering the conservation law:
+
+	$$\vec{P} = \sum\limits_{i=1}^N\vec{p}_i\qquad \vec{K} = \vec{P}e^\eta\Rightarrow \frac{d\vec{K}}{d t} = 0$$
+
+	And the optimal choice $Q_1 = dNkT\tau^2$ and $Q_j = kT\tau^2$, with $\tau$ the characteristic time:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}$.
+			\item $\dot{\vec{p}}_i = \vec{F}_i - \frac{p_{\eta_1}}{Q_1}\vec{p_i}$.
+			\item $\dot{\eta}_j = \frac{p_{\eta_j}}{Q_j}\quad j = 1, \dots, M$.
+			\item $\dot{p}_{\eta_!} = \biggl[\sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT\biggr] - \frac{p_{\eta_2}}{Q_2}p_{\eta_1}$.
+			\item $\dot{p}_{\eta_j} = \biggl[\sum\limits_i\frac{\vec{p}_{\eta_{j-1}}^2}{Q_{j-1}}-kT\biggr] - \frac{p_{\eta_{j+1}}}{Q_{j+1}}p_{\eta_j}\quad j = 2, \dots, M-1$.
+			\item $\dot{p}_{\eta_M} = \frac{p^2_{\eta_{M-1}}}{Q_{M-1}}-kT$.
+		\end{itemize}
+	\end{multicols}
+
+	Considering the conserved quantity:
+
+	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\sum\limits_{j=2}^M\eta_j$$
+
+	And the compressibility:
+
+	$$\kappa = -dN\frac{P_{\eta_1}}{Q_1} - \sum\limits_{j=2}^M\frac{p_{\eta_j}}{Q_j} = -dN\dot{\eta}_1 - \dot{\eta}_c\qquad \eta_c = \sum\limits_{j=2}^M\eta_j$$
+
+	Then:
+
+	$$\kappa = \frac{dw}{dt}\Rightarrow w = -dN\eta_1 - \eta_c\Rightarrow \sqrt{g} = e^{-w} = e^{dN\eta_1 + \eta_c}$$
+
+		\subsubsection{Partition function}
+		Considering the conserved quantity:
+
+		$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\sum\limits_{j=2}^M\eta_j$$
+
+		$$\sqrt{g} = e^{dN\eta_1 + \eta_c}$$
+
+		$$\mathcal{E}_T(N, V, C_1) = \int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\int d^Mp_\eta d^M\eta e^{dN\eta_1 + \eta_c}\delta \biggl(\mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\eta_c - C_1\biggr)$$
+
+		$$\delta\biggl(\mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\eta_c - C_1\biggr) = \frac{1}{dNkT}\delta(\eta_1-\eta_0)\qquad \eta_0 = \frac{1}{dNkT}\biggl(C_1-\mathcal{H}(\vec{r},\vec{p})-\sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} - kT\eta_c\biggr)$$
+
+		$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\prod\limits_{j=1}^M\biggl(\int dp_\eta e^{-\beta\frac{p_{\eta J}^2}{2Q_j}}\biggr)\prod\limits_{j=2}^M\biggl(\int d\eta_j\biggr)e^{-\beta\mathcal{H}(\vec{r},\vec{p})}$$
+
+		Assuming that all the $\eta_j$ are limited:
+
+		$$\mathcal{E}_T(N, V, C_1) = \mathcal{M}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
+
+		\subsubsection{Harmonic oscillator}

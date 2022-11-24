@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  24 NOV 2022 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  24 NOV 2022 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,7 +900,7 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [7]
 Chapter 2.
-<chapters/02/images//planar.png, id=907, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=947, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
@@ -909,7 +909,7 @@ Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 [8
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=919, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=959, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
@@ -929,7 +929,7 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 
 LaTeX Warning: Reference `rama' on page 10 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=931, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=971, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
@@ -943,7 +943,7 @@ ine 103.
 
 LaTeX Warning: Reference `ala_gly' on page 11 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=936, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=976, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
@@ -954,7 +954,7 @@ LaTeX Warning: Reference `ramachandran-final' on page 11 undefined on input lin
 e 116.
 
 [11 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=949, 1340.00626pt x 849.1725pt>
+<chapters/02/images//contact.png, id=989, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
@@ -962,14 +962,14 @@ Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
 [12 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=959, 1514.65875pt x 778.91pt>
+<chapters/02/images//topology.png, id=999, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
  [13 <./chapters/02/images//topology.png>] [14]
-<chapters/02/images//rmsd.png, id=970, 1161.33875pt x 809.0225pt>
+<chapters/02/images//rmsd.png, id=1011, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
@@ -1095,7 +1095,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.1638pt}.
 
-[88]) (./chapters/12/isobaric-ensembles.tex
+[88]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.1638pt, for example:
@@ -1104,46 +1104,58 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.1638pt}.
 
-[89]
+[89] [90] [91] [92]
+Overfull \hbox (45.26915pt too wide) detected at line 446
+\OML/cmm/m/it/10 ^^N[]\OMS/cmsy/m/n/10 H\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; [
+]\OT1/cmr/m/n/10 ) + [] [] + \OML/cmm/m/it/10 dNkT^^Q[] \OT1/cmr/m/n/10 + \OML/
+cmm/m/it/10 kT^^Q[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 C[][] \OT1/cmr/m/n/10
+ = []\OML/cmm/m/it/10 ^^N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q[] \OMS/cmsy/m/n/
+10 ^^@ \OML/cmm/m/it/10 ^^Q[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 ^^Q[] \OT1/cmr/
+m/n/10 = [][]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10 ^^@ H\OT1/cmr/m/n/10 ([]\OML
+/cmm/m/it/10 ; []\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ [] [] ^^@ \OML/cmm/m/it
+/10 kT^^Q[][]
+ []
+
+) (./chapters/12/isobaric-ensembles.tex [93]
 Chapter 12.
-) (./chapters/13/grand-canonical-ensemble.tex [90
+) (./chapters/13/grand-canonical-ensemble.tex [94
 
 ]
 Chapter 13.
-) (./chapters/14/uncertainties-sampling-quality.tex [91
+) (./chapters/14/uncertainties-sampling-quality.tex [95
 
 ]
 Chapter 14.
-) (./chapters/15/protein-motions.tex [92
+) (./chapters/15/protein-motions.tex [96
 
 ]
 Chapter 15.
-) (./chapters/16/clustering-protein-structure-networks.tex [93
+) (./chapters/16/clustering-protein-structure-networks.tex [97
 
 ]
 Chapter 16.
-) (./chapters/17/monte-carlo.tex [94
+) (./chapters/17/monte-carlo.tex [98
 
 ]
 Chapter 17.
-) (./chapters/18/free-energy-calculations.tex [95
+) (./chapters/18/free-energy-calculations.tex [99
 
 ]
 Chapter 18.
-) [96
+) [100
 
 ] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 9C02566A63B71B00CA2184869EA87E55;27462.
+(rerunfilecheck)             Checksum: D1CC3212FAA36CBB37EC6C8691D731DF;28950.
  ) 
 Here is how much of TeX's memory you used:
- 24418 strings out of 478238
- 443948 string characters out of 5850455
- 816008 words of memory out of 5000000
- 41910 multiletter control sequences out of 15000+600000
+ 24440 strings out of 478238
+ 444299 string characters out of 5850455
+ 816013 words of memory out of 5000000
+ 41918 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,522b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1175,10 +1187,10 @@ nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (97 pages, 2295225 bytes).
+Output written on ./build/principal.pdf (101 pages, 2312189 bytes).
 PDF statistics:
- 1594 PDF objects out of 1728 (max. 8388607)
- 1401 compressed objects within 15 object streams
- 328 named destinations out of 1000 (max. 500000)
- 1396 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1654 PDF objects out of 1728 (max. 8388607)
+ 1457 compressed objects within 15 object streams
+ 342 named destinations out of 1000 (max. 500000)
+ 1460 words of extra memory for PDF output out of 10000 (max. 10000000)
 
