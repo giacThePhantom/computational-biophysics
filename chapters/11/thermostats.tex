@@ -1,66 +1,100 @@
 \chapter{Thermostats}
 
 \section{Introduction}
+When dealing with computer simulation of a biomolecule temperature has to be constant, so the effect of a thermostat has to be included.
+So the particles will interact with the particles in the thermal bath.
+The idea is to check whether the kinetic energy is what is expected for the particular temperature and take action when that is not the case.
 
 	\subsection{Velocity rescaling}
-
-	Target kinetic energy, where $N_f$ is the number of degrees of freedom.
+	The velocity rescaling technique involve having a target kinetic energy compatible with the temperature.
+	Considering $N_f$ the number of degrees of freedom.
 
 	$$\bar{K} = \frac{N_f}{2\beta}$$
 
-	The actual kinetic energy is:
+	This is what is expected from the equipartition theorem.
+	When running a simulation, the actual kinetic energy is:
 
 	$$K = \frac{1}{2}\sum\limits_i m_i\vec{v}_i^2$$
 
-	Considering a rescaling factor $\alpha = \sqrt{\frac{\bar{K}}{K}}$ where $\vec{v}_i \rightarrow \frac{\vec{v}_i}{\alpha}$ at a predetermined frequency.
-	The rescaled kinetic energy:
+	The objective is to have $K = \bar{K}$, so the velocities are rescaled by a rescaling factor$\alpha = \sqrt{\frac{\bar{K}}{K}}$ where $\vec{v}_i \rightarrow \frac{\vec{v}_i}{\alpha}$.
+	This allows to obtain the rescaled kinetic energy:
 
 	$$\frac{1}{2}\sum\limits_{i}m_i\frac{\vec{v}_i^2}{\alpha^2} = \frac{\bar{K}}{2K}\sum\limits_{i}m_i\vec{v}_i^2 = \bar{K}$$
 
-	This is rigorously correct in the thermodynamics limit: $N\rightarrow\infty$
+	So that the target kinetic energy is obtained in the simulation.
+	Velocities are rescaled at a predetermined frequency or using a threshold value on the actual kinetic energy to allow for its fluctuations.
+	This algorithm either provide more velocities to particles or it slows them down.
+	In the first case there will be problems in satisfying all the constraints.
+	This kind of thermostat is rigorously correct only in the thermodynamics limit: $N\rightarrow\infty$.
+	It is not recommended for a small number of particles.
 
 \section{Type of thermostats}
 
 	\subsection{Andersen's thermostat}
 	Consider a collision frequency $\nu$, then $\nu\Delta t$ is the probability of a collision in $\Delta t$.
-	Picking a random number $\rho$ from a uniform probability distribution in $[0,1]$, if $\rho<\nu\Delta t$ the velocity is reassigned to the particle, extracting it from the Maxwell-Boltzmann distribution:
+	In particular every $\frac{1}{\nu}$ there will be a collision.
+	To implement the changes in kinetic energy considering the probability $\nu\Delta t$, a random number $\rho$ from a uniform probability distribution in $[0,1]$, if $\rho<\nu\Delta t$ the velocity is reassigned to the particle, extracting it from the Maxwell-Boltzmann distribution:
 
 	$$P(p) = \biggl(\frac{\beta}{2\pi m}\biggr)^{\frac{3}{2}}e^{-\beta\frac{p^2}{2m}}$$
 
-	\subsection{Andersen revisited}
+	So this distribution samples the canonical ensemble.
+	This is done for all the particles.
+	This causes abrupt discontinuity in the velocities, making it difficult to satisfy the constraints.
+
+	\subsection{Andersen revisited - Heyes}
+	A modification on Andersen thermostat has been done by Heyes.
+	There is a mixture between the velocity algorithm and Andersen's thermostat.
 	The target kinetic every $K_t$ is selected from a distribution:
 
 	$$P(K_t)dK_t\propto K_t^{\frac{N_f}{2}-1}e^{-\beta K_t}d K_t$$
 
-	Considering a rescaling factor $\alpha = \sqrt{\frac{K_t}{K}}$ where $\vec{v}_i \rightarrow \frac{\vec{v}_i}{\alpha}$ at a predetermined frequency.
-	The rescaled kinetic energy:
+	This is what is would be obtained from the Maxwell-Boltzmann distribution, corrected by the number of degrees of freedom.
+	The target kinetic energy is not fixed, but it will vary and then the velocities are re-scaled.
+	It is more gentle than the Andersen's thermostat and it is more rigorous than the velocities rescaling because the target kinetic energy can vary according to the distribution.
+	Once the actual kinetic energy is obtained:
+
+	$$K = \frac{1}{2}\sum\limits_im_i\vec{v}_i^2$$
+
+	A scaling factor is computed $\alpha = \sqrt{\frac{K_t}{K}}$ and the velocities are updated: $\vec{v}_i \rightarrow \frac{\vec{v}_i}{\alpha}$ at a predetermined frequency or considering some threshold.
+	The rescaled kinetic energy will then be:
 
 	$$\frac{1}{2}\sum\limits_{i}m_i\frac{\vec{v}_i^2}{\alpha^2} = \frac{K_t}{2K}\sum\limits_{i}m_i\vec{v}_i^2 = K_t$$
 
 	This is rigorously correct in the thermodynamics limit: $N\rightarrow\infty$
+	The thermodynamics limit will be reached sooner than the velocity rescaling algorithm.
 
 	\subsection{Langevin thermostat}
-	Consider a friction coefficient $\gamma$ and random velocities $\eta_i$.
+	The Langevin thermostat is based on Langevin equation.
+	Friction with a friction coefficient $\gamma$ is introduced, dissipating some of the energy and also some random velocities $\eta_i$ are introduced to keep the temperature and the kinetic energy fixed.
+	The random velocities model the collisions between system and thermal bath particles.
+	The Langevin equations will be used for both the solute and solvent particles.
+	Using Langevin's thermostat the canonical solution is sampled.
 	The properties of the random velocities are:
 
 	\begin{multicols}{2}
 		\begin{enumerate}
-			\item Collisions between solute and thermal bath particles are many and independent.
+			\item Collisions between solute and solvent and thermal bath particles are many and independent.
 				Components of the random velocities are sampled from a Gaussian distribution.
 			\item On average there is no net momentum exchange between the thermal bath and the solute particles: $\langle\eta_i(t)\rangle = 0$.
-			\item Frequent and instantaneous collisions: the auto correlation function of the velocities decays fast: $\langle\eta_i(t)\eta_j(t)\rangle = 6D\delta_{ij}\delta(t-t')$ where $D = \frac{kT}{m\gamma}$ is the diffusion coefficient.
+			\item Frequent and instantaneous collisions.
+				To have instantaneous collisions the auto correlation function of the velocities decays fast: $\langle\eta_i(t)\eta_j(t)\rangle = 6D\delta_{ij}\delta(t-t')$ where $D = \frac{kT}{m\gamma}$ is the diffusion coefficient.
 		\end{enumerate}
 	\end{multicols}
 
-	The equations of motion are coupled overdamped Langevin equations:
+	Now everything is implemented considering the equation of motions.
+	The equations of motion are coupled overdamped Langevin equations.
+	There is no acceleration because in the overdamped limit the mass term is negligible and the change in velocities is:
 
 	$$\dot{\vec{r}}_i(t) = \beta D\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t)) + \eta_i(t)$$
 
-	The configurations sample a probability distribution that is the solution of the Fokker-Planck equation:
+	This is used for computing the velocities in the Verlet algorithm.
+	Writing this down the configuration obtained will sample the Fokker-Planck equation:
 
 	$$\frac{\partial}{\partial t}P(\vec{x}, t) = D\sum\limits_{i=1}^{N}\nabla_i\cdot[\nabla_i+\beta\nabla\mathcal{H}(\vec{x})]$$
 
 	The Boltzmann distribution $P(\vec{x}) = Ce^{-\beta\mathcal{H}(\vec{x})}$ is the stationary solution of the Fokker-Planck equation.
+	Guaranteeing that in the long time limit the solution the velocities will be sampled from the Boltzmann distribution.
+	This implies that simulations have to be long and the effect of the random velocities has to be considered.
 	To integrate the Langevin equation:
 
 	$$\dot{\vec{r}}_i(t) = \beta D\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t)) + \eta_i(t)$$
@@ -71,10 +105,12 @@
 
 	$$\sigma^2 = \langle\eta_i(0)\eta_i(0)\rangle = \frac{6D}{\Delta t}$$
 
-	A random force $\xi_i(t_k)$ satisfying the unitary variance condition:
+	Where $6$ is $2$ times the number of dimensions.
+	Now a random force $\xi_i(t_k)$ satisfying the unitary variance condition:
 
 	$$\xi_i(t_k) = \sqrt{\frac{\Delta t}{6D}}\eta_i(t_k)\qquad\langle\xi_i(t_k)\rangle = 0\qquad\langle\xi_i(t_k)\xi_i(t_l)\rangle = \delta_{ij}\delta_{kl}$$
 
+	Random velocities are rescaled to obtain a variance equal to $1$.
 	Considering a discretized Langevin equation:
 
 	$$\frac{\vec{r}_i(t+ \Delta t) - \vec{r}_i(t)}{\Delta t} = \beta D\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t)) + \sqrt{\frac{6D}{\Delta t}}\xi_i(t)$$
@@ -83,85 +119,159 @@
 
 	$$\vec{r}_i(t + \Delta t) = \vec{r}_i(t) + \Delta t\frac{\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t))}{m_i\gamma} + \sqrt{\frac{6kT\Delta t}{m_i\gamma}}\xi_i(t)$$
 
+	$\xi_i$ are random numbers with average $0$ and variance $1$, allowing to obtain the coordinate at time $t+\Delta t$, getting a stationary solution in the long term of the Fokker-Planck equation, which is the Boltzmann distribution.
+
 \section{Bussi velocity Verlet}
-The Bussi velocity Verlet is based on velocity rescale with the following algorithm:
+The Bussi velocity Verlet is a generalized version of the velocities rescaling based on velocity rescale with the following algorithm:
 
 \begin{multicols}{2}
 	\begin{itemize}
-		\item Evolve the system for a single time step with Hamilton's equations, using a time-reversible area-preserving integration scheme like the velocity Verlet.
-		\item Compute the kinetic energy.
-		\item Evolve the kinetic energy for a time corresponding to a single time step using an auxiliary continuous stochastic dynamics.
+		\item Evolve the system for a single time step with Hamilton's equations, using a time-reversible area-preserving integration scheme like the velocity Verlet or any integration scheme for the microcanonical ensemble.
+		\item Compute the kinetic energy, which becomes a variables with its own dynamics.
+		\item Evolve the kinetic energy for a time corresponding to a single time step using an auxiliary continuous stochastic dynamics equations.
 		\item Rescale the velocities so as to enforce this new value of the kinetic energy.
 	\end{itemize}
 \end{multicols}
 
-Auxiliary dynamics:
+The equations that represent the auxiliary dynamics on kinetic energy:
 
 $$dK = \biggl(D(K)\frac{\partial\log P(K)}{\partial K}+\frac{\partial D(K)}{\partial K}\biggr)dt + \sqrt{2D(K)}dW$$
 
-Inserting the distribution from Heyes' algorithm: $P(K_t)dK_t\propto K_t^{\frac{N_f}{2}-1}e^{\beta K_t}dK_t$:
+Where $dW$ is a stochastic variation and the first part is completely deterministic.
+The probability distribution for the kinetic energy is taken from Heyes' algorithm: $P(K_t)dK_t\propto K_t^{\frac{N_f}{2}-1}e^{\beta K_t}dK_t$:
 
 $$dK = \biggl(\frac{N_f D(K)}{2K\bar{K}}(K-\bar{K}) - \frac{D(K)}{K} + \frac{\partial D(K)}{\partial K}\biggr) dt + \sqrt{2D(K)}dW$$
 
-A possible choice is $D(K) = \frac{2K\bar{K}}{N_f\tau}$:
+A possible choice for $D(K)$ is:
+
+$$D(K) = \frac{2K\bar{K}}{N_f\tau}$$
+
+So that:
 
 $$dK = (K-\bar{K})\frac{dt}{\tau}+\sqrt{\frac{2K\bar{K}}{N_f}}\frac{dW}{\sqrt{\tau}}$$
 
+This is the auxiliary variable stochastic dynamics equation for the kinetic energy.
 Neglecting the stochastic term Berendsen's thermostat is obtained:
 
 $$dK = (K-\bar{K})\frac{dt}{\tau}$$
 
+Here the kinetic energy changes only when it is different from $\bar{K}$.
+This is not sampling the canonical distribution.
+So there is no known ensemble that can be simulated.
+This is useful for simulating at a given temperature and to perform an equilibration step.
+Once equilibrium is obtained a proper thermostat is used.
+Reconsidering the stochastic part there are two important limits:
+
 $$\tau\rightarrow 0\Rightarrow \tau dK = (K-\bar{K})dt + \sqrt{\frac{2K\bar{K}\tau}{N_f}}dW\Rightarrow (K-\bar{K})dt = 0 \text{ (Heyes)}$$
+
+Sampling the kinetic energy from the Heyes distribution.
+The other limit is when:
 
 $$\tau\rightarrow\infty\Rightarrow dK = (K-\bar{K})\frac{dt}{\tau} + \sqrt{\frac{2K\bar{K}}{N_f}}\frac{dW}{\sqrt{\tau}}\Rightarrow dK = 0\text{ (Hamiltonian dynamics)}$$
 
-Solution to the differential equation leads to a scaling factor $R_i$ independent Gaussian random numbers:
+In this way Hamiltonian dynamics are obtained: the kinetic energy will be treated as any other observable and has no dynamics.
+If $\tau$ is in between the two values a family of algorithms with all possible $\tau$ are obtained.
+The solution to the differential equation leads to a scaling factor ($R_i$ independent Gaussian random numbers):
 
 $$\alpha^2 = e^{-\frac{\Delta t}{\tau}} + \frac{\bar{K}}{N_fK}(1-e^{-\frac{\Delta t}{\tau}})\sum\limits_{i=1}^{N_f}R_i^2+2e^{-\frac{\Delta t}{2\tau}}\sqrt{\frac{\bar{K}}{N_f K}(1-e^{-\frac{\Delta t}{\tau}}R_1)}$$
 
+The scaling factor on the velocities depends on a sequence of random numbers, one for each degree of freedom.
+This has the same computational cost as the velocity rescaling algorithm with two advantages:
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item The canonical distribution is obtained.
+		\item The velocities remain continuous and there are no problem with the constraints.
+	\end{itemize}
+\end{multicols}
+
 \section{Nos\`e Hamiltonian}
-Extended phase space:
+Nos\`e Hamiltonian or the extended phase space involves to introducing an extra variable introducing a Maxwell daemon and when it sees that the particles have a higher velocity than expected it will assign a new velocity according to the Maxwell distribution keeping the temperature constant.
+Doing so an extra variable in the Hamiltonian $s$ is obtained, for which its conjugated momentum $p_s$ is obtained.
 
 $$\mathcal{H}_N = \sum\limits_i\frac{\vec{p}_i^2}{2m_is^2} + U(\vec{r}_1, \dots, \vec{r}_n)_ \frac{p_s^2}{2Q}+ gkT\log s$$
 
-Microcanonical partition function:
+Where $g$ is a parameter.
+For the conjugate momentum there is an extra term and $Q$ works like mass and is an inertial term for $p_s$, the bigger $Q$ the smaller the variation in kinetic variation.
+In total there are $6N + 2$ variables in the system.
+Assuming that this is the Hamiltonian, following Hamilton's equation the microcanonical ensemble is being simulated.
+Considering the microcanonical partition function for Nos\`e Hamiltonian:
 
 $$\Omega = \int d^N\vec{r}d^N\vec{p}dsdp_s\delta\biggl(\sum\limits_{i}\frac{\vec{p}_i^2}{2m_is^2} + U(\vec{r}_1, \dots, \vec{r}_N) + \frac{p_s^2}{2Q} + gkT\log s - E\biggr)$$
 
+Where $\Omega$ is the total number of configuration.
+The integration is over all the coordinates and the momenta and also on the extra coordinate and its conjugate momentum that depends on Maxwell's daemon.
+The delta function is the function of the Nos\`e Hamiltonian minus the energy.
 Scaling the momentum $\frac{\vec{p}}{s}\rightarrow \vec{p}$:
 
 $$\Omega = \int d^N\vec{r}d^N\vec{p}dsdp_ss^{dN}\delta\biggl(\mathcal{H}+\frac{p_s^2}{2Q} + gkT\log s - E\biggr)$$
 
-This can be solved using the property of the $\delta$ function.
+Where $N$ is the dimensionality of the system.
+This can be solved using the property of the $\delta$ function, allowing to integrate over the two new variables:
 
 $$\delta(f(s)) = \frac{\delta(s-s_0)}{|f'(s_0)|}\qquad f(s) = \mathcal{H}+\frac{p_s^2}{2Q} + gkT\log s - E\qquad f'(s) = \frac{gkT}{s}$$
 
+Computing the zero of $f(s)$:
+
 $$s_0 = e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\Rightarrow f'(s_0) = gkTe^{-\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}$$
 
+Substituting $\delta(f(s))$ with $\frac{\delta(s-s_0)}{|f'(s_0)}$:
+
 $$\delta(f(s)) = \frac{1}{gkT}e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\delta\biggl(s-e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\biggr)$$
+
+Plugging it in the microcanonical partition function:
 
 $$\Omega = \int d^N\vec{r}d^N\vec{p}dsdp_ss^{dN}\delta\biggl(\mathcal{H}+\frac{p_2^2}{2Q}+gkT\log a-E\biggr)$$
 
-$$\delta(f(s)) = \frac{1}{gkT}e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\delta\biggl(s-e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\biggr)$$
+Computing the integral in $s$ the net result is substituting $s$ with the value of $s_0$:
 
 $$\Omega = \frac{1}{dkT}\int d^N\vec{r}d^N\vec{p}dp_se^{\frac{dN+1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}$$
 
+Determining the value of the parameter $g$ and considering the integral in $p_s$ this is a Gaussian integral:
+
 $$g = dN + 1\Rightarrow\Omega = \frac{e^{\frac{E}{kT}}\sqrt{2\pi QkT}}{(dN+1)kT}\int d^N\vec{r}d^N\vec{p}e^{-\frac{\mathcal{H}}{kT}}$$
 
+So that in the integral is remaining the partition function of the canonical ensemble.
+Using the Nos\`e Hamiltonian the canonical ensemble in the original Hamiltonian is sampled.
+The microcanonical partition function for the extended Nos\`e Hamiltonian corresponds to the canonical partition function for the original Hamiltonian non considering multiplicative factors.
+
 	\subsection{Nos\`e equations}
+	Considering the original Nos\`e Hamiltonian
 
 	$$\mathcal{H}_N = \sum\limits_i\frac{\vec{p}_i^2}{2m_is^2}+U(\vec{r}_1,\dots, \vec{r}_N) + \frac{p_s^2}{2Q} + gkT\log s$$
 
+	Applying Hamilton's equation to the coordinates and the momenta:
+
 	$$\dot{\vec{r}}_i = \frac{\partial\mathcal{H}_N}{\partial\vec{p}_i} = \frac{\vec{p}_i}m_is^2\qquad \dot{\vec{p}}_i = -\frac{\partial\mathcal{H}_n}{\partial\vec{r}_i} = -\frac{\partial U}{\partial\vec{r}_i} = \vec{F}_i$$
+
+	There are two extra equations that corresponds to the time evolution of the extra coordinates and of its conjugate momentum:
 
 	$$\dot{s} = \frac{\partial\mathcal{H}_N}{\partial p_s} = \frac{p_s}{Q}\qquad \dot{p}_s = -\frac{\partial\mathcal{H}_n}{\partial S} = \sum\limits_i\frac{\vec{p}_i^2}{m_is^3} - \frac{gkT}{s} = \frac{1}{s}\biggl[\sum\limits_i\frac{\vec{p}_i^2}{m_is^2}-gkT\biggr]$$
 
 	\subsection{Nos\`e-Hoover equations}
-	Noncanonical change of variables:
+	Performing a noncanonical change of variables, so that there is no way that the new equations can be obtained starting from the Hamiltonian.
 
 	$$\vec{p}_i' = \frac{\vec{p}_i}{s}\qquad p_s' = \frac{p_s}{s}\qquad dt' = \frac{dt}{s}$$
 
-	Remembering:
+	Changing the derivative of position with the new time and momentum:
+
+	$$\frac{d\vec{r}_i}{dt} = \frac{\vec{p}_i}{m_is^2}\Rightarrow\frac{d\vec{r}_i}{dt'} = \frac{\vec{p}_i'}{m_i}\qquad \frac{d\vec{p}_i'}{dt'} = \vec{F}_i-\frac{sp'_s}{Q}\vec{p}_i'$$
+
+	The derivative of positions become the one in the original Hamiltonian.
+	The derivative of momenta has the original force and a correction on it, extra forces proportional to the velocities and that look like friction terms, but it is not guaranteed to be a negative contribution.
+	This can allow the temperature to be constant.
+
+	$$\frac{ds}{dt'} = \frac{s^2p_s'}{Q}$$
+
+	$$\frac{dp_s'}{dt'} = \frac{1}{s}\biggl[\sum\limits_{i} \frac{(\vec{p}_i')^2}{m_i}-gkT\biggr] - \frac{s(p_s')^2}{Q}$$
+
+	These are Nos\`e equations and are computed applying Hamilton's equation to it.
+	Now in this new form the look similar to Hamilton's equation to the original Hamiltonian.
+	Performing another change of variables:
+
+	$$\frac{1}{s}\frac{ds}{dt'} = \frac{d\eta}{dt'}\qquad p_s = p_\eta = sp'_s$$
+
+	And starting from the equations a new set is obtained:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -169,13 +279,9 @@ $$g = dN + 1\Rightarrow\Omega = \frac{e^{\frac{E}{kT}}\sqrt{2\pi QkT}}{(dN+1)kT}
 			\item $\dot{\vec{p}}_i = \vec{F}_i-\frac{p_\eta}{Q}\vec{p}_i$.
 			\item $\dot{\eta} = \frac{p_\eta}{Q}$.
 			\item $\dot{p}_\eta = \sum\limits_{i}\frac{\vec{p}_i^2}{m_i}-dNkT$.
+				This is exactly twice the kinetic energy and the difference between this term and the double of the kinetic energy.
+				Whenever the kinetic energy differs from the expected then the momentum $\dot{p}_\eta$ and that will act as a friction term.
 		\end{itemize}
 	\end{multicols}
 
-	Now:
-
-	$$\frac{d\vec{r}_i}{dt} = \frac{\vec{p}_i}{m_is^2}\Rightarrow\frac{d\vec{r}_i}{dt'} = \frac{\vec{p}_i'}{m_i}\qquad \frac{d\vec{p}_i'}{dt'} = \vec{F}_i-\frac{sp'_s}{Q}\vec{p}_i'$$
-
-	$$\frac{ds}{dt'} = \frac{s^2p_s'}{Q}\qquad \frac{1}{s}\frac{ds}{dt'} = \frac{d\eta}{dt'}$$
-
-	$$p_s = p_\eta = sp'_s\qquad \frac{dp_s'}{dt'} = \frac{1}{s}\biggl[\sum\limits_{i} \frac{(\vec{p}_i')^2}{m_i}-gkT\biggr] - \frac{s(p_s')^2}{Q}$$
+These are the dynamics of the thermostat.

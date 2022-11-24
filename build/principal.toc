@@ -184,17 +184,17 @@
 \contentsline {chapter}{\numberline {11}Thermostats}{83}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Introduction}{83}{section.11.1}%
 \contentsline {subsection}{\numberline {11.1.1}Velocity rescaling}{83}{subsection.11.1.1}%
-\contentsline {section}{\numberline {11.2}Type of thermostats}{83}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Andersen's thermostat}{83}{subsection.11.2.1}%
-\contentsline {subsection}{\numberline {11.2.2}Andersen revisited}{84}{subsection.11.2.2}%
+\contentsline {section}{\numberline {11.2}Type of thermostats}{84}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Andersen's thermostat}{84}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Andersen revisited - Heyes}{84}{subsection.11.2.2}%
 \contentsline {subsection}{\numberline {11.2.3}Langevin thermostat}{84}{subsection.11.2.3}%
-\contentsline {section}{\numberline {11.3}Bussi velocity Verlet}{85}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Nos\`e Hamiltonian}{86}{section.11.4}%
-\contentsline {subsection}{\numberline {11.4.1}Nos\`e equations}{87}{subsection.11.4.1}%
-\contentsline {subsection}{\numberline {11.4.2}Nos\`e-Hoover equations}{87}{subsection.11.4.2}%
-\contentsline {chapter}{\numberline {12}The isobaric ensembles}{88}{chapter.12}%
-\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{89}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{90}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Protein motions}{91}{chapter.15}%
-\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{92}{chapter.16}%
-\contentsline {chapter}{\numberline {17}Monte Carlo methods}{93}{chapter.17}%
+\contentsline {section}{\numberline {11.3}Bussi velocity Verlet}{86}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Nos\`e Hamiltonian}{87}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Nos\`e equations}{88}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Nos\`e-Hoover equations}{89}{subsection.11.4.2}%
+\contentsline {chapter}{\numberline {12}The isobaric ensembles}{90}{chapter.12}%
+\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{91}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{92}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Protein motions}{93}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{94}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Monte Carlo methods}{95}{chapter.17}%
