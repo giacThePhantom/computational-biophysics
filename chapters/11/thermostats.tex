@@ -287,48 +287,71 @@ The microcanonical partition function for the extended Nos\`e Hamiltonian corres
 These are the dynamics of the thermostat.
 
 \section{Non Hamiltonian statistical mechanics}
-The unison of system and surroundings creates an isolated system which can be described through Hamiltonian dynamcis.
-Integrating out variables of the surroundings create non Hamiltonian dynamics.
+The Nos\`e-Hoover cannot be derived from an Hamiltonian.
+The equations were obtained from a non-canonical transformation of variables.
+There is a need to define what happens in non-Hamiltonian systems.
+Liouville's equations can be extended to non-Hamiltonian systems.
+When describing the system and its surroundings the universe can be thought as an isolated system, which can be described through Hamiltonian dynamics: the energy is fixed.
+When describe the system without the surrounding all the variables of the second have to be integrated out so they do not appear in the results.
+This operation lead to obtain non-Hamiltonian dynamics.
 The non-Hamiltonian equations of motion are:
 
 $$\dot{x} = \xi(x, t)$$
 
-Considering phase space compressibility: $\nabla\cdot\dot{x} = \nabla\cdot\xi(x, t) = \kappa(x, t)\neq 0$ in general: this property may vanish even in non-Hamiltonian systems
+This is the velocity in phase space.
+Considering phase space compressibility for non-Hamiltonian dynamics:
+
+$$\nabla\cdot\dot{x} = \nabla\cdot\xi(x, t) = \kappa(x, t)\neq 0$$
+
+Where $\kappa$ is the compressibility, which is $0$ for Hamiltonian systems.
+For a non-Hamiltonian system the compressibility might be different from $0$.
 
 	\subsection{Phase space metric}
+	To study non-Hamiltonian systems the phase-space metric has to be investigated:
 
 	$$\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\nabla\cdot\dot{x}_t\Rightarrow\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\kappa(x_t, t)$$
 
-	The Liouville theorem $dx_t = dx_0$ no longer holds, but the solution is:
+	Where $J$ is the Jacobian of the transformation from the coordinates at time $0$ to the ones at time $t$.
+	Because of the dependence on compressibility $J$ can be variable.
+	Because of this the Liouville theorem $dx_t = dx_0$ no longer holds, but the solution of the derivative above is:
 
 	$$J(x_t;x_0) = e^{\int_0^tds\kappa(x_s, s)}$$
 
-	There exists a function $w(x_t,t)$ whose derivative is $\kappa(x_t, t)$:
+	This is the multiplicative factor that has to be added to the Liouville theorem to obtain the system evolution.
+	Considering that there exists a function $w(x_t,t)$ whose derivative is $\kappa(x_t, t)$, so that the integral can be re-written:
 
 	$$\kappa(x_t, t) = \frac{dw(x_t, t)}{dt}\qquad J(x_t; x_0) = e^{w(x_t, t)-w(x_0, 0)}$$
 
-	$$dx_t = J(x_t;x_0)\Rightarrow dx_t = e^{w(x_t, t) - w(x_0, 0)}dx_0$$
+	Applying it to the infinitesimal volume element:
+
+	$$dx_t = J(x_t;x_0)dx_0\Rightarrow dx_t = e^{w(x_t, t) - w(x_0, 0)}dx_0$$
+
+	Multiplying for $e^{-w}$:
 
 	$$e^{-w(x_t, t)}dx_t = e^{-x_0, 0)}dx_0$$
 
-	The weighted phase space volume is conserved.
-	The phase space is a non Euclidean space or Reimannian manifold, which is locally curved.
+	Obtaining a generalization of Liouville's theorem.
+	In this case it is not the volume that is conserved, but it is the weighted phase space volume is conserved, where the factor is $e^{-w(x_t, t)}$.
+	This metric allow to define the volume element in space and the phase space is a non Euclidean space or Reimannian manifold, which is locally curved.
 	The Jacobian is the ratio of the metric determinant factors:
 
 	$$J(x; y) = \frac{\sqrt{g(y)}}{\sqrt{g(x)}}\Rightarrow J(x_t;x_0) = \frac{\sqrt{g(x_0, 0)}}{\sqrt{g(x_t, t)}}\qquad \sqrt{g(x_t, t)} = e^{-w(x_t, t)}$$
 
 	Any phase space integral or ensemble average should be performed using $\sqrt{g(x)}dx$ as a volume element without time dependence.
+	This is because the infinitesimal volume element is always multiplied by the metric factor.
+	Because equilibrium solutions are searched there will be no explicit time dependence.
 
 	\subsection{Liouville equation}
-
+	When applying the previous result to Liouville's equation.
+	The equation for the time evolution of the probability distribution function should be generalized:
 
 	$$\frac{\partial}{\partial t}(f(x, t)\sqrt{g(x, t)})+\nabla\cdot(\dot{x}\sqrt{g(x, t)}f(x,t)) = 0$$
 
-	However:
+	Considering the derivative of $J$:
 
 	$$\frac{d}{dt}J(x_t;x_0) = J(x_t;x_0)\kappa(x_t, t)\Rightarrow \frac{d}{dt}\frac{\sqrt{g(x_0, 0)}}{\sqrt{(x_t,t)}} = \frac{\sqrt{g(x_0.0)}}{\sqrt{g(x_t,t)}}\kappa(x_t, t)$$
 
-	So in the end:
+	From this equation:
 
 	$$\frac{d}{dt}\sqrt{g(x_t, t)} = -\kappa(x_t, t) \sqrt{g(x_t,t)}$$
 
@@ -336,15 +359,20 @@ Considering phase space compressibility: $\nabla\cdot\dot{x} = \nabla\cdot\xi(x,
 
 	$$\frac{\partial}{\partial t} f(x,t) + \dot{x}\cdot\nabla f(x,t) = 0\Rightarrow \frac{d}{dt}f(x,t) = 0$$
 
+	Noticing that partial and total derivatives are different.
+	This is the same result of Hamiltonian systems.
 	The ensemble distribution function is conserved in a space with a non-trivial metric:
 
 	$$f(x_t, t)\sqrt{g(x_t, t)}dx_t = f(x_0,0)\sqrt{g(x_0,0)}dx_0$$
 
+	From this the total number of conformation can be computed using the microcanonical ensemble.
+
 	\subsection{Equilibrium solutions}
+	Considering Liouville's result:
 
 	$$f(x_t, t)\sqrt{g(x_t, t)}dx_t = f(x_0, 0)\sqrt{g(x_0,0)}dx_0$$
 
-	There is no explicit time dependence:
+	Trying to find an equilibrium solution, this should not present an explicit time dependence:
 
 	$$f(x_t)\sqrt{g(x_t)}dx_t = f(x_0)\sqrt{g(x_0)}dx_0$$
 
@@ -365,79 +393,107 @@ Considering phase space compressibility: $\nabla\cdot\dot{x} = \nabla\cdot\xi(x,
 	$$\mathcal{E} = \int dx\sqrt{g(x)}f(x) = \int dx\sqrt{g(x)}\prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t) -C_k)$$
 
 	\subsection{Analysis of non Hamiltonian equations}
+	Performing an analysis of the Nos\`e-Hoover equations:
 
 	$$\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}\qquad\dot{\vec{p}}_i = \vec{F}_i-\frac{p_\eta}{Q}\vec{p}_i\qquad\dot{\eta} = \frac{p_\eta}{Q}\qquad\dot{p}_\eta = \sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT$$
 
-	The conserved quantity:
+	Given the equations of a non-Hamiltonian system, the kind of simulated ensemble has to be found.
+	Using this equations the conserved quantity is:
 
 	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta\qquad \frac{d\mathcal{H}'}{dt} = 0$$
 
 	$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$ is not an Hamiltonian, but a conserved quantity: there is no way to obtain the Nos\`e-Hoover equations applying Hamiltons equations to $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$.
-
-	Compressibility:
+	Computing the compressibility of this equation:
 
 	$$\kappa = \sum\limits_{i=1}^N[\nabla_{\vec{p}_i}\cdot\dot{\vec{p}}_i + \nabla_{\vec{r}_i}\cdot\dot{\vec{r}}_i] + \frac{\partial\dot{\eta}}{\partial\eta} + \frac{\partial\dot{p}_\eta}{\partial p_\eta} = -Nd\frac{p_\eta}{Q} = -Nd\dot{\eta}$$
 
-	However:
+	Where $d$ is the number of dimensions.
+	However, writing the compressibility as a time derivative:
 
 	$$\kappa = \frac{dw}{dt}\Rightarrow w = -dN\eta\Rightarrow\sqrt{g} = e^{-w} = e^{dN\eta}$$
 
+	Which is the metric factor, which has to be applied to any integral performed on space.
+
 	\subsection{Partition function}
-	The conserved quantity:
+	Considering the conserved quantity and the metric factor:
 
 	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta\qquad \sqrt{g} = e^{dN\eta}$$
 
+	The partition function can be written starting from:
+
 	$$\mathcal{E} = \int dx\sqrt{g(x)}\prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t) - C_k)$$
+
+	Which translate into:
 
 	$$\mathcal{E}_T(N, V, C_1) = \int d^N\vec{p}\int_{\mathcal{D}(V)}d^n\vec{r}\int dp_\eta d\eta e^{dN\eta}\delta\biggl(\mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta - C_1\biggr)$$
 
+	This function depends on the number of particles, volume and the constant $C_1$.
+	And where $\Lambda_k = \mathcal{H}'$ and so temperature is a parameter, $\mathcal{D}(V)$ is the volume of the system.
+	Now, considering the $\delta$ function to find a value $\eta_0$ to exploit the property of the $\delta$ function:
+
 	$$\delta\biggl(\mathcal{H}(\vec{r}, \vec{p}) + \frac{p_\eta^2}{2Q} + dNkT\eta - C_1\biggr) = \frac{1}{dNkT}\delta(\eta-\eta_0)\qquad \eta_0 = \frac{1}{dNkT}\biggl(C_1-\mathcal{H}(\vec{r}, \vec{p}) - \frac{p_\eta^2}{2Q}\biggr)$$
+
+	So the $\delta$ function can be re-written:
 
 	$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\int dp_\eta e^{-\frac{\beta p_\eta^2}{2Q}}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
 
+	Now integrating over $p_\eta$ because it is a Gaussian integral:
+
 	$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}\sqrt{2\pi Qk T}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
 
+	Finding a pre-factor depending on temperature, but the microcanonical partition function is the canonical partition function, a part from a multiplicative factor.
+	Time is rescaled so it is no longer correct and has to be corrected when performing dynamics where time is explicitly stated.
 	In the absence of external forces $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$ is not the only conserved quantity.
-	There are three conservation laws, one of which is:
+	There are three conservation laws, because the momentum is conserved in each direction:
 
 	$$\vec{P} = \sum\limits_{i=1}^N\vec{p}_i\qquad \vec{K} = \vec{P}e^\eta\Rightarrow \frac{d\vec{K}}{d t} = 0$$
 
-	\subsection{Harmonic oscillator}
+	The extra factor $e^\eta$ and so $\vec{K}$ is conserved.
+	And these should be included as $\delta$ factors.
+
+		\subsubsection{Harmonic oscillator}
+		Performing a simulation of the harmonic oscillator in one dimension then, applying the Nos\`e-Hoover equations a strange result is obtained.
+		This is completely wrong because where there is a maximum there is $0$.
+		The reason for this is the fact that $\mathcal{H}'$ is not the only conserved quantity.
 
 	\subsection{Nos\`e-Hoover chains}
-	Considering the conservation law:
-
-	$$\vec{P} = \sum\limits_{i=1}^N\vec{p}_i\qquad \vec{K} = \vec{P}e^\eta\Rightarrow \frac{d\vec{K}}{d t} = 0$$
-
-	And the optimal choice $Q_1 = dNkT\tau^2$ and $Q_j = kT\tau^2$, with $\tau$ the characteristic time:
+	The trick to solve the problem a huge number of $\eta$ variables all the possible conservation laws should be included.
+	This creates Nos\`e-Hoover chains: extra variables that are thremostatting each extra-variable, so $\eta$ become $\eta_1$ and $\eta_2$ takes care of $\eta_1$ and so on up to $M$.
 
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}$.
 			\item $\dot{\vec{p}}_i = \vec{F}_i - \frac{p_{\eta_1}}{Q_1}\vec{p_i}$.
 			\item $\dot{\eta}_j = \frac{p_{\eta_j}}{Q_j}\quad j = 1, \dots, M$.
-			\item $\dot{p}_{\eta_!} = \biggl[\sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT\biggr] - \frac{p_{\eta_2}}{Q_2}p_{\eta_1}$.
+			\item $\dot{p}_{\eta_1} = \biggl[\sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT\biggr] - \frac{p_{\eta_2}}{Q_2}p_{\eta_1}$.
 			\item $\dot{p}_{\eta_j} = \biggl[\sum\limits_i\frac{\vec{p}_{\eta_{j-1}}^2}{Q_{j-1}}-kT\biggr] - \frac{p_{\eta_{j+1}}}{Q_{j+1}}p_{\eta_j}\quad j = 2, \dots, M-1$.
 			\item $\dot{p}_{\eta_M} = \frac{p^2_{\eta_{M-1}}}{Q_{M-1}}-kT$.
 		\end{itemize}
 	\end{multicols}
 
-	Considering the conserved quantity:
+	This is done so each extra variable is exactly weighted with the kinetic energy, all the parameters $Q_i$ has to be found.
+	The optimal choice for the $Q$ $Q_1 = dNkT\tau^2$ and $Q_j = kT\tau^2$, with $\tau$ the characteristic time.
+	With this plausible equations the partition function can be re-written.
+	Now from the compressibility of these equation the kind of ensemble can be found.
+	The conserved quantity becomes:
 
 	$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\sum\limits_{j=2}^M\eta_j$$
 
-	And the compressibility:
+	Computing the compressibility:
 
 	$$\kappa = -dN\frac{P_{\eta_1}}{Q_1} - \sum\limits_{j=2}^M\frac{p_{\eta_j}}{Q_j} = -dN\dot{\eta}_1 - \dot{\eta}_c\qquad \eta_c = \sum\limits_{j=2}^M\eta_j$$
 
-	Then:
+	Then, to obtain the metric factor:
 
 	$$\kappa = \frac{dw}{dt}\Rightarrow w = -dN\eta_1 - \eta_c\Rightarrow \sqrt{g} = e^{-w} = e^{dN\eta_1 + \eta_c}$$
 
 		\subsubsection{Partition function}
+		Now the partition function can be computed.
 		Considering the conserved quantity:
 
 		$$\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\sum\limits_{j=2}^M\eta_j$$
+
+		And the metric factor:
 
 		$$\sqrt{g} = e^{dN\eta_1 + \eta_c}$$
 
@@ -451,4 +507,10 @@ Considering phase space compressibility: $\nabla\cdot\dot{x} = \nabla\cdot\xi(x,
 
 		$$\mathcal{E}_T(N, V, C_1) = \mathcal{M}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
 
+		In this way the canonical distribution is obtained.
+		Using the Hoover-Chains simulate exactly the canonical ensemble.
+
 		\subsubsection{Harmonic oscillator}
+		It can be seen now hot the Nos\`e-Hoover chains allow to simulate the harmonic oscillator exactly.
+		Going on on the Nos\`e-Hoover chains points in the canonical ensemble is being simulated, but not in the exact sequence of time.
+		This doesn't allow to compute dynamic properties of the system.
