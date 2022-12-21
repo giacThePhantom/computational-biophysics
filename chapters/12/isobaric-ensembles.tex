@@ -1,1 +1,118 @@
 \chapter{The isobaric ensembles}
+
+\section{Introduction}
+
+	\subsection{Legendre transform of E}
+
+	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
+
+	$$\tilde{E}(N, \frac{\partial E}{\partial V}, S) = E(N, V(P), S) - \biggl(\frac{\partial E}{\partial V}\biggr)_{N, S}V(N, \frac{\partial E}{\partial V}, S)$$
+
+	Enthalpy:
+
+	$$H(N, P, S) = E(N, P, S) + PV(N, P, S)$$
+
+	$$dH = dE + PdV + VdP = TdS - PdV + \mu dN + PdV + VdP$$
+
+	$$dH = TdS + \mu dN + VdP$$
+
+	$$T = \biggl(\frac{\partial H}{\partial S}\biggr)_{N, P} \qquad \langle V\rangle = \biggl(\frac{\partial H}{\partial P}\biggr)_{N, S} \qquad \mu = \biggl(\frac{\partial H}{\partial N}\biggr)_{P, S}$$
+
+	\subsection{Legendre transform of A}
+
+	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
+
+	$$\tilde{A}(N, \frac{\partial A}{\partial V}, T) = A(N, V(P), T)- \biggl(\frac{\partial A}{\partial V}\biggr)_{N, T}V(N, \frac{\partial A}{\partial V}, T)$$
+
+	Gibbs free energy:
+
+	$$G(N, P, T) = A(N, P, T) + PV(N, P, T)$$
+
+	$$dG = dA + PdV + VdP = -PdV + \mu dN - SdT + PdV + VdP$$
+
+	$$dG = \mu dN + VdP - SdT$$
+
+	$$S = -\biggl(\frac{\partial G}{\partial T}\biggr)_{N, P}\qquad\langle V\rangle = \biggl(\frac{\partial G}{\partial P}\biggr)_{N, T}\qquad \mu = \biggl(\frac{\partial G}{\partial N}\biggr)_{P, T}$$
+
+	\subsection{Phase space distribution of the isoenthalpic-isobaric ensemble}
+	The conserved quantity:
+
+	$$H = \mathcal{H}(v) + PV$$
+
+	The solution to the Liouville's equation:
+
+	$$f(x) = F(\mathcal{H}(x)) = \mathcal{M}\delta(\mathcal{H}(x)+PV-H)$$
+
+	Integrating over the constant enthalpy hypersurface:
+
+	$$\Gamma(N, P, H) = \mathcal{M}\int_0^{\infty}dV\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\delta(\mathcal{H}(\vec{r}, \vec{p}) + PV-H)$$
+
+	The analogous Boltzmann relation:
+
+	$$S(N, P, H) = TdS + \mu dN + VdP$$
+
+	$$\frac{1}{T} = \biggl(\frac{\partial S}{\partial H}\biggr)_{N, P}\qquad \frac{\langle V\rangle}{T} = -\biggl(\frac{\partial S}{\partial P}\biggr)_{N, H}\qquad \frac{\mu}{T} = -\biggl(\frac{\partial S}{\partial N}\biggr)_{P, H}$$
+
+\section{Isothermal-isobaric ensemble}
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $E = E_1 + E_2\quad E_2\gg E_1$.
+		\item $N = N_1 + N_2\quad N_2\gg N_1$.
+		\item $V = V_1 + V_2\quad V_2\gg V_1$
+		\item $\mathcal{H}(x) = \mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)$.
+	\end{itemize}
+\end{multicols}
+
+At fixed volumes $V_1$ and $V_2$:
+
+$$Q(N, V, T) = C_N\int dx_1dx_2 e^{-\beta[\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)]} = g(N, N_1, N_2)C_{N_1}\int dx_1 e^{-\beta\mathcal{H}_1(x_1)}C_{N_2}\int dx_2 e^{-\beta\mathcal{H}_2(x_2)}$$
+
+$$Q(N, V, T) \propto Q(N_1, V_1, T)Q(N_2, V_2, T)$$
+
+	\subsection{Phase space distribution}
+	Combined system:
+
+	$$f(x) = \frac{C_Ne^{-\beta\mathcal{H}(x)}}{Q(N, V, T)} = \frac{g(N, N_1, N_2)}{Q(N, V, T)}C_{N_1}e^{-\beta\mathcal{H}_1(x_1)}C_{N_2}e^{-\beta\mathcal{H}_2(x_2)}$$
+
+	$$f(x_1) = \frac{g(N, N_1, N_2)}{Q(N, V, T)}C_{N_1}e^{-\beta\mathcal{H}_1(x_1)}C_{N_2}\int dx_2 e^{-\beta\mathcal{H}_2(x_2)} = \frac{Q_2(N_2, V-V_1, T)}{Q(N, V, T)}g(N, N_1, N_2)C_{N_1}e^{-\beta\mathcal{H}_1(x_1)}$$
+
+	The normalization is correct: $\int dV_1\int dx_1f(x_1, V_1) = 1$.
+
+	$$\frac{Q_2(N_2, V-V_1, T)}{Q(N, V, T)} = e^{-\beta[A(N-N_1, V-V_1, T) - A(N, V, T)]}$$
+
+	$$A(N-N_1, V-V_1, T) = A(N, V, T)-N_1\frac{\partial A}{\partial N}|_{N_1 = 0, V_1 = 0} = A(N, V, T)-\mu N_1 + PV_1$$
+
+	$$f(x_1) = g(N, N_1, N-N_1) e^{\beta\mu N_1}e^{-\beta P V_1}C_{N_1}e^{-\beta\mathcal{H}_1(x_1)}\qquad I_{N_1} = \frac{1}{V_0N_1!h^{3N_1}}$$
+
+	Definition:
+
+	$$\Delta(N, P, T) = I_N\int_0^{\infty}dV\int dxe^{-\beta(\mathcal{H}(x) + PV)}\Rightarrow e^{\beta\mu N}\Delta(N, P, T) = 1$$
+
+	$$\Delta(N, P, T) = e^{-\beta\mu N} = e^{-\beta G(N, P, T)}$$
+
+	$$\Delta(N, P, T) = \frac{1}{V_0N!h^{3N}}\int_0^{\infty}dVe^{-\beta PV}\int dxe^{-\beta\mathcal{H}(x)} = \frac{1}{V_0}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T)$$
+
+	$$G = A + P\langle V \rangle = \langle E + PV\rangle - TS = \langle\mathcal{H}(x) + PV\rangle + T\frac{\partial G}{\partial T}$$
+
+	$$\langle E + PV\rangle = \frac{I_N\int_0^{\infty} dV\int dx(\mathcal{H}(x) + PV)e^{-\beta(\mathcal{H}(x)+PV)}}{I_N\int_0^{\infty}dV\int dxe^{-\beta(\mathcal{H}(x) + PV)}} = -\frac{1}{\Delta(N, P, T)}\frac{\partial \Delta(N, P, T)}{d\beta} = -\frac{\partial\ln\Delta(N, P, T)}{\partial \beta}$$
+
+	$$G(N, P, \beta) = -\frac{\partial\ln\Delta(N, P, \beta)}{\partial\beta}-\beta\frac{\partial G}{\partial \beta}$$
+
+	Solution: $G(N, P, \beta) = -\frac{1}{\beta}\ln\Delta(N, P, \beta)$
+
+	$$\langle V\rangle = \biggl(\frac{\partial G}{\partial P}\biggr)_{N, T}\qquad S = -\biggl(\frac{\partial G}{\partial T}\biggr)_{N, P}$$
+
+	\subsection{Maxwell's square}
+
+	\subsection{Pressure viral theorem}
+
+	\subsection{Work virial theorem}
+
+\section{Andersen's Hamiltonian}
+
+	\subsection{Andersen's equations}
+
+\section{MTK algorithm (NPT)}
+
+	\subsection{Langevin piston}
