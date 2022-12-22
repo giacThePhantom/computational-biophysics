@@ -239,12 +239,15 @@
 \contentsline {subsection}{\numberline {14.3.2}Autocorrelation time}{115}{subsection.14.3.2}%
 \contentsline {section}{\numberline {14.4}Block averaging analysis}{116}{section.14.4}%
 \contentsline {chapter}{\numberline {15}Protein motions}{117}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Elastic network models}{118}{section.15.1}%
-\contentsline {section}{\numberline {15.2}Gaussian network model}{119}{section.15.2}%
+\contentsline {section}{\numberline {15.1}Elastic network models (ENM)}{118}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Gaussian network model (GNM)}{119}{section.15.2}%
 \contentsline {subsection}{\numberline {15.2.1}Correlated motions}{120}{subsection.15.2.1}%
 \contentsline {subsection}{\numberline {15.2.2}Gaussian network model and B-factors}{120}{subsection.15.2.2}%
 \contentsline {subsection}{\numberline {15.2.3}Biological relevance}{122}{subsection.15.2.3}%
 \contentsline {subsection}{\numberline {15.2.4}Normal mode analysis}{122}{subsection.15.2.4}%
-\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{123}{chapter.16}%
-\contentsline {chapter}{\numberline {17}Monte Carlo methods}{124}{chapter.17}%
-\contentsline {chapter}{\numberline {18}Free energy calculations}{125}{chapter.18}%
+\contentsline {section}{\numberline {15.3}Anisotropic network model (ANM)}{123}{section.15.3}%
+\contentsline {subsection}{\numberline {15.3.1}Correlated motions}{123}{subsection.15.3.1}%
+\contentsline {section}{\numberline {15.4}Essential dynamics}{124}{section.15.4}%
+\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{130}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Monte Carlo methods}{131}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Free energy calculations}{132}{chapter.18}%
