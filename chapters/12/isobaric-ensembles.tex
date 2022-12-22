@@ -1,3 +1,4 @@
+\graphicspath{{chapters/12/images/}}
 \chapter{The isobaric ensembles}
 
 \section{Introduction}
@@ -105,14 +106,147 @@ $$Q(N, V, T) \propto Q(N_1, V_1, T)Q(N_2, V_2, T)$$
 
 	\subsection{Maxwell's square}
 
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\langle V\rangle = \biggl(\frac{\partial G}{\partial P}\biggr)_{N, T}$.
+			\item $S = -\biggl(\frac{\partial G}{\partial T}\biggr)_{N, P}$.
+		\end{itemize}
+	\end{multicols}
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $T = \biggl(\frac{\partial H}{\partial S}\biggr)_{N, P}$.
+			\item $\langle V\rangle = \biggl(\frac{\partial H}{\partial P}\biggr)_{N, S}$.
+		\end{itemize}
+	\end{multicols}
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $T = =\biggl(\frac{\partial U}{\partial S}\biggr)_{N, V}$.
+			\item $P = - \biggl(\frac{\partial U}{\partial V}\biggr)_{N, S}$.
+		\end{itemize}
+	\end{multicols}
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $P = -\biggl(\frac{\partial A}{\partial V}\biggr)_{N, T}$.
+			\item $S = - \biggl(\frac{\partial A}{\partial T}\biggr)_{N, V}$.
+		\end{itemize}
+	\end{multicols}
+
+	\begin{figure}[H]
+		\includegraphics[scale = 0.3]{maxwell_square}
+		\centering
+		\caption{Maxwell's square}
+	\end{figure}
+
 	\subsection{Pressure viral theorem}
+
+	$$P^{(int)} =\langle\mathcal{P}(\vec{r}, \vec{p})\rangle = \biggl\langle\frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i} + \vec{F}_i\cdot\vec{r}_i\biggr]\biggr\rangle = kT\frac{\partial\ln Q}{\partial V}$$
+
+	\begin{align*}
+		\langle P^{(int)}\rangle &= \frac{1}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T)\frac{kT}{Q}\frac{\partial Q}{\partial V} = \frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}\frac{\partial Q}{\partial V}=\\
+														 &= \frac{kT}{\Delta(N, P, T)}e^{-\beta PV}Q(N, V, T)|_0^{\infty}-\frac{kT}{\Delta(N, P, T})\int_0^{\infty}dV\biggl(-\frac{P}{kT}\biggr)e^{-\beta PV}Q(N, V, T) = \\
+														 &=\frac{P}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T) = P
+	\end{align*}
+
+	The volume-averaged internal pressure is equal to the external pressure.
 
 	\subsection{Work virial theorem}
 
+	$$P^{(int)}V = kTV\frac{\partial \ln Q}{\partial V}$$
+
+	\begin{align*}
+		\langle P^{(int)}V\rangle &= \frac{1}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T)\frac{kTV}{Q}\frac{\partial Q}{\partial V} = \frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}V\frac{\partial Q}{\partial V} = \\
+															&=\frac{kT}{\Delta(N, P, T)}e^{-\beta PV}VQ(N, V, T)|_{0}^{\infty}-\frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dV\frac{\partial}{\partial V}(Ve^{-\beta PV})Q(N, V, T)=\\
+															&= \frac{1}{\Delta(N, P, T)}\biggl[-kT\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T) + P\int_0^{\infty}dVVe^{-\beta PV}Q(N, V, T)\biggr]=\\
+															&=-kT+P\langle V\rangle \Rightarrow \langle P^{(int)}V\rangle + kT = P\langle V\rangle
+	\end{align*}
+
+	There is an extra degree of freedom.
+
 \section{Andersen's Hamiltonian}
+
+$$\mathcal{H}_A = \sum\limits_{i=1}^N\frac{V^{-\frac{2}{3}}\pi_i^2}{2m_i}+ U(V^\frac{1}{3}\vec{s}_1, \dots, V^{\frac{1}{3}}\vec{s}_N) + \frac{p_V^2}{2W} + PV\qquad W = (3N+1)kT\tau_b^2$$
+
+Hamilton's equations:
+
+\begin{itemize}
+	\item $\dot{\vec{s}}_i = \frac{\partial \mathcal{H}_A}{\partial\pi_i} = \frac{V^{-\frac{2}{3}}\pi_i}{m_i}$.
+	\item $\dot{\pi}_i = -\frac{\partial\mathcal{H}_A}{\partial\vec{s}_i} = -\frac{\partial U}{\partial (V^{\frac{1}{3}}\vec{s}_i)}V^{\frac{1}{3}}$.
+	\item $\dot{V} = \frac{\partial\mathcal{H}_A}{\partial p_V}-\frac{p_V}{W}$.
+	\item $\dot{p}_V = -\frac{\partial\mathcal{H}_A}{\partial V} = \frac{1}{3}V^{-\frac{5}{3}}\sum\limits_{i=1}^N\frac{\pi_i^2}{m_i}-\frac{1}{3}V^{-\frac{2}{3}}\sum\limits_{i=1}^N\frac{\partial U}{\partial(V^{\frac{1}{3}}\vec{s}_i)}\cdot\vec{s}_i-P$.
+\end{itemize}
+
+Inverting the transformation
+
+$$s_i = V^{-\frac{1}{3}}\vec{r}_i\Rightarrow \dot{\vec{s}}_i = V^{-\frac{1}{3}}\dot{\vec{r}}_i-\frac{1}{3}V^{-\frac{4}{3}}\dot{V}\vec{r}_i$$
+
+$$\pi_i = V^{\frac{1}{3}}\vec{p}_i \Rightarrow \dot{\pi}_i = V^{\frac{1}{3}}\dot{\vec{p}}_i + \frac{1}{3}V^{-\frac{2}{3}}\dot{V}\vec{p}_i$$
+
+\begin{itemize}
+	\item $\dot{\vec{s}}_i = \frac{\partial \mathcal{H}_A}{\partial\pi_i} = \frac{V^{-\frac{2}{3}}\pi_i}{m_i}$.
+	\item $\dot{\pi}_i = -\frac{\partial\mathcal{H}_A}{\partial\vec{s}_i} = -\frac{\partial U}{\partial (V^{\frac{1}{3}}\vec{s}_i)}V^{\frac{1}{3}}$.
+	\item $\dot{V} = \frac{\partial\mathcal{H}_A}{\partial p_V}-\frac{p_V}{W}$.
+	\item $\dot{p}_V = -\frac{\partial\mathcal{H}_A}{\partial V} = \frac{1}{3}V^{-\frac{5}{3}}\sum\limits_{i=1}^N\frac{\pi_i^2}{m_i}-\frac{1}{3}V^{-\frac{2}{3}}\sum\limits_{i=1}^N\frac{\partial U}{\partial(V^{\frac{1}{3}}\vec{s}_i)}\cdot\vec{s}_i-P$.
+\end{itemize}
+
+Incompressible.
 
 	\subsection{Andersen's equations}
 
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\dot{\vec{r}}_i = \frac{\vec{p}}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i\Rightarrow\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i$
+			\item $\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} -\frac{\dot{V}}{3V}\vec{p}_i\Rightarrow \dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i}-\frac{\dot{V}}{3V}\vec{p}_i$.
+			\item $\dot{V} = \frac{p_V}{W}\Rightarrow\dot{V} = \frac{p_V}{W}$.
+			\item $\dot{p}_V = \frac{1}{3V}\sum\limits_{i=1}^N\biggl[\frac{\vec{p}_i^2}{m_i}-\frac{\partial U}{\partial\vec{r}_i}\cdot\vec{r}_i\biggr]-P\Rightarrow\dot{p}_V = \frac{1}{3V}\sum\limits_{i=1}^N\biggl[\frac{\vec{p}_i^2}{m_i}-\frac{\partial U}{\partial\vec{r}_i}\cdot\vec{r}_i\biggr]-P$.
+		\end{itemize}
+	\end{multicols}
+
+	The conserved quantity:
+
+	$$\mathcal{H}' = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N) + \frac{p_V^2}{2W}+PV$$
+
+	The partition function:
+
+	$$\Omega_P = \int dp_V\int_0^{\infty}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\delta\biggl(\\mathcal{H}(\vec{r},\vec{p}) + \frac{p_V^2}{2W}+PV-H\biggr)$$
+
+	Virial theorem:
+
+	$$\biggl\langle\frac{p_V^2}{2W}\biggr\rangle = k\frac{T}{2}\Rightarrow \mathcal{H}(\vec{r},\vec{p}) + PV\text{ is conserved}$$
+
 \section{MTK algorithm (NPT)}
 
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{p_\epsilon}{W}\vec{r}_i$.
+		\item $\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} - \frac{p_\epsilon}{W}\vec{p}_i$.
+		\item $\dot{V} = \frac{dVp_\epsilon}{W}$.
+		\item $\dot{p}_\epsilon = dV(\mathcal{P}^{(int)}-P)$.
+	\end{itemize}
+\end{multicols}
+
+$$\epsilon = \frac{1}{3}\ln\frac{V}{V_0}\Rightarrow\dot{\epsilon} = \frac{\dot{V}}{3V}=\frac{p_\epsilon}{W}$$
+
+Compressibility:
+
+\begin{align*}
+	\kappa & = \sum\limits_{i=1}^N\biggl[\frac{\partial}{\partial\vec{r}_i}\cdot\dot{\vec{r}}_i + \frac{\partial}{\partial\vec{p}_i}\cdot\dot{\vec{p}}_i\biggr] + \frac{\partial\dot{V}}{\partial V} + \frac{\partial\dot{p}_V}{\partial p_V} = \\
+				 &= dN\frac{p_\epsilon}{W}-dN\frac{p_\epsilon}{W} = d\frac{p_\epsilon}{E} = \frac{\dot{V}}{V}
+\end{align*}
+
+To obtain incompressible equations that conserve $\mathcal{H}(\vec{r},\vec{p}) + PV + \frac{p_V^2}{2W}$:
+
+$$\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} - \biggl(1+\frac{d}{N_F}\biggr)\frac{p_\epsilon}{W}\vec{p}_i\qquad \dot{p}_\epsilon = dV(\mathcal{P}^{(int)}-P) + \frac{d}{N_f}\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{m_i}$$
+
 	\subsection{Langevin piston}
+
+	\begin{itemize}
+		\item $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i$.
+		\item $\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i}-\frac{\dot{V}}{3V}\vec{p}_i$.
+		\item $\dot{V} = \frac{p_V}{W}$.
+		\item $\dot{p}_V = \frac{1}{3V}\sum\limits_{i=1}^N\biggl[\frac{\vec{p}_i^2}{m_i}-\frac{\partial U}{\partial\vec{r}_i}\cdot\vec{r}_i\biggr]-P-\gamma\dot{V}+R(t)$.
+	\end{itemize}
+
+	$$\langle R(0)R(t)\rangle = \frac{2\gamma kT}{W}\delta(t)$$
