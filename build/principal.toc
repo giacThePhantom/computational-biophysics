@@ -1,244 +1,250 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduction and proteins}{6}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introduction}{6}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Proteins}{6}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Amino-acids}{7}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Structure}{7}{subsection.1.2.2}%
-\contentsline {chapter}{\numberline {2}Proteins' geometry}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{8}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The peptide bond}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Trans and cis}{9}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}The Ramachandran angles}{10}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Difficulty of rotation}{10}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Ramachandran plot}{10}{subsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.2.1}Observed Ramachandran plot}{12}{subsubsection.2.3.2.1}%
-\contentsline {section}{\numberline {2.4}Contact map of proteins}{12}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Defining a contact}{12}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Topology diagram}{13}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Coordinates}{13}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Protein center of mass}{14}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Radius of gyration}{14}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Comparing protein structures}{14}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Native state}{15}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}RMSF}{16}{subsection.2.6.5}%
-\contentsline {subsubsection}{\numberline {2.6.5.1}B-factors}{16}{subsubsection.2.6.5.1}%
-\contentsline {chapter}{\numberline {3}Semi-empirical force fields}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Potential energy surface}{17}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Bond stretching}{18}{subsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.1}Anharmonic force constant}{18}{subsubsection.3.2.1.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.2}Quartic correction}{19}{subsubsection.3.2.1.2}%
-\contentsline {subsubsection}{\numberline {3.2.1.3}Morse potential}{19}{subsubsection.3.2.1.3}%
-\contentsline {section}{\numberline {3.3}Valence angle bending}{19}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Multiple minima}{19}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}Torsions}{20}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Improper torsions}{20}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Van der Waals interactions}{20}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Lennard-Jones potential}{20}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Morse potential}{21}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Hill potential}{21}{subsection.3.5.3}%
-\contentsline {section}{\numberline {3.6}Electrostatic interactions}{21}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Point like charges}{22}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Dipolar interactions}{22}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Dielectric constants}{22}{subsection.3.6.3}%
-\contentsline {section}{\numberline {3.7}Cross terms}{22}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Parametrization}{23}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Force field energies}{23}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Geometry optimization}{24}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Derivative of the potential function}{24}{subsection.3.9.2}%
-\contentsline {subsubsection}{\numberline {3.9.2.1}Newton-Raphson}{24}{subsubsection.3.9.2.1}%
-\contentsline {subsection}{\numberline {3.9.3}Types of force fields}{25}{subsection.3.9.3}%
-\contentsline {chapter}{\numberline {4}Classical mechanics}{26}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Newton's laws}{26}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Forces}{26}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Phase space}{27}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}One particle in one dimension}{27}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Harmonic oscillator}{27}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}Hill potential}{28}{subsubsection.4.1.3.2}%
-\contentsline {section}{\numberline {4.2}Lagrangian formulation}{28}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Euler-Lagrange equations}{29}{subsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.1.1}Harmonic oscillator}{29}{subsubsection.4.2.1.1}%
-\contentsline {subsection}{\numberline {4.2.2}Conservation of energy}{29}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Generalized coordinates}{30}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Legendre transforms}{31}{subsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.4.1}Legendre transform for multiple variables}{31}{subsubsection.4.2.4.1}%
-\contentsline {section}{\numberline {4.3}Hamiltonian formulation}{32}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Generalized coordinates}{33}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Hamilton's equations}{33}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Conservation laws}{33}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Compressibility}{34}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Symplectic structure}{34}{subsection.4.3.5}%
-\contentsline {chapter}{\numberline {5}Theoretical foundations of statistical mechanics}{36}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{36}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Loschmidt's paradox}{36}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Thermodynamics}{36}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Thermodynamic system}{36}{subsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.1.1}Isoloted}{36}{subsubsection.5.2.1.1}%
-\contentsline {subsection}{\numberline {5.2.2}Thermodynamic equilibrium}{37}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Thermodynamic state}{37}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Equation of state}{37}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}Thermodynamic transformations}{37}{subsection.5.2.5}%
-\contentsline {subsection}{\numberline {5.2.6}State function}{38}{subsection.5.2.6}%
-\contentsline {subsection}{\numberline {5.2.7}Work}{38}{subsection.5.2.7}%
-\contentsline {subsection}{\numberline {5.2.8}Heat}{38}{subsection.5.2.8}%
-\contentsline {subsection}{\numberline {5.2.9}First law of thermodynamics}{38}{subsection.5.2.9}%
-\contentsline {subsection}{\numberline {5.2.10}Second law of thermodynamics}{38}{subsection.5.2.10}%
-\contentsline {subsubsection}{\numberline {5.2.10.1}Kelvin's formulation}{39}{subsubsection.5.2.10.1}%
-\contentsline {subsubsection}{\numberline {5.2.10.2}Clausius' formulation}{39}{subsubsection.5.2.10.2}%
-\contentsline {subsection}{\numberline {5.2.11}Entropy}{39}{subsection.5.2.11}%
-\contentsline {subsection}{\numberline {5.2.12}Third law of thermodynamics}{39}{subsection.5.2.12}%
-\contentsline {section}{\numberline {5.3}The ensemble}{39}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Phase space volume}{39}{subsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.1.1}Time evolution of the Jacobian}{40}{subsubsection.5.3.1.1}%
-\contentsline {subsection}{\numberline {5.3.2}Liouville's theorem}{41}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Ensemble distribution function}{41}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Outward flux}{41}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}Liouville's equation}{42}{subsection.5.3.5}%
-\contentsline {subsubsection}{\numberline {5.3.5.1}Consequence on averages}{42}{subsubsection.5.3.5.1}%
-\contentsline {subsubsection}{\numberline {5.3.5.2}A more elegant form}{43}{subsubsection.5.3.5.2}%
-\contentsline {subsection}{\numberline {5.3.6}Equilibrium solutions}{43}{subsection.5.3.6}%
-\contentsline {chapter}{\numberline {6}Microcanonical ensemble}{44}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introduction}{44}{section.6.1}%
-\contentsline {section}{\numberline {6.2}State function depending on number of particle, volume and energy}{44}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Thermodynamic derivatives}{45}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Dirac's delta function}{45}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Computing entropy}{45}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Average quantities}{46}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Virial theorem}{46}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Application of Virial theorem}{47}{subsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.1}An example}{48}{subsubsection.6.3.2.1}%
-\contentsline {section}{\numberline {6.4}Thermal contact}{48}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Temperature}{49}{subsection.6.4.1}%
-\contentsline {section}{\numberline {6.5}Some examples}{49}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Free particle in one dimension}{49}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Classical ideal gas}{50}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}Gibbs paradox}{51}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Correct Boltzmann counting}{51}{subsection.6.6.1}%
-\contentsline {chapter}{\numberline {7}Introduction to molecular dynamics}{53}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Introduction}{53}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Hamilton's equations}{53}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Ergodicity}{53}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}Basic components of a molecular dynamics simulation}{54}{subsection.7.1.3}%
-\contentsline {section}{\numberline {7.2}Verlet algorithm}{54}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Velocity Verlet}{55}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Initial condition}{55}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Action integral}{56}{subsection.7.2.3}%
-\contentsline {section}{\numberline {7.3}Constraints}{57}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Differential forms}{57}{subsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.1.1}Holomonic constraints}{57}{subsubsection.7.3.1.1}%
-\contentsline {subsubsection}{\numberline {7.3.1.2}Nonholonomic constraints}{58}{subsubsection.7.3.1.2}%
-\contentsline {subsection}{\numberline {7.3.2}Lagrange multipliers}{58}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Hamiltonian formulation}{59}{subsection.7.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}Constraints in a simulation}{59}{subsection.7.3.4}%
-\contentsline {subsubsection}{\numberline {7.3.4.1}Constraint condition}{60}{subsubsection.7.3.4.1}%
-\contentsline {subsubsection}{\numberline {7.3.4.2}Possible algorithms}{61}{subsubsection.7.3.4.2}%
-\contentsline {paragraph}{\numberline {7.3.4.2.1}Direct inversion}{61}{paragraph.7.3.4.2.1}%
-\contentsline {paragraph}{\numberline {7.3.4.2.2}Quick trick}{61}{paragraph.7.3.4.2.2}%
-\contentsline {paragraph}{\numberline {7.3.4.2.3}RATTLE}{61}{paragraph.7.3.4.2.3}%
-\contentsline {paragraph}{\numberline {7.3.4.2.4}LINCS}{61}{paragraph.7.3.4.2.4}%
-\contentsline {chapter}{\numberline {8}Direct translation}{62}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Introduction}{62}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Liouville operator}{62}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Liouville operator split}{63}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}One dimensional example}{63}{subsection.8.2.2}%
-\contentsline {section}{\numberline {8.3}Trotter theorem}{64}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}$\Delta t = \frac {t}{P}$}{64}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}One-dimensional example}{64}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Exponential operators}{65}{subsection.8.3.3}%
-\contentsline {section}{\numberline {8.4}Trotter algorithm}{65}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Direct translation}{66}{subsection.8.4.1}%
-\contentsline {subsubsection}{\numberline {8.4.1.1}Momentum translation}{66}{subsubsection.8.4.1.1}%
-\contentsline {subsubsection}{\numberline {8.4.1.2}Position translation}{66}{subsubsection.8.4.1.2}%
-\contentsline {subsubsection}{\numberline {8.4.1.3}Momentum translation with updated forces}{67}{subsubsection.8.4.1.3}%
-\contentsline {subsection}{\numberline {8.4.2}Multiple time step integration}{67}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Reference system propagator}{67}{subsection.8.4.3}%
-\contentsline {subsection}{\numberline {8.4.4}RESPA}{68}{subsection.8.4.4}%
-\contentsline {section}{\numberline {8.5}Symplectic solver}{68}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{69}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Introduction}{69}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Periodic boundary conditions}{69}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}The error function}{70}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}Divide et impera}{70}{subsection.9.2.2}%
-\contentsline {section}{\numberline {9.3}Short range forces}{71}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}Switching function}{71}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}Minimum image convention}{72}{subsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.3.3}Verlet Neighbour list}{72}{subsection.9.3.3}%
-\contentsline {section}{\numberline {9.4}Long range forces}{72}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Summing up}{73}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Ewald sum}{73}{subsection.9.4.2}%
-\contentsline {section}{\numberline {9.5}Alternatives}{74}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Smooth particle mesh Ewald}{74}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Particle-particle particle-mesh Ewald}{74}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Other less computationally intensive options}{75}{subsection.9.5.3}%
-\contentsline {chapter}{\numberline {10}Canonical ensemble}{76}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Introduction}{76}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Thermodynamics derivatives}{76}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Legendre transform of E}{77}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}The Helmholtz free energy}{77}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Thermal contact}{77}{subsection.10.2.3}%
-\contentsline {subsubsection}{\numberline {10.2.3.1}Phase space distribution}{78}{subsubsection.10.2.3.1}%
-\contentsline {section}{\numberline {10.3}From micro to macro}{79}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Energy and temperature}{80}{subsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.1.1}Energy fluctuations}{80}{subsubsection.10.3.1.1}%
-\contentsline {subsection}{\numberline {10.3.2}Pressure estimator}{81}{subsection.10.3.2}%
-\contentsline {chapter}{\numberline {11}Thermostats}{83}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Introduction}{83}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Velocity rescaling}{83}{subsection.11.1.1}%
-\contentsline {section}{\numberline {11.2}Type of thermostats}{84}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Andersen's thermostat}{84}{subsection.11.2.1}%
-\contentsline {subsection}{\numberline {11.2.2}Andersen revisited - Heyes}{84}{subsection.11.2.2}%
-\contentsline {subsection}{\numberline {11.2.3}Langevin thermostat}{84}{subsection.11.2.3}%
-\contentsline {section}{\numberline {11.3}Bussi velocity Verlet}{86}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Nos\`e Hamiltonian}{87}{section.11.4}%
-\contentsline {subsection}{\numberline {11.4.1}Nos\`e equations}{88}{subsection.11.4.1}%
-\contentsline {subsection}{\numberline {11.4.2}Nos\`e-Hoover equations}{89}{subsection.11.4.2}%
-\contentsline {section}{\numberline {11.5}Non Hamiltonian statistical mechanics}{90}{section.11.5}%
-\contentsline {subsection}{\numberline {11.5.1}Phase space metric}{90}{subsection.11.5.1}%
-\contentsline {subsection}{\numberline {11.5.2}Liouville equation}{91}{subsection.11.5.2}%
-\contentsline {subsection}{\numberline {11.5.3}Equilibrium solutions}{91}{subsection.11.5.3}%
-\contentsline {subsection}{\numberline {11.5.4}Analysis of non Hamiltonian equations}{92}{subsection.11.5.4}%
-\contentsline {subsection}{\numberline {11.5.5}Partition function}{92}{subsection.11.5.5}%
-\contentsline {subsubsection}{\numberline {11.5.5.1}Harmonic oscillator}{93}{subsubsection.11.5.5.1}%
-\contentsline {subsection}{\numberline {11.5.6}Nos\`e-Hoover chains}{93}{subsection.11.5.6}%
-\contentsline {subsubsection}{\numberline {11.5.6.1}Partition function}{94}{subsubsection.11.5.6.1}%
-\contentsline {subsubsection}{\numberline {11.5.6.2}Harmonic oscillator}{95}{subsubsection.11.5.6.2}%
-\contentsline {chapter}{\numberline {12}The isobaric ensembles}{96}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Introduction}{96}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Legendre transform of E}{96}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Legendre transform of A}{96}{subsection.12.1.2}%
-\contentsline {subsection}{\numberline {12.1.3}Phase space distribution of the isoenthalpic-isobaric ensemble}{97}{subsection.12.1.3}%
-\contentsline {section}{\numberline {12.2}Isothermal-isobaric ensemble}{97}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}Phase space distribution}{98}{subsection.12.2.1}%
-\contentsline {subsection}{\numberline {12.2.2}Maxwell's square}{98}{subsection.12.2.2}%
-\contentsline {subsection}{\numberline {12.2.3}Pressure viral theorem}{99}{subsection.12.2.3}%
-\contentsline {subsection}{\numberline {12.2.4}Work virial theorem}{100}{subsection.12.2.4}%
-\contentsline {section}{\numberline {12.3}Andersen's Hamiltonian}{100}{section.12.3}%
-\contentsline {subsection}{\numberline {12.3.1}Andersen's equations}{100}{subsection.12.3.1}%
-\contentsline {section}{\numberline {12.4}MTK algorithm (NPT)}{101}{section.12.4}%
-\contentsline {subsection}{\numberline {12.4.1}Langevin piston}{102}{subsection.12.4.1}%
-\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{103}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Introduction}{103}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}Euler's theorem}{103}{subsection.13.1.1}%
-\contentsline {subsection}{\numberline {13.1.2}Applications}{103}{subsection.13.1.2}%
-\contentsline {subsection}{\numberline {13.1.3}Legendre transform of A}{104}{subsection.13.1.3}%
-\contentsline {section}{\numberline {13.2}Grand canonical ensemble}{104}{section.13.2}%
-\contentsline {subsection}{\numberline {13.2.1}Grand partition function}{105}{subsection.13.2.1}%
-\contentsline {section}{\numberline {13.3}Ideal gas}{106}{section.13.3}%
-\contentsline {subsection}{\numberline {13.3.1}Particle number fluctuations}{106}{subsection.13.3.1}%
-\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{107}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Introduction}{107}{section.14.1}%
-\contentsline {subsection}{\numberline {14.1.1}Key definitions}{107}{subsection.14.1.1}%
-\contentsline {subsection}{\numberline {14.1.2}Time scales}{108}{subsection.14.1.2}%
-\contentsline {section}{\numberline {14.2}Equilibration}{108}{section.14.2}%
-\contentsline {subsection}{\numberline {14.2.1}Qualitative behaviour}{110}{subsection.14.2.1}%
-\contentsline {subsection}{\numberline {14.2.2}Independent simulations}{110}{subsection.14.2.2}%
-\contentsline {subsection}{\numberline {14.2.3}Equilibration and production}{112}{subsection.14.2.3}%
-\contentsline {subsection}{\numberline {14.2.4}Equilibration workflows}{113}{subsection.14.2.4}%
-\contentsline {section}{\numberline {14.3}Autocorrelation}{114}{section.14.3}%
-\contentsline {subsection}{\numberline {14.3.1}Autocorrelation function}{114}{subsection.14.3.1}%
-\contentsline {subsection}{\numberline {14.3.2}Autocorrelation time}{114}{subsection.14.3.2}%
-\contentsline {section}{\numberline {14.4}Block averaging analysis}{115}{section.14.4}%
-\contentsline {chapter}{\numberline {15}Protein motions}{116}{chapter.15}%
-\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{117}{chapter.16}%
-\contentsline {chapter}{\numberline {17}Monte Carlo methods}{118}{chapter.17}%
-\contentsline {chapter}{\numberline {18}Free energy calculations}{119}{chapter.18}%
+\contentsline {chapter}{\numberline {1}Introduction and proteins}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Proteins}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Amino-acids}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Structure}{8}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Proteins' geometry}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The peptide bond}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Trans and cis}{10}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}The Ramachandran angles}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Difficulty of rotation}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Ramachandran plot}{11}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}Observed Ramachandran plot}{13}{subsubsection.2.3.2.1}%
+\contentsline {section}{\numberline {2.4}Contact map of proteins}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Defining a contact}{13}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Topology diagram}{14}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Coordinates}{14}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Protein center of mass}{15}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Radius of gyration}{15}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Comparing protein structures}{15}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Native state}{16}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}RMSF}{17}{subsection.2.6.5}%
+\contentsline {subsubsection}{\numberline {2.6.5.1}B-factors}{17}{subsubsection.2.6.5.1}%
+\contentsline {chapter}{\numberline {3}Semi-empirical force fields}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Potential energy surface}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Bond stretching}{19}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Anharmonic force constant}{19}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}Quartic correction}{20}{subsubsection.3.2.1.2}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}Morse potential}{20}{subsubsection.3.2.1.3}%
+\contentsline {section}{\numberline {3.3}Valence angle bending}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Multiple minima}{20}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Torsions}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Improper torsions}{21}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Van der Waals interactions}{21}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Lennard-Jones potential}{21}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Morse potential}{22}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Hill potential}{22}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Electrostatic interactions}{22}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Point like charges}{23}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Dipolar interactions}{23}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Dielectric constants}{23}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}Cross terms}{23}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Parametrization}{24}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Force field energies}{24}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Geometry optimization}{25}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Derivative of the potential function}{25}{subsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.1}Newton-Raphson}{25}{subsubsection.3.9.2.1}%
+\contentsline {subsection}{\numberline {3.9.3}Types of force fields}{26}{subsection.3.9.3}%
+\contentsline {chapter}{\numberline {4}Classical mechanics}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Newton's laws}{27}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Forces}{27}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Phase space}{28}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}One particle in one dimension}{28}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Harmonic oscillator}{28}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Hill potential}{29}{subsubsection.4.1.3.2}%
+\contentsline {section}{\numberline {4.2}Lagrangian formulation}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Euler-Lagrange equations}{30}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Harmonic oscillator}{30}{subsubsection.4.2.1.1}%
+\contentsline {subsection}{\numberline {4.2.2}Conservation of energy}{30}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Generalized coordinates}{31}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Legendre transforms}{32}{subsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}Legendre transform for multiple variables}{32}{subsubsection.4.2.4.1}%
+\contentsline {section}{\numberline {4.3}Hamiltonian formulation}{33}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Generalized coordinates}{34}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Hamilton's equations}{34}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Conservation laws}{34}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Compressibility}{35}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Symplectic structure}{35}{subsection.4.3.5}%
+\contentsline {chapter}{\numberline {5}Theoretical foundations of statistical mechanics}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{37}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Loschmidt's paradox}{37}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Thermodynamics}{37}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Thermodynamic system}{37}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}Isoloted}{37}{subsubsection.5.2.1.1}%
+\contentsline {subsection}{\numberline {5.2.2}Thermodynamic equilibrium}{38}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Thermodynamic state}{38}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Equation of state}{38}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Thermodynamic transformations}{38}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}State function}{39}{subsection.5.2.6}%
+\contentsline {subsection}{\numberline {5.2.7}Work}{39}{subsection.5.2.7}%
+\contentsline {subsection}{\numberline {5.2.8}Heat}{39}{subsection.5.2.8}%
+\contentsline {subsection}{\numberline {5.2.9}First law of thermodynamics}{39}{subsection.5.2.9}%
+\contentsline {subsection}{\numberline {5.2.10}Second law of thermodynamics}{39}{subsection.5.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.10.1}Kelvin's formulation}{40}{subsubsection.5.2.10.1}%
+\contentsline {subsubsection}{\numberline {5.2.10.2}Clausius' formulation}{40}{subsubsection.5.2.10.2}%
+\contentsline {subsection}{\numberline {5.2.11}Entropy}{40}{subsection.5.2.11}%
+\contentsline {subsection}{\numberline {5.2.12}Third law of thermodynamics}{40}{subsection.5.2.12}%
+\contentsline {section}{\numberline {5.3}The ensemble}{40}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Phase space volume}{40}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}Time evolution of the Jacobian}{41}{subsubsection.5.3.1.1}%
+\contentsline {subsection}{\numberline {5.3.2}Liouville's theorem}{42}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Ensemble distribution function}{42}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Outward flux}{42}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Liouville's equation}{43}{subsection.5.3.5}%
+\contentsline {subsubsection}{\numberline {5.3.5.1}Consequence on averages}{43}{subsubsection.5.3.5.1}%
+\contentsline {subsubsection}{\numberline {5.3.5.2}A more elegant form}{44}{subsubsection.5.3.5.2}%
+\contentsline {subsection}{\numberline {5.3.6}Equilibrium solutions}{44}{subsection.5.3.6}%
+\contentsline {chapter}{\numberline {6}Microcanonical ensemble}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introduction}{45}{section.6.1}%
+\contentsline {section}{\numberline {6.2}State function depending on number of particle, volume and energy}{45}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Thermodynamic derivatives}{46}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Dirac's delta function}{46}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Computing entropy}{46}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Average quantities}{47}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Virial theorem}{47}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Application of Virial theorem}{48}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}An example}{49}{subsubsection.6.3.2.1}%
+\contentsline {section}{\numberline {6.4}Thermal contact}{49}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Temperature}{50}{subsection.6.4.1}%
+\contentsline {section}{\numberline {6.5}Some examples}{50}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Free particle in one dimension}{50}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Classical ideal gas}{51}{subsection.6.5.2}%
+\contentsline {section}{\numberline {6.6}Gibbs paradox}{52}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Correct Boltzmann counting}{52}{subsection.6.6.1}%
+\contentsline {chapter}{\numberline {7}Introduction to molecular dynamics}{54}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Introduction}{54}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Hamilton's equations}{54}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Ergodicity}{54}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Basic components of a molecular dynamics simulation}{55}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Verlet algorithm}{55}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Velocity Verlet}{56}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Initial condition}{56}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Action integral}{57}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Constraints}{58}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Differential forms}{58}{subsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.1}Holomonic constraints}{58}{subsubsection.7.3.1.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.2}Nonholonomic constraints}{59}{subsubsection.7.3.1.2}%
+\contentsline {subsection}{\numberline {7.3.2}Lagrange multipliers}{59}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Hamiltonian formulation}{60}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Constraints in a simulation}{60}{subsection.7.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.4.1}Constraint condition}{61}{subsubsection.7.3.4.1}%
+\contentsline {subsubsection}{\numberline {7.3.4.2}Possible algorithms}{62}{subsubsection.7.3.4.2}%
+\contentsline {paragraph}{\numberline {7.3.4.2.1}Direct inversion}{62}{paragraph.7.3.4.2.1}%
+\contentsline {paragraph}{\numberline {7.3.4.2.2}Quick trick}{62}{paragraph.7.3.4.2.2}%
+\contentsline {paragraph}{\numberline {7.3.4.2.3}RATTLE}{62}{paragraph.7.3.4.2.3}%
+\contentsline {paragraph}{\numberline {7.3.4.2.4}LINCS}{62}{paragraph.7.3.4.2.4}%
+\contentsline {chapter}{\numberline {8}Direct translation}{63}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Introduction}{63}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Liouville operator}{63}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Liouville operator split}{64}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}One dimensional example}{64}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}Trotter theorem}{65}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}$\Delta t = \frac {t}{P}$}{65}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}One-dimensional example}{65}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Exponential operators}{66}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Trotter algorithm}{66}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Direct translation}{67}{subsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.1.1}Momentum translation}{67}{subsubsection.8.4.1.1}%
+\contentsline {subsubsection}{\numberline {8.4.1.2}Position translation}{67}{subsubsection.8.4.1.2}%
+\contentsline {subsubsection}{\numberline {8.4.1.3}Momentum translation with updated forces}{68}{subsubsection.8.4.1.3}%
+\contentsline {subsection}{\numberline {8.4.2}Multiple time step integration}{68}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Reference system propagator}{68}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}RESPA}{69}{subsection.8.4.4}%
+\contentsline {section}{\numberline {8.5}Symplectic solver}{69}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Evaluation of energies and forces}{70}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Introduction}{70}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Periodic boundary conditions}{70}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}The error function}{71}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Divide et impera}{71}{subsection.9.2.2}%
+\contentsline {section}{\numberline {9.3}Short range forces}{72}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Switching function}{72}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Minimum image convention}{73}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Verlet Neighbour list}{73}{subsection.9.3.3}%
+\contentsline {section}{\numberline {9.4}Long range forces}{73}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Summing up}{74}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Ewald sum}{74}{subsection.9.4.2}%
+\contentsline {section}{\numberline {9.5}Alternatives}{75}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Smooth particle mesh Ewald}{75}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Particle-particle particle-mesh Ewald}{75}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Other less computationally intensive options}{76}{subsection.9.5.3}%
+\contentsline {chapter}{\numberline {10}Canonical ensemble}{77}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Introduction}{77}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Thermodynamics derivatives}{77}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Legendre transform of E}{78}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}The Helmholtz free energy}{78}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Thermal contact}{78}{subsection.10.2.3}%
+\contentsline {subsubsection}{\numberline {10.2.3.1}Phase space distribution}{79}{subsubsection.10.2.3.1}%
+\contentsline {section}{\numberline {10.3}From micro to macro}{80}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Energy and temperature}{81}{subsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.1.1}Energy fluctuations}{81}{subsubsection.10.3.1.1}%
+\contentsline {subsection}{\numberline {10.3.2}Pressure estimator}{82}{subsection.10.3.2}%
+\contentsline {chapter}{\numberline {11}Thermostats}{84}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Introduction}{84}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Velocity rescaling}{84}{subsection.11.1.1}%
+\contentsline {section}{\numberline {11.2}Type of thermostats}{85}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Andersen's thermostat}{85}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Andersen revisited - Heyes}{85}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Langevin thermostat}{85}{subsection.11.2.3}%
+\contentsline {section}{\numberline {11.3}Bussi velocity Verlet}{87}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Nos\`e Hamiltonian}{88}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Nos\`e equations}{89}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Nos\`e-Hoover equations}{90}{subsection.11.4.2}%
+\contentsline {section}{\numberline {11.5}Non Hamiltonian statistical mechanics}{91}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}Phase space metric}{91}{subsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.5.2}Liouville equation}{92}{subsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.5.3}Equilibrium solutions}{92}{subsection.11.5.3}%
+\contentsline {subsection}{\numberline {11.5.4}Analysis of non Hamiltonian equations}{93}{subsection.11.5.4}%
+\contentsline {subsection}{\numberline {11.5.5}Partition function}{93}{subsection.11.5.5}%
+\contentsline {subsubsection}{\numberline {11.5.5.1}Harmonic oscillator}{94}{subsubsection.11.5.5.1}%
+\contentsline {subsection}{\numberline {11.5.6}Nos\`e-Hoover chains}{94}{subsection.11.5.6}%
+\contentsline {subsubsection}{\numberline {11.5.6.1}Partition function}{95}{subsubsection.11.5.6.1}%
+\contentsline {subsubsection}{\numberline {11.5.6.2}Harmonic oscillator}{96}{subsubsection.11.5.6.2}%
+\contentsline {chapter}{\numberline {12}The isobaric ensembles}{97}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Introduction}{97}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Legendre transform of E}{97}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Legendre transform of A}{97}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Phase space distribution of the isoenthalpic-isobaric ensemble}{98}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Isothermal-isobaric ensemble}{98}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Phase space distribution}{99}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Maxwell's square}{99}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Pressure viral theorem}{100}{subsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.2.4}Work virial theorem}{101}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}Andersen's Hamiltonian}{101}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Andersen's equations}{101}{subsection.12.3.1}%
+\contentsline {section}{\numberline {12.4}MTK algorithm (NPT)}{102}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}Langevin piston}{103}{subsection.12.4.1}%
+\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{104}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Introduction}{104}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Euler's theorem}{104}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}Applications}{104}{subsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.1.3}Legendre transform of A}{105}{subsection.13.1.3}%
+\contentsline {section}{\numberline {13.2}Grand canonical ensemble}{105}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Grand partition function}{106}{subsection.13.2.1}%
+\contentsline {section}{\numberline {13.3}Ideal gas}{107}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}Particle number fluctuations}{107}{subsection.13.3.1}%
+\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{108}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Introduction}{108}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}Key definitions}{108}{subsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.1.2}Time scales}{109}{subsection.14.1.2}%
+\contentsline {section}{\numberline {14.2}Equilibration}{109}{section.14.2}%
+\contentsline {subsection}{\numberline {14.2.1}Qualitative behaviour}{111}{subsection.14.2.1}%
+\contentsline {subsection}{\numberline {14.2.2}Independent simulations}{111}{subsection.14.2.2}%
+\contentsline {subsection}{\numberline {14.2.3}Equilibration and production}{113}{subsection.14.2.3}%
+\contentsline {subsection}{\numberline {14.2.4}Equilibration workflows}{114}{subsection.14.2.4}%
+\contentsline {section}{\numberline {14.3}Autocorrelation}{115}{section.14.3}%
+\contentsline {subsection}{\numberline {14.3.1}Autocorrelation function}{115}{subsection.14.3.1}%
+\contentsline {subsection}{\numberline {14.3.2}Autocorrelation time}{115}{subsection.14.3.2}%
+\contentsline {section}{\numberline {14.4}Block averaging analysis}{116}{section.14.4}%
+\contentsline {chapter}{\numberline {15}Protein motions}{117}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Elastic network models}{118}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Gaussian network model}{119}{section.15.2}%
+\contentsline {subsection}{\numberline {15.2.1}Correlated motions}{120}{subsection.15.2.1}%
+\contentsline {subsection}{\numberline {15.2.2}Gaussian network model and B-factors}{120}{subsection.15.2.2}%
+\contentsline {subsection}{\numberline {15.2.3}Biological relevance}{122}{subsection.15.2.3}%
+\contentsline {subsection}{\numberline {15.2.4}Normal mode analysis}{122}{subsection.15.2.4}%
+\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{123}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Monte Carlo methods}{124}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Free energy calculations}{125}{chapter.18}%
