@@ -1,1 +1,158 @@
+\graphicspath{{chapters/13/images}}
 \chapter{The grand canonical ensemble}
+
+\section{Introduction}
+
+	\subsection{Euler's theorem}
+	Homogeneous function $f(x_1, \dots, x_N)$ of degree $n$ in $x_1, \dots, x_k$:
+
+	$$f(\lambda x_1, \dots, \lambda x_k, x_{k+1}, \dots, x_N) = \lambda^n f(x_1, \dots, x_k, \dots, x_N)$$
+
+	Examples: $f(x) = x^2$, $f(x, y, z) = xy^2+z^3$.
+
+	$$\frac{d}{d\lambda} f(\lambda x_1, \dots, \lambda x_k, \dots, x_N) = n\lambda^{n-1}f(x_1, \dots, x_k,\dots, x_N)$$
+
+	$$\frac{d}{d\lambda}f(\lambda x_1, \dots, \lambda x_k, \dots, x_N) = \sum\limits_{i=1}^k\frac{\partial f(x_1, \dots, x_k, \dots, x_N)}{\partial x_i}x_i$$
+
+	$$\lambda = 1 \Rightarrow \sum\limits_{i=1}^k\frac{\partial f}{\partial x_i}x_i = nf(x_1, \dots, x_N)$$
+
+	\subsection{Applications}
+
+	$$U(\lambda N, \lambda V, \lambda S) = \lambda U(N, V, S)\Rightarrow U(N, V, S) = \frac{\partial U}{\partial N}N + \frac{\partial U}{\partial V}V_\frac{\partial U}{\partial S}S = \mu N - PV + TS$$
+
+	$$A(\lambda N, \lambda V, T) = \lambda A(N, V, T) \Rightarrow A(N, V, T) = \frac{\partial A}{\partial N}N + \frac{\partial A}{\partial V}V = \mu N - PV$$
+
+	$$H(\lambda N, \lambda S, P) = \lambda H(N, S, P)\Rightarrow H(N, S, P) = \frac{\partial H}{\partial N}N+\frac{\partial H}{\partial N}N+\frac{\partial H}{\partial S}S = \mu N+TS$$
+
+	$$G(\lambda N, P, T) = \lambda G(N, P, T)\Rightarrow G(N, P, T) = \frac{\partial G}{\partial N}N= \mu N$$
+
+	\subsection{Legendre transform of A}
+
+	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
+
+	\begin{align*}
+		\tilde{A}\biggl(\frac{\partial A}{\partial N}, V, T\biggr) &= A(N(\mu), V, T)-\biggl(\frac{\partial A}{\partial N}\biggr)_{N, V}N\biggl(\frac{\partial A}{\partial N}, V, T\biggr) = \\
+																															 &=A(N(\mu), V, T) - \mu N = \mu N - PV - \mu N = -PV
+	\end{align*}
+
+	$$d\tilde{A} = dA - Nd \mu -\mu dN = -PdV - SdT + \mu dN -Nd\mu - \mu dN$$
+
+	$$d\tilde{A} = -PdV - SdT - Nd\mu$$
+
+	$$\tilde{A}(\mu, \lambda V, T) = \lambda\tilde{A}(\mu, V, T)\Rightarrow \tilde{A}(\mu, V, T) = \frac{\partial \tilde{A}}{\partial V}V = -PV$$
+
+\section{Grand canonical ensemble}
+
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $E = E_1 + E_2\quad E_2\gg E_1$.
+		\item $N = N_1 + N_2\quad N_2\gg N_1$.
+		\item $V = V_1 + V_2\quad V_2\gg V_1$.
+		\item $\mathcal{H}(x, N) = \mathcal{H}_1(x_1, N_1) + \mathcal{H}_2(x_2, N_2)$.
+	\end{itemize}
+\end{multicols}
+
+$$Q(N, V, T) = \frac{1}{N!h^{3N}}\int dx_1\int dx_2e^{-\beta[\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)]}$$
+
+At fixed $N_1$ and $N_2$:
+
+$$Q(N, V, T) = \frac{N_1!N_2!}{N!}\frac{1}{N_1!h^{3N_1}}\int dx_1 e^{-\beta\mathcal{H}_1(x_1)}\frac{1}{N_2!h^{3N_2}}\int dx_2^{-\beta\mathcal{H}_2(x_2)} = \frac{N_1!N_2!}{N!}Q_1(N_1, V_1, T)Q_2(N_2, V_2, T)$$
+
+Varying particle numbers:
+
+$$Q(N, V, T) = \sum\limits_{N_1=0}^Ng(N_1, N-N_1)\frac{N_1!(N-N_1)!}{N!}Q_1(N_1, V_1, T)Q_2(N-N_1, V-V_1, T)$$
+
+Degeneracy factor $g(N_1, N-N_1)$: in how many ways there are $N_1$ particles in system $1$ and $N_2$ particles in system $2$.
+
+$$g(N_1, N-N_1) = \frac{N!}{N_1!(N-N_1)!}$$
+
+\begin{multicols}{3}
+	\begin{itemize}
+		\item $N_1 = 0\Rightarrow g(0, N) = 1$.
+		\item $N_1 = 1\Rightarrow g(1, N-1) = N$.
+		\item $N_1 = 2\Rightarrow g(2, N-2) = \frac{N(N-1)}{2}$.
+	\end{itemize}
+\end{multicols}
+
+$$Q(N, V, T) = \sum\limits_{N_1=0}^NQ_1(N_1, V_1, T)Q_2(N-N_1, V-V_1, T)$$
+
+However:
+
+$$f(x, N) = \frac{e^{-\beta\mathcal{H}(x, N)}}{N!h^{3N}Q(N, V, T)}\Rightarrow dxf(x, N) = 1$$
+
+Phase space distribution of system $1$: $\sum\limits_{N_1=0}^{N}\int dx_1f(x_1, N_1) = 1$.
+
+\begin{align*}
+	f(x_1, N_1) &=\biggl(\frac{e^{-\beta\mathcal{H}_1(x_1, N_1)}}{Q(N, V, T)N_1!h^{3N_1}}\biggr)\frac{1}{(N-N_1)!h^{3(N-N_1)}}\int dx_2e^{-\beta\mathcal{H}_2(x_2, N-N_1)} = \\
+							&= \frac{Q_2(N-N_1, V-V_1, T)}{Q(N, V, T)}\frac{1}{N_1!h^{3N_1}}e^{-\beta\mathcal{H}_1(x_1, N_1)}
+\end{align*}
+
+$$\frac{Q_2(N-N_1, V-V_1, T)}{Q(N, V, T)} = e^{-\beta[A(N-N_1, V-V_1, T) - A(N, V, T)]}$$
+
+$$A(N-N_1, V-V_1, T)\approx A(N, V, T) -\frac{\partial A}{\partial N}N_1-\frac{\partial A}{\partial V}V_1 = A(N, V, T)-\mu N_1 + PV_1$$
+
+
+	\subsection{Grand partition function}
+
+	$$f(x_1, N_1) = \frac{1}{N_1!h^{3N_1}}e^{\beta\mu N_1}e^{-\beta PV_1}e^{\beta\mathcal{H}_1(x_1, N_1)}$$
+
+	Dropping subscript $1$:
+
+	$$f(x, N) = \frac{1}{N!h^{3N}}e^{\beta\mu N}e^{-\beta PV}e^{\beta\mathcal{H}(x, N)}$$
+
+	Thus:
+
+	$$\sum\limits_{N=0}^{\infty}\int dxf(x, N) = \sum\limits_{N=0}^{\infty}e^{-\beta PV}\frac{1}{N!h^{3N}}e^{\beta\mu N}\int dxe^{-\beta\mathcal{H}(x, N)} = 1$$
+
+	$$\sum\limits_{N+0}^{\infty}\frac{1}{N!h^{eN}}e^{\beta\mu N}\int dxe^{-\beta\mathcal{H}(x, N)} = e^{\beta PV}$$
+
+	$$\mathcal{E}(\mu, V, T) = \sum\limits_{N=0}^{\infty}e^{\beta\mu N}\frac{1}{N!h^{3N}}\int dxe^{-\beta\mathcal{H}(x, N)} = \sum\limits_{N=0}^{\infty}e^{\beta\mu N}Q(N, V, T) = e^{\beta PV}$$
+
+	$$\frac{PV}{kT} = \ln\mathcal{E}(\mu, V, T)$$
+
+	$$\langle N\rangle = \frac{1}{\mathcal{E}(\mu, V, T)}\sum\limits_{N=0}Ne^{\beta\mu N}Q(N, V, T) = kT\biggl(\frac{\partial}{\partial\mu}\ln\mathcal{E}(\mu, V, T)\biggr)_{V, T}$$
+
+	Fugacity: $z = e^{\beta\mu}$:
+
+	$$\mathcal{E}(z, V, T) = \sum\limits_{N=0}^{\infty}z^NQ(N, V, T)$$
+
+	$$\frac{\partial}{\partial\mu} = \frac{\partial z}{\partial\mu}\frac{\partial}{\partial z} = \beta z\frac{\partial}{\partial z}\Rightarrow\langle N\rangle = z\frac{\partial}{\partial z}\ln\mathcal{E}(z, V, T)$$
+
+\section{Ideal gas}
+
+$$Q(N, V, T) = \frac{1}{N!h^{3N}}V^N\biggl[\int dpe^{-\beta\frac{p^2}{2m}}\biggr]^{3N} = \frac{1}{N!}\biggl[V\biggl(\frac{2\pi m}{\beta h^2}\biggr)^{\frac{3}{2}}\biggr]^{N} = \frac{1}{N!}\biggl(\frac{V}{\lambda^3}\biggr)^N$$
+
+$$\mathcal{E}(z, V, T) = \sum\limits_{N=0}^{\infty}z^N\frac{1}{N!}\biggl(\frac{V}{\lambda^3}\biggr)^{N} = \sum\limits_{N=0}^{\infty}\frac{1}{N!}\biggl(\frac{zV}{\lambda^3}\biggr)^{N} = e^{\frac{zV}{\lambda^3}}$$
+
+$$\langle N\rangle = z\frac{\partial}{\partial z}\ln\mathcal{E}(z, V, T) = V\frac{z}{\lambda^3}\Rightarrow z = \frac{\langle N\rangle\lambda^3}{V}$$
+
+$$\frac{PV}{kT} = \ln\mathcal{E}(z, V, T) = \frac{V_z}{\lambda^3}= \langle N\rangle$$
+
+	\subsection{Particle number fluctuations}
+
+	$$\Delta N = \sqrt{\langle N^2\rangle-\langle N\rangle^2}$$
+
+	\begin{align*}
+		z\frac{\partial}{\partial z}z\frac{\partial}{\partial z}\ln\mathcal{E}(z, V, T) &= z\frac{\partial}{\partial z}\frac{1}{\mathcal{E}}z\frac{\partial}{\partial z}\sum\limits_{N=0}^{\infty}z^NQ(N, V, T) = z\frac{\partial}{\partial z}\frac{1}{\mathcal{E}}\sum\limits_{N=0}^{\infty}Nz^N Q(N, V, T)=\\
+																																										&=\frac{1}{\mathcal{E}}\sum\limits_{N=0}^{\infty}N^2z^NQ(N, V, T)-\frac{1}{\mathcal{E}^2}\biggl[\sum\limits_{N=0}^{\infty}Nz^NQ(N, V, T)\biggr]^2 = \langle N^2\rangle - \langle N\rangle^2
+	\end{align*}
+
+	$$kT\frac{\partial}{\partial\mu} = z\frac{\partial}{\partial z}\Rightarrow\Delta N^2 = (kT)^2\frac{\partial^2}{\partial\mu^2}\ln\mathcal{E}(\mu, V, T) = (kT)^2\frac{\partial^2}{\partial\mu^2}\frac{PV}{kT} = kTV\frac{\partial^2 P}{\partial\mu^2}$$
+
+	$$\Delta N^2 = kTV\frac{\partial^2 P}{\partial \mu^2}$$
+
+	$$a(v, T) = \frac{1}{N}A\biggl(N, \frac{V}{N}, T\biggr) \Rightarrow \mu = \frac{\partial A}{\partial N} = a(v, T) + N\frac{\partial a}{\partial v}{\partial v}{\partial N} = a(v, T) - V\frac{\partial a}{\partial v}$$
+
+	$$P = -\biggl(\frac{\partial A}{\partial V}\biggr)_{N, T} = -N\frac{\partial a}{\partial v}\frac{\partial v}{\partial V} = -\frac{\partial a}{\partial v}\qquad\frac{\partial P}{\partial\mu} = \frac{\partial P}{\partial  v}{\partial v}{\partial\mu} = -\frac{\partial^2 a}{\partial v^2}\frac{\partial v}{\partial \mu}$$
+
+	$$\frac{\partial\mu}{\partial v} = \frac{\partial a}{\partial v}-\frac{\partial a}{\partial v} - v \frac{\partial^2a}{\partial v^2}\Rightarrow \frac{\partial P}{\partial\mu} = \frac{1}{v}$$
+
+	$$\frac{\partial^2P}{\partial\mu^2} = -\frac{1}{v^2}\frac{\partial v}{\partial\mu} = \frac{1}{v^2}\biggl(v\frac{\partial^2 a}{\partial v^2}\biggr)^{-1} = -\frac{1}{v^3\frac{\partial P}{\partial v}}$$
+
+	$$\Delta N^2 = kTV\frac{\partial^2 P}{\partial\mu^2}\qquad\qquad\frac{\partial^2 P}{\partial\mu^2} = -\frac{1}{v^3\frac{\partial P}{\partial v}}$$
+
+	$$\kappa_T = -\frac{1}{V}\frac{\partial V}{\partial P} = -\frac{1}{v}\frac{\partial v}{\partial P} = -\frac{1}{v\frac{\partial P}{\partial v}}\Rightarrow\Delta N^2 = \frac{kTV}{v^2}\kappa_T = \frac{\langle N\rangle kT}{v}\kappa_T$$
+
+	Relative flucutation:
+
+	$$\frac{\Delta N}{\langle N\rangle} = \sqrt{\frac{kT}{v\langle N\rangle}\kappa_T}\sim\frac{1}{\sqrt{\langle N\rangle}}$$
