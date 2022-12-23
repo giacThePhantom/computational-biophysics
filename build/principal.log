@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  23 DEC 2022 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  23 DEC 2022 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -910,7 +910,7 @@ Chapter 1.
 
 ]) (./chapters/02/protein-geometry.tex [9]
 Chapter 2.
-<chapters/02/images//planar.png, id=1418, 1316.92pt x 629.35126pt>
+<chapters/02/images//planar.png, id=1460, 1316.92pt x 629.35126pt>
 File: chapters/02/images//planar.png Graphic file (type png)
 <use chapters/02/images//planar.png>
 Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
@@ -919,7 +919,7 @@ Package pdftex.def Info: chapters/02/images//planar.png  used on input line 16.
 [10
 
  <./chapters/02/images//planar.png>]
-<chapters/02/images//potential.png, id=1430, 725.71124pt x 623.32875pt>
+<chapters/02/images//potential.png, id=1472, 725.71124pt x 623.32875pt>
 File: chapters/02/images//potential.png Graphic file (type png)
 <use chapters/02/images//potential.png>
 Package pdftex.def Info: chapters/02/images//potential.png  used on input line 
@@ -939,7 +939,7 @@ Package siunitx Warning: Unit macro \angstrom has been deprecated in this
 
 LaTeX Warning: Reference `rama' on page 12 undefined on input line 87.
 
-<chapters/02/images//rama_map.png, id=1442, 1116.17pt x 743.77875pt>
+<chapters/02/images//rama_map.png, id=1482, 1116.17pt x 743.77875pt>
 File: chapters/02/images//rama_map.png Graphic file (type png)
 <use chapters/02/images//rama_map.png>
 Package pdftex.def Info: chapters/02/images//rama_map.png  used on input line 9
@@ -953,7 +953,7 @@ ine 103.
 
 LaTeX Warning: Reference `ala_gly' on page 13 undefined on input line 105.
 
-<chapters/02/images//ala_gly.png, id=1448, 1370.11874pt x 653.44125pt>
+<chapters/02/images//ala_gly.png, id=1488, 1370.11874pt x 653.44125pt>
 File: chapters/02/images//ala_gly.png Graphic file (type png)
 <use chapters/02/images//ala_gly.png>
 Package pdftex.def Info: chapters/02/images//ala_gly.png  used on input line 10
@@ -964,7 +964,7 @@ LaTeX Warning: Reference `ramachandran-final' on page 13 undefined on input lin
 e 116.
 
 [13 <./chapters/02/images//rama_map.png> <./chapters/02/images//ala_gly.png>]
-<chapters/02/images//contact.png, id=1461, 1340.00626pt x 849.1725pt>
+<chapters/02/images//contact.png, id=1501, 1340.00626pt x 849.1725pt>
 File: chapters/02/images//contact.png Graphic file (type png)
 <use chapters/02/images//contact.png>
 Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
@@ -972,14 +972,14 @@ Package pdftex.def Info: chapters/02/images//contact.png  used on input line 14
 (pdftex.def)             Requested size: 267.9965pt x 169.83148pt.
 
 [14 <./chapters/02/images//contact.png>]
-<chapters/02/images//topology.png, id=1470, 1514.65875pt x 778.91pt>
+<chapters/02/images//topology.png, id=1511, 1514.65875pt x 778.91pt>
 File: chapters/02/images//topology.png Graphic file (type png)
 <use chapters/02/images//topology.png>
 Package pdftex.def Info: chapters/02/images//topology.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 302.92638pt x 155.77924pt.
  [15 <./chapters/02/images//topology.png>] [16]
-<chapters/02/images//rmsd.png, id=1481, 1161.33875pt x 809.0225pt>
+<chapters/02/images//rmsd.png, id=1522, 1161.33875pt x 809.0225pt>
 File: chapters/02/images//rmsd.png Graphic file (type png)
 <use chapters/02/images//rmsd.png>
 Package pdftex.def Info: chapters/02/images//rmsd.png  used on input line 244.
@@ -1154,7 +1154,7 @@ cmsy/m/n/10 i \OT1/cmr/m/n/10 = [] = \OMS/cmsy/m/n/10 ^^@[][] \OT1/cmr/m/n/10 =
  []
 
 [100]
-<chapters/12/images//maxwell_square.png, id=1904, 594.22pt x 585.18625pt>
+<chapters/12/images//maxwell_square.png, id=1944, 594.22pt x 585.18625pt>
 File: chapters/12/images//maxwell_square.png Graphic file (type png)
 <use chapters/12/images//maxwell_square.png>
 Package pdftex.def Info: chapters/12/images//maxwell_square.png  used on input 
@@ -1175,7 +1175,7 @@ Overfull \hbox (32.25241pt too wide) detected at line 59
 
 [106] [107]) (./chapters/14/uncertainties-sampling-quality.tex [108]
 Chapter 14.
-<chapters/14/images/time-scales.png, id=1942, 567.11874pt x 400.49625pt>
+<chapters/14/images/time-scales.png, id=1982, 567.11874pt x 400.49625pt>
 File: chapters/14/images/time-scales.png Graphic file (type png)
 <use chapters/14/images/time-scales.png>
 Package pdftex.def Info: chapters/14/images/time-scales.png  used on input line
@@ -1189,18 +1189,18 @@ Underfull \hbox (badness 5359) in paragraph at lines 51--53
  []
 
 [110 <./chapters/14/images/time-scales.png>]
-<chapters/14/images/rmsd.png, id=1953, 481.8pt x 464.73625pt>
+<chapters/14/images/rmsd.png, id=1993, 481.8pt x 464.73625pt>
 File: chapters/14/images/rmsd.png Graphic file (type png)
 <use chapters/14/images/rmsd.png>
 Package pdftex.def Info: chapters/14/images/rmsd.png  used on input line 61.
 (pdftex.def)             Requested size: 195.12767pt x 188.21715pt.
-<chapters/14/images/all-to-all-rmsd.png, id=1954, 555.07375pt x 492.84125pt>
+<chapters/14/images/all-to-all-rmsd.png, id=1994, 555.07375pt x 492.84125pt>
 File: chapters/14/images/all-to-all-rmsd.png Graphic file (type png)
 <use chapters/14/images/all-to-all-rmsd.png>
 Package pdftex.def Info: chapters/14/images/all-to-all-rmsd.png  used on input 
 line 69.
 (pdftex.def)             Requested size: 195.12767pt x 173.24902pt.
-<chapters/14/images/qualitative-behaviour.png, id=1955, 520.94624pt x 398.48875
+<chapters/14/images/qualitative-behaviour.png, id=1995, 520.94624pt x 398.48875
 pt>
 File: chapters/14/images/qualitative-behaviour.png Graphic file (type png)
 <use chapters/14/images/qualitative-behaviour.png>
@@ -1209,7 +1209,7 @@ input line 79.
 (pdftex.def)             Requested size: 433.62pt x 331.69412pt.
  [111 <./chapters/14/images/rmsd.png> <./chapters/14/images/all-to-all-rmsd.png
 >]
-<chapters/14/images/independent-simulations.png, id=1965, 539.01375pt x 515.927
+<chapters/14/images/independent-simulations.png, id=2005, 539.01375pt x 515.927
 5pt>
 File: chapters/14/images/independent-simulations.png Graphic file (type png)
 <use chapters/14/images/independent-simulations.png>
@@ -1217,14 +1217,14 @@ Package pdftex.def Info: chapters/14/images/independent-simulations.png  used o
 n input line 92.
 (pdftex.def)             Requested size: 433.62pt x 415.05705pt.
  [112 <./chapters/14/images/qualitative-behaviour.png>]
-<chapters/14/images/equilibration.png, id=1973, 530.98375pt x 374.39874pt>
+<chapters/14/images/equilibration.png, id=2013, 530.98375pt x 374.39874pt>
 File: chapters/14/images/equilibration.png Graphic file (type png)
 <use chapters/14/images/equilibration.png>
 Package pdftex.def Info: chapters/14/images/equilibration.png  used on input li
 ne 100.
 (pdftex.def)             Requested size: 433.62pt x 305.75212pt.
  [113 <./chapters/14/images/independent-simulations.png>]
-<chapters/14/images/equilibration-production.png, id=1979, 630.355pt x 367.3725
+<chapters/14/images/equilibration-production.png, id=2019, 630.355pt x 367.3725
 pt>
 File: chapters/14/images/equilibration-production.png Graphic file (type png)
 <use chapters/14/images/equilibration-production.png>
@@ -1237,20 +1237,20 @@ Overfull \hbox (1.92308pt too wide) detected at line 117
  []
 
 [115 <./chapters/14/images/equilibration-production.png>]
-<chapters/14/images/autocorrelation-time.png, id=1993, 545.03625pt x 361.35pt>
+<chapters/14/images/autocorrelation-time.png, id=2033, 545.03625pt x 361.35pt>
 File: chapters/14/images/autocorrelation-time.png Graphic file (type png)
 <use chapters/14/images/autocorrelation-time.png>
 Package pdftex.def Info: chapters/14/images/autocorrelation-time.png  used on i
 nput line 140.
 (pdftex.def)             Requested size: 433.62pt x 287.4814pt.
  [116 <./chapters/14/images/autocorrelation-time.png>]
-<chapters/14/images/block-length.png, id=2000, 726.715pt x 533.995pt>
+<chapters/14/images/block-length.png, id=2040, 726.715pt x 533.995pt>
 File: chapters/14/images/block-length.png Graphic file (type png)
 <use chapters/14/images/block-length.png>
 Package pdftex.def Info: chapters/14/images/block-length.png  used on input lin
 e 173.
 (pdftex.def)             Requested size: 195.12767pt x 143.38206pt.
-<chapters/14/images/bse.png, id=2001, 738.76pt x 529.98pt>
+<chapters/14/images/bse.png, id=2041, 738.76pt x 529.98pt>
 File: chapters/14/images/bse.png Graphic file (type png)
 <use chapters/14/images/bse.png>
 Package pdftex.def Info: chapters/14/images/bse.png  used on input line 181.
@@ -1258,7 +1258,7 @@ Package pdftex.def Info: chapters/14/images/bse.png  used on input line 181.
 ) (./chapters/15/protein-motions.tex [117 <./chapters/14/images/block-length.pn
 g> <./chapters/14/images/bse.png>]
 Chapter 15.
-<chapters/15/images/enm-theory.png, id=2010, 331.2375pt x 264.99pt>
+<chapters/15/images/enm-theory.png, id=2050, 331.2375pt x 264.99pt>
 File: chapters/15/images/enm-theory.png Graphic file (type png)
 <use chapters/15/images/enm-theory.png>
 Package pdftex.def Info: chapters/15/images/enm-theory.png  used on input line 
@@ -1271,7 +1271,7 @@ Overfull \vbox (7.25249pt too high) has occurred while \output is active []
 
 
 [119 <./chapters/15/images/enm-theory.png>]
-<chapters/15/images/kirchoff-adjacency-matrix.png, id=2021, 628.3475pt x 259.97
+<chapters/15/images/kirchoff-adjacency-matrix.png, id=2061, 628.3475pt x 259.97
 125pt>
 File: chapters/15/images/kirchoff-adjacency-matrix.png Graphic file (type png)
 <use chapters/15/images/kirchoff-adjacency-matrix.png>
@@ -1279,14 +1279,14 @@ Package pdftex.def Info: chapters/15/images/kirchoff-adjacency-matrix.png  used
  on input line 43.
 (pdftex.def)             Requested size: 433.62pt x 179.40414pt.
  [120 <./chapters/15/images/kirchoff-adjacency-matrix.png>]
-<chapters/15/images/gnm-b-factors.png, id=2029, 532.99126pt x 384.43625pt>
+<chapters/15/images/gnm-b-factors.png, id=2069, 532.99126pt x 384.43625pt>
 File: chapters/15/images/gnm-b-factors.png Graphic file (type png)
 <use chapters/15/images/gnm-b-factors.png>
 Package pdftex.def Info: chapters/15/images/gnm-b-factors.png  used on input li
 ne 70.
 (pdftex.def)             Requested size: 433.62pt x 312.77016pt.
  [121]
-<chapters/15/images/biological-relevance.png, id=2034, 720.6925pt x 453.695pt>
+<chapters/15/images/biological-relevance.png, id=2074, 720.6925pt x 453.695pt>
 File: chapters/15/images/biological-relevance.png Graphic file (type png)
 <use chapters/15/images/biological-relevance.png>
 Package pdftex.def Info: chapters/15/images/biological-relevance.png  used on i
@@ -1294,7 +1294,7 @@ nput line 78.
 (pdftex.def)             Requested size: 433.62pt x 272.97368pt.
  [122 <./chapters/15/images/gnm-b-factors.png>]
 [123 <./chapters/15/images/biological-relevance.png>]
-<chapters/15/images/asm-correlated-motion.png, id=2047, 684.5575pt x 351.3125pt
+<chapters/15/images/asm-correlated-motion.png, id=2088, 684.5575pt x 351.3125pt
 >
 File: chapters/15/images/asm-correlated-motion.png Graphic file (type png)
 <use chapters/15/images/asm-correlated-motion.png>
@@ -1302,7 +1302,7 @@ Package pdftex.def Info: chapters/15/images/asm-correlated-motion.png  used on
 input line 116.
 (pdftex.def)             Requested size: 433.62pt x 222.53954pt.
  [124 <./chapters/15/images/asm-correlated-motion.png>]
-<chapters/15/images/eigenvalue-scree-plot.png, id=2054, 544.0325pt x 423.5825pt
+<chapters/15/images/eigenvalue-scree-plot.png, id=2095, 544.0325pt x 423.5825pt
 >
 File: chapters/15/images/eigenvalue-scree-plot.png Graphic file (type png)
 <use chapters/15/images/eigenvalue-scree-plot.png>
@@ -1310,7 +1310,7 @@ Package pdftex.def Info: chapters/15/images/eigenvalue-scree-plot.png  used on
 input line 153.
 (pdftex.def)             Requested size: 433.62pt x 337.63196pt.
  [125]
-<chapters/15/images/eigenvalue-collectivity.png, id=2066, 637.38126pt x 269.005
+<chapters/15/images/eigenvalue-collectivity.png, id=2107, 637.38126pt x 269.005
 pt>
 File: chapters/15/images/eigenvalue-collectivity.png Graphic file (type png)
 <use chapters/15/images/eigenvalue-collectivity.png>
@@ -1318,13 +1318,13 @@ Package pdftex.def Info: chapters/15/images/eigenvalue-collectivity.png  used o
 n input line 162.
 (pdftex.def)             Requested size: 433.62pt x 183.00717pt.
  [126 <./chapters/15/images/eigenvalue-scree-plot.png>]
-<chapters/15/images/weighted-rmsd.png, id=2077, 540.0175pt x 247.92625pt>
+<chapters/15/images/weighted-rmsd.png, id=2117, 540.0175pt x 247.92625pt>
 File: chapters/15/images/weighted-rmsd.png Graphic file (type png)
 <use chapters/15/images/weighted-rmsd.png>
 Package pdftex.def Info: chapters/15/images/weighted-rmsd.png  used on input li
 ne 171.
 (pdftex.def)             Requested size: 433.62pt x 199.08275pt.
-<chapters/15/images/scatter-plot-pcs-modes.png, id=2078, 623.32875pt x 434.6237
+<chapters/15/images/scatter-plot-pcs-modes.png, id=2118, 623.32875pt x 434.6237
 5pt>
 File: chapters/15/images/scatter-plot-pcs-modes.png Graphic file (type png)
 <use chapters/15/images/scatter-plot-pcs-modes.png>
@@ -1333,14 +1333,14 @@ Package pdftex.def Info: chapters/15/images/scatter-plot-pcs-modes.png  used on
 (pdftex.def)             Requested size: 433.62pt x 302.3511pt.
  [127 <./chapters/15/images/eigenvalue-collectivity.png> <./chapters/15/images/
 weighted-rmsd.png>]
-<chapters/15/images/scatter-plot-pcs.png, id=2089, 770.88pt x 450.68375pt>
+<chapters/15/images/scatter-plot-pcs.png, id=2129, 770.88pt x 450.68375pt>
 File: chapters/15/images/scatter-plot-pcs.png Graphic file (type png)
 <use chapters/15/images/scatter-plot-pcs.png>
 Package pdftex.def Info: chapters/15/images/scatter-plot-pcs.png  used on input
  line 187.
 (pdftex.def)             Requested size: 433.62pt x 253.50897pt.
  [128 <./chapters/15/images/scatter-plot-pcs-modes.png>]
-<chapters/15/images/cosine-content.png, id=2096, 415.5525pt x 330.23375pt>
+<chapters/15/images/cosine-content.png, id=2136, 415.5525pt x 330.23375pt>
 File: chapters/15/images/cosine-content.png Graphic file (type png)
 <use chapters/15/images/cosine-content.png>
 Package pdftex.def Info: chapters/15/images/cosine-content.png  used on input l
@@ -1350,7 +1350,7 @@ ine 197.
 (./chapters/16/clustering-protein-structure-networks.tex [130 <./chapters/15/im
 ages/cosine-content.png>]
 Chapter 16.
-<chapters/16/images/dendrogram.png, id=2112, 421.575pt x 179.67125pt>
+<chapters/16/images/dendrogram.png, id=2152, 421.575pt x 179.67125pt>
 File: chapters/16/images/dendrogram.png Graphic file (type png)
 <use chapters/16/images/dendrogram.png>
 Package pdftex.def Info: chapters/16/images/dendrogram.png  used on input line 
@@ -1359,14 +1359,14 @@ Package pdftex.def Info: chapters/16/images/dendrogram.png  used on input line
 [131
 
 ]
-<chapters/16/images/correct-number.png, id=2117, 814.04124pt x 448.67625pt>
+<chapters/16/images/correct-number.png, id=2157, 814.04124pt x 448.67625pt>
 File: chapters/16/images/correct-number.png Graphic file (type png)
 <use chapters/16/images/correct-number.png>
 Package pdftex.def Info: chapters/16/images/correct-number.png  used on input l
 ine 60.
 (pdftex.def)             Requested size: 433.62pt x 238.99538pt.
  [132 <./chapters/16/images/dendrogram.png>]
-<chapters/16/images/outliers.png, id=2126, 799.98875pt x 447.6725pt>
+<chapters/16/images/outliers.png, id=2166, 799.98875pt x 447.6725pt>
 File: chapters/16/images/outliers.png Graphic file (type png)
 <use chapters/16/images/outliers.png>
 Package pdftex.def Info: chapters/16/images/outliers.png  used on input line 68
@@ -1374,24 +1374,24 @@ Package pdftex.def Info: chapters/16/images/outliers.png  used on input line 68
 (pdftex.def)             Requested size: 433.62pt x 242.65489pt.
  [133 <./chapters/16/images/correct-number.png>] [134 <./chapters/16/images/out
 liers.png>] [135]
-<chapters/16/images/elbow.png, id=2149, 812.03375pt x 383.4325pt>
+<chapters/16/images/elbow.png, id=2189, 812.03375pt x 383.4325pt>
 File: chapters/16/images/elbow.png Graphic file (type png)
 <use chapters/16/images/elbow.png>
 Package pdftex.def Info: chapters/16/images/elbow.png  used on input line 142.
 (pdftex.def)             Requested size: 433.62pt x 204.74529pt.
-<chapters/16/images/psn.png, id=2150, 848.16875pt x 453.695pt>
+<chapters/16/images/psn.png, id=2190, 848.16875pt x 453.695pt>
 File: chapters/16/images/psn.png Graphic file (type png)
 <use chapters/16/images/psn.png>
 Package pdftex.def Info: chapters/16/images/psn.png  used on input line 150.
 (pdftex.def)             Requested size: 433.62pt x 231.94905pt.
  [136 <./chapters/16/images/elbow.png>] [137 <./chapters/16/images/psn.png>]
-<chapters/16/images/p53.png, id=2165, 502.87875pt x 356.33125pt>
+<chapters/16/images/p53.png, id=2206, 502.87875pt x 356.33125pt>
 File: chapters/16/images/p53.png Graphic file (type png)
 <use chapters/16/images/p53.png>
 Package pdftex.def Info: chapters/16/images/p53.png  used on input line 217.
 (pdftex.def)             Requested size: 433.62pt x 307.25447pt.
  [138]
-<chapters/16/images/vap.png, id=2173, 583.17876pt x 318.18875pt>
+<chapters/16/images/vap.png, id=2214, 583.17876pt x 318.18875pt>
 File: chapters/16/images/vap.png Graphic file (type png)
 <use chapters/16/images/vap.png>
 Package pdftex.def Info: chapters/16/images/vap.png  used on input line 226.
@@ -1403,7 +1403,7 @@ Chapter 17.
 [141
 
 ] [142]
-<chapters/17/images/importance-sampling.png, id=2197, 683.55376pt x 230.8625pt>
+<chapters/17/images/importance-sampling.png, id=2237, 683.55376pt x 230.8625pt>
 
 File: chapters/17/images/importance-sampling.png Graphic file (type png)
 <use chapters/17/images/importance-sampling.png>
@@ -1424,7 +1424,7 @@ Chapter 18.
 [148
 
 ]
-<chapters/18/images/adiabatic-free-energy-dynamics.png, id=2229, 657.45625pt x 
+<chapters/18/images/adiabatic-free-energy-dynamics.png, id=2269, 657.45625pt x 
 288.07625pt>
 File: chapters/18/images/adiabatic-free-energy-dynamics.png Graphic file (type 
 png)
@@ -1441,7 +1441,7 @@ Overfull \hbox (12.99838pt too wide) detected at line 120
 
 [151] [152]) (./chapters/19/rare-events.tex [153]
 Chapter 19.
-<chapters/19/images/rough-free-energy-surfaces.png, id=2253, 656.4525pt x 347.2
+<chapters/19/images/rough-free-energy-surfaces.png, id=2293, 656.4525pt x 347.2
 975pt>
 File: chapters/19/images/rough-free-energy-surfaces.png Graphic file (type png)
 
@@ -1454,9 +1454,71 @@ d on input line 9.
  <./chapters/19/images/rough-free-energy-surfaces.png>] [155] [156]
 [157]) (./chapters/20/advanced-methods.tex [158]
 Chapter 20.
-) [159
+[159
 
-] (./build/principal.aux)
+]
+<chapters/20/images/tamd.png, id=2322, 700.6175pt x 469.755pt>
+File: chapters/20/images/tamd.png Graphic file (type png)
+<use chapters/20/images/tamd.png>
+Package pdftex.def Info: chapters/20/images/tamd.png  used on input line 40.
+(pdftex.def)             Requested size: 433.62pt x 290.74335pt.
+ [160 <./chapters/20/images/tamd.png>]
+<chapters/20/images/transition-path-ensemble.png, id=2329, 593.21625pt x 176.66
+pt>
+File: chapters/20/images/transition-path-ensemble.png Graphic file (type png)
+<use chapters/20/images/transition-path-ensemble.png>
+Package pdftex.def Info: chapters/20/images/transition-path-ensemble.png  used 
+on input line 64.
+(pdftex.def)             Requested size: 433.62pt x 129.13593pt.
+ [161 <./chapters/20/images/transition-path-ensemble.png>]
+<chapters/20/images/transition-path-sampling.png, id=2336, 670.505pt x 280.0462
+5pt>
+File: chapters/20/images/transition-path-sampling.png Graphic file (type png)
+<use chapters/20/images/transition-path-sampling.png>
+Package pdftex.def Info: chapters/20/images/transition-path-sampling.png  used 
+on input line 105.
+(pdftex.def)             Requested size: 433.62pt x 181.10489pt.
+ [162 <./chapters/20/images/transition-path-sampling.png>]
+Overfull \hbox (31.77632pt too wide) detected at line 120
+[]
+ []
+
+<chapters/20/images/committor-distribution.png, id=2344, 657.45625pt x 312.1662
+4pt>
+File: chapters/20/images/committor-distribution.png Graphic file (type png)
+<use chapters/20/images/committor-distribution.png>
+Package pdftex.def Info: chapters/20/images/committor-distribution.png  used on
+ input line 144.
+(pdftex.def)             Requested size: 433.62pt x 205.88745pt.
+[163]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ddagger' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 158.
+
+<chapters/20/images/histogram-test.png, id=2357, 749.80125pt x 356.33125pt>
+File: chapters/20/images/histogram-test.png Graphic file (type png)
+<use chapters/20/images/histogram-test.png>
+Package pdftex.def Info: chapters/20/images/histogram-test.png  used on input l
+ine 171.
+(pdftex.def)             Requested size: 433.62pt x 206.07417pt.
+) [164 <./chapters/20/images/committor-distribution.png>] [165 <./chapters/20/i
+mages/histogram-test.png>] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1464,13 +1526,13 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 6A77A995062B50582C78D7AFDBE12B76;44182.
+(rerunfilecheck)             Checksum: DC6EB29611A5404F00260B8607B30C58;45459.
  ) 
 Here is how much of TeX's memory you used:
- 25177 strings out of 478238
- 462814 string characters out of 5850455
- 817619 words of memory out of 5000000
- 42395 multiletter control sequences out of 15000+600000
+ 25284 strings out of 478238
+ 465610 string characters out of 5850455
+ 817892 words of memory out of 5000000
+ 42463 multiletter control sequences out of 15000+600000
  489357 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,718b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1487,25 +1549,27 @@ pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/fonts/
-type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm
--super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440
-.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fo
-nts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
-0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
-share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (160 pages, 5450254 bytes).
+.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.
+pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share
+/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fon
+ts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public
+/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0
+500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist
+/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm1200.pfb>
+Output written on ./build/principal.pdf (166 pages, 5642666 bytes).
 PDF statistics:
- 2542 PDF objects out of 2984 (max. 8388607)
- 2214 compressed objects within 23 object streams
- 555 named destinations out of 1000 (max. 500000)
- 2356 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2653 PDF objects out of 2984 (max. 8388607)
+ 2304 compressed objects within 24 object streams
+ 588 named destinations out of 1000 (max. 500000)
+ 2445 words of extra memory for PDF output out of 10000 (max. 10000000)
 

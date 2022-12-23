@@ -313,3 +313,11 @@
 \contentsline {subsection}{\numberline {19.2.3}WHAM}{156}{subsection.19.2.3}%
 \contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{158}{subsection.19.2.4}%
 \contentsline {chapter}{\numberline {20}Advanced methods}{159}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{159}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}TAMD}{160}{subsection.20.1.1}%
+\contentsline {section}{\numberline {20.2}Metadynamics}{160}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Transition path ensemble}{161}{section.20.3}%
+\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{162}{subsection.20.3.1}%
+\contentsline {section}{\numberline {20.4}The committor distribution}{164}{section.20.4}%
+\contentsline {subsection}{\numberline {20.4.1}Histogram test}{164}{subsection.20.4.1}%
+\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{164}{subsection.20.4.2}%
