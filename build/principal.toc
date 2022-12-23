@@ -304,4 +304,12 @@
 \contentsline {subsection}{\numberline {18.3.1}Parallel tempering}{152}{subsection.18.3.1}%
 \contentsline {subsection}{\numberline {18.3.2}Wang-Landau sampling}{153}{subsection.18.3.2}%
 \contentsline {chapter}{\numberline {19}Rare events}{154}{chapter.19}%
-\contentsline {chapter}{\numberline {20}Advanced methods}{155}{chapter.20}%
+\contentsline {section}{\numberline {19.1}Introduction}{154}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{154}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}?????????}{154}{subsection.19.1.2}%
+\contentsline {section}{\numberline {19.2}Reaction coordinates}{155}{section.19.2}%
+\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{155}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{156}{subsection.19.2.2}%
+\contentsline {subsection}{\numberline {19.2.3}WHAM}{156}{subsection.19.2.3}%
+\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{156}{subsection.19.2.4}%
+\contentsline {chapter}{\numberline {20}Advanced methods}{157}{chapter.20}%
