@@ -1,4 +1,4 @@
-\babel@toc {english}{}\relax 
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Introduction and proteins}{6}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introduction}{6}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Proteins}{6}{section.1.2}%
@@ -205,20 +205,21 @@
 \contentsline {chapter}{\numberline {12}The isobaric ensembles}{96}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Introduction}{96}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Legendre transform of E}{96}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Legendre transform of A}{96}{subsection.12.1.2}%
-\contentsline {subsection}{\numberline {12.1.3}Phase space distribution of the isoenthalpic-isobaric ensemble}{97}{subsection.12.1.3}%
-\contentsline {section}{\numberline {12.2}Isothermal-isobaric ensemble}{97}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}Phase space distribution}{98}{subsection.12.2.1}%
-\contentsline {subsection}{\numberline {12.2.2}Maxwell's square}{98}{subsection.12.2.2}%
-\contentsline {subsection}{\numberline {12.2.3}Pressure viral theorem}{99}{subsection.12.2.3}%
-\contentsline {subsection}{\numberline {12.2.4}Work virial theorem}{100}{subsection.12.2.4}%
-\contentsline {section}{\numberline {12.3}Andersen's Hamiltonian}{100}{section.12.3}%
-\contentsline {subsection}{\numberline {12.3.1}Andersen's equations}{100}{subsection.12.3.1}%
-\contentsline {section}{\numberline {12.4}MTK algorithm (NPT)}{101}{section.12.4}%
-\contentsline {subsection}{\numberline {12.4.1}Langevin piston}{102}{subsection.12.4.1}%
-\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{103}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{104}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Protein motions}{105}{chapter.15}%
-\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{106}{chapter.16}%
-\contentsline {chapter}{\numberline {17}Monte Carlo methods}{107}{chapter.17}%
-\contentsline {chapter}{\numberline {18}Free energy calculations}{108}{chapter.18}%
+\contentsline {subsection}{\numberline {12.1.2}Legendre transform of A}{97}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Phase space distribution of the isoenthalpic-isobaric ensemble}{98}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Isothermal-isobaric ensemble}{98}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Phase space distribution}{99}{subsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.1.1}Further proof}{100}{subsubsection.12.2.1.1}%
+\contentsline {subsection}{\numberline {12.2.2}Maxwell's square}{101}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Pressure viral theorem}{102}{subsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.2.4}Work virial theorem}{102}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}Andersen's Hamiltonian}{102}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Andersen's equations}{103}{subsection.12.3.1}%
+\contentsline {section}{\numberline {12.4}MTK algorithm (NPT)}{103}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}Langevin piston}{104}{subsection.12.4.1}%
+\contentsline {chapter}{\numberline {13}The grand canonical ensemble}{105}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{106}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Protein motions}{107}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{108}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Monte Carlo methods}{109}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Free energy calculations}{110}{chapter.18}%
