@@ -2,23 +2,26 @@
 \chapter{The isobaric ensembles}
 
 \section{Introduction}
-Why do we need to study the isobaric ensembles? The reason is that in MD we investigate systems of biological relevance, therefor all simulation should be run on constant temperature and pressure (atmospheric pressure).  
+Why do we need to study the isobaric ensembles? 
+The reason is that in MD we investigate systems of biological relevance, therefor all simulation should be run on constant temperature and pressure (atmospheric pressure).
+  
 	\subsection{Legendre transform of E}
-	In order to get to that point, we first start by performing a Legendre transform of the energy (isobaric-isoentalpic ensemble). 
-We have already saw it when introduced canonical from microcanonical : legendre transform of the enrgy wrt to its derivative wrt to its entropy. We wanted to express the legendre tran of the energy in terms of the temperature, something that was exactly its derivate wrt to its entropy.
-We are introducing pressure, derv of the enrgy wrt to volume (-). We want to study this new energy, this will the the function of the number of molecules. Vol will be expressed in terms of the pressure.
+	In order to get to that point, we first start by performing a Legendre transform of the energy (obtaining in this way the isobaric-isoentalpic ensemble). 
+	The same reasoning was made when the canonical ensemble was introduced from microcanonical one. 
+	The legendre transform will be taken of the energy, wrt to its derivative wrt to its entropy. 
+	%We wanted to express the legendre tran of the energy in terms of the temperature, something that was exactly its derivate wrt to its entropy.
+%We are introducing pressure, derv of the enrgy wrt to volume (-). We want to study this new energy, this will the the function of the number of molecules. Vol will be expressed in terms of the pressure.
 
 	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
 
 	$$\tilde{E}(N, \frac{\partial E}{\partial V}, S) = E(N, V(P), S) - \biggl(\frac{\partial E}{\partial V}\biggr)_{N, S}V(N, \frac{\partial E}{\partial V}, S)$$
 	
-	
 
-	Enthalpy:
+	We can define the \textbf{enthalpy}:
 
 	$$H(N, P, S) = E(N, P, S) + PV(N, P, S)$$
 	
-	The quantity $H$ is also called enthalpy. As it is usually done for thermodynamic potentials, we derive the expression for its differential form, that i equal to:
+	The quantity $H$ is called enthalpy. As it is usually done for thermodynamic potentials, we derive the expression for its differential form, that is equal to:
 	
 	$$dH = dE + PdV + VdP = TdS - PdV + \mu dN + PdV + VdP$$
 	
@@ -37,11 +40,11 @@ From this we can derive the usually derivatives:
 
 	$$\tilde{f}(s) = f(x(s))-sx(s)\qquad s = f'(x)$$
 	
-	Again it is a Legendre transform wrt its derivative wrt volume, so the derivative of A wrt to volume. We know that derivative is related to the pressure, being actually - pressure, so the LT will be equal to the Helmholtz itself, minus the derivative of $A$ wrt volume times volume, which will be expressed in terms of the derivative of $A$ wrt to volume. 
+	Again it is a Legendre transform wrt its derivative wrt volume, so the derivative of A wrt to volume. We know that derivative is related to the pressure, being actually (-) pressure, so the LT will be equal to the Helmholtz itself, minus the derivative of $A$ wrt volume times volume, which will be expressed in terms of the derivative of $A$ wrt to volume:
 
 	$$\tilde{A}(N, \frac{\partial A}{\partial V}, T) = A(N, V(P), T)- \biggl(\frac{\partial A}{\partial V}\biggr)_{N, T}V(N, \frac{\partial A}{\partial V}, T)$$
 	
-	We derived a thermodynamic potential, that we call Gibbs free energy:
+	A thermodynamic potential is derived, that is called \textbf{Gibbs free energy}:
 
 	$$G(N, P, T) = A(N, P, T) + PV(N, P, T)$$
 
@@ -75,7 +78,7 @@ From this we can derive the usually derivatives:
 
 	$$f(x) = F(\mathcal{H}(x)) = \mathcal{M}\delta(\mathcal{H}(x)+PV-H)$$
 
-	We now write down a function that is the analogous of configurations that we had in the case of the microcanonical ensemble. Similar to the $\Omega$ we had for the microcanonical ensamble, but now the pressure varyes, it does so by changing from $0$ to infinity (in priniciple). We need therefore to also integrate over the volume. 
+	We now write down a function that is the analogous of configurations that we had in the case of the microcanonical ensemble. Similar to the $\Omega$ we had for the microcanonical ensamble, but now the pressure varies, it does so by changing from $0$ to infinity (in principle). We need therefore to also integrate over the volume. 
 	
 	Integrating over the constant enthalpy hypersurface:
 
@@ -227,36 +230,59 @@ And the canonical ensemble:
 		\caption{Maxwell's square}
 	\end{figure}
 
+ 
 	\subsection{Pressure viral theorem}
-
+	The internal pressure that was calculated by the estimator was a function of all the coordinates and all the momenta. The internal pressure $P^{int}$ would be the average of this estimator. We want this quantity to be equal to the external pressure for the equations to be valid. 
 	$$P^{(int)} =\langle\mathcal{P}(\vec{r}, \vec{p})\rangle = \biggl\langle\frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i} + \vec{F}_i\cdot\vec{r}_i\biggr]\biggr\rangle = kT\frac{\partial\ln Q}{\partial V}$$
+
+To take average of this quantity for our new ensemble (NPT) we need to write down the partition function at the denominator and integrate over the volume. 
 
 	\begin{align*}
 		\langle P^{(int)}\rangle &= \frac{1}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T)\frac{kT}{Q}\frac{\partial Q}{\partial V} = \frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}\frac{\partial Q}{\partial V}=\\
 														 &= \frac{kT}{\Delta(N, P, T)}e^{-\beta PV}Q(N, V, T)|_0^{\infty}-\frac{kT}{\Delta(N, P, T})\int_0^{\infty}dV\biggl(-\frac{P}{kT}\biggr)e^{-\beta PV}Q(N, V, T) = \\
 														 &=\frac{P}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T) = P
 	\end{align*}
-
-	The volume-averaged internal pressure is equal to the external pressure.
+	
+	Consider the integration by parts of the quantity $\frac{kT}{\Delta(N, P, T)}e^{-\beta PV}Q(N, V, T)|_0^{\infty}$: when the volume tends to infinity the exponential goes to zero; when instead the volume is zero the partition function is zero, because there are no states where $V=0$. 
+	We are left with only the second term and its integral is exactly $\Delta$. 
+	Again, the quantity $dVe^{-\beta PV}Q(N, V, T)$ is equal to $\Delta$ and we get the external pressure $P$.
+	We demonstrated that if we take the average of the internal pressure over the NPT ensemble we obtain exactly the external pressure $P$, which is expected.
+	 This also means that if we want to compare what we get in the simulation with the external pressure that we are fixing, we should calculate the internal pressure and then calculate the average over many simulations.
+	 
+	 \paragraph{Take home message for the virial theorem: the volume-average internal pressure is equal to the external pressure}
 
 	\subsection{Work virial theorem}
-
+If we multiply the internal pressure for the volume (that changes):
 	$$P^{(int)}V = kTV\frac{\partial \ln Q}{\partial V}$$
-
+	
+Then we obtain the same equations as before, but we need to include also the V:
 	\begin{align*}
 		\langle P^{(int)}V\rangle &= \frac{1}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T)\frac{kTV}{Q}\frac{\partial Q}{\partial V} = \frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dVe^{-\beta PV}V\frac{\partial Q}{\partial V} = \\
 															&=\frac{kT}{\Delta(N, P, T)}e^{-\beta PV}VQ(N, V, T)|_{0}^{\infty}-\frac{kT}{\Delta(N, P, T)}\int_0^{\infty}dV\frac{\partial}{\partial V}(Ve^{-\beta PV})Q(N, V, T)=\\
-															&= \frac{1}{\Delta(N, P, T)}\biggl[-kT\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T) + P\int_0^{\infty}dVVe^{-\beta PV}Q(N, V, T)\biggr]=\\
+															&= \frac{1}{\Delta(N, P, T)}\biggl[-kT\int_0^{\infty}dVe^{-\beta PV}Q(N, V, T) + P\int_0^{\infty}dV \, Ve^{-\beta PV}Q(N, V, T)\biggr]=\\
 															&=-kT+P\langle V\rangle \Rightarrow \langle P^{(int)}V\rangle + kT = P\langle V\rangle
 	\end{align*}
+	
+	The term $\int_0^{\infty}dV \, Ve^{-\beta PV}Q(N, V, T)$ is the average of the volume: the volume is multiplied by a weighting factor and divided by the partition function in the NPT ensemble. 
+	The work is equal to the average quantity $\langle P^{(int)}V\rangle$, plus $kT$.
+	Now, $kT$ indicates that is equaiton is the analogous of the equipartition theorem, but there's an extra degree of freedom, the varying volume. This is the reason why an additional $kT is present$.
+	To be fair, $kT$ is very small and it does not change much the final equation.
+	
 
-	There is an extra degree of freedom.
+	 \paragraph{Take home message for the work virial theorem: There is an extra degree of freedom, that is the volume.}
+	
+	These theorems are particularly important, since the algorithms we will see later are all written for the isobaric-isoenthlapic ensemble, but we can go to easily by adding a thermostat. 
+	
 
 \section{Andersen's Hamiltonian}
+The best way to deal with the extra degree of freedom that (the volume) is to add it to the hamiltonian, as an extra variable, obviously with its own momentum.
+
+This is the case of the Andersen's hamiltonian, defined as:
 
 $$\mathcal{H}_A = \sum\limits_{i=1}^N\frac{V^{-\frac{2}{3}}\pi_i^2}{2m_i}+ U(V^\frac{1}{3}\vec{s}_1, \dots, V^{\frac{1}{3}}\vec{s}_N) + \frac{p_V^2}{2W} + PV\qquad W = (3N+1)kT\tau_b^2$$
 
-Hamilton's equations:
+
+We need to write down now Hamilton's equations, to obtain the time evolution for each of these coordinates:
 
 \begin{itemize}
 	\item $\dot{\vec{s}}_i = \frac{\partial \mathcal{H}_A}{\partial\pi_i} = \frac{V^{-\frac{2}{3}}\pi_i}{m_i}$.
@@ -265,20 +291,31 @@ Hamilton's equations:
 	\item $\dot{p}_V = -\frac{\partial\mathcal{H}_A}{\partial V} = \frac{1}{3}V^{-\frac{5}{3}}\sum\limits_{i=1}^N\frac{\pi_i^2}{m_i}-\frac{1}{3}V^{-\frac{2}{3}}\sum\limits_{i=1}^N\frac{\partial U}{\partial(V^{\frac{1}{3}}\vec{s}_i)}\cdot\vec{s}_i-P$.
 \end{itemize}
 
-Inverting the transformation
+The derivative of $\dot{p}_V$ is slightly more complicated, since the dependence on $p$ is present on three terms. 
+
+Inverting the transformation (the same inversion we performed to go from original coordinates to the scaled coordinates):
 
 $$s_i = V^{-\frac{1}{3}}\vec{r}_i\Rightarrow \dot{\vec{s}}_i = V^{-\frac{1}{3}}\dot{\vec{r}}_i-\frac{1}{3}V^{-\frac{4}{3}}\dot{V}\vec{r}_i$$
 
+
 $$\pi_i = V^{\frac{1}{3}}\vec{p}_i \Rightarrow \dot{\pi}_i = V^{\frac{1}{3}}\dot{\vec{p}}_i + \frac{1}{3}V^{-\frac{2}{3}}\dot{V}\vec{p}_i$$
 
+
+We need to substitute these equation to the ones we previously derived:
+
 \begin{itemize}
-	\item $\dot{\vec{s}}_i = \frac{\partial \mathcal{H}_A}{\partial\pi_i} = \frac{V^{-\frac{2}{3}}\pi_i}{m_i}$.
-	\item $\dot{\pi}_i = -\frac{\partial\mathcal{H}_A}{\partial\vec{s}_i} = -\frac{\partial U}{\partial (V^{\frac{1}{3}}\vec{s}_i)}V^{\frac{1}{3}}$.
-	\item $\dot{V} = \frac{\partial\mathcal{H}_A}{\partial p_V}-\frac{p_V}{W}$.
-	\item $\dot{p}_V = -\frac{\partial\mathcal{H}_A}{\partial V} = \frac{1}{3}V^{-\frac{5}{3}}\sum\limits_{i=1}^N\frac{\pi_i^2}{m_i}-\frac{1}{3}V^{-\frac{2}{3}}\sum\limits_{i=1}^N\frac{\partial U}{\partial(V^{\frac{1}{3}}\vec{s}_i)}\cdot\vec{s}_i-P$.
+	\item $\dot{\vec{s}}_i = \frac{\partial \mathcal{H}_A}{\partial\pi_i} = \frac{V^{-\frac{2}{3}}\pi_i}{m_i} \rightarrow \dot{r}_i = \frac{p_i}{m_i} + \frac{\dot{V}}{3V} r_i$
+	\item $\dot{\pi}_i = -\frac{\partial\mathcal{H}_A}{\partial\vec{s}_i} = -\frac{\partial U}{\partial (V^{\frac{1}{3}}\vec{s}_i)}V^{\frac{1}{3}} \rightarrow \dot{p}_i = - \frac{\partial U}{\partial r_i} - \frac{\dot{V} }{3V} p_i$ .
+	\item $\dot{V} = \frac{\partial\mathcal{H}_A}{\partial p_V}-\frac{p_V}{W} \rightarrow \dot{V} = \frac{p_V}{W}$.
+	\item $\dot{p}_V = -\frac{\partial\mathcal{H}_A}{\partial V} = \frac{1}{3}V^{-\frac{5}{3}}\sum\limits_{i=1}^N\frac{\pi_i^2}{m_i}-\frac{1}{3}V^{-\frac{2}{3}}\sum\limits_{i=1}^N\frac{\partial U}{\partial(V^{\frac{1}{3}}\vec{s}_i)}\cdot\vec{s}_i-P \rightarrow \dot{p}_V = \frac{1}{3V} \sum^N_{i=1} [\frac{p^2_i}{m_i} - \frac{\partial U}{\partial r_i} r_i] -P$.
 \end{itemize}
 
-Incompressible.
+Notice how the new term $ \frac{\dot{V}}{3V}$ accounts for the compressibility of the variable, letting it \textit{inflating} and \textit{deflating}.
+
+Also notice that the last quantity is exactly the internal pressure estimator. We have now a variation in the momentum, that is conjugate to the volume, whenever the internal pressure differs from the external one ($\dot{p} != 0$).
+
+The compressibility is equal to $0$ (incompressible).
+To calculate the compressibility we need to take the derivative of $\dot{r}$ wrt $r_i$, yielding a factor which is $\frac{\dot{V}}{3V}$ for each particle and every degree of freedom (three for each particle). 
 
 	\subsection{Andersen's equations}
 
@@ -294,16 +331,22 @@ Incompressible.
 	The conserved quantity:
 
 	$$\mathcal{H}' = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N) + \frac{p_V^2}{2W}+PV$$
-
-	The partition function:
+	Notice how $\mathcal{H}'$ looks very similar to the enthalpy, aside from the kinetic energy part. 
+	As usual, when we work in a system that is not hamiltonian (we started from a different hamiltonian, $\mathcal{H}'$ does not give back Anderson's equations) we need to derive the partition function:
 
 	$$\Omega_P = \int dp_V\int_0^{\infty}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\delta\biggl(\\mathcal{H}(\vec{r},\vec{p}) + \frac{p_V^2}{2W}+PV-H\biggr)$$
 
 	Virial theorem:
 
 	$$\biggl\langle\frac{p_V^2}{2W}\biggr\rangle = k\frac{T}{2}\Rightarrow \mathcal{H}(\vec{r},\vec{p}) + PV\text{ is conserved}$$
+	
+	The pressure (the average) will be kept constant, as for the enthalpy.
 
 \section{MTK algorithm (NPT)}
+One of the best choices for thermostatting the system is the MTK algorithm, developed by Martyna-Tobias-Klein in 1994. 
+This algorithm introduces a new variable $\epsilon$:
+
+$$\epsilon = \frac{1}{3}\ln\frac{V}{V_0}\Rightarrow\dot{\epsilon} = \frac{\dot{V}}{3V}=\frac{p_\epsilon}{W}$$
 
 \begin{multicols}{2}
 	\begin{itemize}
@@ -314,7 +357,6 @@ Incompressible.
 	\end{itemize}
 \end{multicols}
 
-$$\epsilon = \frac{1}{3}\ln\frac{V}{V_0}\Rightarrow\dot{\epsilon} = \frac{\dot{V}}{3V}=\frac{p_\epsilon}{W}$$
 
 Compressibility:
 
@@ -323,11 +365,15 @@ Compressibility:
 				 &= dN\frac{p_\epsilon}{W}-dN\frac{p_\epsilon}{W} = d\frac{p_\epsilon}{E} = \frac{\dot{V}}{V}
 \end{align*}
 
-To obtain incompressible equations that conserve $\mathcal{H}(\vec{r},\vec{p}) + PV + \frac{p_V^2}{2W}$:
+To obtain incompressible equations that conserve $\mathcal{H}(\vec{r},\vec{p}) + PV + \frac{p_V^2}{2W}$ we need to apply some modifications:
 
 $$\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} - \biggl(1+\frac{d}{N_F}\biggr)\frac{p_\epsilon}{W}\vec{p}_i\qquad \dot{p}_\epsilon = dV(\mathcal{P}^{(int)}-P) + \frac{d}{N_f}\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{m_i}$$
 
+With $F$ being the number of degrees of freedom of the system. 
+
 	\subsection{Langevin piston}
+	In many programs and applications, we will use the Langevin thermostat. 
+	The only difference from the Andersen's equations is the last one, with a friction acting on the volume and a last term representing a random force (or "kick"). 
 
 	\begin{itemize}
 		\item $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i$.
@@ -337,3 +383,13 @@ $$\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} - \biggl(1+\frac{d}{N_
 	\end{itemize}
 
 	$$\langle R(0)R(t)\rangle = \frac{2\gamma kT}{W}\delta(t)$$
+	
+	The Langevin piston is mostly preferred as a barostat (it will not be thoroughly described though, as its equations are more complicated).
+	
+\section{Summary}
+\begin{itemize}
+\item We constructed the formalism of the isobaric ensembles, starting by performing the Legendre transform of the micro canonical ensemble to obtain the isobaric-isoenthalpic esnable; then the same reasoning was applied to the canonical ensemble to obtain the isobaric - isothermal (NPT) ensemble.
+\item We demonstrated that the steps and the reasoning to modify the equations of the micorcanonical ensemble to go to the canonical ensemble, apply pretty much in the same way also for isobaric-isoenthalpic for the NPT. 
+\item In the NPT ensemble we can calculate everything like a canonical ensemble, however the volume is now a variable. 
+\item the pressure virial theorem, important for molecular simulations, and work virial theorem, useful for the derivation of Andersen's hamiltonian, were introduced. 
+\end{itemize}
