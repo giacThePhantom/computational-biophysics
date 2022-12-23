@@ -183,8 +183,96 @@
 \BOOKMARK [1][-]{section.12.4}{MTK algorithm \(NPT\)}{chapter.12}% 183
 \BOOKMARK [2][-]{subsection.12.4.1}{Langevin piston}{section.12.4}% 184
 \BOOKMARK [0][-]{chapter.13}{The grand canonical ensemble}{}% 185
-\BOOKMARK [0][-]{chapter.14}{Quantifying uncertainties and sampling quality}{}% 186
-\BOOKMARK [0][-]{chapter.15}{Protein motions}{}% 187
-\BOOKMARK [0][-]{chapter.16}{Clustering and protein structure networks}{}% 188
-\BOOKMARK [0][-]{chapter.17}{Monte Carlo methods}{}% 189
-\BOOKMARK [0][-]{chapter.18}{Free energy calculations}{}% 190
+\BOOKMARK [1][-]{section.13.1}{Introduction}{chapter.13}% 186
+\BOOKMARK [2][-]{subsection.13.1.1}{Euler's theorem}{section.13.1}% 187
+\BOOKMARK [2][-]{subsection.13.1.2}{Applications}{section.13.1}% 188
+\BOOKMARK [2][-]{subsection.13.1.3}{Legendre transform of A}{section.13.1}% 189
+\BOOKMARK [1][-]{section.13.2}{Grand canonical ensemble}{chapter.13}% 190
+\BOOKMARK [2][-]{subsection.13.2.1}{Grand partition function}{section.13.2}% 191
+\BOOKMARK [1][-]{section.13.3}{Ideal gas}{chapter.13}% 192
+\BOOKMARK [2][-]{subsection.13.3.1}{Particle number fluctuations}{section.13.3}% 193
+\BOOKMARK [0][-]{chapter.14}{Quantifying uncertainties and sampling quality}{}% 194
+\BOOKMARK [1][-]{section.14.1}{Introduction}{chapter.14}% 195
+\BOOKMARK [2][-]{subsection.14.1.1}{Key definitions}{section.14.1}% 196
+\BOOKMARK [2][-]{subsection.14.1.2}{Time scales}{section.14.1}% 197
+\BOOKMARK [1][-]{section.14.2}{Equilibration}{chapter.14}% 198
+\BOOKMARK [2][-]{subsection.14.2.1}{Qualitative behaviour}{section.14.2}% 199
+\BOOKMARK [2][-]{subsection.14.2.2}{Independent simulations}{section.14.2}% 200
+\BOOKMARK [2][-]{subsection.14.2.3}{Equilibration and production}{section.14.2}% 201
+\BOOKMARK [2][-]{subsection.14.2.4}{Equilibration workflows}{section.14.2}% 202
+\BOOKMARK [1][-]{section.14.3}{Autocorrelation}{chapter.14}% 203
+\BOOKMARK [2][-]{subsection.14.3.1}{Autocorrelation function}{section.14.3}% 204
+\BOOKMARK [2][-]{subsection.14.3.2}{Autocorrelation time}{section.14.3}% 205
+\BOOKMARK [1][-]{section.14.4}{Block averaging analysis}{chapter.14}% 206
+\BOOKMARK [0][-]{chapter.15}{Protein motions}{}% 207
+\BOOKMARK [1][-]{section.15.1}{Elastic network models \(ENM\)}{chapter.15}% 208
+\BOOKMARK [1][-]{section.15.2}{Gaussian network model \(GNM\)}{chapter.15}% 209
+\BOOKMARK [2][-]{subsection.15.2.1}{Correlated motions}{section.15.2}% 210
+\BOOKMARK [2][-]{subsection.15.2.2}{Gaussian network model and B-factors}{section.15.2}% 211
+\BOOKMARK [2][-]{subsection.15.2.3}{Biological relevance}{section.15.2}% 212
+\BOOKMARK [2][-]{subsection.15.2.4}{Normal mode analysis}{section.15.2}% 213
+\BOOKMARK [1][-]{section.15.3}{Anisotropic network model \(ANM\)}{chapter.15}% 214
+\BOOKMARK [2][-]{subsection.15.3.1}{Correlated motions}{section.15.3}% 215
+\BOOKMARK [1][-]{section.15.4}{Essential dynamics}{chapter.15}% 216
+\BOOKMARK [0][-]{chapter.16}{Clustering and protein structure networks}{}% 217
+\BOOKMARK [1][-]{section.16.1}{Clustering}{chapter.16}% 218
+\BOOKMARK [2][-]{subsection.16.1.1}{Distance measures}{section.16.1}% 219
+\BOOKMARK [2][-]{subsection.16.1.2}{Types of clustering}{section.16.1}% 220
+\BOOKMARK [2][-]{subsection.16.1.3}{Dendrograms}{section.16.1}% 221
+\BOOKMARK [2][-]{subsection.16.1.4}{Interpretation}{section.16.1}% 222
+\BOOKMARK [1][-]{section.16.2}{Correct number of clusters}{chapter.16}% 223
+\BOOKMARK [2][-]{subsection.16.2.1}{Outliers}{section.16.2}% 224
+\BOOKMARK [1][-]{section.16.3}{Hierarchical clustering}{chapter.16}% 225
+\BOOKMARK [1][-]{section.16.4}{Distance measures}{chapter.16}% 226
+\BOOKMARK [1][-]{section.16.5}{Hierarchical methods}{chapter.16}% 227
+\BOOKMARK [1][-]{section.16.6}{Partitional clustering}{chapter.16}% 228
+\BOOKMARK [2][-]{subsection.16.6.1}{K-means}{section.16.6}% 229
+\BOOKMARK [2][-]{subsection.16.6.2}{Sum of squared errors}{section.16.6}% 230
+\BOOKMARK [2][-]{subsection.16.6.3}{Choosing K}{section.16.6}% 231
+\BOOKMARK [1][-]{section.16.7}{Protein structure networks}{chapter.16}% 232
+\BOOKMARK [2][-]{subsection.16.7.1}{PyInteraph}{section.16.7}% 233
+\BOOKMARK [2][-]{subsection.16.7.2}{Classes of interactions}{section.16.7}% 234
+\BOOKMARK [2][-]{subsection.16.7.3}{Persistence}{section.16.7}% 235
+\BOOKMARK [2][-]{subsection.16.7.4}{Persistence threshold}{section.16.7}% 236
+\BOOKMARK [2][-]{subsection.16.7.5}{Graph analysis}{section.16.7}% 237
+\BOOKMARK [2][-]{subsection.16.7.6}{Examples}{section.16.7}% 238
+\BOOKMARK [0][-]{chapter.17}{Monte Carlo methods}{}% 239
+\BOOKMARK [1][-]{section.17.1}{Introduction}{chapter.17}% 240
+\BOOKMARK [2][-]{subsection.17.1.1}{Central limit theorem}{section.17.1}% 241
+\BOOKMARK [2][-]{subsection.17.1.2}{Sampling distributions}{section.17.1}% 242
+\BOOKMARK [2][-]{subsection.17.1.3}{Importance sampling}{section.17.1}% 243
+\BOOKMARK [1][-]{section.17.2}{Markov chains}{chapter.17}% 244
+\BOOKMARK [2][-]{subsection.17.2.1}{Rejection methods}{section.17.2}% 245
+\BOOKMARK [2][-]{subsection.17.2.2}{Metropolis algorithm}{section.17.2}% 246
+\BOOKMARK [2][-]{subsection.17.2.3}{Canonical distribution}{section.17.2}% 247
+\BOOKMARK [1][-]{section.17.3}{Molecular dynamics and Monte Carlo methods}{chapter.17}% 248
+\BOOKMARK [2][-]{subsection.17.3.1}{Isothermal-isobaric ensemble}{section.17.3}% 249
+\BOOKMARK [2][-]{subsection.17.3.2}{Gran canonical ensemble}{section.17.3}% 250
+\BOOKMARK [2][-]{subsection.17.3.3}{Hybrid Monte Carlo}{section.17.3}% 251
+\BOOKMARK [0][-]{chapter.18}{Free energy calculations}{}% 252
+\BOOKMARK [1][-]{section.18.1}{Free energy perturbation theory}{chapter.18}% 253
+\BOOKMARK [2][-]{subsection.18.1.1}{Adiabatic switching}{section.18.1}% 254
+\BOOKMARK [2][-]{subsection.18.1.2}{Thermodynamics integration}{section.18.1}% 255
+\BOOKMARK [2][-]{subsection.18.1.3}{Adiabatic free energy dynamics}{section.18.1}% 256
+\BOOKMARK [1][-]{section.18.2}{Jarzynski's equality}{chapter.18}% 257
+\BOOKMARK [1][-]{section.18.3}{Replica exchange Monte Carlo}{chapter.18}% 258
+\BOOKMARK [2][-]{subsection.18.3.1}{Parallel tempering}{section.18.3}% 259
+\BOOKMARK [2][-]{subsection.18.3.2}{Wang-Landau sampling}{section.18.3}% 260
+\BOOKMARK [0][-]{chapter.19}{Rare events}{}% 261
+\BOOKMARK [1][-]{section.19.1}{Introduction}{chapter.19}% 262
+\BOOKMARK [2][-]{subsection.19.1.1}{Rough free energy surfaces}{section.19.1}% 263
+\BOOKMARK [2][-]{subsection.19.1.2}{?????????}{section.19.1}% 264
+\BOOKMARK [1][-]{section.19.2}{Reaction coordinates}{chapter.19}% 265
+\BOOKMARK [2][-]{subsection.19.2.1}{Blue moon ensemble}{section.19.2}% 266
+\BOOKMARK [2][-]{subsection.19.2.2}{Umbrella sampling}{section.19.2}% 267
+\BOOKMARK [2][-]{subsection.19.2.3}{WHAM}{section.19.2}% 268
+\BOOKMARK [2][-]{subsection.19.2.4}{Wang-Landau sampling}{section.19.2}% 269
+\BOOKMARK [0][-]{chapter.20}{Advanced methods}{}% 270
+\BOOKMARK [1][-]{section.20.1}{Adiabatic dynamics}{chapter.20}% 271
+\BOOKMARK [2][-]{subsection.20.1.1}{TAMD}{section.20.1}% 272
+\BOOKMARK [1][-]{section.20.2}{Metadynamics}{chapter.20}% 273
+\BOOKMARK [1][-]{section.20.3}{Transition path ensemble}{chapter.20}% 274
+\BOOKMARK [2][-]{subsection.20.3.1}{Transition path sampling}{section.20.3}% 275
+\BOOKMARK [1][-]{section.20.4}{The committor distribution}{chapter.20}% 276
+\BOOKMARK [2][-]{subsection.20.4.1}{Histogram test}{section.20.4}% 277
+\BOOKMARK [2][-]{subsection.20.4.2}{Histogram test on q1\(\) = q}{section.20.4}% 278
