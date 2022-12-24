@@ -201,11 +201,11 @@ If there are two micro states it is the probability to move to a microstate $x$ 
 	So the acceptance probability of the move from $y$ to $x$ is the minimum between $1$ and $r(x|y)$.
 
 	\subsection{Metropolis algorithm}
-	The trial distribution $T(x_{k+1}|x_k)$ is used to propose a move $x_k\rightarrow x_{k+1}$:
+	In order to build the acceptance rate the trial distribution $T(x_{k+1}|x_k)$ has to be written to be able to propose a move $x_k\rightarrow x_{k+1}$ and being able to compute:
 
 	$$r(x_{k+1}|x_k) = \frac{T(x_k|x_{k+1})f(x_{k+1})}{T(x_{k+1}|x_k)f(x_k)}$$
 
-	If $f(x_{k+1}|x_k)>1$ accept the move, otherwise accept the move with probability given by $r(x_{k+1}|x_k)$: extract a random number $\xi\in[0,1]$.
+	If $r(x_{k+1}|x_k)>1$ accept the move, otherwise accept the move with probability given by $r(x_{k+1}|x_k)$: extract a random number $\xi\in[0,1]$.
 	If $\xi< r(x_{k+1}|x_k)$ accept the move.
 	Associated probability for each point $x_1, \dots, x_n$: $\pi_1(x), \dots, \pi_n(x)$.
 

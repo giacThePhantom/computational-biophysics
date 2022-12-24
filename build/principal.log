@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  24 DEC 2022 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  24 DEC 2022 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1439,8 +1439,8 @@ Package pdftex.def Info: chapters/17/images/importance-sampling.png  used on in
 put line 137.
 (pdftex.def)             Requested size: 433.62pt x 146.45161pt.
  [152 <./chapters/17/images/importance-sampling.png>] [153]
-Overfull \hbox (5.74629pt too wide) in paragraph at lines 208--211
-[]\T1/cmr/m/n/10 If $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OM
+Overfull \hbox (4.5634pt too wide) in paragraph at lines 208--211
+[]\T1/cmr/m/n/10 If $\OML/cmm/m/it/10 r\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OM
 S/cmsy/m/n/10 j\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \OT1/cm
 r/m/n/10 1$ \T1/cmr/m/n/10 ac-cept the move, oth-er-wise ac-cept the move with 
 prob-a-bil-ity given by $\OML/cmm/m/it/10 r\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[
@@ -1595,7 +1595,7 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb>
-Output written on ./build/principal.pdf (175 pages, 5711673 bytes).
+Output written on ./build/principal.pdf (175 pages, 5711859 bytes).
 PDF statistics:
  2733 PDF objects out of 2984 (max. 8388607)
  2371 compressed objects within 24 object streams
