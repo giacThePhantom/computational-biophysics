@@ -267,33 +267,35 @@
 \contentsline {subsubsection}{\numberline {15.1.2.1}Correlated motions}{131}{subsubsection.15.1.2.1}%
 \contentsline {section}{\numberline {15.2}Essential dynamics}{133}{section.15.2}%
 \contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{139}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Clustering}{139}{section.16.1}%
+\contentsline {section}{\numberline {16.1}Introduction}{139}{section.16.1}%
 \contentsline {subsection}{\numberline {16.1.1}Distance measures}{139}{subsection.16.1.1}%
 \contentsline {subsection}{\numberline {16.1.2}Types of clustering}{140}{subsection.16.1.2}%
-\contentsline {subsection}{\numberline {16.1.3}Dendrograms}{140}{subsection.16.1.3}%
-\contentsline {subsection}{\numberline {16.1.4}Interpretation}{140}{subsection.16.1.4}%
-\contentsline {section}{\numberline {16.2}Correct number of clusters}{141}{section.16.2}%
-\contentsline {subsection}{\numberline {16.2.1}Outliers}{142}{subsection.16.2.1}%
-\contentsline {section}{\numberline {16.3}Hierarchical clustering}{142}{section.16.3}%
-\contentsline {section}{\numberline {16.4}Distance measures}{142}{section.16.4}%
-\contentsline {section}{\numberline {16.5}Hierarchical methods}{143}{section.16.5}%
-\contentsline {section}{\numberline {16.6}Partitional clustering}{143}{section.16.6}%
-\contentsline {subsection}{\numberline {16.6.1}K-means}{143}{subsection.16.6.1}%
-\contentsline {subsubsection}{\numberline {16.6.1.1}Conclusion}{143}{subsubsection.16.6.1.1}%
-\contentsline {subsection}{\numberline {16.6.2}Sum of squared errors}{144}{subsection.16.6.2}%
-\contentsline {subsection}{\numberline {16.6.3}Choosing K}{144}{subsection.16.6.3}%
-\contentsline {section}{\numberline {16.7}Protein structure networks}{145}{section.16.7}%
-\contentsline {subsection}{\numberline {16.7.1}PyInteraph}{145}{subsection.16.7.1}%
-\contentsline {subsection}{\numberline {16.7.2}Classes of interactions}{145}{subsection.16.7.2}%
-\contentsline {subsubsection}{\numberline {16.7.2.1}Hydrophobic contacts}{145}{subsubsection.16.7.2.1}%
-\contentsline {subsubsection}{\numberline {16.7.2.2}Salt bridges}{145}{subsubsection.16.7.2.2}%
-\contentsline {subsubsection}{\numberline {16.7.2.3}Hydrogen bonds}{146}{subsubsection.16.7.2.3}%
-\contentsline {subsection}{\numberline {16.7.3}Persistence}{146}{subsection.16.7.3}%
-\contentsline {subsection}{\numberline {16.7.4}Persistence threshold}{146}{subsection.16.7.4}%
-\contentsline {subsection}{\numberline {16.7.5}Graph analysis}{146}{subsection.16.7.5}%
-\contentsline {subsection}{\numberline {16.7.6}Examples}{146}{subsection.16.7.6}%
-\contentsline {subsubsection}{\numberline {16.7.6.1}p53 DNA binding domain}{146}{subsubsection.16.7.6.1}%
-\contentsline {subsubsection}{\numberline {16.7.6.2}Vibrio proteinase (VAP)}{147}{subsubsection.16.7.6.2}%
+\contentsline {subsection}{\numberline {16.1.3}Distance measures}{140}{subsection.16.1.3}%
+\contentsline {section}{\numberline {16.2}Hierarchical clustering}{140}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}Dendrograms}{140}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}Interpretation}{140}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}Advantages of hierarchical clustering}{141}{subsection.16.2.3}%
+\contentsline {subsubsection}{\numberline {16.2.3.1}Correct number of clusters}{141}{subsubsection.16.2.3.1}%
+\contentsline {subsubsection}{\numberline {16.2.3.2}Outliers}{141}{subsubsection.16.2.3.2}%
+\contentsline {subsection}{\numberline {16.2.4}Hierarchical clustering approach}{142}{subsection.16.2.4}%
+\contentsline {subsection}{\numberline {16.2.5}Summary of hierarchical methods}{142}{subsection.16.2.5}%
+\contentsline {section}{\numberline {16.3}Partitional clustering}{143}{section.16.3}%
+\contentsline {subsection}{\numberline {16.3.1}K-means}{143}{subsection.16.3.1}%
+\contentsline {subsubsection}{\numberline {16.3.1.1}Conclusion}{143}{subsubsection.16.3.1.1}%
+\contentsline {subsection}{\numberline {16.3.2}Sum of squared errors}{143}{subsection.16.3.2}%
+\contentsline {subsection}{\numberline {16.3.3}Choosing K}{143}{subsection.16.3.3}%
+\contentsline {section}{\numberline {16.4}Protein structure networks}{144}{section.16.4}%
+\contentsline {subsection}{\numberline {16.4.1}PyInteraph}{145}{subsection.16.4.1}%
+\contentsline {subsection}{\numberline {16.4.2}Classes of interactions}{145}{subsection.16.4.2}%
+\contentsline {subsubsection}{\numberline {16.4.2.1}Hydrophobic contacts}{145}{subsubsection.16.4.2.1}%
+\contentsline {subsubsection}{\numberline {16.4.2.2}Salt bridges}{145}{subsubsection.16.4.2.2}%
+\contentsline {subsubsection}{\numberline {16.4.2.3}Hydrogen bonds}{145}{subsubsection.16.4.2.3}%
+\contentsline {subsection}{\numberline {16.4.3}Persistence}{145}{subsection.16.4.3}%
+\contentsline {subsection}{\numberline {16.4.4}Persistence threshold}{146}{subsection.16.4.4}%
+\contentsline {subsection}{\numberline {16.4.5}Graph analysis}{146}{subsection.16.4.5}%
+\contentsline {subsection}{\numberline {16.4.6}Examples}{146}{subsection.16.4.6}%
+\contentsline {subsubsection}{\numberline {16.4.6.1}p53 DNA binding domain}{146}{subsubsection.16.4.6.1}%
+\contentsline {subsubsection}{\numberline {16.4.6.2}Vibrio proteinase (VAP)}{147}{subsubsection.16.4.6.2}%
 \contentsline {chapter}{\numberline {17}Monte Carlo methods}{149}{chapter.17}%
 \contentsline {section}{\numberline {17.1}Introduction}{149}{section.17.1}%
 \contentsline {subsection}{\numberline {17.1.1}Central limit theorem}{149}{subsection.17.1.1}%

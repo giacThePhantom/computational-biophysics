@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  24 DEC 2022 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  24 DEC 2022 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1384,44 +1384,45 @@ Chapter 16.
 File: chapters/16/images/dendrogram.png Graphic file (type png)
 <use chapters/16/images/dendrogram.png>
 Package pdftex.def Info: chapters/16/images/dendrogram.png  used on input line 
-53.
+64.
 (pdftex.def)             Requested size: 433.62pt x 184.80847pt.
 <chapters/16/images/correct-number.png, id=2215, 814.04124pt x 448.67625pt>
 File: chapters/16/images/correct-number.png Graphic file (type png)
 <use chapters/16/images/correct-number.png>
 Package pdftex.def Info: chapters/16/images/correct-number.png  used on input l
-ine 65.
+ine 79.
 (pdftex.def)             Requested size: 433.62pt x 238.99538pt.
  [140 <./chapters/16/images/dendrogram.png>]
 <chapters/16/images/outliers.png, id=2223, 799.98875pt x 447.6725pt>
 File: chapters/16/images/outliers.png Graphic file (type png)
 <use chapters/16/images/outliers.png>
-Package pdftex.def Info: chapters/16/images/outliers.png  used on input line 73
+Package pdftex.def Info: chapters/16/images/outliers.png  used on input line 88
 .
 (pdftex.def)             Requested size: 433.62pt x 242.65489pt.
  [141 <./chapters/16/images/correct-number.png>] [142 <./chapters/16/images/out
-liers.png>] [143]
-<chapters/16/images/elbow.png, id=2246, 812.03375pt x 383.4325pt>
+liers.png>]
+<chapters/16/images/elbow.png, id=2238, 812.03375pt x 383.4325pt>
 File: chapters/16/images/elbow.png Graphic file (type png)
 <use chapters/16/images/elbow.png>
-Package pdftex.def Info: chapters/16/images/elbow.png  used on input line 147.
+Package pdftex.def Info: chapters/16/images/elbow.png  used on input line 152.
 (pdftex.def)             Requested size: 433.62pt x 204.74529pt.
-<chapters/16/images/psn.png, id=2247, 848.16875pt x 453.695pt>
+ [143]
+<chapters/16/images/psn.png, id=2250, 848.16875pt x 453.695pt>
 File: chapters/16/images/psn.png Graphic file (type png)
 <use chapters/16/images/psn.png>
-Package pdftex.def Info: chapters/16/images/psn.png  used on input line 155.
+Package pdftex.def Info: chapters/16/images/psn.png  used on input line 161.
 (pdftex.def)             Requested size: 433.62pt x 231.94905pt.
- [144 <./chapters/16/images/elbow.png>] [145 <./chapters/16/images/psn.png>]
-<chapters/16/images/p53.png, id=2263, 502.87875pt x 356.33125pt>
+ [144 <./chapters/16/images/elbow.png> <./chapters/16/images/psn.png>] [145]
+<chapters/16/images/p53.png, id=2266, 502.87875pt x 356.33125pt>
 File: chapters/16/images/p53.png Graphic file (type png)
 <use chapters/16/images/p53.png>
-Package pdftex.def Info: chapters/16/images/p53.png  used on input line 222.
+Package pdftex.def Info: chapters/16/images/p53.png  used on input line 245.
 (pdftex.def)             Requested size: 433.62pt x 307.25447pt.
  [146]
-<chapters/16/images/vap.png, id=2270, 583.17876pt x 318.18875pt>
+<chapters/16/images/vap.png, id=2272, 583.17876pt x 318.18875pt>
 File: chapters/16/images/vap.png Graphic file (type png)
 <use chapters/16/images/vap.png>
-Package pdftex.def Info: chapters/16/images/vap.png  used on input line 231.
+Package pdftex.def Info: chapters/16/images/vap.png  used on input line 254.
 (pdftex.def)             Requested size: 433.62pt x 236.59209pt.
 )
 (./chapters/17/monte-carlo.tex [147 <./chapters/16/images/p53.png>] [148 <./cha
@@ -1430,7 +1431,7 @@ Chapter 17.
 [149
 
 ] [150]
-<chapters/17/images/importance-sampling.png, id=2294, 683.55376pt x 230.8625pt>
+<chapters/17/images/importance-sampling.png, id=2296, 683.55376pt x 230.8625pt>
 
 File: chapters/17/images/importance-sampling.png Graphic file (type png)
 <use chapters/17/images/importance-sampling.png>
@@ -1451,7 +1452,7 @@ Chapter 18.
 [156
 
 ]
-<chapters/18/images/adiabatic-free-energy-dynamics.png, id=2327, 657.45625pt x 
+<chapters/18/images/adiabatic-free-energy-dynamics.png, id=2329, 657.45625pt x 
 288.07625pt>
 File: chapters/18/images/adiabatic-free-energy-dynamics.png Graphic file (type 
 png)
@@ -1468,7 +1469,7 @@ Overfull \hbox (12.99838pt too wide) detected at line 120
 
 [159] [160]) (./chapters/19/rare-events.tex [161]
 Chapter 19.
-<chapters/19/images/rough-free-energy-surfaces.png, id=2350, 656.4525pt x 347.2
+<chapters/19/images/rough-free-energy-surfaces.png, id=2352, 656.4525pt x 347.2
 975pt>
 File: chapters/19/images/rough-free-energy-surfaces.png Graphic file (type png)
 
@@ -1484,13 +1485,13 @@ Chapter 20.
 [167
 
 ]
-<chapters/20/images/tamd.png, id=2378, 700.6175pt x 469.755pt>
+<chapters/20/images/tamd.png, id=2380, 700.6175pt x 469.755pt>
 File: chapters/20/images/tamd.png Graphic file (type png)
 <use chapters/20/images/tamd.png>
 Package pdftex.def Info: chapters/20/images/tamd.png  used on input line 40.
 (pdftex.def)             Requested size: 433.62pt x 290.74335pt.
  [168 <./chapters/20/images/tamd.png>]
-<chapters/20/images/transition-path-ensemble.png, id=2386, 593.21625pt x 176.66
+<chapters/20/images/transition-path-ensemble.png, id=2388, 593.21625pt x 176.66
 pt>
 File: chapters/20/images/transition-path-ensemble.png Graphic file (type png)
 <use chapters/20/images/transition-path-ensemble.png>
@@ -1498,7 +1499,7 @@ Package pdftex.def Info: chapters/20/images/transition-path-ensemble.png  used
 on input line 64.
 (pdftex.def)             Requested size: 433.62pt x 129.13593pt.
  [169 <./chapters/20/images/transition-path-ensemble.png>]
-<chapters/20/images/transition-path-sampling.png, id=2393, 670.505pt x 280.0462
+<chapters/20/images/transition-path-sampling.png, id=2395, 670.505pt x 280.0462
 5pt>
 File: chapters/20/images/transition-path-sampling.png Graphic file (type png)
 <use chapters/20/images/transition-path-sampling.png>
@@ -1510,7 +1511,7 @@ Overfull \hbox (31.77632pt too wide) detected at line 120
 []
  []
 
-<chapters/20/images/committor-distribution.png, id=2400, 657.45625pt x 312.1662
+<chapters/20/images/committor-distribution.png, id=2402, 657.45625pt x 312.1662
 4pt>
 File: chapters/20/images/committor-distribution.png Graphic file (type png)
 <use chapters/20/images/committor-distribution.png>
@@ -1538,7 +1539,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 158.
 
-<chapters/20/images/histogram-test.png, id=2413, 749.80125pt x 356.33125pt>
+<chapters/20/images/histogram-test.png, id=2415, 749.80125pt x 356.33125pt>
 File: chapters/20/images/histogram-test.png Graphic file (type png)
 <use chapters/20/images/histogram-test.png>
 Package pdftex.def Info: chapters/20/images/histogram-test.png  used on input l
@@ -1553,11 +1554,11 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 9201EF626DB4B092CBA5B90D4C3000D3;44654.
+(rerunfilecheck)             Checksum: CDDCB1E341713D0089115A2863639571;44927.
  ) 
 Here is how much of TeX's memory you used:
- 25323 strings out of 478238
- 466401 string characters out of 5850455
+ 25325 strings out of 478238
+ 466475 string characters out of 5850455
  818158 words of memory out of 5000000
  42474 multiletter control sequences out of 15000+600000
  490043 words of font info for 78 fonts, out of 8000000 for 9000
@@ -1594,10 +1595,10 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb>
-Output written on ./build/principal.pdf (174 pages, 5704503 bytes).
+Output written on ./build/principal.pdf (174 pages, 5706211 bytes).
 PDF statistics:
- 2719 PDF objects out of 2984 (max. 8388607)
- 2358 compressed objects within 24 object streams
- 615 named destinations out of 1000 (max. 500000)
+ 2721 PDF objects out of 2984 (max. 8388607)
+ 2360 compressed objects within 24 object streams
+ 617 named destinations out of 1000 (max. 500000)
  2418 words of extra memory for PDF output out of 10000 (max. 10000000)
 
