@@ -18,8 +18,8 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 \begin{multicols}{2}
 	\begin{itemize}
-		\item Intra-cluster similarity is maximized.
-		\item Inter-cluster similarity is minimized.
+		\item Intra-cluster similarity is maximized: all the points in a cluster are as much similar as possible.
+		\item Inter-cluster similarity is minimized: all the points between clusters are as much dissimilar between each other.
 	\end{itemize}
 \end{multicols}
 
@@ -35,6 +35,8 @@ So, given a set of data points, each described by a set of attributes, the clust
 		\item Triangular inequality: $D(A, B) \le D(A, C) + D(B, C)$.
 	\end{itemize}
 
+	An example of this for molecular dynamics and two protein conformation is the root mean squared deviation, computing the all-to-all RMSD matrix.
+
 	\subsection{Types of clustering}
 
 	\begin{itemize}
@@ -44,6 +46,8 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 	\subsection{Dendrograms}
 	In a dendrogram (\ref{fig:dendrogram}) the similarity between two objects is represented as the height of the lowest internal node they share.
+	Each object is represented as a leaf.
+	Dendrograms give a direct visual representation of the groups of data.
 
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{dendrogram}
@@ -53,6 +57,7 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 		\subsection{Interpretation}
 		Hierarchical clustering sometimes show pattern that are meaningless or spurious.
+		So the interpretation of the algorithm has to be performed.
 
 \section{Correct number of clusters}
 
