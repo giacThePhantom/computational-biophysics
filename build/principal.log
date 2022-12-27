@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  27 DEC 2022 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  27 DEC 2022 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1489,68 +1489,78 @@ Chapter 20.
 [172
 
 ]
-<chapters/20/images/tamd.png, id=2416, 700.6175pt x 469.755pt>
+<chapters/20/images/tamd.png, id=2417, 700.6175pt x 469.755pt>
 File: chapters/20/images/tamd.png Graphic file (type png)
 <use chapters/20/images/tamd.png>
-Package pdftex.def Info: chapters/20/images/tamd.png  used on input line 40.
+Package pdftex.def Info: chapters/20/images/tamd.png  used on input line 67.
 (pdftex.def)             Requested size: 433.62pt x 290.74335pt.
- [173 <./chapters/20/images/tamd.png>]
-<chapters/20/images/transition-path-ensemble.png, id=2424, 593.21625pt x 176.66
+ [173] [174 <./chapters/20/images/tamd.png>]
+<chapters/20/images/transition-path-ensemble.png, id=2430, 593.21625pt x 176.66
 pt>
 File: chapters/20/images/transition-path-ensemble.png Graphic file (type png)
 <use chapters/20/images/transition-path-ensemble.png>
 Package pdftex.def Info: chapters/20/images/transition-path-ensemble.png  used 
-on input line 64.
+on input line 110.
 (pdftex.def)             Requested size: 433.62pt x 129.13593pt.
- [174 <./chapters/20/images/transition-path-ensemble.png>]
-<chapters/20/images/transition-path-sampling.png, id=2432, 670.505pt x 280.0462
+ [175 <./chapters/20/images/transition-path-ensemble.png>]
+Overfull \hbox (30.5368pt too wide) in paragraph at lines 150--152
+\T1/cmr/m/n/10 Following the same method in Monte Carlo meth-ods and Metropo-li
+s al-go-rithm, in-tro-duce $\OMS/cmsy/m/n/10 R[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/
+10 X\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 T\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j\OML/
+cmm/m/it/10 Y\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 T\OT1/cmr/m/n/10 )]$\T1/cmr/m/n/
+10 ,
+ []
+
+[176]
+<chapters/20/images/transition-path-sampling.png, id=2441, 670.505pt x 280.0462
 5pt>
 File: chapters/20/images/transition-path-sampling.png Graphic file (type png)
 <use chapters/20/images/transition-path-sampling.png>
 Package pdftex.def Info: chapters/20/images/transition-path-sampling.png  used 
-on input line 105.
+on input line 170.
 (pdftex.def)             Requested size: 433.62pt x 181.10489pt.
- [175 <./chapters/20/images/transition-path-sampling.png>]
-Overfull \hbox (31.77632pt too wide) detected at line 120
+
+Overfull \hbox (31.77632pt too wide) detected at line 196
 []
  []
 
-<chapters/20/images/committor-distribution.png, id=2439, 657.45625pt x 312.1662
+[177 <./chapters/20/images/transition-path-sampling.png>] [178]
+<chapters/20/images/committor-distribution.png, id=2460, 657.45625pt x 312.1662
 4pt>
 File: chapters/20/images/committor-distribution.png Graphic file (type png)
 <use chapters/20/images/committor-distribution.png>
 Package pdftex.def Info: chapters/20/images/committor-distribution.png  used on
- input line 144.
+ input line 226.
 (pdftex.def)             Requested size: 433.62pt x 205.88745pt.
-[176]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 158.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 158.
+(hyperref)                removing `math shift' on input line 239.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 158.
+(hyperref)                removing `subscript' on input line 239.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\ddagger' on input line 158.
+(hyperref)                removing `superscript' on input line 239.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 158.
+(hyperref)                removing `\ddagger' on input line 239.
 
-<chapters/20/images/histogram-test.png, id=2452, 749.80125pt x 356.33125pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 239.
+
+[179 <./chapters/20/images/committor-distribution.png>]
+<chapters/20/images/histogram-test.png, id=2472, 749.80125pt x 356.33125pt>
 File: chapters/20/images/histogram-test.png Graphic file (type png)
 <use chapters/20/images/histogram-test.png>
 Package pdftex.def Info: chapters/20/images/histogram-test.png  used on input l
-ine 171.
+ine 257.
 (pdftex.def)             Requested size: 433.62pt x 206.07417pt.
-) [177 <./chapters/20/images/committor-distribution.png>] [178 <./chapters/20/i
-mages/histogram-test.png>] (./build/principal.aux)
+) [180 <./chapters/20/images/histogram-test.png>] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1561,8 +1571,8 @@ Package rerunfilecheck Info: File `principal.out' has not changed.
 (rerunfilecheck)             Checksum: 609F77ABBC166CC18BF0B7CC8468796A;45521.
  ) 
 Here is how much of TeX's memory you used:
- 25336 strings out of 478238
- 466614 string characters out of 5850455
+ 25338 strings out of 478238
+ 466630 string characters out of 5850455
  818161 words of memory out of 5000000
  42478 multiletter control sequences out of 15000+600000
  490043 words of font info for 78 fonts, out of 8000000 for 9000
@@ -1599,10 +1609,10 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb>
-Output written on ./build/principal.pdf (179 pages, 5725327 bytes).
+Output written on ./build/principal.pdf (181 pages, 5734493 bytes).
 PDF statistics:
- 2758 PDF objects out of 2984 (max. 8388607)
- 2392 compressed objects within 24 object streams
- 624 named destinations out of 1000 (max. 500000)
+ 2771 PDF objects out of 2984 (max. 8388607)
+ 2402 compressed objects within 25 object streams
+ 626 named destinations out of 1000 (max. 500000)
  2442 words of extra memory for PDF output out of 10000 (max. 10000000)
 
