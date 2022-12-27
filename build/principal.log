@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  27 DEC 2022 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  27 DEC 2022 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1469,56 +1469,60 @@ Overfull \hbox (12.99838pt too wide) detected at line 120
 
 [162] [163]) (./chapters/19/rare-events.tex [164]
 Chapter 19.
+
+LaTeX Warning: Reference `fig:rough-free-energy' on page 165 undefined on input
+ line 10.
+
 <chapters/19/images/rough-free-energy-surfaces.png, id=2380, 656.4525pt x 347.2
 975pt>
 File: chapters/19/images/rough-free-energy-surfaces.png Graphic file (type png)
 
 <use chapters/19/images/rough-free-energy-surfaces.png>
 Package pdftex.def Info: chapters/19/images/rough-free-energy-surfaces.png  use
-d on input line 9.
+d on input line 13.
 (pdftex.def)             Requested size: 433.62pt x 229.40782pt.
 [165
 
  <./chapters/19/images/rough-free-energy-surfaces.png>] [166] [167]
-[168]) (./chapters/20/advanced-methods.tex [169]
+[168] [169]) (./chapters/20/advanced-methods.tex [170] [171]
 Chapter 20.
-[170
+[172
 
 ]
-<chapters/20/images/tamd.png, id=2408, 700.6175pt x 469.755pt>
+<chapters/20/images/tamd.png, id=2416, 700.6175pt x 469.755pt>
 File: chapters/20/images/tamd.png Graphic file (type png)
 <use chapters/20/images/tamd.png>
 Package pdftex.def Info: chapters/20/images/tamd.png  used on input line 40.
 (pdftex.def)             Requested size: 433.62pt x 290.74335pt.
- [171 <./chapters/20/images/tamd.png>]
-<chapters/20/images/transition-path-ensemble.png, id=2415, 593.21625pt x 176.66
+ [173 <./chapters/20/images/tamd.png>]
+<chapters/20/images/transition-path-ensemble.png, id=2424, 593.21625pt x 176.66
 pt>
 File: chapters/20/images/transition-path-ensemble.png Graphic file (type png)
 <use chapters/20/images/transition-path-ensemble.png>
 Package pdftex.def Info: chapters/20/images/transition-path-ensemble.png  used 
 on input line 64.
 (pdftex.def)             Requested size: 433.62pt x 129.13593pt.
- [172 <./chapters/20/images/transition-path-ensemble.png>]
-<chapters/20/images/transition-path-sampling.png, id=2423, 670.505pt x 280.0462
+ [174 <./chapters/20/images/transition-path-ensemble.png>]
+<chapters/20/images/transition-path-sampling.png, id=2432, 670.505pt x 280.0462
 5pt>
 File: chapters/20/images/transition-path-sampling.png Graphic file (type png)
 <use chapters/20/images/transition-path-sampling.png>
 Package pdftex.def Info: chapters/20/images/transition-path-sampling.png  used 
 on input line 105.
 (pdftex.def)             Requested size: 433.62pt x 181.10489pt.
- [173 <./chapters/20/images/transition-path-sampling.png>]
+ [175 <./chapters/20/images/transition-path-sampling.png>]
 Overfull \hbox (31.77632pt too wide) detected at line 120
 []
  []
 
-<chapters/20/images/committor-distribution.png, id=2430, 657.45625pt x 312.1662
+<chapters/20/images/committor-distribution.png, id=2439, 657.45625pt x 312.1662
 4pt>
 File: chapters/20/images/committor-distribution.png Graphic file (type png)
 <use chapters/20/images/committor-distribution.png>
 Package pdftex.def Info: chapters/20/images/committor-distribution.png  used on
  input line 144.
 (pdftex.def)             Requested size: 433.62pt x 205.88745pt.
-[174]
+[176]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 158.
@@ -1539,13 +1543,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 158.
 
-<chapters/20/images/histogram-test.png, id=2444, 749.80125pt x 356.33125pt>
+<chapters/20/images/histogram-test.png, id=2452, 749.80125pt x 356.33125pt>
 File: chapters/20/images/histogram-test.png Graphic file (type png)
 <use chapters/20/images/histogram-test.png>
 Package pdftex.def Info: chapters/20/images/histogram-test.png  used on input l
 ine 171.
 (pdftex.def)             Requested size: 433.62pt x 206.07417pt.
-) [175 <./chapters/20/images/committor-distribution.png>] [176 <./chapters/20/i
+) [177 <./chapters/20/images/committor-distribution.png>] [178 <./chapters/20/i
 mages/histogram-test.png>] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
@@ -1554,13 +1558,13 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 94CA5589CD220B09E7A76FB9B3A46657;45437.
+(rerunfilecheck)             Checksum: 609F77ABBC166CC18BF0B7CC8468796A;45521.
  ) 
 Here is how much of TeX's memory you used:
- 25333 strings out of 478238
- 466575 string characters out of 5850455
+ 25336 strings out of 478238
+ 466614 string characters out of 5850455
  818161 words of memory out of 5000000
- 42477 multiletter control sequences out of 15000+600000
+ 42478 multiletter control sequences out of 15000+600000
  490043 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,717b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1595,10 +1599,10 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb>
-Output written on ./build/principal.pdf (177 pages, 5718125 bytes).
+Output written on ./build/principal.pdf (179 pages, 5725327 bytes).
 PDF statistics:
- 2750 PDF objects out of 2984 (max. 8388607)
- 2386 compressed objects within 24 object streams
- 622 named destinations out of 1000 (max. 500000)
+ 2758 PDF objects out of 2984 (max. 8388607)
+ 2392 compressed objects within 24 object streams
+ 624 named destinations out of 1000 (max. 500000)
  2442 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -328,18 +328,18 @@
 \contentsline {chapter}{\numberline {19}Rare events}{165}{chapter.19}%
 \contentsline {section}{\numberline {19.1}Introduction}{165}{section.19.1}%
 \contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{165}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}?????????}{165}{subsection.19.1.2}%
+\contentsline {subsection}{\numberline {19.1.2}Variables in rare events}{166}{subsection.19.1.2}%
 \contentsline {section}{\numberline {19.2}Reaction coordinates}{166}{section.19.2}%
-\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{166}{subsection.19.2.1}%
-\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{167}{subsection.19.2.2}%
-\contentsline {subsection}{\numberline {19.2.3}WHAM}{167}{subsection.19.2.3}%
-\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{169}{subsection.19.2.4}%
-\contentsline {chapter}{\numberline {20}Advanced methods}{170}{chapter.20}%
-\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{170}{section.20.1}%
-\contentsline {subsection}{\numberline {20.1.1}TAMD}{171}{subsection.20.1.1}%
-\contentsline {section}{\numberline {20.2}Metadynamics}{171}{section.20.2}%
-\contentsline {section}{\numberline {20.3}Transition path ensemble}{172}{section.20.3}%
-\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{173}{subsection.20.3.1}%
-\contentsline {section}{\numberline {20.4}The committor distribution}{175}{section.20.4}%
-\contentsline {subsection}{\numberline {20.4.1}Histogram test}{175}{subsection.20.4.1}%
-\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{175}{subsection.20.4.2}%
+\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{167}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{168}{subsection.19.2.2}%
+\contentsline {subsection}{\numberline {19.2.3}WHAM}{168}{subsection.19.2.3}%
+\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{170}{subsection.19.2.4}%
+\contentsline {chapter}{\numberline {20}Advanced methods}{172}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{172}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}TAMD}{173}{subsection.20.1.1}%
+\contentsline {section}{\numberline {20.2}Metadynamics}{173}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Transition path ensemble}{174}{section.20.3}%
+\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{175}{subsection.20.3.1}%
+\contentsline {section}{\numberline {20.4}The committor distribution}{177}{section.20.4}%
+\contentsline {subsection}{\numberline {20.4.1}Histogram test}{177}{subsection.20.4.1}%
+\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{177}{subsection.20.4.2}%
