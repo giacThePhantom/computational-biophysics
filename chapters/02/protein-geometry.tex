@@ -2,7 +2,7 @@
 \chapter{Proteins' geometry}
 
 \section{Introduction}
-The study of the geometry of proteins involve what can be learned from protein coordinates.
+The study of the geometry of proteins involve what can be learned from protein's coordinates.
 
 \section{The peptide bond}
 A protein is a collection of amino acids linked together by a peptide bond.
@@ -13,14 +13,14 @@ The carbon and nitrogen display $sp2$ hybridization, the central atom and the $3
 A plane of the peptide bond is formed and rotation of the plane is allowed only around one axis.
 \begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.2]{planar.png}
-			\caption{sp2 hybridization of backbone C and N (not $C^{\alpha}$. This is an experimental finding which needs to be incorporated into the system: in this way (and by taking into consideration all the knowledge we have on protein), we are able to reduce the degree of freedom of the system.}
+			\includegraphics[width=\textwidth]{planar.png}
+			\caption{sp2 hybridization of backbone C and N (not $C^{\alpha}$). This is an experimental finding which needs to be incorporated into the system: in this way (and by taking into consideration all the knowledge on proteins), the degree of freedom of the system can be reduced.}
 			\label{fig:planar}
 			\end{figure}
 
 	\subsection{Trans and cis}
 	Looking at the peptide bond the carbon atom of the carboxylic group $C'$ and the nitrogen $N$ are each bonded to a different $\alpha$-$C$ and a trans or cis conformation can happen.
-	Trying to visualize the atoms that belong to the molecules these repel through the Van der Waals interactions, that can be computed through the Lennard-Jones potential (represented in figure\ref{fig:potential}:
+	Trying to visualize the atoms that belong to the molecules these repel through the Van der Waals interactions, that can be computed through the Lennard-Jones potential (represented in figure \ref{fig:potential}):
 
 	$$U_{Lj}(r) = E_0\biggl[\biggl(\frac{r_0}{r}\biggr)^{12}-2\biggl(\frac{r_0}{r}\biggr)^6\biggr]$$
 
@@ -33,10 +33,10 @@ A plane of the peptide bond is formed and rotation of the plane is allowed only 
 			\item $r_{min}$ is the distance at which the energy becomes high.
 		\end{itemize}
 	\end{multicols}
-	
+
 	\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.4]{potential.png}
+			\includegraphics[width=\textwidth]{potential.png}
 			\caption{Graphical representation of the energy plotted along the distance between atoms. $r_0$ is the equilibrium distance and it explains the reason why the trans configuration is preferred over the cis configuration}
 			\label{fig:potential}
 			\end{figure}
@@ -54,16 +54,16 @@ A plane of the peptide bond is formed and rotation of the plane is allowed only 
 	\end{multicols}
 
 	When two carbons atoms are below the minimum value the conformation is strained.
-	Looking back at the conformation of the peptide bond it can be seen that the cis conformation creates a distance of $2.8\si{\angstrom}$ between the two $\alpha C$, so it is not favourable.
+	Looking back at the conformation of the peptide bond it can be seen that the cis conformation creates a distance of $2.8\si{\angstrom}$ between the two $\alpha$-$C$, so it is not favourable.
 	So the trans conformation is the least energy-hungry and the most present.
-	
-	Note that the Lennard-Jones potential is not the only one possible. 
+
+	Note that the Lennard-Jones potential is not the only one possible.
 	Although it is preferred in most scenarios, other types of potential (e.g., buckingham potential or LJ with different powers) there exist.
-	
+
 \section{The Ramachandran angles}
 The planes formed by the peptide bonds can rotate with respect to each other.
 So the Ramachandran angles $\phi$ and $\psi$ can be defined between these planes.
-For each $\alpha C$:
+For each $\alpha$-$C$:
 
 \begin{multicols}{2}
 	\begin{itemize}
@@ -77,14 +77,14 @@ Some of the angles will require more energy.
 
 	\subsection{Difficulty of rotation}
 	It can be seen how a rotation of the $\phi$ angle could cause the two $C'$ to come at a distance of $2.9\si{\angstrom}$ (where $r_{min} = 3.0\si{\angstrom}$.
-	On the other hand a rotation of the $\psi$ angle could cause the two $N$ to come at the same distance, but in this case $r_{min}(N\dots N) = 2.7\si{\angstrom}$.
+	On the other hand a rotation of the $\psi$ angle could cause the two $N$ to come at the same distance, but in this case $r_{min}(N-N) = 2.7\si{\angstrom}$.
 	In the case of carbon atoms the distance is less than the minimum distance, while in the case of nitrogen it is greater than the minimum allowed value.
 	Looking at this it can be seen how the $\psi$ rotation is easier.
 
 	\subsection{Ramachandran plot}
 	A Ramachandran plot is a map with the $\phi$ angle on the $x$ axis and the $\psi$ angle on the $y$ axis.
 	Because a rotation along the $\phi$ angle is highly disfavoured the angle $0$ is strongly disfavoured and is represented like a black stripe (disallowed region).
-	If the amino acids where composed only by carbon and nitrogen atom the Ramachandran map would be the one represented in figure\ref{rama}, where:
+	If the amino acids where composed only by carbon and nitrogen atom the Ramachandran map would be the one represented in figure \ref{fig:rama}, where it can be found:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -93,37 +93,60 @@ Some of the angles will require more energy.
 		\end{itemize}
 	\end{multicols}
 
-\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.3]{rama_map.png}
-			\caption{This is how Ramachandran plots of the disallowed (black stripe), strained (grey stripe), and fully allowed (white regions) ($\phi$, $\psi$) conformations of the fragment $C^{\alpha}C'N$---$C^{\alpha}$---$C'N-C^{\alpha}$ would look, provided all these atoms had no other atoms attached (right) and atoms of residues $i-1$ and $i+1$ had no interactions.}
-			\label{fig:rama}
-			\end{figure}
-
-	Looking at a real protein the complexity is increased and the other oxygen and nitrogen atoms are included \ref{ramachandran-complex} and other regions become disallowed due to steady clashes.
-	It can be seen how the regions are quite complex.
-	Looking at a glycine and alanine complex it can be seen in \ref{ala_gly} the space becomes even more complex.
-	
 	\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.3]{ala_gly.png}
-			\caption{Observed conformations (dots) of glycine (a) and of other amino acid residues (b) in proteins. The sterically allowed regions are contoured.}
-			\label{fig:ala_gly}
-			\end{figure}
+		\centering
+		\includegraphics[width=\textwidth]{rama_map.png}
+		\caption{This is how Ramachandran plots of the disallowed (black stripe), strained (grey stripe), and fully allowed (white regions) ($\phi$, $\psi$) conformations of the fragment $C^{\alpha}C'N$---$C^{\alpha}$---$C'N-C^{\alpha}$ would look, provided all these atoms had no other atoms attached (right) and atoms of residues $i-1$ and $i+1$ had no interactions.}
+		\label{fig:rama}
+	\end{figure}
 
+	Looking at a real protein the complexity is increased and the other oxygen and nitrogen atoms are included \ref{fig:ramachandran-complex} and other regions become disallowed due to steady clashes.
+	It can be seen how the regions are quite complex.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{ramachandran-complex.png}
+		\caption{Ramachandran plot of a peptide bond with other atoms.}
+		\label{fig:ramachandran-complex}
+	\end{figure}
+
+		Looking at a glycine and alanine complex it can be seen in \ref{fig:ala_gly-theo} the space becomes even more complex.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{ala-gly-theo.png}
+		\caption{Theoretical representation of a Ramachandran plot of a glycine-alanine complex.}
+		\label{fig:ala_gly-theo}
+	\end{figure}
 
 	In this case the white regions is very small and a strained region can be seen and the black one.
-	Including other residues the allowed region reduces \ref{ramachandran-final}.
+	Including other residues the allowed region reduces \ref{fig:ramachandran-final}.
 	This is due to the presence of larger residues.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{ramachandran-final.png}
+		\caption{Ramachandran plot of a larger residue.}
+		\label{fig:ramachandran-final}
+	\end{figure}
 
 		\subsubsection{Observed Ramachandran plot}
 		Trying to plot for each amino acid its angles an amino acid is represented as a dot.
 		Most of the points fall inside of the allowed regions but there are some outliers.
 		In some conformation the protein forces the amino acid to assume strange conformations.
 		This is done to check if the structure places the amino acids in a proper way.
+		A typical observed Ramachandran plot looks like the one in \ref{fig:ala_gly}.
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{ala_gly.png}
+			\caption{Observed conformations (dots) of glycine (a) and of other amino acid residues (b) in proteins. The sterically allowed regions are contoured.}
+			\label{fig:ala_gly}
+		\end{figure}
+
 
 \section{Contact map of proteins}
-Starting from the coordinates a contact can be built.
+Starting from the coordinates a contact map can be built.
 It is a matrix that map all the contact between the amino acids.
 A primary structure can be represented as a collection of beads which will be in contact in the 3D structure.
 A square matrix can be built such that each entry in the matrix will determine whether there is a contact or not.
@@ -143,7 +166,7 @@ Secondary structures will have specific signatures:
 
 \begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.2]{contact.png}
+			\includegraphics[width=\textwidth]{contact.png}
 			\caption{Example of a contact map for a protein.}
 			\label{fig:contact}
 			\end{figure}
@@ -166,7 +189,7 @@ This helps with numbering of the secondary structures.
 
 \begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.2]{topology.png}
+			\includegraphics[width=\textwidth]{topology.png}
 			\caption{The topology of a protein structure is a highly simplified description of its fold including only the sequence of secondary structure elements, and their relative spatial positions and approximate orientations. This information can be embodied in a two-dimensional diagram of protein topology, called a TOPS cartoon. (from pubmed)}
 			\label{fig:topology}
 			\end{figure}
@@ -218,9 +241,9 @@ Once the coordinates of a protein is obtained, some geometrical properties can b
 				These can be different, usually the coordinates are confronted between the $\alpha$-$C$ atom and the residue is not considered.
 				One of the things that can be done is to look at the secondary structures and add loops only when they look similar.
 			\item Align the two structures: compute the centre of mass of the two proteins and translate the proteins so the centre of masses coincide.
-			\item Finding the optimal rotation: (add algorithm) the principal axes are computed and the proteins are rotated so that they superimpose.
+			\item Finding the optimal rotation: the principal axes are computed and the proteins are rotated so that they superimpose.
 				Once the optimal rotation is obtained the difference can be quantified.
-			\item Compute RMSD: root mean square deviation: take the coordinates of the amino-acid $i$ in protein $A$ and $A$, their squared difference is computed and an average over all amino acid is computed and squared:
+			\item Compute RMSD (root mean square deviation): take the coordinates of the amino-acid $i$ in protein $A$ and $B$, their squared difference is computed and an average over all amino acid is computed and squared:
 
 				$$RMSD = \sqrt{\frac{1}{N}\sum\limits_{i=1}^N(\vec{r}_{Ai}-\vec{r}_{Bi})^2}$$
 				the RMSD is a length, usually in angstrom scale.
@@ -241,7 +264,7 @@ Once the coordinates of a protein is obtained, some geometrical properties can b
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.2]{rmsd.png}
+			\includegraphics[width=\textwidth]{rmsd.png}
 			\caption{RMSD of the backbone ($C^{\alpha}$, $N$, ...). We can see the typical steep jump a fluctuations towards the end of the plot. However, this is not enough to state that the protein reached equilibrium.}
 			\label{fig:rmsd}
 			\end{figure}
