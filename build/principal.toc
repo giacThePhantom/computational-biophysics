@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Defining a contact}{19}{subsection.2.4.1}%
 \contentsline {section}{\numberline {2.5}Topology diagram}{19}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Coordinates}{20}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Protein center of mass}{21}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}Protein centre of mass}{21}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Radius of gyration}{21}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Comparing protein structures}{21}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Native state}{22}{subsection.2.6.4}%

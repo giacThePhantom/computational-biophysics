@@ -216,18 +216,18 @@ This is a tabulated file containing different columns:
 
 Once the coordinates of a protein is obtained, some geometrical properties can be directly computed.
 
-	\subsection{Protein center of mass}
-	The protein center of mass is the average position for the protein center.
+	\subsection{Protein centre of mass}
+	The protein centre of mass is the average position for the protein centre.
 	It is an average weighted by the mass of the atom.
 
 	$$\vec{R}_{cm} = \frac{\sum\limits_{i=1}^Nm_i\vec{r}_i}{\sum\limits_{i=1}^Nm_i}$$
 
 	\subsection{Radius of gyration}
-	Once the center of mass is known the radius of gyration can be computed.
+	Once the centre of mass is known the radius of gyration can be computed.
 	This measures the size of the protein as if it was a sphere.
 	It is a good indication of the globular size of a protein.
-	It also indicates an elongating/shrinking behavior, and useful to check whether a protein is going toward equilibrium in the simulation.
-	The distance of each atom and the center of mass is computed and the square is taken, weighted with the mass of the atom.
+	It also indicates an elongating/shrinking behaviour, and useful to check whether a protein is going toward equilibrium in the simulation.
+	The distance of each atom and the centre of mass is computed and the square is taken, weighted with the mass of the atom.
 
 	$$R_g = \sqrt{\frac{\sum\limits_{i=1}^Nm_i(\vec{r}_i-\vec{R}_{cm})^2}{\sum\limits_{i=1}^Nm_i}}$$
 
