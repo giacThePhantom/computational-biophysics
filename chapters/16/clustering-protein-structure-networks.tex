@@ -1,7 +1,7 @@
 \graphicspath{{chapters/16/images/}}
 \chapter{Clustering and protein structure networks}
 
-\section{Clustering}
+\section{Introduction}
 The aim of clustering is to find a way to group a set of data into clusters of similar properties.
 This is done because:
 
@@ -18,8 +18,8 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 \begin{multicols}{2}
 	\begin{itemize}
-		\item Intra-cluster similarity is maximized.
-		\item Inter-cluster similarity is minimized.
+		\item Intra-cluster similarity is maximized: all the points in a cluster are as much similar as possible.
+		\item Inter-cluster similarity is minimized: all the points between clusters are as much dissimilar between each other.
 	\end{itemize}
 \end{multicols}
 
@@ -35,6 +35,8 @@ So, given a set of data points, each described by a set of attributes, the clust
 		\item Triangular inequality: $D(A, B) \le D(A, C) + D(B, C)$.
 	\end{itemize}
 
+	An example of this for molecular dynamics and two protein conformation is the root mean squared deviation, computing the all-to-all RMSD matrix.
+
 	\subsection{Types of clustering}
 
 	\begin{itemize}
@@ -42,8 +44,21 @@ So, given a set of data points, each described by a set of attributes, the clust
 		\item Partitional algorithms: construct various partitions and then evaluate them by some criterion,
 	\end{itemize}
 
+	\subsection{Distance measures}
+	The distance between objects in a cluster or clusters can be computed in several ways:
+
+	\begin{itemize}
+		\item Single linkage or nearest neighbour: the distance between two clusters is determined by the distance of the two closest objects (nearest neighbours) in the different clusters.
+		\item Complete linkage or furthest neighbour: the distance between two clusters is the greatest distance between two objects in the different clusters.
+		\item Group average linkage: the distance between two clusters is computed as the average distance between all pairs of objects in the two different clusters.
+	\end{itemize}
+
+\section{Hierarchical clustering}
+
 	\subsection{Dendrograms}
 	In a dendrogram (\ref{fig:dendrogram}) the similarity between two objects is represented as the height of the lowest internal node they share.
+	Each object is represented as a leaf.
+	Dendrograms give a direct visual representation of the groups of data.
 
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{dendrogram}
@@ -53,53 +68,49 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 		\subsection{Interpretation}
 		Hierarchical clustering sometimes show pattern that are meaningless or spurious.
+		So the interpretation of the algorithm has to be performed.
 
-\section{Correct number of clusters}
+		\subsection{Advantages of hierarchical clustering}
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{correct-number}
-		\caption{Correct number of clusters}
-		\label{fig:correct-number}
-	\end{figure}
+			\subsubsection{Correct number of clusters}
+			One advantage of hierarchical clustering is that the correct number of cluster is obtained looking at the dendrogram.
 
-	\subsection{Outliers}
+				\begin{figure}[H]
+					\includegraphics[width=\textwidth]{correct-number}
+					\caption{Correct number of clusters}
+					\label{fig:correct-number}
+				\end{figure}
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{outliers}
-		\caption{Outliers}
-		\label{fig:dendrogram}
-	\end{figure}
+			\subsubsection{Outliers}
+			Moreover when using hierarchical clustering the outliers are easily identified.
 
-\section{Hierarchical clustering}
-The number of dendrograms $D$ with $n$ leafs are:
+			\begin{figure}[H]
+				\includegraphics[width=\textwidth]{outliers}
+				\caption{Outliers}
+				\label{fig:dendrogram}
+			\end{figure}
 
-$$D = \frac{2n-3)!}{2^{n-2}(n-2)!}$$
+	\subsection{Hierarchical clustering approach}
+	The number of dendrograms $D$ with $n$ leafs are:
 
-They can be built with two approaches:
+	$$D = \frac{2n-3)!}{2^{n-2}(n-2)!}$$
 
-\begin{itemize}
-	\item Bottom-up or agglomerative approach: each item is grouped alone into its own cluster and then the best pair to merge into a new cluster is found.
-		This is repeated until all clusters are fused together.
-	\item Top-down or divisive approach: all the data is grouped into a single cluster, then the best division into two cluster is chosen and this is repeated recursively on both sides.
-\end{itemize}
+	They can be built with two approaches:
 
-\section{Distance measures}
-The distance between objects in a cluster or clusters can be computed in several ways:
+	\begin{itemize}
+		\item Bottom-up or agglomerative approach: each item is grouped alone into its own cluster and then the best pair to merge into a new cluster is found.
+			This is repeated until all clusters are fused together.
+		\item Top-down or divisive approach: all the data is grouped into a single cluster, then the best division into two cluster is chosen and this is repeated recursively on both sides.
+	\end{itemize}
 
-\begin{itemize}
-	\item Single linkage or nearest neighbour: the distance between two clusters is determined by the distance of the two closest objects (nearest neighbours) in the different clusters.
-	\item Complete linkage or furthest neighbour: the distance between two clusters is the greatest distance between two objects in the different clusters.
-	\item Group average linkage: the distance between two clusters is computed as the average distance between all pairs of objects in the two different clusters.
-\end{itemize}
+	\subsection{Summary of hierarchical methods}
 
-\section{Hierarchical methods}
-
-\begin{itemize}
-	\item No need to specify the number of clusters in advance.
-	\item The hierarchical nature maps nicely onto human intuition for some domains.
-	\item They do not scale well: $O(n^2)$.
-	\item The interpretation of the results is very subjective.
-\end{itemize}
+	\begin{itemize}
+		\item No need to specify the number of clusters in advance.
+		\item The hierarchical nature maps nicely onto human intuition for some domains.
+		\item They do not scale well: $O(n^2)$.
+		\item The interpretation of the results is very subjective.
+	\end{itemize}
 
 \section{Partitional clustering}
 In partitional clustering each item is placed in exactly one of $K$ non-overlapping clusters.
@@ -127,12 +138,11 @@ The number of cluster is provided as input.
 		\end{itemize}
 
 	\subsection{Sum of squared errors}
+	The sum of squared error will be the objective function that determines how well the data is divided into clusters.
 
 	$$SE_{K_i} = \sum\limits_{j=1}^m[D(C_{ij}, C_{K_i})]^2$$
 
 	$$SE_K = \sum\limits_{i=1}^jSE_{K_i}$$
-
-	The objective function.
 
 	\subsection{Choosing K}
 	The optimal $k$ is the one such that the $\min SE$ is found.
@@ -145,6 +155,7 @@ The number of cluster is provided as input.
 	\end{figure}
 
 \section{Protein structure networks}
+Protein structure networks represents proteins as networks built after the molecular dynamics simulation is performed.
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{psn}
@@ -153,8 +164,8 @@ The number of cluster is provided as input.
 \end{figure}
 
 	\subsection{PyInteraph}
-	In PyInteraph the nodes are the side chains of protein residues.
-	The edges can be defined by:
+	PyInteraph is an algorithm to analyse the trajectories.
+	The protein is represented as a graph where the nodes are the side chains of protein residues and the edges can be defined in term of:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -165,14 +176,15 @@ The number of cluster is provided as input.
 		\end{itemize}
 	\end{multicols}
 
-	Graph analysis approach to the intramolecular interaction network IIN.
+	Then a graph analysis approach to the intramolecular interaction network IIN is performed.
 
 	\subsection{Classes of interactions}
+	This interactions are non-bonded interactions that are not present in the force-field.
 
 		\subsubsection{Hydrophobic contacts}
 		In the hydrophobic contacts the centre of mass of the two side chains are distant less than $5\si{\angstrom}$.
-		The centres of mass is specified by the force field for different masses.
-		It has default residues:
+		The centres of mass is specified by the force field for different masses, so they will be force-field specific.
+		It has default residues, the typically hydrophobic residues that are checked by pyInteraph.
 
 		\begin{multicols}{4}
 			\begin{itemize}
@@ -187,31 +199,47 @@ The number of cluster is provided as input.
 		\end{multicols}
 
 		\subsubsection{Salt bridges}
-		Salt bridges are formed between atom pairs belonging to two charged groups of two different residues with distance less than $4.5\si{\angstrom}$.
+		Salt bridges corresponds to the interaction of groups with opposite charge.
+		They are formed between atom pairs belonging to two charged groups of two different residues with distance less than $4.5\si{\angstrom}$.
 
 		\subsubsection{Hydrogen bonds}
 		Hydrogen bond happen when the distance between the acceptor and the hydrogen atom is less than $3.5\si{\angstrom}$ and the donor-hydrogen-acceptor angle is greater than $120^\circ$.
 
 	\subsection{Persistence}
-	Persitence is the fraction of the number of structures in the ensemble in which the interaction was observed.
-	The Edge weight is the persistence value.
+	Persitence is the fraction of the number of structures in the ensemble in which the interaction was observed: the interactions are computed for each frame.
 	For hydrogen-bond one or more interactions may exist between two residues.
+	PyInteraph will generate interaction matrix for each type of interaction.
+	Then for each interaction the edge weight is given, corresponding to the persistence value.
+	Then these three interaction network are filtered according to a measure providing a persistence threshold.
+	When the value of the persistence is higher than the threshold a contact is assumed true.
+	After that the macro-intramolecular-interaction network that collects informations about all the different of interactions.
 
-		\subsection{Persistence threshold}
-		A connected component is a subgraph in which a path exists between any two vertices, but no path exist to any other vertices of the main graph: there are no edges connecting two connected components.
+	\subsection{Persistence threshold}
+	To choose the persistence threshold the connected components of the protein structure network have to be found.
+	A connected component is a subgraph in which a path exists between any two vertices, but no path exist to any other vertices of the main graph: there are no edges connecting two connected components.
+	After having obtained them for each value of the persistence, so that a connection is defined whenever the persistence is higher than the value.
+	It can be seen how decreasing the threshold the size of the connected components increase.
+	A typical graph of persistence over component size a kink can be found and that will be the persistence threshold.
 
 	\subsection{Graph analysis}
+	Some analysis provided by pyInteraph are:
 
 	\begin{itemize}
-		\item Highly connected residues or hubs with more than $3$ or $4$ edges allow the creation for a list of hubs and the connectivity degree for each of them.
+		\item Computing the highly connected residues or hubs: residues with with more than $3$ or $4$ edges.
+			A list of hubs and their respective connectivity degree (how many residue are connected to them) is computed.
+			Hubs indicates that their residues will play a key role in the structure or function of the protein.
 		\item Connected components.
+			The groups and part of the protein are connected and can be assumed to behave as rigid object in the protein.
+			These can find domains that behave mechanical in the same way in the protein.
 		\item Shortest path between two specified residues.
-	\end{itemize};
+			This is useful because many proteins have allosteric communication pathways and they could be explored by this analysis, finding the amino acids that transport the mechanical signal from one side of the protein to another.
+	\end{itemize}
 
 	\subsection{Examples}
 
 		\subsubsection{p53 DNA binding domain}
 		Hydrophobic interactions play a crucial role in the stabilization of the protein core and in the maintenance of the 3D structure and stability.
+		In general hydrophobic interaction play a crucial role in the folding, structure and function of the protein.
 
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{p53}
@@ -220,7 +248,7 @@ The number of cluster is provided as input.
 		\end{figure}
 
 		\subsubsection{Vibrio proteinase (VAP)}
-		Salt bridges or hydrogen bonds are highly flexible and cooperatively organized in networks across the protein structure for temperature adapted organisms.
+		Salt bridges or hydrogen bonds are highly flexible and cooperatively organized in networks across the protein structure or for temperature adapted organisms.
 
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{vap}
