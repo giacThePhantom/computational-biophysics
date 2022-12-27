@@ -139,6 +139,29 @@ This is done when analytical methods cannot be applied.
 			\label{fig:importance-sampling-example}
 		\end{figure}
 
+	\subsection{Molecular dynamics and Monte Carlo methods}
+	In molecular dynamics:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item All particles move at once, but the $\Delta t$ is usually quite small.
+			\item Information on dynamics are available.
+			\item Parallel architectures: molecular dynamics is more parallelizable and it is naturally implemented on parallel computers.
+		\end{itemize}
+	\end{multicols}
+
+	In Monte Carlo:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item There is no limit on the range of moves: the only limit is the Boltzmann weights, but also unphysical moves can be considered.
+				The dynamics of the movement is not important.
+			\item Natural thermostats and barostats: they are easily implemented in a Monte Carlo simulation.
+			\item Flexibility: it can be applied to any possible system, playing with the moves makes it extremely flexible.
+			\item Egodicity can be achieved thinking about a strange move that moves in the phase space.
+		\end{itemize}
+	\end{multicols}
+
 \section{Markov chains}
 A Markov chain is a rule to obtain the point at the next iteration starting from a point.
 The state of the system depends only on the previous instant of time.
@@ -162,7 +185,7 @@ If there are two micro states it is the probability to move to a microstate $x$ 
 		\item It represents microscopic reversibility.
 		\item It is an unbiased sampling of phase space.
 		\item It is sufficient but not strictly necessary condition to ensure proper sampling of phase space.
-			Unbaiased sampling can be obtained without the detailed balance condition.
+			Unbiased sampling can be obtained without the detailed balance condition.
 	\end{itemize}
 
 	\subsection{Rejection methods}
@@ -207,132 +230,164 @@ If there are two micro states it is the probability to move to a microstate $x$ 
 
 	If $r(x_{k+1}|x_k)>1$ accept the move, otherwise accept the move with probability given by $r(x_{k+1}|x_k)$: extract a random number $\xi\in[0,1]$.
 	If $\xi< r(x_{k+1}|x_k)$ accept the move.
-	Associated probability for each point $x_1, \dots, x_n$: $\pi_1(x), \dots, \pi_n(x)$.
+	Rejections do count: when a move is rejected that particular conformation will be counted twice because the importance sampling samples the system with a distribution function that is required by it, which means that points that are more representative for the representation functions will be explored more: if a move if rejected that point counts more in the average.
 
-	$$\lim\limits_{n\rightarrow\infty}\pi_n(x) = f(x)$$
+		\subsubsection{Proof}
+		Associated probability for each point $x_1, \dots, x_n$: $\pi_1(x), \dots, \pi_n(x)$.
+		With a huge number of moves the probability is equal to the desired distribution.
 
-	Proof by recursive relation: $\pi_{n+1}(x)$ receives contributions from accepted moves starting at $y$ and ending in $x$ and from attempted moves to $y$ that are rejected:
+		$$\lim\limits_{n\rightarrow\infty}\pi_n(x) = f(x)$$
 
-	$$\pi_{n+1}(x) = \int A(x|y)T(x|y)\pi_n(y)dy + \pi_n(x)\int[1-A(y|x)]T(y|x)dy$$
+		Proof by recursive relation: $\pi_{n+1}(x)$ receives contributions from accepted moves starting at $y$ and ending in $x$ and from attempted moves to $y$ that are rejected:
 
-	If $\pi_n(x) = f(x)$:
+		$$\pi_{n+1}(x) = \int A(x|y)T(x|y)\pi_n(y)dy + \pi_n(x)\int[1-A(y|x)]T(y|x)dy$$
 
-	$$\pi_{n+1} = \int A(x|y)T(x|y)f(y)dy + f(x)\int[1-A(y|x)]T(y|x)dy$$
+		If $\pi_n(x) = f(x)$:
 
-	Detailed balance condition: $A(x|y)T(x|y)f(y) = A(y|x)T(y|x)f(x)$:
+		$$\pi_{n+1} = \int A(x|y)T(x|y)f(y)dy + f(x)\int[1-A(y|x)]T(y|x)dy$$
 
-	$$\pi_{n+1}(x) = f(x)\int T(y|x)dy = f(x)$$
+		Considering the detailed balance condition: $A(x|y)T(x|y)f(y) = A(y|x)T(y|x)f(x)$ two terms cancel each other out:
+
+		$$\pi_{n+1}(x) = f(x)\int T(y|x)dy = f(x)$$
+
+		So if the system arrives at the distribution function $f$ it will stay there.
 
 		\subsubsection{Summary}
+		Everything sums up to evaluate the ratio of the final over probabilities of generating the moves to the initial and final states.
 
 		$$r(x|y) = \frac{T(y|x)f(x)}{T(x|y)f(y)}$$
 
-		For a uniform choice of $T(x|y)$:
+		The acceptance probability is computed according to:
+
+		$$A(x|y) = \min[1, r(x|y)]$$
+
+		For a uniform choice of $T(x|y)$, so the same probability from $x$ to $y$ and from $y$ to $x$:
 
 		$$r(x|y) = \frac{f(x)}{f(y)}\Rightarrow A(x|y) = \min\biggl[1, \frac{f(x)}{f(y)}\biggr]$$
 
+		Considering the Boltzmann distribution in this ratio the partition function would be cancelled.
+
 	\subsection{Canonical distribution}
+	In the canonical distribution the partition function, where the integrand is the Boltzmann weight:
 
 	$$Q(N, V, T) = \frac{1}{N!\lambda^{3N}}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r}_1, \dots, \vec{r}_N)}$$
 
+	So the acceptance probability for a move from $r$ to $r'$ will be:
+
 	$$A(r'|r) = \min\bigl[1, e^{-\beta(U(r')-U(r))}\bigr]$$
 
-	$\Delta U < )$ accept the move.
-	$\Delta U > 0$ accept the move with probability $e^{-\beta\Delta U}$.
+	$\Delta U < 0$ accept the move, so when decreasing the energy the move is accepted.
+	$\Delta U > 0$ accept the move with probability $e^{-\beta\Delta U}$ if the energy has increased.
+	In this way points that are distributed according to Boltzmann distribution can be simulated.
+	Considering the acceptance, the Monte Carlo method will be efficient for an acceptance rate neither too high (not exploring enough) nor to low (never moving).
+	The acceptance probability depends on the energy difference.
+	Changing the coordinates of all the particles randomly it is highly probable to generate a huge energy difference (energy is an extensive quantity), causing the acceptance rate to be small.
+	Because of this it is better to move the particles one by one.
+	The particle to be updated should be chosen randomly because, when doing it sequentially the reverse move has not the same probability so the probability will not be symmetrical.
 	A Monte Carlo pass is equivalent to $N$ trial moves: particles must be chosen randomly.
-	In one Monte Carlo pass each particle on average has seen one attempt.
-	It is not necessary to recompute $U(r')$ in full at each move.
+	On average each particle has seen at least one attempt to be moved.
+	Considering a possible trial move:
 
 	$$\begin{cases}x'_i = x_i+\frac{1}{\sqrt{3}}(\xi_x-0.5)\Delta\\y'_i = y_i+\frac{1}{\sqrt{3}}(\xi_y-0.5)\Delta\\z'_i = z_i+\frac{1}{\sqrt{3}}(\xi_z-0.5)\Delta\end{cases}$$
 
-	$\Delta$ must be chosen.
+	Where $\xi$ is the random number, and the $0.5$ is needed to generate forward and backward moves, centring it around zero so to have the same probability to generate the backward move (when it is less than $0$).
+	In one Monte Carlo pass each particle on average has seen one attempt.
+	It is not necessary to recompute all the energy $U(r')$ in full at each move, because changing only the coordinates of one particle and taking its list of neighbours, the energy for that particle and list of neighbours are updated.
+	$\Delta$ is the magnitude of the movement.
+	If it is too big the probability to accept the move will be small.
+	If it is too small the phase space is not being explored too well.
+	As a rule of thumb after trying of simulation and keeping track of the acceptance rate, a good value should have an acceptance rate between $30$ and $50\%$.
 
-\section{Molecular dynamics and Monte Carlo methods}
-In molecular dynamics:
-
-\begin{multicols}{2}
-	\begin{itemize}
-		\item All particles move at once $\Delta t$.
-		\item Information on dynamics.
-		\item Parallel architectures.
-	\end{itemize}
-\end{multicols}
-
-In Monte Carlo:
-
-\begin{multicols}{2}
-	\begin{itemize}
-		\item There is no limit on the range of moves.
-		\item Natural thermostats and barostats.
-		\item Flexibility.
-		\item Egodicity.
-	\end{itemize}
-\end{multicols}
+\section{Simulating ensembles}
 
 	\subsection{Isothermal-isobaric ensemble}
+	Considering the partition function for the ensemble:
 
-	$$\delta(N, P, T) = \frac{1}{V_0} \int dVe^{-\beta PV}Q(N, V, T) = \frac{1}{V_0}\frac{1}{N!\lambda^{3N}}\int_0^{\infty}dVe^{-\beta PV}\int_Vd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r}_1, \dots, \vec{r}_N)}$$
+	$$\Delta(N, P, T) = \frac{1}{V_0} \int dVe^{-\beta PV}Q(N, V, T) = \frac{1}{V_0}\frac{1}{N!\lambda^{3N}}\int_0^{\infty}dVe^{-\beta PV}\int_Vd\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r}_1, \dots, \vec{r}_N)}$$
 
-	Previous scheme and trial moves on volume: $V' = V + (\xi_V-0.5)\delta$.
+	The scheme is the same as in the canonical ensemble with another trial move on the volume volume: $V' = V + (\xi_V-0.5)\delta$.
+	The percentage of volume moves has to be chosen.
 	Volume changes imply scaling of particle coordinates: $r'_i = \biggl(\frac{V'}{V}\biggr)^{\frac{1}{3}}r_i$.
+	Making the dependance on volume explicit:
 
 	$$\Delta(N, P, T) = \frac{1}{V_0}\frac{1}{N!\lambda^{3N}}\int_0^{\infty}dVV^Ne^{-\beta PV}\int_Vd\vec{s}_1\cdots d\vec{s}_Ne^{-\beta U(V^{\frac{1}{3}}\vec{s}_1,\dots, V^{\frac{1}{3}}\vec{s}_N)}$$
 
+	Now the distribution function is obtained and the acceptance probability will be:
+
 	$$A(V'|V) = \min\bigl[1, e^{-\beta P(V'-V)e^{N\ln \frac{V'}{V}}e^{-\beta(U(r')-U(r))}}\bigr]$$
 
-	$\delta$ should be small to accept the move.
-	This is computational demanding, it less frequent with higher acceptance.
+	$\delta$, the variation on the volume, should be small to accept the move because if inflating the system too much the difference in energy would be huge.
+	This is computational demanding because the coordinates of all the particles are being changed so the force has to be recomputed for all of them, so it is less frequent with higher acceptance.
 
 	\subsection{Gran canonical ensemble}
+	In Monte Carlo simulations in the grand canonical ensemble can be performed.
+	Considering the partition function:
 
 	$$\mathcal{E}(\mu, V, T) = \sum\limits_{N=0}^{\infty}e^{\beta\mu N}Q(N, V, T) = \sum\limits_{N+0}^{\infty}e^{\beta\mu N}\frac{1}{N!\lambda^{3N}}\int d\vec{r}_1\cdots d\vec{r}_Ne^{-\beta U(\vec{r}_1, \dots, \vec{r}_N)}$$
 
-	This is the previous scheme with trial moves with particle insertion and particle deletion.
-	Particle insertion:
+	So a move of the coordinates is the previous scheme with with trial moves with particle insertion and particle deletion.
+	Considering particle insertion:
 
 	$$A(N+1|N) = \min\biggl[1, \frac{V}{\lambda^3(N+1)}e^{\beta\mu}e^{-\beta(U(r')-U(r))}\biggr]$$
 
-	Particle deletion:
+	Considering particle deletion:
 
 	$$A(N-1|N) = \min\biggl[1, \frac{\lambda^3V}{V}e^{-\beta\mu}e^{-\beta(U(r')-U(r))}\biggr]$$
 
+	Now it can be simulated at constant chemical potential.
 	This is not so expensive: $U(r')$ requires only the change in energy due to one particle.
 
-	\subsection{Hybrid Monte Carlo}
-	Molecular dynamics is used as an engine to generate Monte Carlo moves:
+\section{Hybrid Monte Carlo}
+Hybrid Monte Carlo is a technique in which both Monte Carlo and molecular dynamics are used.
+Molecular dynamics is used as an engine to generate Monte Carlo moves:
+This is useful so that it can be tried to use a very big $\Delta t$ in molecular dynamics, generating new coordinates and momenta and using the metropolis criterion the moves will be accepted or not.
+In this way the correctness of the move is determined by the acceptance probability.
 
-	$$A(r', p' | r, p) = \min\{1, e^{-\beta[\mathcal{H}(r', p')-\mathcal{H}(r, p)]}\} = \min\bigl[1,e^{-\beta\Delta\mathcal{H}}\bigr]$$
+$$A(r', p' | r, p) = \min\{1, e^{-\beta[\mathcal{H}(r', p')-\mathcal{H}(r, p)]}\} = \min\bigl[1,e^{-\beta\Delta\mathcal{H}}\bigr]$$
 
-	Symplectic time-reversible algorithm:
+If the algorithm in molecular dynamics is symplectic and time-reversible algorithm:
+
+$$T(r', p'|r, p) = T(r, -p|r', -p')$$
+
+One move is quite expensive, so it is better to have a higher acceptance rate between $40$ and $70\%$.
+In the case of a rejected move $p$ is resampled to obtained a new move as Molecular Dynamics is deterministic.
+If the integrator is time-reversible the detailed balance holds.
+
+	\subsection{Detailed balance}
+	The detailed balance condition or the result is:
+
+	$$\int d^Npd^Np' T(r',p'|r,p)A(r',p'|r,p)f(r,p) = \int d^Npd^Np'T(r, p|r',p;)A(r,p|r',p')f(r',p')$$
+
+	Considering the acceptance rate and the distribution:
+
+	$$A(r',p'|r,p)f(r,p) = \frac{1}{Q_N(V, T)}\min\bigl[1, e^{-\beta(\mathcal{H}(r', p')-\mathcal{H}(r,p))}\bigr]e^{-\beta\mathcal{H}(r, p)}$$
+
+	Multiplying inside the Boltzmann weight:
+
+	$$A(r',p'|r,p)f(r,p) = \frac{1}{Q_N(V, T)}\min\bigl[e^{-\beta\mathcal{H}(r, p)}, e^{-\beta\mathcal{H}(r', p')}\bigr]$$
+
+	Similarly:
+
+	$$A(r,p|r',p')f(r,'p') = \frac{1}{Q_N(V, T)}\min\bigl[e^{-\beta\mathcal{H}(r', p')}, e^{-\beta\mathcal{H}(r, p)}\bigr]$$
+
+	Therefore:
+
+	$$A(r', p'|r, p)f(r, p) = A(r, p|r', p')f(r',p')$$
+
+	So that:
+
+	$$A(r',p'|r,p)f(r,p) = \frac{1}{Q_N(V, T)}\min\bigl[1, e^{-\beta(\mathcal{H}(r', p')-\mathcal{H}(r,p))}\bigr]e^{-\beta\mathcal{H}(r, p)}$$
+
+	Using the property of the symplectic time-reversible algorithm, inverting the velocities the movement is reversed.
 
 	$$T(r', p'|r, p) = T(r, -p|r', -p')$$
 
-	One move is quite expensive, so it is better to have a higher acceptance rate between $40$ and $70\%$.
-	In the case of a rejected move $p$ is resampled.
-	If the integrator is time-reversible the detailed balance holds.
+	Substituting this into the second integral:
 
-		\subsubsection{Detailed balance}
-	Detailed balance condition:
+	$$\int d^Npd^Np'T(r',p'|r, p)A(r', p'|r, p)f(r,p) = \int d^Npd^Np'T(r, -p|r', -p')A(r, p|r', p')f(r', p')$$
 
-		$$\int d^Npd^Np' T(r',p'|r,p)A(r',p'|r,p)f(r,p) = \int d^Npd^Np'T(r, p|r',p;)A(r,p|r',p')f(r',p')$$
+	Performing a change of variables: $p, p'\rightarrow -p, -p'$:
 
-		$$A(r',p'|r,p)f(r,p) = \frac{1}{Q_N(V, T)}\min\bigl[1, e^{-\beta(\mathcal{H}(r', p')-\mathcal{H}(r,p))}\bigr]e^{-\beta\mathcal{H}(r, p)}$$
+	$$\int d^Npd^Np'T(r',p'|r, p)A(r', p'|r, p)f(r,p) = \int d^Npd^Np'T(r,p|r', p')A(r, p|r', p')f(r',p')$$
 
-		$$A(r',p'|r,p)f(r,p) = \frac{1}{Q_N(V, T)}\min\bigl[e^{-\beta\mathcal{H}(r, p)}, e^{-\beta\mathcal{H}(r', p')}\bigr]$$
-
-		Similarly:
-
-		$$A(r,p|r',p')f(r,'p') = \frac{1}{Q_N(V, T)}\min\bigl[e^{-\beta\mathcal{H}(r', p')}, e^{-\beta\mathcal{H}(r, p)}\bigr]$$
-
-		Therefore: $A(r', p'|r, p)f(r, p) = A(r, p|r', p')f(r',p')$
-
-		\subsubsection{Sympectic time-reversibility}
-		Symplectic time-reversible algorithm:
-
-		$$T(r', p'|r, p) = T(r, -p|r', -p')$$
-
-		$$\int d^Npd^Np'T(r',p'|r, p)A(r', p'|r, p)f(r,p) = \int d^Npd^Np'T(r, -p|r', -p')A(r, p|r', p')f(r', p')$$
-
-		Performing a change of variables: $p, p'\rightarrow -p, -p'$:
-
-		$$\int d^Npd^Np'T(r',p'|r, p)A(r', p'|r, p)f(r,p) = \int d^Npd^Np'T(r,p|r', p')A(r, p|r', p')f(r',p')$$
+	In this way the detailed balance condition is satisfied.

@@ -303,42 +303,43 @@
 \contentsline {subsubsection}{\numberline {17.1.2.1}An example}{150}{subsubsection.17.1.2.1}%
 \contentsline {subsection}{\numberline {17.1.3}Importance sampling}{151}{subsection.17.1.3}%
 \contentsline {subsubsection}{\numberline {17.1.3.1}An example}{152}{subsubsection.17.1.3.1}%
-\contentsline {section}{\numberline {17.2}Markov chains}{152}{section.17.2}%
+\contentsline {subsection}{\numberline {17.1.4}Molecular dynamics and Monte Carlo methods}{152}{subsection.17.1.4}%
+\contentsline {section}{\numberline {17.2}Markov chains}{153}{section.17.2}%
 \contentsline {subsection}{\numberline {17.2.1}Detailed balance condition}{153}{subsection.17.2.1}%
 \contentsline {subsection}{\numberline {17.2.2}Rejection methods}{153}{subsection.17.2.2}%
 \contentsline {subsection}{\numberline {17.2.3}Metropolis algorithm}{154}{subsection.17.2.3}%
-\contentsline {subsubsection}{\numberline {17.2.3.1}Summary}{154}{subsubsection.17.2.3.1}%
-\contentsline {subsection}{\numberline {17.2.4}Canonical distribution}{154}{subsection.17.2.4}%
-\contentsline {section}{\numberline {17.3}Molecular dynamics and Monte Carlo methods}{155}{section.17.3}%
-\contentsline {subsection}{\numberline {17.3.1}Isothermal-isobaric ensemble}{155}{subsection.17.3.1}%
-\contentsline {subsection}{\numberline {17.3.2}Gran canonical ensemble}{155}{subsection.17.3.2}%
-\contentsline {subsection}{\numberline {17.3.3}Hybrid Monte Carlo}{156}{subsection.17.3.3}%
-\contentsline {subsubsection}{\numberline {17.3.3.1}Detailed balance}{156}{subsubsection.17.3.3.1}%
-\contentsline {subsubsection}{\numberline {17.3.3.2}Sympectic time-reversibility}{156}{subsubsection.17.3.3.2}%
-\contentsline {chapter}{\numberline {18}Free energy calculations}{157}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Free energy perturbation theory}{157}{section.18.1}%
-\contentsline {subsection}{\numberline {18.1.1}Adiabatic switching}{158}{subsection.18.1.1}%
-\contentsline {subsection}{\numberline {18.1.2}Thermodynamics integration}{158}{subsection.18.1.2}%
-\contentsline {subsection}{\numberline {18.1.3}Adiabatic free energy dynamics}{159}{subsection.18.1.3}%
-\contentsline {section}{\numberline {18.2}Jarzynski's equality}{159}{section.18.2}%
-\contentsline {section}{\numberline {18.3}Replica exchange Monte Carlo}{161}{section.18.3}%
-\contentsline {subsection}{\numberline {18.3.1}Parallel tempering}{161}{subsection.18.3.1}%
-\contentsline {subsection}{\numberline {18.3.2}Wang-Landau sampling}{162}{subsection.18.3.2}%
-\contentsline {chapter}{\numberline {19}Rare events}{163}{chapter.19}%
-\contentsline {section}{\numberline {19.1}Introduction}{163}{section.19.1}%
-\contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{163}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}?????????}{163}{subsection.19.1.2}%
-\contentsline {section}{\numberline {19.2}Reaction coordinates}{164}{section.19.2}%
-\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{164}{subsection.19.2.1}%
-\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{165}{subsection.19.2.2}%
-\contentsline {subsection}{\numberline {19.2.3}WHAM}{165}{subsection.19.2.3}%
-\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{167}{subsection.19.2.4}%
-\contentsline {chapter}{\numberline {20}Advanced methods}{168}{chapter.20}%
-\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{168}{section.20.1}%
-\contentsline {subsection}{\numberline {20.1.1}TAMD}{169}{subsection.20.1.1}%
-\contentsline {section}{\numberline {20.2}Metadynamics}{169}{section.20.2}%
-\contentsline {section}{\numberline {20.3}Transition path ensemble}{170}{section.20.3}%
-\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{171}{subsection.20.3.1}%
-\contentsline {section}{\numberline {20.4}The committor distribution}{173}{section.20.4}%
-\contentsline {subsection}{\numberline {20.4.1}Histogram test}{173}{subsection.20.4.1}%
-\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{173}{subsection.20.4.2}%
+\contentsline {subsubsection}{\numberline {17.2.3.1}Proof}{154}{subsubsection.17.2.3.1}%
+\contentsline {subsubsection}{\numberline {17.2.3.2}Summary}{155}{subsubsection.17.2.3.2}%
+\contentsline {subsection}{\numberline {17.2.4}Canonical distribution}{155}{subsection.17.2.4}%
+\contentsline {section}{\numberline {17.3}Simulating ensembles}{156}{section.17.3}%
+\contentsline {subsection}{\numberline {17.3.1}Isothermal-isobaric ensemble}{156}{subsection.17.3.1}%
+\contentsline {subsection}{\numberline {17.3.2}Gran canonical ensemble}{156}{subsection.17.3.2}%
+\contentsline {section}{\numberline {17.4}Hybrid Monte Carlo}{157}{section.17.4}%
+\contentsline {subsection}{\numberline {17.4.1}Detailed balance}{157}{subsection.17.4.1}%
+\contentsline {chapter}{\numberline {18}Free energy calculations}{159}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Free energy perturbation theory}{159}{section.18.1}%
+\contentsline {subsection}{\numberline {18.1.1}Adiabatic switching}{160}{subsection.18.1.1}%
+\contentsline {subsection}{\numberline {18.1.2}Thermodynamics integration}{160}{subsection.18.1.2}%
+\contentsline {subsection}{\numberline {18.1.3}Adiabatic free energy dynamics}{161}{subsection.18.1.3}%
+\contentsline {section}{\numberline {18.2}Jarzynski's equality}{161}{section.18.2}%
+\contentsline {section}{\numberline {18.3}Replica exchange Monte Carlo}{163}{section.18.3}%
+\contentsline {subsection}{\numberline {18.3.1}Parallel tempering}{163}{subsection.18.3.1}%
+\contentsline {subsection}{\numberline {18.3.2}Wang-Landau sampling}{164}{subsection.18.3.2}%
+\contentsline {chapter}{\numberline {19}Rare events}{165}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Introduction}{165}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{165}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}?????????}{165}{subsection.19.1.2}%
+\contentsline {section}{\numberline {19.2}Reaction coordinates}{166}{section.19.2}%
+\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{166}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{167}{subsection.19.2.2}%
+\contentsline {subsection}{\numberline {19.2.3}WHAM}{167}{subsection.19.2.3}%
+\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{169}{subsection.19.2.4}%
+\contentsline {chapter}{\numberline {20}Advanced methods}{170}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{170}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}TAMD}{171}{subsection.20.1.1}%
+\contentsline {section}{\numberline {20.2}Metadynamics}{171}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Transition path ensemble}{172}{section.20.3}%
+\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{173}{subsection.20.3.1}%
+\contentsline {section}{\numberline {20.4}The committor distribution}{175}{section.20.4}%
+\contentsline {subsection}{\numberline {20.4.1}Histogram test}{175}{subsection.20.4.1}%
+\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{175}{subsection.20.4.2}%
