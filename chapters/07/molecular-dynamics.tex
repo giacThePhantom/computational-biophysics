@@ -55,7 +55,7 @@ An algorithm used to integrate the equations of motion is the Verlet algorithm.
 Starting from the Taylor expansion of the coordinates at time $t+\Delta t$ and then they can be written using Newton's law.
 
 \begin{align*}
-	\vec{r}_i(t+\Delta t)&\approx \vec{r}_i(t) + \Delta t\dot{\vec{r}}_i(t) + frac{1}{2}\Delta t^2\ddot{\vec{r}}_i(t)
+	\vec{r}_i(t+\Delta t)&\approx \vec{r}_i(t) + \Delta t\dot{\vec{r}}_i(t) + \frac{1}{2}\Delta t^2\ddot{\vec{r}}_i(t)
 											 &\approx\vec{r}_i(t+\Delta t)+\Delta t\vec{v}_i(t)+\frac{\Delta t^2}{2m_i}\vec{F}_i(t) \\
 \end{align*}
 
@@ -90,9 +90,9 @@ Some problem about it is that the velocity are the kinetic energy and is related
 
 	Now integrating backward in time considering the velocities:
 
-	$$\vec{r}_i(t) = \vec{r}_i*t+\Delta t) -\Delta t\vec{v}_i(t + \Delta t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t+\Delta t)$$
+	$$\vec{r}_i(t) = \vec{r}_i(t+\Delta t) -\Delta t\vec{v}_i(t + \Delta t) + \frac{\Delta t^2}{2m_i}\vec{F}_i(t+\Delta t)$$
 
-	By substituting $\vec{r}_i*t + \Delta t)$ with the first equation:
+	By substituting $\vec{r}_i(t + \Delta t)$ with the first equation:
 
 	$$\vec{v}_i(t+\Delta t) = \vec{v}_i(t) + \frac{\Delta t}{2m_i}[\vec{F}_i(t) + \vec{F}_i(t+\Delta t)]$$
 
@@ -118,7 +118,7 @@ Some problem about it is that the velocity are the kinetic energy and is related
 	In the microcanonical simulation the energy is fixed but the temperature is not, so most of the time the temperature will not be kept fixed and after some time it will reach a constant value, depending on the initial conditions.
 
 	\subsection{Action integral}
-	Because the molecules present bonds these will oscillates, but the characteristic time for their oscillation will be smaller of the $\Delta t$ of the time step of the algorithm.
+	Because the molecules present bonds these will oscillate, but the characteristic time for their oscillation will be smaller of the $\Delta t$ of the time step of the algorithm.
 	If the oscillation needs to be represented the time step should be smaller than their oscillation, so smaller than a femtosecond.
 	This time step should be larger so, the bonds can be treated as rigid bonds.
 	Constraints will be posed on the chemical bonds so that their length will be kept fixed.
@@ -183,8 +183,8 @@ Defining constraints:
 \begin{itemize}
 	\item Holonomic constraints: $\sigma_k(q_1, \dots, q_{3N}, t) = 0\qquad k = 1, \dots, N_C$.
 		This means that the equation corresponding to the constraint can be written as above.
-		There will be one equation for each constraint in the system, so that the contraint is an equation that depends on all coordinates and time.
-		So fixing a bond is a holonomic contraints.
+		There will be one equation for each constraint in the system, so that the constraint is an equation that depends on all coordinates and time.
+		So fixing a bond is a holonomic constraints.
 	\item Nonholonomic constraints: there is also a relation on the velocities $\zeta(q_1, \dots, q_{3N}, \dot{q}_1, \dots, \dot{q}_{3N}) = 0$.
 		Coordinates and velocities are not independent.
 \end{itemize}
@@ -224,8 +224,7 @@ This is a nonholonomic constraint.
 
 		$$\sum\limits_{\alpha=1}^{3N}a_{k\alpha}dq_\alpha=0$$
 
-		Will be considered.
-		So Holonomic constraints without an explicit time dependence.
+		Will be considered, in particular holonomic constraints without an explicit time dependence.
 
 	\subsection{Lagrange multipliers}
 	If the constraints can be written in an integrable form then the Euler-Lagrange equations can be written directly following a variational principle.
