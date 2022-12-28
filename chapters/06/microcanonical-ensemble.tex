@@ -1,7 +1,7 @@
 \chapter{Microcanonical ensemble}
 
 \section{Introduction}
-All the other algorithm used in molecular simulation are evolution of the microcanonical ensemble.
+All the other algorithm used in molecular simulation are evolutions of the microcanonical ensemble.
 The microcanonical ensemble is a collection of systems which share the same macroscopic parameters and corresponds to different microstates.
 When comparing with an experimental observable the average of these quantities has to be taken.
 The microcanonical is the starting point of statistical mechanics.
@@ -146,7 +146,7 @@ $$dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$$
 
 	$$\biggl\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\biggr\rangle = kT\delta_{ij}$$
 
-	So that the ensemble average of e quantity made in that way its average is $kT\delta_{ij}$.
+	So that the ensemble average of a quantity made in that way its average is $kT\delta_{ij}$.
 
 	\subsection{Application of Virial theorem}
 	This is useful because it allows to construct microscopic phase space functions whose ensemble averages yield macroscopic thermodynamics observables.
@@ -225,7 +225,7 @@ So in the thermodynamic limit entropy is additive.
 
 	$$S(N, V, E) = S_1(N_1, V_1, \bar{E}_1) + S_2(N_2, V_2, \bar{E}_2)$$
 
-	Taking the derivative with respect to $\bar{E}_1$ and $\bar{E_2}$L
+	Taking the derivative with respect to $\bar{E}_1$ and $\bar{E_2}$:
 
 	$$0 = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} + \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_1} = \frac{\partial S_1(N_1, V_1, \bar{E}_1)}{\partial\bar{E}_1} - \frac{\partial S_2(N_2, V_2, \bar{E}_2)}{\partial\bar{E}_2}$$
 
@@ -316,14 +316,11 @@ This result is greater then $0$, so mixing the two gases entropy will increase.
 	To solve the paradox correct Boltzmann counting is introduced, the $N!$ factor.
 	In fact inserting it the correct formula becomes:
 
-	$$S^{(ST)}(N, V, T) = Nk\ln\biggl[\frac{V}{Nh^3}(2\pi mkT)^{\frac{3}{2}}\biggr] + \frac{5Nk}{2}$$
+	$$S^{(ST)}(N, V, T) = Nk\ln\biggl[\frac{V}{Nh^3}(2\pi mkT)^{\frac{3}{2}}\biggr] + \frac{3Nk}{2}$$
 
 	Or the Sackur-Tetrode formula.
 	Using Stirling's approximation for the factorial.
-	Using this formula:
-
-
-	Now, in the following cases:
+	Using this formula in the following cases:
 
 	\begin{multicols}{2}
 		\begin{itemize}

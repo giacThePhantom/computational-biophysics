@@ -1,3 +1,4 @@
+\graphicspath{{chapters/03/images/}}
 \chapter{Semi-empirical force fields}
 
 \section{Introduction}
@@ -19,7 +20,7 @@ There will be transitions from one minimum to another exploring the potential en
 In principle the potential energy surface is known because it is assumed that there is a potential energy for all the interaction that there are in the system.
 This is not that simple because of temperature: at $0$ temperature the potential energy surface will tell everything: the system goes through the global minimum and stay there.
 At finite and high temperatures the system will jump with a certain frequency, which depends on temperature, from one state to another.
-In this case statistical mechanics is necessary not the potential energy surface is necessary but also the free energy surface and the entropy have to be taken into account.
+In this case statistical mechanics is necessary to compute the potential energy and the free energy surface and the entropy.
 The entropy part is the most difficult.
 In order to compute entropy the conformational space need to be explored: so the compatible conformation in certain condition need to be found.
 The phase space, the possibilities of a molecule need to be explored.
@@ -39,16 +40,24 @@ Different points can be recognized like:
 \end{multicols}
 
 	\subsection{Bond stretching}
-	In figure \ref{chem-bond} the typical potential energy for a chemical bond can be seen.
+	In figure \ref{fig:chem-bond} the typical potential energy for a chemical bond can be seen.
 	Let $r_{eq}$ the distance for which the energy is minimal, where the equilibrium is.
 	Moving from it the energy increases.
 	There are transitions between different states and in that case quantum physics should be used.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{chem-bond}
+		\caption{Typical potential energy of a chemical bond}
+		\label{fig:chem-bond}
+	\end{figure}
+
 	Everything will be assumed to be described using classical mechanics.
 	This is valid when dealing with conformational transitions.
-	SO all variables are continuous.
+	So all variables are continuous.
 	Using this assumption light absorption and a chemical reactions cannot be described.
-	The potential energy surface to describe an unbreakable bond can be seen in figure \ref{chem-bond}.
-	When close to the minimum the well can be assume symmetric, but some asymmetry later: the left part is steeper.
+	The potential energy surface used to describe an unbreakable bond can be seen in figure \ref{fig:chem-bond}.
+	When close to the minimum the well can be assumed symmetric, but with some asymmetry later: the left part is steeper.
 	An approximation for these potential energy is built into the force field.
 	The potential energy surface can be reconstructed using vibrational spectroscopy and then it is reconstructed using a mathematical model.
 	Using a Taylor expansion the potential energy is approximated at point $r$ by taking the value at the equilibrium and then constructing all the corrections.
@@ -57,7 +66,7 @@ Different points can be recognized like:
 	If the potential is symmetric the first derivative is $0$, as it happens near the equilibrium.
 	So the first correction can be neglected.
 	Also the third order term is either $0$ because the third derivative is $0$ if the minimum is really shallow.
-	This term is really small if $r$ is really close to the equilibrium so it can neglected.
+	This term is really small if $r$ is really close to the equilibrium so it can be neglected.
 
 	\begin{align*}
 		U(r)&=U(r_{eq}) + \frac{dU}{dr}|_{r=r_{eq}}(r-r_{eq})+\frac{1}{2!}\frac{d^2U}{dr^2}|_{r=r_{eq}}(r-r_{eq}^2)+\frac{1}{3!}\frac{d^3U}{dr^3}|_{r=r_{eq}}(r-r_{eq}^3)+\cdots\\
@@ -87,15 +96,23 @@ Different points can be recognized like:
 		\subsubsection{Morse potential}
 		The Morse potential is used in implicit solvent simulation and uses the exponential because it can describe screen interaction that happens with implicit solvent.
 		The exponential is quite expensive for a computer to compute.
-		It is useful also for soft-system or coarse grained system.
+		It is useful also for soft-systems or coarse grained systems.
 
 		$$U(r_{AB}) = D_{AB}[1-e^{-\alpha_{AB}(r_AB-r_{AB,eq})^2}]$$
 
 \section{Valence angle bending}
 Chemical bonds are not described only by strings and beads but also bending of the bonds can happen.
-These are valence angle bending.
+These are valence angle bending, like the one in figure \ref{fig:valence-angle-bending}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{valence-angle-bending}
+	\caption{A valence angle}
+	\label{fig:valence-angle-bending}
+\end{figure}
+
 These bonds cannot be broken during a classical molecular dynamic simulation.
-In order to describe them a Taylor expansion introducing and equilibrium angle is built.
+In order to describe them a Taylor expansion introducing an equilibrium angle is built.
 The first order term is not considered as it will be equal to $0$.
 Then the second introduces the harmonic and the third for the anharmonic one, in principle also the quartic correction could be added.
 This formula is similar to the previous one but all the constant have to be described between each triplet of atoms.
@@ -121,7 +138,14 @@ $$U(\theta_{ABC}) = \frac{1}{2}[k_{ABC}+k^{(3)}_{ABC}(\theta_{ABC}-\theta_{ABC,e
 	Dividing by $j^2$ makes the contribution smaller for higher $j$.
 
 \section{Torsions}
-In order to describe torsion $4$ atoms bonded by subsequent bonds are considered $A->B->C->D$.
+In order to describe torsion $4$ atoms bonded by subsequent bonds are considered $A->B->C->D$, like if figure \ref{fig:torsions}.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{torsions}
+	\caption{An example of torsion}
+	\label{fig:torsions}
+\end{figure}
+
 In this case two planes $ABC$ and $BCD$ are built and the angle $\omega$ between two plane is built.
 If they are on the same plane the angle is $0$.
 So an angle $\omega$ is computed to describe the torsion that is around the bond $B->C$.
@@ -134,7 +158,14 @@ All the possible groups with permutations and repetitions of $4$ atoms need to b
 $$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
 
 	\subsection{Improper torsions}
-	Improper torsions happen when the bonds are $A->B->C$ and $B->D$.
+	Improper torsions happen when the bonds are $A->B->C$ and $B->D$ like in figure \ref{fig:improper-torsions}.
+
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{improper-torsions}
+		\caption{An example of improper torsion}
+		\label{fig:improper-torsions}
+	\end{figure}
+
 	$B$ can be in the same plane of $A, C, D$ or it can pop out.
 	In this case two planes are built, usually $ABC$ and $BCD$ and the angle between them will be built.
 	The potential will describe the energy of the angle.
@@ -145,9 +176,10 @@ $$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1
 	$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
 
 \section{Van der Waals interactions}
-Van der Waals interactions happen whenever two atoms come close to one another withouth any chemical bond connecting them.
+Van der Waals interactions happen whenever two atoms come close to one another without any chemical bond connecting them.
 This interaction is called dispersion interaction and depends on the interaction between the electron clouds that become correlated.
 Even if electrons are not shared the fluctuation of the electron clouds of an atom will interact with the one of an atom close to it.
+Looking at the interaction energy in figure \ref{fig:van-der-waals}.
 This can be computed and described by an attraction that goes with the $6$th power of the distance.
 This interaction is the Van der Waals interaction.
 This attraction is an attractive force and will decrease with the $6$th power of the distance.
@@ -158,6 +190,13 @@ This is difficult to compute but it can be modelled assuming that is a repulsion
 The energy becomes very high when the distance becomes less than the equilibrium.
 If the attraction is modelled with the $6$th power this interaction can be modelled by the $12$th power.
 In this case if the distance is too small the energy becomes very high.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{van-der-waals}
+	\caption{Energy of a Van der Waals interaction}
+	\label{fig:van-der-waals}
+\end{figure}
 
 	\subsection{Lennard-Jones potential}
 	The discussion done above lead to the introduction of the Lennard-Jones potential.
@@ -200,7 +239,7 @@ In this case if the distance is too small the energy becomes very high.
 Electrostatic interactions, together with Van der Waals one are two kind of non-bonded interactions.
 Moreover interactions between molecules that might be charged or that can be polar.
 The distribution of charges need to be described.
-In principle a multiple expansion should be performer: the cloud of positive and negative charges should be described by using given shapes of the clouds.
+In principle a multiple expansion should be performed: the cloud of positive and negative charges should be described by using given shapes of the clouds.
 And each molecule should be described and all the molecules should be described by these multiple expansion and they should be multiplied as matrix.
 
 $$U_{AB} = \vec{M}^{(A)}V^{(B)}$$
@@ -223,7 +262,7 @@ This is a very costly procedure but accurate.
 	The dielectric constant is $1$ in the case of explicit solvent, but in the case of the implicit one it will be the one of the solvent.
 
 	\subsection{Dipolar interactions}
-	Bipolar interaction can be included when considering electrostatic forces.
+	Dipolar interaction can be included when considering electrostatic forces.
 	These formulae are mostly used in corse grained models.
 	Because in that case the approximation of single charges on a bead cannot be made and dipoles are considered.
 	In this case a functional form and the parameters need to be included.
@@ -231,6 +270,12 @@ This is a very costly procedure but accurate.
 	Then there is the dielectric constant, the cube of the distance and the cosine term represent the orientation of the two dipoles.
 
 	$$U_{AB/CD} = \frac{\mu_{AB}\mu_{CD}}{\epsilon_{AB/CD}r^3_{AB/CD}}(\cos\chi_{AB/CD}-3\cos\alpha_{AB}\cos\alpha_{CD})$$
+
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{dipolar-interactions}
+		\caption{An example of a dipolar interaction}
+		\label{fig:dipolar-interactions}
+	\end{figure}
 
 	\subsection{Dielectric constants}
 
@@ -280,7 +325,7 @@ This is the reason for the constant update of the force fields.
 A way to reduce the number of parameters is to employ a strategy so that a parameter to each atom is computed and then it is computed the interaction between two atoms:
 
 \begin{align*}
-	\sigma_{AB} &= \sigma_A+\sigma_B
+	\sigma_{AB} &= \sigma_A+\sigma_B\\
 	\epsilon_{AB} &= (\epsilon_A\epsilon_B)^{\frac{1}{2}}
 \end{align*}
 
@@ -324,7 +369,7 @@ So parametrizing the force field is very complicated.
 	Then this formula can plugged in according to the chain rule.
 
 		\subsubsection{Newton-Raphson}
-		To perform the minimization an iterative procedure, the Newton-Raphson to find a local minimum is employed.
+		To perform the minimization as an iterative procedure, the Newton-Raphson to find a local minimum is employed.
 		Here $(n)$ refers to the iteration.
 		This allow to obtain iteration $k+1$ starting from iteration $k$ and is a Taylor expansion of coordinates at iteration $k$:
 

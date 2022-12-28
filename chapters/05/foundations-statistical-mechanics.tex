@@ -18,7 +18,7 @@
 	This is not the case for molecular simulations, but the system is close to the thermodynamic limits but it is not a macroscopic system.
 	The system is not really a thermodynamic system.
 
-		\subsubsection{Isoloted}
+		\subsubsection{Isolated systems}
 		A system is defined as isolated whenever no energy or mass transfer can be seen across its boundary.
 		Considering the system's boundaries in molecular simulations periodic boundaries conditions are used and the reason that they are used is because boundaries effects have to be avoided.
 		The boundaries will be more important the smaller the system is.
@@ -54,7 +54,7 @@
 	$$PV-nRT=0$$
 
 	The equation of state deals with thermodynamics state, which are assumed to be at equilibrium.
-	SO the equation of state describes only equilibrium states.
+	So the equation of state describes only equilibrium states.
 
 	\subsection{Thermodynamic transformations}
 	A thermodynamic transformation is a change of thermodynamic state.
@@ -72,7 +72,7 @@
 	\subsection{State function}
 	A state function is defined as:
 
-	$$f(n, P, V, R)$$
+	$$f(n, P, V, T)$$
 
 	It does not depend on the pathway of a transformation.
 	And its change depends only on the initial and final states.
@@ -231,8 +231,7 @@ So during a simulation there are several copies of a system, then a simulation o
 
 	$$-\frac{d}{dt}\int_\Omega f(x_t, t)dx_t = -\int_\Omega dx_t\frac{\partial f(x,t)}{\partial t}$$
 
-	So the integral over a volume element $\Omega$ the fraction of ensemble members in the volume is being counted.
-	Minus the time derivative of that is the rate of decrease.
+	So the integral over a volume element $\Omega$, counting the fraction of ensemble members in the volume, minus the time derivative of that is the rate of decrease.
 	Assuming that $\Omega$ is not changing in time, $dx_t$ does not change because of Liouville's theorem.
 	The only thing that might change is the ensemble distribution function, and it changes only if the ensemble distribution function has an explicit time dependence.
 	The only way to change the number of the ensemble member is only if the ensemble distribution function has an explicit time dependence.

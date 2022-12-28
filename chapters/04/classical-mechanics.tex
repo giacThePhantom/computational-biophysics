@@ -21,16 +21,14 @@ The index $i$ in a simulation represent a particle, usually atoms.
 
 	The forces are computed starting from the interactions:
 
-	\begin{multicols}{2}
-		\begin{itemize}
-			\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
-			\item Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$.
-			\item Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$.
-			\item Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$.
-			\item Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$.
-				Where factor $332$ is necessary to compute in in $\frac{kcal}{mol}$.
-		\end{itemize}
-	\end{multicols}
+	\begin{itemize}
+		\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
+		\item Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$.
+		\item Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$.
+		\item Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$.
+		\item Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$.
+			Where factor $332$ is necessary to compute in in $\frac{kcal}{mol}$.
+	\end{itemize}
 
 	\subsection{Phase space}
 	When dealing with a system with $N$ atoms, each with $3$ dimensions their position and momenta need to be considered:
@@ -82,7 +80,7 @@ The index $i$ in a simulation represent a particle, usually atoms.
 		$$\frac{p^2(t)}{2m} +\frac{1}{2}m\omega^2x^2(t) = C$$
 
 		This equation represent an ellipse and is the conservation of energy.
-		The constant $C$ will have an effect on the length of the two axes on the ellipse, which will be: $(2mC)^{frac{1}{2}}$ and $(2\frac{C}{m}\omega^2)^{\frac{1}{2}}$.
+		The constant $C$ will have an effect on the length of the two axes on the ellipse, which will be: $(2mC)^{\frac{1}{2}}$ and $(2\frac{C}{m}\omega^2)^{\frac{1}{2}}$.
 
 		\subsubsection{Hill potential}
 		The Hill potential is important in chemistry.
@@ -166,7 +164,7 @@ It can be seen how the kinetic energy depends only on the velocity and the poten
 	\begin{align*}
 		\frac{dE}{dt}&= \sum\limits_im_i\dot{\vec{r}}_i\ddot{\vec{r}}_i + \sum\limits_i\frac{\partial U}{\partial \vec{r}_i}\dot{\vec{r}}_i=\\
 								 &=\sum\limits_i\dot{\vec{r}}_i\biggl[m_i\ddot{\vec{r}}_i+\frac{\partial U}{\partial\vec{r}_i}\biggr] = \\
-								 &=\sum\limits_i\dot{\vec{r}}_i[m_i\ddot{vec{r}}_i-\vec{F}_i] = 0
+								 &=\sum\limits_i\dot{\vec{r}}_i[m_i\ddot{\vec{r}}_i-\vec{F}_i] = 0
 	\end{align*}
 
 	So that the energy is conserved in time.
@@ -192,15 +190,15 @@ It can be seen how the kinetic energy depends only on the velocity and the poten
 
 	Writing the kinetic energy as a function of the generalized coordinates the velocity has to be included twice.
 
-	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}\biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]\dot{q}_\alpha\dot{q}_\beta$$
+	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits_{\beta=1}^{3N}\biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]\dot{q}_\alpha\dot{q}_\beta$$
 
 	And introducing the metric mass tensor $G_{\alpha\beta} = \biggl[\sum\limits_{i=1}^Nm_i\frac{\partial\vec{r}_i}{\partial q_\alpha}\frac{\partial\vec{r}_i}{\partial q_\beta}\biggr]$:
 
-	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta$$
+	$$\tilde{K}(q, \dot{q}) = \frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits_{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta$$
 
 	Then the Lagrangian in generalized coordinates becomes:
 
-	$$\mathcal{L}(q, \dot{q}) =\frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta - U(q_1, \dots, q_{3N})$$
+	$$\mathcal{L}(q, \dot{q}) =\frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits_{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta - U(q_1, \dots, q_{3N})$$
 
 	And the Euler-Lagrange equations:
 
