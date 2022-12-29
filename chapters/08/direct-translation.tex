@@ -10,7 +10,7 @@ And its derivative is:
 
 $$\frac{da}{dt} = \frac{\partial a}{\partial x_t}\dot{x}_t = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\dot{q}_a + \frac{\partial a}{\partial p_a}\dot{p}_a\biggr] = \sum\limits_a\biggl[\frac{\partial a}{\partial q_a}\frac{\partial\mathcal{H}}{\partial p_a} - \frac{\partial a}{\partial p_a}\frac{\partial\mathcal{H}}{\partial q_a}\biggr] = \{a, \mathcal{H}\}$$
 
-The iouville operator is defined as:
+The Liouville operator is defined as:
 
 $$iLa = \{a, \mathcal{H}\}\Rightarrow\frac{da}{dt} = iLa$$
 
@@ -54,7 +54,7 @@ It is called a classical propagator because it propagates $a$ from time $0$ to $
 
 	So that the two operators are:
 
-	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial}{\partial x} = \frac{p}{m}\frac{\partial}{\partial x}\qquad iL_2 = -\frac{\partial\mathcal{H}}{\partial x}\frac{\partial}{\partial p} = -\frac{\partial U}{\partial x}\frac{\partial}{\partial p} = F(x)\frac{\partial}{\partial p}$$
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}\frac{\partial}{\partial x} = \frac{p}{m}\frac{\partial}{\partial x}\qquad iL_2 = -\frac{\partial\mathcal{H}}{\partial x}\frac{\partial}{\partial p} = -\frac{\partial U}{\partial x}\frac{\partial}{\partial p} = F(x)\frac{\partial}{\partial p}$$
 
 	Applying the two operators in sequence to a function $\phi(x, p)$.
 	Here the operator $iL_2$ is applied first:
@@ -74,7 +74,7 @@ Since the two operators do not commute this equality is false:
 
 $$iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)\Rightarrow e^{iLt}\neq e^{iL_1t}e^{iL_2t}$$
 
-This is important because although the classical propagator cannot be written, in many situation the propagator corresponding to $iL_1$ and $iL_2$, so that the classical propagator could be obtained.
+This is important because although the classical propagator cannot be written, in many situation the propagator corresponding to $iL_1$ and $iL_2$ can be derived, so that the classical propagator could be obtained.
 However, according to the Trotter theorem:
 
 $$e^{A+B} = \lim\limits_{P\rightarrow\infty}[e^{\frac{B}{2P}}e^{\frac{A}{P}}e^{\frac{B}{2P}}]^P$$
@@ -109,7 +109,7 @@ $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2
 	\subsection{One-dimensional example}
 	In one-dimensional example everything can be written as:
 
-	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}{\partial }{\partial x} = \frac{p}{m}\frac{\partial }{\partial x}\qquad iL_2 = F(X)\frac{\partial}{\partial p}$$
+	$$iL_1 = \frac{\partial\mathcal{H}}{\partial p}\frac{\partial }{\partial x} = \frac{p}{m}\frac{\partial }{\partial x}\qquad iL_2 = F(X)\frac{\partial}{\partial p}$$
 
 	So the Trotter algorithm can be written as:
 
@@ -141,7 +141,7 @@ $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2
 	Now doing the same for all the other operators:
 
 	\begin{align*}
-		\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} &= e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial }{\partial x(0)}}\begin{pmatrix} x(0)\\p(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix} =\\
+		\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} &= e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial }{\partial x(0)}}\begin{pmatrix} x(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix} =\\
 																													 & = e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0) + \Delta t\frac{p(0)}{m}\\p(0) + \frac{\Delta t}{2}F(x(0) + \Delta t\frac{p(0)}{m})\end{pmatrix} =\\
 																													 &= \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}
 	\end{align*}
@@ -226,7 +226,7 @@ This is an important result telling that the Velocity Verlet is the best algorit
 
 	$$\mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)\qquad \dot{x} = \frac{p}{m}\qquad \dot{p} = F_{fast}(x) + F_{slow}(x)$$
 
-	In this case the Liouville;s operator will be:
+	In this case the Liouville's operator will be:
 
 	$$iL = \frac{p}{m}\frac{\partial }{\partial x} + [F_{fast}(x) + F_{slow}(x)]\frac{\partial}{\partial p}$$
 
