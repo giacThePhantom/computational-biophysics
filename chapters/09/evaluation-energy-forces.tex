@@ -31,7 +31,7 @@ The strategy is to divide en impera the long and short ranged contributions: the
 
 	$$erf(x) = \frac{2}{\sqrt{\pi}}\int_o^x dte^{-t^2}$$
 
-	This is the integral of a Gaussian has some properties:
+	This is the integral of a Gaussian and it has some properties:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -57,9 +57,9 @@ The strategy is to divide en impera the long and short ranged contributions: the
 	Looking at the error function it is a representation of a long range function, while the complement is a short range function.
 	An interaction that goes with the reciprocal of the distance can be represented as the sum of the complementary and normal error function, respectively for long and short range contribution.
 
-	$$\frac{1}{r} = \overbrace{\frac{erfc{\alpha r}}{r}}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}$$
+	$$\frac{1}{r} = \overbrace{\frac{erfc)\alpha r)}{r}}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}$$
 
-	So the complement take care of the short range contribution of the electrostatic interaction and the normal of the short range part.
+	So the complement take care of the short range contribution of the electrostatic interaction and the normal of the long range part.
 
 	\subsection{Divide et impera}
 	The non-bonded interaction is divided into a short and long range contribution.
@@ -112,7 +112,15 @@ Doing something like this, the derivative of the potential is not continuous, so
 
 	$$\tilde{U}_{short}(r_{ij}) = U_{short}(r_{ij})S(r_{ij})\qquad S(r) = \begin{cases} 1 & r<r_C-\lambda\\ 1 + \biggl(\frac{r-r_C+\lambda}{\lambda}\biggr)^2\biggl(2\frac{r-r_C + \lambda}{\lambda} - 3\biggr) & r_c -\lambda < r\le r_C\\0 & r> r_C\end{cases}$$
 
-	Where $S$ is the switching function, where $\lambda$ is the switching distance.
+	Where:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $S$ is the switching function.
+			\item $\lambda$ is the switching distance.
+		\end{itemize}
+	\end{multicols}
+
 	So there are many interactions for which after a given distance is equal to zero.
 	So the interactions can be computed only with a list of neighbours, reducing the amount of calculations.
 	Applying the switching function modifies the short range interaction and this modification could change the dynamics of the system, but it will affect the total energy and the pressure, so they must be corrected.
@@ -202,7 +210,7 @@ The structure factor $S(\vec{g})$ leads to an interaction between all charged pa
 	\subsection{Smooth particle mesh Ewald}
 	The smooth particle mesh Ewald SPME method uses splines to interpolate charge distributions on a grid.
 	Major algorithms use variations of the Ewald sum, representing the continuous functions on a grid.
-	A grid is placed on the simulation box and many functions can be regarded as continuous and can be represented as smooth function instead as point like functions, then splines are interpolated between the grid.
+	A grid is placed on the simulation box and many functions can be regarded as continuous and can be represented as smooth function instead of point like functions, then splines are interpolated between the grid.
 	So only the charge density is kept track of for each point on the grid and the splines are used to interpolate with any other point in the system.
 	The representation of a charge grid is more accurate if the dimension of the grid is the dimension of the atom.
 	Using too many grid point makes the mesh too crowded.
