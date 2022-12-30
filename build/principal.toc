@@ -227,121 +227,121 @@
 \contentsline {subsection}{\numberline {13.1.3}Legendre transform of A}{114}{subsection.13.1.3}%
 \contentsline {section}{\numberline {13.2}Grand canonical ensemble}{115}{section.13.2}%
 \contentsline {subsection}{\numberline {13.2.1}Grand partition function}{117}{subsection.13.2.1}%
-\contentsline {section}{\numberline {13.3}Ideal gas}{118}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Particle number fluctuations}{118}{section.13.4}%
-\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{121}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Introduction}{121}{section.14.1}%
-\contentsline {subsection}{\numberline {14.1.1}Key definitions}{121}{subsection.14.1.1}%
-\contentsline {subsubsection}{\numberline {14.1.1.1}Expectation value}{121}{subsubsection.14.1.1.1}%
-\contentsline {subsubsection}{\numberline {14.1.1.2}Estimate of expectation value}{121}{subsubsection.14.1.1.2}%
-\contentsline {subsubsection}{\numberline {14.1.1.3}Variance}{121}{subsubsection.14.1.1.3}%
-\contentsline {subsubsection}{\numberline {14.1.1.4}Standard deviation}{122}{subsubsection.14.1.1.4}%
-\contentsline {subsubsection}{\numberline {14.1.1.5}Linear correlation}{122}{subsubsection.14.1.1.5}%
-\contentsline {subsubsection}{\numberline {14.1.1.6}Experimental standard deviation}{122}{subsubsection.14.1.1.6}%
-\contentsline {subsubsection}{\numberline {14.1.1.7}Correlation time}{122}{subsubsection.14.1.1.7}%
-\contentsline {subsubsection}{\numberline {14.1.1.8}Two sided confidence interval}{122}{subsubsection.14.1.1.8}%
-\contentsline {subsection}{\numberline {14.1.2}Time scales}{123}{subsection.14.1.2}%
-\contentsline {section}{\numberline {14.2}Equilibration}{123}{section.14.2}%
-\contentsline {subsection}{\numberline {14.2.1}Qualitative behaviour}{125}{subsection.14.2.1}%
-\contentsline {subsection}{\numberline {14.2.2}Independent simulations}{125}{subsection.14.2.2}%
-\contentsline {subsubsection}{\numberline {14.2.2.1}Autocorrelation analysis}{125}{subsubsection.14.2.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.2.2}Combined clustering}{126}{subsubsection.14.2.2.2}%
-\contentsline {subsection}{\numberline {14.2.3}Equilibration and production}{126}{subsection.14.2.3}%
-\contentsline {subsection}{\numberline {14.2.4}Equilibration workflows}{127}{subsection.14.2.4}%
-\contentsline {subsubsection}{\numberline {14.2.4.1}First workflow}{128}{subsubsection.14.2.4.1}%
-\contentsline {subsubsection}{\numberline {14.2.4.2}Second workflow}{128}{subsubsection.14.2.4.2}%
-\contentsline {subsubsection}{\numberline {14.2.4.3}Third workflow}{128}{subsubsection.14.2.4.3}%
-\contentsline {subsubsection}{\numberline {14.2.4.4}Forth workflow}{128}{subsubsection.14.2.4.4}%
-\contentsline {section}{\numberline {14.3}Autocorrelation}{128}{section.14.3}%
-\contentsline {subsection}{\numberline {14.3.1}Autocorrelation function}{128}{subsection.14.3.1}%
-\contentsline {subsection}{\numberline {14.3.2}Autocorrelation time}{129}{subsection.14.3.2}%
-\contentsline {section}{\numberline {14.4}Block averaging analysis}{130}{section.14.4}%
-\contentsline {chapter}{\numberline {15}Protein motions}{132}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Elastic network models (ENM)}{132}{section.15.1}%
-\contentsline {subsection}{\numberline {15.1.1}Gaussian network model (GNM)}{133}{subsection.15.1.1}%
-\contentsline {subsubsection}{\numberline {15.1.1.1}Correlated motions}{134}{subsubsection.15.1.1.1}%
-\contentsline {subsubsection}{\numberline {15.1.1.2}Gaussian network model and B-factors}{134}{subsubsection.15.1.1.2}%
-\contentsline {subsubsection}{\numberline {15.1.1.3}Biological relevance}{135}{subsubsection.15.1.1.3}%
-\contentsline {subsubsection}{\numberline {15.1.1.4}Normal mode analysis}{136}{subsubsection.15.1.1.4}%
-\contentsline {subsection}{\numberline {15.1.2}Anisotropic network model (ANM)}{137}{subsection.15.1.2}%
-\contentsline {subsubsection}{\numberline {15.1.2.1}Correlated motions}{137}{subsubsection.15.1.2.1}%
-\contentsline {section}{\numberline {15.2}Essential dynamics}{139}{section.15.2}%
-\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{144}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Introduction}{144}{section.16.1}%
-\contentsline {subsection}{\numberline {16.1.1}Distance measures}{144}{subsection.16.1.1}%
-\contentsline {subsection}{\numberline {16.1.2}Types of clustering}{145}{subsection.16.1.2}%
-\contentsline {subsection}{\numberline {16.1.3}Distance measures}{145}{subsection.16.1.3}%
-\contentsline {section}{\numberline {16.2}Hierarchical clustering}{145}{section.16.2}%
-\contentsline {subsection}{\numberline {16.2.1}Dendrograms}{145}{subsection.16.2.1}%
-\contentsline {subsection}{\numberline {16.2.2}Interpretation}{145}{subsection.16.2.2}%
-\contentsline {subsection}{\numberline {16.2.3}Advantages of hierarchical clustering}{146}{subsection.16.2.3}%
-\contentsline {subsubsection}{\numberline {16.2.3.1}Correct number of clusters}{146}{subsubsection.16.2.3.1}%
-\contentsline {subsubsection}{\numberline {16.2.3.2}Outliers}{146}{subsubsection.16.2.3.2}%
-\contentsline {subsection}{\numberline {16.2.4}Hierarchical clustering approach}{147}{subsection.16.2.4}%
-\contentsline {subsection}{\numberline {16.2.5}Summary of hierarchical methods}{147}{subsection.16.2.5}%
-\contentsline {section}{\numberline {16.3}Partitional clustering}{148}{section.16.3}%
-\contentsline {subsection}{\numberline {16.3.1}K-means}{148}{subsection.16.3.1}%
-\contentsline {subsubsection}{\numberline {16.3.1.1}Conclusion}{148}{subsubsection.16.3.1.1}%
-\contentsline {subsection}{\numberline {16.3.2}Sum of squared errors}{148}{subsection.16.3.2}%
-\contentsline {subsection}{\numberline {16.3.3}Choosing K}{148}{subsection.16.3.3}%
-\contentsline {section}{\numberline {16.4}Protein structure networks}{149}{section.16.4}%
-\contentsline {subsection}{\numberline {16.4.1}PyInteraph}{150}{subsection.16.4.1}%
-\contentsline {subsection}{\numberline {16.4.2}Classes of interactions}{150}{subsection.16.4.2}%
-\contentsline {subsubsection}{\numberline {16.4.2.1}Hydrophobic contacts}{150}{subsubsection.16.4.2.1}%
-\contentsline {subsubsection}{\numberline {16.4.2.2}Salt bridges}{150}{subsubsection.16.4.2.2}%
-\contentsline {subsubsection}{\numberline {16.4.2.3}Hydrogen bonds}{150}{subsubsection.16.4.2.3}%
-\contentsline {subsection}{\numberline {16.4.3}Persistence}{150}{subsection.16.4.3}%
-\contentsline {subsection}{\numberline {16.4.4}Persistence threshold}{151}{subsection.16.4.4}%
-\contentsline {subsection}{\numberline {16.4.5}Graph analysis}{151}{subsection.16.4.5}%
-\contentsline {subsection}{\numberline {16.4.6}Examples}{151}{subsection.16.4.6}%
-\contentsline {subsubsection}{\numberline {16.4.6.1}p53 DNA binding domain}{151}{subsubsection.16.4.6.1}%
-\contentsline {subsubsection}{\numberline {16.4.6.2}Vibrio proteinase (VAP)}{152}{subsubsection.16.4.6.2}%
-\contentsline {chapter}{\numberline {17}Monte Carlo methods}{154}{chapter.17}%
-\contentsline {section}{\numberline {17.1}Introduction}{154}{section.17.1}%
-\contentsline {subsection}{\numberline {17.1.1}Central limit theorem}{154}{subsection.17.1.1}%
-\contentsline {subsection}{\numberline {17.1.2}Sampling distributions}{155}{subsection.17.1.2}%
-\contentsline {subsubsection}{\numberline {17.1.2.1}An example}{155}{subsubsection.17.1.2.1}%
-\contentsline {subsection}{\numberline {17.1.3}Importance sampling}{156}{subsection.17.1.3}%
-\contentsline {subsubsection}{\numberline {17.1.3.1}An example}{157}{subsubsection.17.1.3.1}%
-\contentsline {subsection}{\numberline {17.1.4}Molecular dynamics and Monte Carlo methods}{157}{subsection.17.1.4}%
-\contentsline {section}{\numberline {17.2}Markov chains}{158}{section.17.2}%
-\contentsline {subsection}{\numberline {17.2.1}Detailed balance condition}{158}{subsection.17.2.1}%
-\contentsline {subsection}{\numberline {17.2.2}Rejection methods}{158}{subsection.17.2.2}%
-\contentsline {subsection}{\numberline {17.2.3}Metropolis algorithm}{159}{subsection.17.2.3}%
-\contentsline {subsubsection}{\numberline {17.2.3.1}Proof}{159}{subsubsection.17.2.3.1}%
-\contentsline {subsubsection}{\numberline {17.2.3.2}Summary}{160}{subsubsection.17.2.3.2}%
-\contentsline {subsection}{\numberline {17.2.4}Canonical distribution}{160}{subsection.17.2.4}%
-\contentsline {section}{\numberline {17.3}Simulating ensembles}{161}{section.17.3}%
-\contentsline {subsection}{\numberline {17.3.1}Isothermal-isobaric ensemble}{161}{subsection.17.3.1}%
-\contentsline {subsection}{\numberline {17.3.2}Gran canonical ensemble}{161}{subsection.17.3.2}%
-\contentsline {section}{\numberline {17.4}Hybrid Monte Carlo}{162}{section.17.4}%
-\contentsline {subsection}{\numberline {17.4.1}Detailed balance}{162}{subsection.17.4.1}%
-\contentsline {chapter}{\numberline {18}Free energy calculations}{164}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Free energy perturbation theory}{164}{section.18.1}%
-\contentsline {subsection}{\numberline {18.1.1}Adiabatic switching}{165}{subsection.18.1.1}%
-\contentsline {subsection}{\numberline {18.1.2}Thermodynamics integration}{166}{subsection.18.1.2}%
-\contentsline {subsection}{\numberline {18.1.3}Adiabatic Free Energy Dynamics}{167}{subsection.18.1.3}%
-\contentsline {section}{\numberline {18.2}Jarzynski's equality}{169}{section.18.2}%
-\contentsline {subsection}{\numberline {18.2.1}Jarzynski's equality Proof}{169}{subsection.18.2.1}%
-\contentsline {subsection}{\numberline {18.2.2}Application of Jarzynski's Equation}{171}{subsection.18.2.2}%
-\contentsline {section}{\numberline {18.3}Replica exchange Monte Carlo}{172}{section.18.3}%
-\contentsline {subsection}{\numberline {18.3.1}Parallel tempering}{173}{subsection.18.3.1}%
-\contentsline {subsection}{\numberline {18.3.2}Wang-Landau sampling}{175}{subsection.18.3.2}%
-\contentsline {chapter}{\numberline {19}Rare events}{176}{chapter.19}%
-\contentsline {section}{\numberline {19.1}Introduction}{176}{section.19.1}%
-\contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{176}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}Variables in rare events}{177}{subsection.19.1.2}%
-\contentsline {section}{\numberline {19.2}Reaction coordinates}{177}{section.19.2}%
-\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{178}{subsection.19.2.1}%
-\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{179}{subsection.19.2.2}%
-\contentsline {subsection}{\numberline {19.2.3}WHAM}{179}{subsection.19.2.3}%
-\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{181}{subsection.19.2.4}%
-\contentsline {chapter}{\numberline {20}Advanced methods}{183}{chapter.20}%
-\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{183}{section.20.1}%
-\contentsline {subsection}{\numberline {20.1.1}TAMD}{184}{subsection.20.1.1}%
-\contentsline {section}{\numberline {20.2}Metadynamics}{185}{section.20.2}%
-\contentsline {section}{\numberline {20.3}Transition path ensemble}{186}{section.20.3}%
-\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{187}{subsection.20.3.1}%
-\contentsline {section}{\numberline {20.4}The committor distribution}{189}{section.20.4}%
-\contentsline {subsection}{\numberline {20.4.1}Histogram test}{190}{subsection.20.4.1}%
-\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{190}{subsection.20.4.2}%
+\contentsline {subsection}{\numberline {13.2.2}Ideal gas}{118}{subsection.13.2.2}%
+\contentsline {section}{\numberline {13.3}Particle number fluctuations}{118}{section.13.3}%
+\contentsline {chapter}{\numberline {14}Quantifying uncertainties and sampling quality}{120}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Introduction}{120}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}Key definitions}{120}{subsection.14.1.1}%
+\contentsline {subsubsection}{\numberline {14.1.1.1}Expectation value}{120}{subsubsection.14.1.1.1}%
+\contentsline {subsubsection}{\numberline {14.1.1.2}Estimate of expectation value}{120}{subsubsection.14.1.1.2}%
+\contentsline {subsubsection}{\numberline {14.1.1.3}Variance}{120}{subsubsection.14.1.1.3}%
+\contentsline {subsubsection}{\numberline {14.1.1.4}Standard deviation}{121}{subsubsection.14.1.1.4}%
+\contentsline {subsubsection}{\numberline {14.1.1.5}Linear correlation}{121}{subsubsection.14.1.1.5}%
+\contentsline {subsubsection}{\numberline {14.1.1.6}Experimental standard deviation}{121}{subsubsection.14.1.1.6}%
+\contentsline {subsubsection}{\numberline {14.1.1.7}Correlation time}{121}{subsubsection.14.1.1.7}%
+\contentsline {subsubsection}{\numberline {14.1.1.8}Two sided confidence interval}{121}{subsubsection.14.1.1.8}%
+\contentsline {subsection}{\numberline {14.1.2}Time scales}{122}{subsection.14.1.2}%
+\contentsline {section}{\numberline {14.2}Equilibration}{122}{section.14.2}%
+\contentsline {subsection}{\numberline {14.2.1}Qualitative behaviour}{124}{subsection.14.2.1}%
+\contentsline {subsection}{\numberline {14.2.2}Independent simulations}{124}{subsection.14.2.2}%
+\contentsline {subsubsection}{\numberline {14.2.2.1}Autocorrelation analysis}{124}{subsubsection.14.2.2.1}%
+\contentsline {subsubsection}{\numberline {14.2.2.2}Combined clustering}{125}{subsubsection.14.2.2.2}%
+\contentsline {subsection}{\numberline {14.2.3}Equilibration and production}{125}{subsection.14.2.3}%
+\contentsline {subsection}{\numberline {14.2.4}Equilibration workflows}{126}{subsection.14.2.4}%
+\contentsline {subsubsection}{\numberline {14.2.4.1}First workflow}{127}{subsubsection.14.2.4.1}%
+\contentsline {subsubsection}{\numberline {14.2.4.2}Second workflow}{127}{subsubsection.14.2.4.2}%
+\contentsline {subsubsection}{\numberline {14.2.4.3}Third workflow}{127}{subsubsection.14.2.4.3}%
+\contentsline {subsubsection}{\numberline {14.2.4.4}Forth workflow}{127}{subsubsection.14.2.4.4}%
+\contentsline {section}{\numberline {14.3}Autocorrelation}{127}{section.14.3}%
+\contentsline {subsection}{\numberline {14.3.1}Autocorrelation function}{127}{subsection.14.3.1}%
+\contentsline {subsection}{\numberline {14.3.2}Autocorrelation time}{128}{subsection.14.3.2}%
+\contentsline {section}{\numberline {14.4}Block averaging analysis}{129}{section.14.4}%
+\contentsline {chapter}{\numberline {15}Protein motions}{131}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Elastic network models (ENM)}{131}{section.15.1}%
+\contentsline {subsection}{\numberline {15.1.1}Gaussian network model (GNM)}{132}{subsection.15.1.1}%
+\contentsline {subsubsection}{\numberline {15.1.1.1}Correlated motions}{133}{subsubsection.15.1.1.1}%
+\contentsline {subsubsection}{\numberline {15.1.1.2}Gaussian network model and B-factors}{133}{subsubsection.15.1.1.2}%
+\contentsline {subsubsection}{\numberline {15.1.1.3}Biological relevance}{134}{subsubsection.15.1.1.3}%
+\contentsline {subsubsection}{\numberline {15.1.1.4}Normal mode analysis}{135}{subsubsection.15.1.1.4}%
+\contentsline {subsection}{\numberline {15.1.2}Anisotropic network model (ANM)}{136}{subsection.15.1.2}%
+\contentsline {subsubsection}{\numberline {15.1.2.1}Correlated motions}{136}{subsubsection.15.1.2.1}%
+\contentsline {section}{\numberline {15.2}Essential dynamics}{138}{section.15.2}%
+\contentsline {chapter}{\numberline {16}Clustering and protein structure networks}{143}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Introduction}{143}{section.16.1}%
+\contentsline {subsection}{\numberline {16.1.1}Distance measures}{143}{subsection.16.1.1}%
+\contentsline {subsection}{\numberline {16.1.2}Types of clustering}{144}{subsection.16.1.2}%
+\contentsline {subsection}{\numberline {16.1.3}Distance measures}{144}{subsection.16.1.3}%
+\contentsline {section}{\numberline {16.2}Hierarchical clustering}{144}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}Dendrograms}{144}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}Interpretation}{144}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}Advantages of hierarchical clustering}{145}{subsection.16.2.3}%
+\contentsline {subsubsection}{\numberline {16.2.3.1}Correct number of clusters}{145}{subsubsection.16.2.3.1}%
+\contentsline {subsubsection}{\numberline {16.2.3.2}Outliers}{145}{subsubsection.16.2.3.2}%
+\contentsline {subsection}{\numberline {16.2.4}Hierarchical clustering approach}{146}{subsection.16.2.4}%
+\contentsline {subsection}{\numberline {16.2.5}Summary of hierarchical methods}{146}{subsection.16.2.5}%
+\contentsline {section}{\numberline {16.3}Partitional clustering}{147}{section.16.3}%
+\contentsline {subsection}{\numberline {16.3.1}K-means}{147}{subsection.16.3.1}%
+\contentsline {subsubsection}{\numberline {16.3.1.1}Conclusion}{147}{subsubsection.16.3.1.1}%
+\contentsline {subsection}{\numberline {16.3.2}Sum of squared errors}{147}{subsection.16.3.2}%
+\contentsline {subsection}{\numberline {16.3.3}Choosing K}{147}{subsection.16.3.3}%
+\contentsline {section}{\numberline {16.4}Protein structure networks}{148}{section.16.4}%
+\contentsline {subsection}{\numberline {16.4.1}PyInteraph}{149}{subsection.16.4.1}%
+\contentsline {subsection}{\numberline {16.4.2}Classes of interactions}{149}{subsection.16.4.2}%
+\contentsline {subsubsection}{\numberline {16.4.2.1}Hydrophobic contacts}{149}{subsubsection.16.4.2.1}%
+\contentsline {subsubsection}{\numberline {16.4.2.2}Salt bridges}{149}{subsubsection.16.4.2.2}%
+\contentsline {subsubsection}{\numberline {16.4.2.3}Hydrogen bonds}{149}{subsubsection.16.4.2.3}%
+\contentsline {subsection}{\numberline {16.4.3}Persistence}{149}{subsection.16.4.3}%
+\contentsline {subsection}{\numberline {16.4.4}Persistence threshold}{150}{subsection.16.4.4}%
+\contentsline {subsection}{\numberline {16.4.5}Graph analysis}{150}{subsection.16.4.5}%
+\contentsline {subsection}{\numberline {16.4.6}Examples}{150}{subsection.16.4.6}%
+\contentsline {subsubsection}{\numberline {16.4.6.1}p53 DNA binding domain}{150}{subsubsection.16.4.6.1}%
+\contentsline {subsubsection}{\numberline {16.4.6.2}Vibrio proteinase (VAP)}{151}{subsubsection.16.4.6.2}%
+\contentsline {chapter}{\numberline {17}Monte Carlo methods}{153}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Introduction}{153}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}Central limit theorem}{153}{subsection.17.1.1}%
+\contentsline {subsection}{\numberline {17.1.2}Sampling distributions}{154}{subsection.17.1.2}%
+\contentsline {subsubsection}{\numberline {17.1.2.1}An example}{154}{subsubsection.17.1.2.1}%
+\contentsline {subsection}{\numberline {17.1.3}Importance sampling}{155}{subsection.17.1.3}%
+\contentsline {subsubsection}{\numberline {17.1.3.1}An example}{156}{subsubsection.17.1.3.1}%
+\contentsline {subsection}{\numberline {17.1.4}Molecular dynamics and Monte Carlo methods}{156}{subsection.17.1.4}%
+\contentsline {section}{\numberline {17.2}Markov chains}{157}{section.17.2}%
+\contentsline {subsection}{\numberline {17.2.1}Detailed balance condition}{157}{subsection.17.2.1}%
+\contentsline {subsection}{\numberline {17.2.2}Rejection methods}{157}{subsection.17.2.2}%
+\contentsline {subsection}{\numberline {17.2.3}Metropolis algorithm}{158}{subsection.17.2.3}%
+\contentsline {subsubsection}{\numberline {17.2.3.1}Proof}{158}{subsubsection.17.2.3.1}%
+\contentsline {subsubsection}{\numberline {17.2.3.2}Summary}{159}{subsubsection.17.2.3.2}%
+\contentsline {subsection}{\numberline {17.2.4}Canonical distribution}{159}{subsection.17.2.4}%
+\contentsline {section}{\numberline {17.3}Simulating ensembles}{160}{section.17.3}%
+\contentsline {subsection}{\numberline {17.3.1}Isothermal-isobaric ensemble}{160}{subsection.17.3.1}%
+\contentsline {subsection}{\numberline {17.3.2}Gran canonical ensemble}{160}{subsection.17.3.2}%
+\contentsline {section}{\numberline {17.4}Hybrid Monte Carlo}{161}{section.17.4}%
+\contentsline {subsection}{\numberline {17.4.1}Detailed balance}{161}{subsection.17.4.1}%
+\contentsline {chapter}{\numberline {18}Free energy calculations}{163}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Free energy perturbation theory}{163}{section.18.1}%
+\contentsline {subsection}{\numberline {18.1.1}Adiabatic switching}{164}{subsection.18.1.1}%
+\contentsline {subsection}{\numberline {18.1.2}Thermodynamics integration}{165}{subsection.18.1.2}%
+\contentsline {subsection}{\numberline {18.1.3}Adiabatic Free Energy Dynamics}{166}{subsection.18.1.3}%
+\contentsline {section}{\numberline {18.2}Jarzynski's equality}{168}{section.18.2}%
+\contentsline {subsection}{\numberline {18.2.1}Jarzynski's equality Proof}{168}{subsection.18.2.1}%
+\contentsline {subsection}{\numberline {18.2.2}Application of Jarzynski's Equation}{170}{subsection.18.2.2}%
+\contentsline {section}{\numberline {18.3}Replica exchange Monte Carlo}{171}{section.18.3}%
+\contentsline {subsection}{\numberline {18.3.1}Parallel tempering}{172}{subsection.18.3.1}%
+\contentsline {subsection}{\numberline {18.3.2}Wang-Landau sampling}{174}{subsection.18.3.2}%
+\contentsline {chapter}{\numberline {19}Rare events}{175}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Introduction}{175}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Rough free energy surfaces}{175}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}Variables in rare events}{176}{subsection.19.1.2}%
+\contentsline {section}{\numberline {19.2}Reaction coordinates}{176}{section.19.2}%
+\contentsline {subsection}{\numberline {19.2.1}Blue moon ensemble}{177}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Umbrella sampling}{178}{subsection.19.2.2}%
+\contentsline {subsection}{\numberline {19.2.3}WHAM}{178}{subsection.19.2.3}%
+\contentsline {subsection}{\numberline {19.2.4}Wang-Landau sampling}{180}{subsection.19.2.4}%
+\contentsline {chapter}{\numberline {20}Advanced methods}{182}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Adiabatic dynamics}{182}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}TAMD}{183}{subsection.20.1.1}%
+\contentsline {section}{\numberline {20.2}Metadynamics}{184}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Transition path ensemble}{185}{section.20.3}%
+\contentsline {subsection}{\numberline {20.3.1}Transition path sampling}{186}{subsection.20.3.1}%
+\contentsline {section}{\numberline {20.4}The committor distribution}{188}{section.20.4}%
+\contentsline {subsection}{\numberline {20.4.1}Histogram test}{189}{subsection.20.4.1}%
+\contentsline {subsection}{\numberline {20.4.2}Histogram test on $q_1(\vec {r}) = q^{\ddagger }$}{189}{subsection.20.4.2}%
