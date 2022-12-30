@@ -215,7 +215,7 @@ Computing the zero of $f(s)$:
 
 $$s_0 = e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\Rightarrow f'(s_0) = gkTe^{-\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}$$
 
-Substituting $\delta(f(s))$ with $\frac{\delta(s-s_0)}{|f'(s_0)}$:
+Substituting $\delta(f(s))$ with $\frac{\delta(s-s_0)}{|f'(s_0)|}$:
 
 $$\delta(f(s)) = \frac{1}{gkT}e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\delta\biggl(s-e^{\frac{1}{gkT}\bigl(E-\mathcal{H}-\frac{p_s^2}{2Q}\bigr)}\biggr)$$
 
@@ -441,7 +441,7 @@ For a non-Hamiltonian system the compressibility might be different from $0$.
 
 	$$\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}\sqrt{2\pi Qk T}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$$
 
-	Finding a pre-factor depending on temperature, but the microcanonical partition function is the canonical partition function, a part from a multiplicative factor.
+	Finding a pre-factor depending on temperature, but the microcanonical partition function is the canonical partition function, non considering a multiplicative factor.
 	Time is rescaled so it is no longer correct and has to be corrected when performing dynamics where time is explicitly stated.
 	In the absence of external forces $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta)$ is not the only conserved quantity.
 	There are three conservation laws, because the momentum is conserved in each direction:
@@ -472,7 +472,7 @@ For a non-Hamiltonian system the compressibility might be different from $0$.
 	\end{multicols}
 
 	This is done so each extra variable is exactly weighted with the kinetic energy, all the parameters $Q_i$ has to be found.
-	The optimal choice for the $Q$ $Q_1 = dNkT\tau^2$ and $Q_j = kT\tau^2$, with $\tau$ the characteristic time.
+	The optimal choice for the $Q$s: $Q_1 = dNkT\tau^2$ and $Q_j = kT\tau^2$, with $\tau$ the characteristic time.
 	With this plausible equations the partition function can be re-written.
 	Now from the compressibility of these equation the kind of ensemble can be found.
 	The conserved quantity becomes:
