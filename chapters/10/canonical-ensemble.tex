@@ -143,7 +143,7 @@ Notice that:
 
 $$A = E-TS = E+T\biggl(\frac{\partial A}{\partial T}\biggr)_{N, V} = E-\beta\biggl(\frac{\partial A}{\partial \beta}\biggr)_{N, V}$$
 
-However, energy varies in the canonical ensemble and the Hamiltonian assume values from the Botlzmann distribution, so to find a measurable value of the energy an average over the ensemble has to be found, so energy is the average value of the Hamiltonian over the canonical ensemble:
+However, energy varies in the canonical ensemble and the Hamiltonian assume values from the Boltzmann distribution, so to find a measurable value of the energy an average over the ensemble has to be found, so energy is the average value of the Hamiltonian over the canonical ensemble:
 
 $$E = \langle\mathcal{H}\rangle = \frac{1}{N!h^{3N}}\frac{\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{\int dx e^{-\beta\mathcal{H}(x)}} = -\frac{1}{Q(N, V, \beta)}\frac{\partial Q(N, V, \beta)}{\partial \beta} = -\frac{\partial\ln Q(N, V, \beta)}{\partial \beta}$$
 
@@ -160,7 +160,7 @@ Now when dealing with the canonical ensemble the partition function has to be fo
 	\subsection{Energy and temperature}
 	The energy can be obtained by performing an average in the canonical ensemble:
 
-	$$E = \langle\mathcal{H}(x)\rangle = \frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial Q}{\partial \beta}\qquad C_N\frac{1}{N!h^{3N}}$$
+	$$E = \langle\mathcal{H}(x)\rangle = \frac{C_N\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dxe^{-\beta\mathcal{H}(x)}} = \frac{1}{Q}\frac{\partial Q}{\partial \beta}\qquad C_N=\frac{1}{N!h^{3N}}$$
 
 	Where $\mathcal{H}(x)$ is the energy estimator.
 	Taking the average of the Hamiltonian the energy is obtained.
@@ -249,4 +249,4 @@ Now when dealing with the canonical ensemble the partition function has to be fo
 
 	So the pressure estimator is:
 
-	$$\mathcal{p}(\vec{r}, \vec{p}) = \frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]$$
+	$$\mathcal{P}(\vec{r}, \vec{p}) = \frac{1}{3V}\sum\limits_i\biggl[\frac{\vec{p}_i^2}{m_i}+ \vec{F}_i\cdot\vec{r}_i\biggr]$$
