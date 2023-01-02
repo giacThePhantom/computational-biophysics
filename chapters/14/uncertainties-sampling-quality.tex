@@ -2,7 +2,7 @@
 \chapter{Quantifying uncertainties and sampling quality}
 
 \section{Introduction}
-Dealing with huge system and dealing with a huge amount of data is not sufficient to interpret the biological relevance of a molecular definition.
+Dealing with huge systems and huge amounts of data is not sufficient to interpret the biological relevance of a molecular definition.
 There is a need to perform thoughtful analysis on the obtained data.
 Data interpretation is a fundamental step to asses the validity of a simulation.
 The methods presented in this chapter will be useful also when dealing with Monte Carlo simulations, although the simulation is more difficult to interpret as time becomes moves.
@@ -96,14 +96,14 @@ Some of the variables that can be checked to see for non-equilibration are scala
 			There is the possibility to reach the same value in different conformation, a problem that applies to other overall distance measures.
 			Even if there are conformation with the same value of gyration they could be different.
 			If the radius of gyration is constantly increasing or decreasing the simulation has not equilibrated yet.
-		\item Configurational distance measures like RNMS, all-to-all RMSD map.
+		\item Configurational distance measures like RMSD, all-to-all RMSD map.
 			The discussion for radius of gyration holds for this measures.
 			Considering RMSD:
 
 			$$RMSD(\vec{r}, \vec{s}) = \sqrt{\frac{1}{N}\sum\limits_{i=1}^N|\vec{r}_i-\vec{s}_i|^2}$$
 
 			This will reach a constant value with some fluctuation.
-			The all-to-all RMSD map checks the RMSD for all the conformation present in the molecular dynamics simulation, obtaining a matrix of distances that can be plotted as in \ref{all-to-all-rmsd}.
+			The all-to-all RMSD map checks the RMSD for all the conformation present in the molecular dynamics simulation, obtaining a matrix of distances that can be plotted as in \ref{fig:all-to-all-rmsd}.
 	\end{itemize}
 \end{multicols}
 
@@ -170,7 +170,7 @@ This two basin are expected with starting with crystal's coordinate the first is
 
 		\subsubsection{Combined clustering}
 		Combined clustering as in \ref{fig:independent_simulation}.
-		In combined clustering a measure of the distance of the conformation.
+		In combined clustering a measure of the distance of the conformation is obtained.
 		Then using one clustering algorithm the conformations will be clustered.
 		There will be a number of cluster.
 		Assume doing so for two independent simulations, or for two part of a long simulation, called in \ref{fig:independent_simulation} $1$ and $2$.
@@ -267,7 +267,7 @@ This two basin are expected with starting with crystal's coordinate the first is
 	Looking at figure \ref{fig:autocorrelation-time}, although it seems that after $200ps$ the autocorrelation time is reached in this way the number of independent conformation is obtained.
 	It could be that this number is not sufficient to sample the system properly.
 	In that case the system is spending too much time in one conformation and not according to the Boltzmann distribution.
-	The autocorrelation time will provide an idea on how many independent conformation there are in the syste,
+	The autocorrelation time will provide an idea on how many independent conformation there are in the system.
 
 	\begin{figure}[H]
 		\centering
