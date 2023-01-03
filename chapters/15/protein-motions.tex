@@ -15,7 +15,7 @@ The focus is on the topology: the protein is seen as a network of springs that c
 Now considering the Gaussian network model, a kind of elastic network model.
 Let $i$ and $j$ be two amino-acids as seen in \ref{fig:enm-theory}.
 Usually the analysis is limited to centroids of residues: its $\alpha$-carbon atom.
-A protein is represented by a configuration vector with the position of all its $\alpha$-carbon atoms:: $\vec{r} = [\vec{r}_1, \vec{r}_2, \dots, \vec{r}_N]$.
+A protein is represented by a configuration vector with the position of all its $\alpha$-carbon atoms: $\vec{r} = [\vec{r}_1, \vec{r}_2, \dots, \vec{r}_N]$.
 It can be assumed that the structure obtained from the protein data bank is equilibrated.
 Now computing the deviation of each $\alpha$-carbon atom from the equilibrium position (PDB structure):
 
@@ -113,7 +113,7 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 		Assuming that the approximation of the GNM is too crude and considering the fact that there are $3N-6$ degree of freedom.
 		To be more rigorous the atomistic force field should be used and expand the potential function through a Taylor expansion around an equilibrium position:
 
-		$$U = U_0 + \sum\limits_i\frac{\partial U}{\partial q_i}|_{q^0}(q_i-q_i^0) + \frac{1}{2}\sum\limits_i\sum\limits_j\frac{\partial^2 U}{\partial q_i\partial q_j}|_{q^0}(q_i-q_i^0)(q_j-q_j^0) + \cdots$$
+		$$U = U_0 + \sum\limits_i\frac{\partial U}{\partial q_i}\biggr\rvert_{q^0}(q_i-q_i^0) + \frac{1}{2}\sum\limits_i\sum\limits_j\frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\rvert_{q^0}(q_i-q_i^0)(q_j-q_j^0) + \cdots$$
 
 		If $q^0$ represent the equilibrium the sum of the forces and in turn the first order term will be equal to $0$, so at equilibrium:
 
@@ -121,7 +121,7 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 
 		Where $H$ is the Hessian matrix:
 
-		$$H_{ij} = \frac{\partial^2 U}{\partial q_i\partial q_j}|_{q^0}$$
+		$$H_{ij} = \frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\rvert_{q^0}$$
 
 		A matrix that can be computed analytically or numerically.
 		This process is expensive because numerical derivatives have to be taken, but it is cheaper with respect to a molecular dynamics simulation.
@@ -174,11 +174,11 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 		Another quantity is the degree of collectivity, which will also be used in PCA.
 		It is a factor that looks like a Shannon-entropy and it is defined as:
 
-		$$\kappa_k = N^{-1}e^{-\sum\limits_{i=1}^N\alpha(\Delta r_i)^2|_k\log(\alpha\Delta r_i)^2|_k}$$
+		$$\kappa_k = N^{-1}e^{-\sum\limits_{i=1}^N\alpha(\Delta r_i)^2\rvert_k\log(\alpha\Delta r_i)^2\rvert_k}$$
 
 		Where $\alpha$ is normalized.
 
-		$$\sum\limits_{i=1}^N\alpha(\Delta r_1)^2|_k = 1$$
+		$$\sum\limits_{i=1}^N\alpha(\Delta r_1)^2\rvert_k = 1$$
 
 		When the degree of collectivity is close to $1$ there is a collective mode, so a mode that involves a large number of residues, while when it is close to $0$ the motion is localized on some portion of the protein.
 
