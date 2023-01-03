@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1595,45 +1595,45 @@ Package pdftex.def Info: chapters/20/images//transition-path-sampling.png  used
  on input line 170.
 (pdftex.def)             Requested size: 433.62pt x 181.10489pt.
 
-Overfull \hbox (31.77632pt too wide) detected at line 196
+Overfull \hbox (31.77632pt too wide) detected at line 195
 []
  []
 
-[186 <./chapters/20/images//transition-path-sampling.png>] [187]
-<chapters/20/images//committor-distribution.png, id=2577, 657.45625pt x 312.166
+[186 <./chapters/20/images//transition-path-sampling.png>]
+<chapters/20/images//committor-distribution.png, id=2564, 657.45625pt x 312.166
 24pt>
 File: chapters/20/images//committor-distribution.png Graphic file (type png)
 <use chapters/20/images//committor-distribution.png>
 Package pdftex.def Info: chapters/20/images//committor-distribution.png  used o
-n input line 226.
+n input line 224.
 (pdftex.def)             Requested size: 433.62pt x 205.88745pt.
+ [187]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 239.
+(hyperref)                removing `subscript' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 239.
+(hyperref)                removing `superscript' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 239.
+(hyperref)                removing `\ddagger' on input line 237.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\ddagger' on input line 239.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 239.
+(hyperref)                removing `math shift' on input line 237.
 
 [188 <./chapters/20/images//committor-distribution.png>]
-<chapters/20/images//histogram-test.png, id=2589, 749.80125pt x 356.33125pt>
+<chapters/20/images//histogram-test.png, id=2590, 749.80125pt x 356.33125pt>
 File: chapters/20/images//histogram-test.png Graphic file (type png)
 <use chapters/20/images//histogram-test.png>
 Package pdftex.def Info: chapters/20/images//histogram-test.png  used on input 
-line 257.
+line 255.
 (pdftex.def)             Requested size: 433.62pt x 206.07417pt.
 ) [189 <./chapters/20/images//histogram-test.png>] (./build/principal.aux)
 
@@ -1684,7 +1684,7 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 frm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (190 pages, 6627032 bytes).
+Output written on ./build/principal.pdf (190 pages, 6627022 bytes).
 PDF statistics:
  2896 PDF objects out of 2984 (max. 8388607)
  2484 compressed objects within 25 object streams

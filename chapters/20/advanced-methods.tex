@@ -3,14 +3,14 @@
 
 \section{Adiabatic dynamics}
 In the free energy adiabatic dynamics the idea is to obtain the free energy hypersurface as a function of some reaction coordinates.
-Let's assume the reaction coordinates $n<3N$ reaction coordinates with generalized coordinates $q_\alpha$: the interest is in the free energy hypersurface $A(q_1, \dots, q_n)$.
-The partition function is defined, in the case of the canonica ensemble, as:
+Assuming that the $n<3N$ reaction coordinates with generalized coordinates $q_\alpha$ are considered, the interest is in the free energy hypersurface $A(q_1, \dots, q_n)$.
+The partition function is defined, in the case of the canonical ensemble, as:
 
-$$Q(N, V, T) = C_N\int d^N\vec{p}d^N\vec{r}e^{-\beta\biggl[\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}+U(\vec{r}_1, \dots, \vec{r}_N)\biggr]}$$
+$$Q(N, V, T) = C_N\int d^N\vec{p}d^N\vec{r}e^{-\beta\left[\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}+U(\vec{r}_1, \dots, \vec{r}_N)\right]}$$
 
 Transformation to generalized coordinates $q_\alpha = f_\alpha(\vec{r}_1, \dots, \vec{r}_n)$ only for the configurational part, leaving momenta unchanged:
 
-$$Q(N, V, T) = C_n\int d^N\vec{p}d^{3N}qe^{-\beta\biggl[\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + \tilde{V}(q_1, \dots, q_{3N}, \beta)\biggr]}$$
+$$Q(N, V, T) = C_n\int d^N\vec{p}d^{3N}qe^{-\beta\left[\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + \tilde{V}(q_1, \dots, q_{3N}, \beta)\right]}$$
 
 Where, considering the Jacobian of the transformation:
 
@@ -21,7 +21,7 @@ This term looks like a potential in term with the generalized coordinates and th
 In this term the potential is temperature dependent.
 This is because $\tilde{V}$ has $\beta$ as a temperature parameters.
 Using the Hamiltonian in the transformation during the simulation the canonical distribution is being sampled.
-So consider the temperature dependent potential included into this fake Hamiltonian:
+Considering the temperature dependent potential included into this fake Hamiltonian:
 
 $$\tilde{\mathcal{H}}(q, \vec{p}, \beta) = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}+\tilde{V}(q_1, \dots, q_{3N}, \beta) = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i}+\tilde{U}(q_1, \dots, q_{3N})-kT\ln J(q_1, \dots, q_{3N})$$
 
@@ -33,7 +33,7 @@ $$\tilde{H}(q, p, \beta) = \sum\limits_{\alpha=1}^{3N}\frac{p_\alpha^2}{2m'_\alp
 
 Where $m'_\alpha$ is a fictitious mass defined during the simulation.
 As in adiabatic free energy dynamics the first $n$ variables are thermostatted as a temperature $T_q\gg T$ with their masses increased so to adiabatically decouple them from the others.
-So the system should be have enough time to equilibrate for each variable.
+Because of this the system should be have enough time to equilibrate for each variable.
 
 	\subsection{TAMD}
 	The previous idea can be implemented as TAMD (temperature accelerated molecular dynamics).
@@ -41,7 +41,7 @@ So the system should be have enough time to equilibrate for each variable.
 
 	$$\tilde{H}(q, p, \beta) = \sum\limits_{\alpha=1}^{3N}\frac{p_\alpha^2}{2m'_\alpha} + \tilde{V}(q_1, \dots, q_{3N}, \beta)$$
 
-	So that the differential equation to update positions:
+	The differential equation to update positions become:
 
 	$$\dot{q}_\alpha = \frac{p_\alpha}{m'_\alpha}$$
 
@@ -53,7 +53,7 @@ So the system should be have enough time to equilibrate for each variable.
 
 	$$\dot{\eta}_j = \frac{p_{\eta_j}}{Q_j}$$
 
-	Then the thermostat variable for the first $n$ generalized coordinates with $T_q$ higher tan $T$, while the other are coupled for the temperature $T$.
+	Then the thermostat variable for the first $n$ generalized coordinates are considered with a $T_q$ higher tan $T$, while the other are coupled for the temperature $T$.
 
 	$$\dot{p}_{\eta_1} = \sum\limits_{\alpha=1}^n\frac{p_\alpha^2}{2m'_\alpha}-nkT_q\qquad \dot{p}_{\epsilon_2} = \sum\limits_{\alpha=n+1}^{3N}\frac{p_\alpha^2}{2m'_\alpha}-(3N-n)kT$$
 
@@ -84,12 +84,12 @@ However considering the following property of the delta function:
 
 $$\delta(x-\alpha) = \lim\limits_{\sigma\rightarrow 0}\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\alpha)^2}{2\sigma^2}}$$
 
-So adding this property to the probability distribution:
+And adding it to the probability distribution:
 
 $$P(s_1, \dots, s_n) = \lim\limits_{\mathcal{T}\rightarrow\infty}\lim\limits_{\Delta s\rightarrow 0}\frac{1}{\mathcal{T}}\frac{1}{\sqrt{2\pi\Delta s^2}}\int_0^{\mathcal{T}}dt\prod\limits_{\alpha=1}^ne^{-\frac{(s_\alpha-f_\alpha(\vec{r}_1(t), \dots, \vec{r}_N(t)))^2}{2\Delta s^2}}$$
 
 This looks like adding to the probability a factor similar to the Boltzmann factor and related to it because it looks like a Gaussian.
-It looks like a Gaussian is added every time a value for a reaction coordinate $\alpha$ is visited so that the system will be forced to go somewhere else.
+It is added every time a value for a reaction coordinate $\alpha$ is visited so that the system will be forced to go somewhere else.
 Building up these Gaussian potential they can be used as a bias potential:
 
 $$U_G(\vec{r}_1, \dots, \vec{r}_N, t) = W\sum\limits_{t - \tau_G, 2\tau_G, \dots}e^{-\sum\limits_{\alpha=1}^n\frac{(f_\alpha(\vec{r})-f_\alpha(\vec{r}_G(t)))^2}{2\Delta s^2}}$$
@@ -99,7 +99,7 @@ Taking all the Gaussian added this amount to summing over all the Gaussian it is
 This is done only when the free diffusion of the system is observed, meaning that the algorithm has reached convergence.
 Judging convergence is not easy for metadynamics.
 In principle it is continued until free diffusion is observed for a number of times.
-Another issue is that every time energy is being added to the system, which might cause problem.
+Another issue is that every time energy is being added to the system, which might cause problems.
 For example in a membrane it would cause membrane disruption.
 
 \section{Transition path ensemble}
@@ -174,17 +174,16 @@ For deterministic molecular dynamics trajectories:
 
 	Assuming that $Y$ is a given trajectory and starting from a random point $y_{i\Delta t}$ in $Y$, starting from the point the momenta are regenerated so there is a new position in the system $x_{j\Delta t}$.
 	With this coordinate and momenta it is integrated forward and backward in time.
-	Now if integrating backward it is ended in $A$ and forward in $B$.
-	If integrating forward going back to state $A$, this move has to be rejected because this new path does not start from state $A$ and ends up in state $B$.
-	In the first case the move is accepted.
+	If integrating forward cause the system to go to $B$ and integrating backward guides the system to $A$, the move is accepted.
+	If integrating forward cause the system to go back to state $A$, this move has to be rejected because this new path does not start from state $A$ and ends up in state $B$.
 	In this way new pathways starting from a reasonable one can be generated, exploring the ensemble associated to the transition paths.
 	$\tau(x_{j\Delta t}|y_{j\Delta t})$ is the rule to generate the shooting point.
-	So a randomly chosen $y$ point in time, so the coordinates are not changed but the momenta are generated from a Boltzmann distribution.
-	Then the probability to generate path $X$ to path $Y$ it the product of the probability of generate the point, the probability to shoot forward in time and the probability to shoot backward in time:
+	For a randomly chosen $y$ point in time, the coordinates are not changed but the momenta are generated from a Boltzmann distribution.
+	Then the probability to generate path $X$ to path $Y$ is the product of the probability of generate the point, the probability to shoot forward in time and the probability to shoot backward in time:
 
 	$$\mathcal{T}_{AB}[X(\mathcal{T})|Y(\mathcal{T})] = \tau(x_{j\Delta t}|y_{j\Delta t})\biggl[\prod\limits_{k=j}^{n-1}T(x_{(k+1)\Delta t}|x_{k\Delta t})\biggr]\biggl[\prod\limits_{k=1}^jT(x_{(k-1)\Delta t}|x_{k\Delta t})\biggr]$$
 
-	Using a deterministic rule the $T$ becomes delta functions.
+	Using a deterministic rule the $T$s become delta functions.
 	Looking at the acceptance probability, making explicit the $\mathcal{T}$s it can be seen how the forward part can be simplified and assuming that $T$ is symmetric another simplification can be made.
 
 	\begin{align*}
@@ -199,8 +198,7 @@ For deterministic molecular dynamics trajectories:
 
 	$$\Lambda_{AB}[X(\mathcal{T})|T(\mathcal{T})] = h_A(x_0)h_B(x_{n\Delta t})\min\biggl[1, \frac{f(x_0)}{f(y_0)}\biggr]$$
 
-	So now the probability of the acceptance is the rate of the Boltzmann factors.
-	So now an algorithm is obtained so that the phase space displacement $\Delta = (0, \delta p)$ and the algorithm can be built up:
+	The probability of the acceptance is the rate of the Boltzmann factors and an algorithm is obtained so that the phase space displacement $\Delta = (0, \delta p)$ and the algorithm can be built up:
 
 	\begin{enumerate}
 		\item Choose an index $j$ randomly on the old trajectory $Y(\mathcal{T})$.
@@ -215,11 +213,11 @@ For deterministic molecular dynamics trajectories:
 	\end{enumerate}
 
 \section{The committor distribution}
-The real with reaction coordinates is to find good reaction coordinates.
+The problem with reaction coordinates is to find good reaction coordinates.
 One way to check whether the reaction coordinate is a good one is the committor distribution.
-The committor is the probability $p_B(\vec{r})$ that a trajectory initiated from a configruation $\vec{r}$ with velocities sampled from a Maxwell-Boltzmann distribution will arrive in state $B$ before state $A$.
+The committor is the probability $p_B(\vec{r})$ that a trajectory initiated from a configuration $\vec{r}$ with velocities sampled from a Maxwell-Boltzmann distribution will arrive in state $B$ before state $A$.
 By definition the committor distribution is $0$ in state $A$ and $1$ in state $B$.
-Moreover isocommittor surfaces at different probabilities: all point in that surface will end up in state $B$ with the probability that defines it.
+Moreover isocommittor surfaces are present at different probabilities and are defined as the surfaces where all the point will end up in state $B$ with the probability that defines it.
 In the transition state the isocommittor surface is $p_B = \frac{1}{2}$.
 
 \begin{figure}[H]
