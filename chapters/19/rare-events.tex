@@ -7,7 +7,8 @@ This is because many processes require time-scales of seconds.
 
 	\subsection{Rough free energy surfaces}
 	The problem is that we have to deal with rough free energy surface with lots of local minima.
-	Even in the case of \ref{fig:rough-free-energy} there are $4$ local minima, which is exponential for proteins.
+	Even in the case of \ref{fig:rough-free-energy-surfaces} there are $4$ local minima.
+	Moreover the number of local minima which is exponential for proteins with respect to their size.
 
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{rough-free-energy-surfaces}
@@ -15,16 +16,19 @@ This is because many processes require time-scales of seconds.
 		\label{fig:rough-free-energy-surfaces}
 	\end{figure}
 
-	The problem of studying this transition is difficult.
+	Because of this the problem of studying this transition is difficult.
 
 	\subsection{Variables in rare events}
 	Describing the free-energy surface is difficult because the energies surfaces is complex.
+	The variables necessary to study these events can be called:
 
+	\begin{multicols}{2}
 		\begin{itemize}
 			\item Reaction coordinates: how to describe a transition between states.
 			\item Order parameters: they describe the transition between one energy minimum from another.
 			\item COLVARs: collective variables.
 		\end{itemize}
+	\end{multicols}
 
 \section{Reaction coordinates}
 There might be several reaction coordinates and the first problem is how to choose them.
@@ -40,7 +44,7 @@ Another example is considering the number of hydrogen bonds between two elements
 
 $$N_H = \sum\limits_{i=1}^{n_O}\sum\limits_{j=1}^{n_H}\frac{1-\biggl[\frac{\vec{r}_i-\vec{r}_j}{d_0}\biggr]^6}{1-\biggl[\frac{\vec{r}_i-\vec{r}_j}{d_0}\biggr]^{12}}$$
 
-So the objective is to obtain a single coordinate from the Cartesian coordinates so to understand the process that is happening.
+The objective is to obtain a single coordinate from the Cartesian coordinates as to understand the process that is happening.
 After having obtained the reaction coordinates the aim is to obtain the probability distribution function of a subset of $n$ reaction coordinates of interest $q_\alpha= f_\alpha(\vec{r}_1, \dots, \vec{r}_N)$ with $\alpha = 1, \dots, n$ which will not be in general factorized and can be written as:
 
 $$P(s_1, \dots, s_n) = \frac{C_N}{Q(N, V, T)}\int d^N\vec{p}d^B\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}\prod\limits_{\alpha=1}^n\delta(f_\alpha(\vec{r}_1, \dots, \vec{r}_N)-s_\alpha)$$
@@ -53,7 +57,7 @@ If the right reaction coordinates are not chosen then free energy profiles might
 To judge the quality of the chosen reaction coordinates is the committor distribution, an extremely expensive process but that can be worthwhile.
 
 	\subsection{Blue moon ensemble}
-	One method to obtain a rare events is the blue moon ensemble.
+	One method to obtain rare events is the blue moon ensemble.
 	When choosing a reaction coordinate the objective is to force a transition between states.
 	The idea behind the blue moon ensemble is that considering for semplicity a single reaction coordinate $q_1 = f_1(\vec{r}_1, \dots, \vec{r}_N)$, its probability distribution is:
 
@@ -63,7 +67,7 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	$$A(s) = -kT\ln P(s)$$
 
-	Now a holonomic constraint is introduced $\sigma(\vec{r}_1, \dots, \vec{r}_N) = f_1(\vec{r}_1, \dots, \vec{r}_N)-s$.
+	A holonomic constraint is introduced $\sigma(\vec{r}_1, \dots, \vec{r}_N) = f_1(\vec{r}_1, \dots, \vec{r}_N)-s$.
 	Then the sampling happens at that given value.
 	So that the reaction coordinates assume a given set of values.
 	Use this constraint to drive the reaction coordinate from an initial value $s^{(i)}$ to a final value $s^{(f)}$.
@@ -77,7 +81,7 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	$$P(s) = \frac{C_N}{Q(N, V, T)}\int d^N\vec{p}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}\delta(f_1(\vec{r}_1, \dots, \vec{r}_N)-s) = \langle\delta(f_1(\vec{r}_1, \dots, \vec{r}_N)-s)\rangle$$
 
-	So now the quantity obtained from the simulation:
+	The quantity obtained from the simulation:
 
 	$$\frac{1}{P(s)}\frac{dP}{ds} = \frac{C_N}{Q(N, V, T)}\frac{\int d^N\vec{p}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}\frac{\partial\delta(f_1(\vec{r})-s)}{\partial s}}{\langle\delta(f_1(\vec{r})-s)\rangle}$$
 
@@ -94,14 +98,14 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 	\end{align*}
 
 	In this way everything can be expressed in term of the conditional average subject to the condition that $q_1=s$.
-	So the simulation is run and the average value of the quantity is taken thanks to the holonomic constraint.
+	The simulation is run and the average value of the quantity is taken thanks to the holonomic constraint.
 	This is measured with different initial values so that in the end the free energy as a function of the reaction coordinate:
 
 	$$A(q) = A(s^{(i)}) + \int_{s^{(i)}}^q\biggl\langle\frac{\partial\tilde{\mathcal{H}}}{\partial q_1}\biggr\rangle^{cond}_sds$$
 
 	\subsection{Umbrella sampling}
 	Umbrella sampling substitutes the rigid holonomic contraints of blue moon sampling with a more flexible harmonic restraint.
-	So an extra potential or bias potential is introduced such that the reaction coordinates are constraint to be close to the value $s_k$:
+	An extra potential or bias potential is introduced such that the reaction coordinates are constraint to be close to the value $s_k$:
 
 	$$W_k(f_1(\vec{r}_1, \dots, \vec{r}_N), s_k) = \frac{1}{k}[f_1(\vec{r}_1, \dots, \vec{r}_N)-s_k]^2$$
 
@@ -110,13 +114,13 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	$$P(s, s^{(k)}), k= 1, \dots, n,\qquad s^{(1)}=s^{(i)}, s^{(n)}=s^{(f)}$$
 
-	Now from this is obtained a collection of biased probability distribution, one for each value of $k$.
+	From this a collection of biased probability distribution, one for each value of $k$ is obtained.
 	This probability distribution should be used to reconstruct the real one.
-	To do so the weighted histogram analysis method.
+	To do so the weighted histogram analysis method is used.
 
 	\subsection{WHAM}
 	The weighted histogram analysis method is used to obtain from the collection of biased probability distribution obtained from umbrella sampling the real one.
-	So for each of the $k$ biased probability distributions generated by umbrella sampling:
+	For each of the $k$ biased probability distributions generated by umbrella sampling:
 
 	$$\tilde{P}(q, s^{(k)}) = e^{\beta A_k}\int d^N\vec{r}e^{-\beta U(\vec{r})}e^{-\beta W_k(f_1(\vec{r}), s^{(k)})}\delta(f_1(\vec{r})-q)$$
 
@@ -128,19 +132,19 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	$$e^{-\beta A_0} = \int d^N\vec{r}e^{-\beta U(\vec{r})}$$
 
-	To unbiased the probability distributions the Boltzmann factor is introduced:
+	To unbiase the probability distributions the Boltzmann factor is introduced:
 
 	$$P_k(q) = e^{-\beta(A_k-A_0)\beta W_k(q, s^{(k)})}\tilde{P}(q, s^{(k)})$$
 
-	Now a collection of $n$ unbiased probability distribution is obtained that describe a single region of the possible values of the reaction coordinates.
+	A collection of $n$ unbiased probability distribution is obtained that describe a single region of the possible values of the reaction coordinates.
 	To reconstruct the full probability distribution the objective is to combine them into a single one.
 	To do that these distribution are combined with weights $C_k$ such that $\sum\limits_{k=1}^n C_k=1$, so the total probability distribution is:
 
 	$$P(q) = \sum\limits_{k=1}^n C_k(q)P_k(q) = \sum\limits_{k=1}^nC_k(q)e^{-\beta(A_k-A_0)}e^{\beta W_k(q, s^{(k)})}\tilde{P}(q, s^{(k)})$$
 
-	Now the values of $C_k$ have to be obtained using a criterion, to the statistical error in the distribution generated by the WHAM procedure is minimized.
+	The values of $C_k$ have to be obtained using a criterion, so the statistical error in the distribution generated by the WHAM procedure is minimized.
 	To obtain the biased probability distribution let $\tilde{H}_k(q)$ be the biased histogram obtained from each molecular dynamics or Monte Carlo simulation.
-	So the system will be in that position from a given number of frame.
+	The system will be in that position from a given number of frame.
 	The estimate for the biased distributions is:
 
 	$$\tilde{P}(q, s^{(k)}) \approx\frac{1}{n_k\Delta q}\tilde{H}_k(q)$$
@@ -164,7 +168,7 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	$$\sigma_k^2 = e^{-2\beta(A_k-A_0)}e^{2\beta W_k(q, s^{(k)})}\tilde{\sigma}_k^2$$
 
-	So the total error will be:
+	The total error will be:
 
 	$$\sigma^2 = \sum\limits_{k=1}^nC_k^2(q)\sigma_k^2$$
 
@@ -172,22 +176,22 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 	To do so Lagrange multipliers are used.
 	Then the function to minimize is:
 
-	$$\Sigma^2=\sum\limits_{k=1}^nC_k^2(q)e^{-2\beta (A_k-A_0)}e^{w\beta W_k(q, s^{(k)})}\frac{\epsilon_k(q)\tilde{H}_k(q)}{n_k\Delta q}-\lambda\biggl(\sum\limits_{k=1}^nC_k(q)-1\biggr)$$
+	$$\Sigma^2=\sum\limits_{k=1}^nC_k^2(q)e^{-2\beta (A_k-A_0)}e^{w\beta W_k(q, s^{(k)})}\frac{\epsilon_k(q)\tilde{H}_k(q)}{n_k\Delta q}-\lambda\left(\sum\limits_{k=1}^nC_k(q)-1\right)$$
 
 	The unknowns are $C_k$ and $\lambda$, so now to minimize:
 
 	$$\frac{\partial\Sigma^2}{\partial C_k(q)} = 0\Rightarrow C_k(q) = \frac{\lambda n_k\Delta q}{2\epsilon_k(q)\tilde{H}_k(q)e^{-2\beta(A_k-A_0)}e^{2\beta W_k(q, s^{(k)})}}$$
 
-	So all the $C_k$ depends on $\lambda$.
+	All the $C_k$ depends on $\lambda$.
 	$\lambda$ is unknown and to determine it the normalization condition is used:
 
 	$$\lambda = \frac{1}{\sum\limits_{k=1}^n\frac{n_k\Delta q}{2\epsilon_k(q)\tilde{H}_k(q)e^{-2\beta(A_k-A_0)}e^{2\beta W_k(q, s^{(k)})}}}$$
 
-	Now the solution for $C_k$ is obtained:
+	The solution for $C_k$ is obtained:
 
 	$$C_k(q) =\frac{n_kl\bigl[\epsilon_k(q)\tilde{H}_k(q)e^{-2\beta(A_k-A_0)}e^{2\beta W_k(q, s^{(k)})}\bigr]}{\sum\limits_{j=1}^n n_jl\bigl[\epsilon_j(q)\tilde{H}_j(q)e^{-2\beta(A_j-A_0)}e^{2\beta W_k(q, s^{(j)})}\bigr]}$$
 
-	Now considering the following simplifying assumption that they need to be checked in the system:
+	Considering the following simplifying assumption that they need to be checked in the system:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -214,17 +218,17 @@ To judge the quality of the chosen reaction coordinates is the committor distrib
 
 	\subsection{Wang-Landau sampling}
 	In the Wang-Landau approach the density of states were the objective with a Monte Carlo simulation.
-	So after devising some moves they where accepted with probability:
+	After devising some moves they where accepted with probability:
 
 	$$A(\vec{r}_2|\vec{r}_1) = \min\biggl[1, \frac{\Omega(E_1)}{\Omega(E_2)}]\biggr]$$
 
 	With scaling factor $f$ to scale the density of state each time one state was visited.
-	The same can be Extended to reaction coordinates: generate a function $g(s)$ that approaches the probability distribution $P(s)$.
+	The same can be extended to reaction coordinates: generate a function $g(s)$ that approaches the probability distribution $P(s)$.
 	Start $g(s)=1$ and $h(s) = \ln g(s) = 0$ everywhere, then the same procedure is performed: a move is generated and accepted with:
 
 	$$A(\vec{r}_2|\vec{r}_1) = \min\biggl[1, \frac{e^{-\beta U(\vec{r}_2)}}{e^{-\beta U(\vec{r}_1)}}\frac{g(s_1)}{g(s_2)}\biggr] = \min\biggl[1, \frac{e^{-\beta U(\vec{r}_2)}}{e^{-\beta U(\vec{r}_1)}}\frac{e^{-h(s_1)}}{e^{-h(s_2)}}\biggr]$$
 
-	Every time a new value of $s$ is visited $h$ is update by adding a factor $\alpha$:
+	Every time a new value of $s$ is visited $h$ is updated by adding a factor $\alpha$:
 
 	$$h(s_2) \rightarrow h(s_2) + \alpha \Leftrightarrow g(s_2)\rightarrow fg(s_2)\qquad \alpha = \ln f$$
 
