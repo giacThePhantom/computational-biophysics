@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1684,7 +1684,7 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 frm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (190 pages, 6627022 bytes).
+Output written on ./build/principal.pdf (190 pages, 6627103 bytes).
 PDF statistics:
  2896 PDF objects out of 2984 (max. 8388607)
  2484 compressed objects within 25 object streams
