@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 14:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.19)  3 JAN 2023 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1548,17 +1548,13 @@ Package pdftex.def Info: chapters/18/images//RE.png  used on input line 320.
  [171 <./chapters/18/images//rough.png>] [172 <./chapters/18/images//RE.png>]) 
 (./chapters/19/rare-events.tex [173]
 Chapter 19.
-
-LaTeX Warning: Reference `fig:rough-free-energy' on page 174 undefined on input
- line 10.
-
-<chapters/19/images//rough-free-energy-surfaces.png, id=2495, 656.4525pt x 347.
+<chapters/19/images//rough-free-energy-surfaces.png, id=2496, 656.4525pt x 347.
 2975pt>
 File: chapters/19/images//rough-free-energy-surfaces.png Graphic file (type png
 )
 <use chapters/19/images//rough-free-energy-surfaces.png>
 Package pdftex.def Info: chapters/19/images//rough-free-energy-surfaces.png  us
-ed on input line 13.
+ed on input line 14.
 (pdftex.def)             Requested size: 433.62pt x 229.40782pt.
 [174
 
@@ -1568,13 +1564,13 @@ Chapter 20.
 [181
 
 ]
-<chapters/20/images//tamd.png, id=2533, 700.6175pt x 469.755pt>
+<chapters/20/images//tamd.png, id=2534, 700.6175pt x 469.755pt>
 File: chapters/20/images//tamd.png Graphic file (type png)
 <use chapters/20/images//tamd.png>
 Package pdftex.def Info: chapters/20/images//tamd.png  used on input line 67.
 (pdftex.def)             Requested size: 433.62pt x 290.74335pt.
  [182] [183 <./chapters/20/images//tamd.png>]
-<chapters/20/images//transition-path-ensemble.png, id=2544, 593.21625pt x 176.6
+<chapters/20/images//transition-path-ensemble.png, id=2545, 593.21625pt x 176.6
 6pt>
 File: chapters/20/images//transition-path-ensemble.png Graphic file (type png)
 <use chapters/20/images//transition-path-ensemble.png>
@@ -1591,7 +1587,7 @@ cmm/m/it/10 Y\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 T\OT1/cmr/m/n/10 )]$\T1/cmr/m/n/
  []
 
 [185]
-<chapters/20/images//transition-path-sampling.png, id=2555, 670.505pt x 280.046
+<chapters/20/images//transition-path-sampling.png, id=2556, 670.505pt x 280.046
 25pt>
 File: chapters/20/images//transition-path-sampling.png Graphic file (type png)
 <use chapters/20/images//transition-path-sampling.png>
@@ -1604,7 +1600,7 @@ Overfull \hbox (31.77632pt too wide) detected at line 196
  []
 
 [186 <./chapters/20/images//transition-path-sampling.png>] [187]
-<chapters/20/images//committor-distribution.png, id=2576, 657.45625pt x 312.166
+<chapters/20/images//committor-distribution.png, id=2577, 657.45625pt x 312.166
 24pt>
 File: chapters/20/images//committor-distribution.png Graphic file (type png)
 <use chapters/20/images//committor-distribution.png>
@@ -1633,7 +1629,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 239.
 
 [188 <./chapters/20/images//committor-distribution.png>]
-<chapters/20/images//histogram-test.png, id=2588, 749.80125pt x 356.33125pt>
+<chapters/20/images//histogram-test.png, id=2589, 749.80125pt x 356.33125pt>
 File: chapters/20/images//histogram-test.png Graphic file (type png)
 <use chapters/20/images//histogram-test.png>
 Package pdftex.def Info: chapters/20/images//histogram-test.png  used on input 
@@ -1650,10 +1646,10 @@ Package rerunfilecheck Info: File `principal.out' has not changed.
 (rerunfilecheck)             Checksum: BC3457CDD8A38AC827AAF6879FA5313A;45971.
  ) 
 Here is how much of TeX's memory you used:
- 25510 strings out of 478238
- 471989 string characters out of 5850455
+ 25509 strings out of 478238
+ 471966 string characters out of 5850455
  820007 words of memory out of 5000000
- 42643 multiletter control sequences out of 15000+600000
+ 42642 multiletter control sequences out of 15000+600000
  490887 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,82p,717b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1688,10 +1684,10 @@ hare/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 frm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (190 pages, 6626867 bytes).
+Output written on ./build/principal.pdf (190 pages, 6627032 bytes).
 PDF statistics:
- 2895 PDF objects out of 2984 (max. 8388607)
- 2483 compressed objects within 25 object streams
+ 2896 PDF objects out of 2984 (max. 8388607)
+ 2484 compressed objects within 25 object streams
  652 named destinations out of 1000 (max. 500000)
  2538 words of extra memory for PDF output out of 10000 (max. 10000000)
 
