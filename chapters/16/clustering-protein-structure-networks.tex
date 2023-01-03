@@ -39,19 +39,23 @@ So, given a set of data points, each described by a set of attributes, the clust
 
 	\subsection{Types of clustering}
 
-	\begin{itemize}
-		\item Hierarchical algorithms: create a hierarchical decomposition of the set of objects using some criterion.
-		\item Partitional algorithms: construct various partitions and then evaluate them by some criterion,
-	\end{itemize}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Hierarchical algorithms: create a hierarchical decomposition of the set of objects using some criterion.
+			\item Partitional algorithms: construct various partitions and then evaluate them by some criterion,
+		\end{itemize}
+	\end{multicols}
 
 	\subsection{Distance measures}
 	The distance between objects in a cluster or clusters can be computed in several ways:
 
-	\begin{itemize}
-		\item Single linkage or nearest neighbour: the distance between two clusters is determined by the distance of the two closest objects (nearest neighbours) in the different clusters.
-		\item Complete linkage or furthest neighbour: the distance between two clusters is the greatest distance between two objects in the different clusters.
-		\item Group average linkage: the distance between two clusters is computed as the average distance between all pairs of objects in the two different clusters.
-	\end{itemize}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Single linkage or nearest neighbour: the distance between two clusters is determined by the distance of the two closest objects (nearest neighbours) in the different clusters.
+			\item Complete linkage or furthest neighbour: the distance between two clusters is the greatest distance between two objects in the different clusters.
+			\item Group average linkage: the distance between two clusters is computed as the average distance between all pairs of objects in the two different clusters.
+		\end{itemize}
+	\end{multicols}
 
 \section{Hierarchical clustering}
 
@@ -93,24 +97,28 @@ So, given a set of data points, each described by a set of attributes, the clust
 	\subsection{Hierarchical clustering approach}
 	The number of dendrograms $D$ with $n$ leafs are:
 
-	$$D = \frac{2n-3)!}{2^{n-2}(n-2)!}$$
+	$$D = \frac{(2n-3)!}{2^{n-2}(n-2)!}$$
 
 	They can be built with two approaches:
 
-	\begin{itemize}
-		\item Bottom-up or agglomerative approach: each item is grouped alone into its own cluster and then the best pair to merge into a new cluster is found.
-			This is repeated until all clusters are fused together.
-		\item Top-down or divisive approach: all the data is grouped into a single cluster, then the best division into two cluster is chosen and this is repeated recursively on both sides.
-	\end{itemize}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Bottom-up or agglomerative approach: each item is grouped alone into its own cluster and then the best pair to merge into a new cluster is found.
+				This is repeated until all clusters are fused together.
+			\item Top-down or divisive approach: all the data is grouped into a single cluster, then the best division into two cluster is chosen and this is repeated recursively on both sides.
+		\end{itemize}
+	\end{multicols}
 
 	\subsection{Summary of hierarchical methods}
 
-	\begin{itemize}
-		\item No need to specify the number of clusters in advance.
-		\item The hierarchical nature maps nicely onto human intuition for some domains.
-		\item They do not scale well: $O(n^2)$.
-		\item The interpretation of the results is very subjective.
-	\end{itemize}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item No need to specify the number of clusters in advance.
+			\item The hierarchical nature maps nicely onto human intuition for some domains.
+			\item They do not scale well: $O(n^2)$.
+			\item The interpretation of the results is very subjective.
+		\end{itemize}
+	\end{multicols}
 
 \section{Partitional clustering}
 In partitional clustering each item is placed in exactly one of $K$ non-overlapping clusters.
@@ -123,19 +131,21 @@ The number of cluster is provided as input.
 		\item Initialize the $k$ cluster centres randomly.
 		\item Decide the class memberships of the $N$ objects by assigning them to the nearest cluster centre.
 		\item Re-estimate the $k$-cluster centres by assuming the memberships found are correct.
-		\item If non of the $N$ objects changed memberships in the last iteration exit, otherwise go back to step $3$.
+		\item If none of the $N$ objects changed memberships in the last iteration exit, otherwise go back to step $3$.
 	\end{enumerate}
 
 		\subsubsection{Conclusion}
 
-		\begin{itemize}
-			\item Relatively efficient: $O(tkn)$ where $n$ is the number of objects, $k$ is the number of clusters and $t$ the number of iterations.
-			\item It often terminates at a local optimum.
-			\item It is applicable only when a mean can be defined.
-			\item The number of cluster has to be specified in advance.
-			\item It is unable to handle noisy data or outliers.
-			\item It is not suitable to discover clusters with non-convex shapes.
-		\end{itemize}
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Relatively efficient: $O(tkn)$ where $n$ is the number of objects, $k$ is the number of clusters and $t$ the number of iterations.
+				\item It often terminates at a local optimum.
+				\item It is applicable only when a mean can be defined.
+				\item The number of cluster has to be specified in advance.
+				\item It is unable to handle noisy data or outliers.
+				\item It is not suitable to discover clusters with non-convex shapes.
+			\end{itemize}
+		\end{multicols}
 
 	\subsection{Sum of squared errors}
 	The sum of squared error will be the objective function that determines how well the data is divided into clusters.
@@ -146,7 +156,7 @@ The number of cluster is provided as input.
 
 	\subsection{Choosing K}
 	The optimal $k$ is the one such that the $\min SE$ is found.
-	It can be chosen running the algorithm with iteratively increasing value of $k$ and looking at the Knee or elbow plot of $k$ in relation with $SE$ as in \ref{fig:elbow}.
+	It can be chosen running the algorithm with iteratively increasing value of $k$ and looking at the knee or elbow plot of $k$ in relation with $SE$ as in \ref{fig:elbow}.
 
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{elbow}
@@ -212,14 +222,14 @@ Protein structure networks represents proteins as networks built after the molec
 	Then for each interaction the edge weight is given, corresponding to the persistence value.
 	Then these three interaction network are filtered according to a measure providing a persistence threshold.
 	When the value of the persistence is higher than the threshold a contact is assumed true.
-	After that the macro-intramolecular-interaction network that collects informations about all the different of interactions.
+	After that the macro-intramolecular-interaction network that collects informations about all the different of interactions is built.
 
 	\subsection{Persistence threshold}
 	To choose the persistence threshold the connected components of the protein structure network have to be found.
 	A connected component is a subgraph in which a path exists between any two vertices, but no path exist to any other vertices of the main graph: there are no edges connecting two connected components.
 	After having obtained them for each value of the persistence, so that a connection is defined whenever the persistence is higher than the value.
 	It can be seen how decreasing the threshold the size of the connected components increase.
-	A typical graph of persistence over component size a kink can be found and that will be the persistence threshold.
+	In a typical graph of persistence over component size a kink can be found and that will be the persistence threshold.
 
 	\subsection{Graph analysis}
 	Some analysis provided by pyInteraph are:
