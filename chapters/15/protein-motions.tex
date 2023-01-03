@@ -78,8 +78,7 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 		The pseudoinverse matrix is obtained by this matrix multiplication discarding $\lambda_0$ in $\Lambda$.
 
 		\subsubsection{Gaussian network model and B-factors}
-		The average fluctuation and the correlation of amino-acids.
-		If $i=j$ the average fluctuation for each fluctuation, which can be obtained from the diagonal elements of the pseudoinverse matrix:
+		Considering the average fluctuation and the correlation of amino-acids, if $i=j$ is the average fluctuation for each fluctuation, which can be obtained from the diagonal elements of the pseudoinverse matrix is:
 
 		$$\langle\Delta\vec{r}_i\cdot\Delta\vec{r}_i\rangle = \frac{3kT}{\gamma}[U\Lambda^{-1}U^{T}]_{ii} = \frac{3kT}{\gamma}\sum\limits_{k}[\lambda_k^{-1}\vec{u}_k\vec{u}_k^T]_{ii} = \sum\limits_{k}[\Delta r_i^2]_k$$
 
@@ -111,7 +110,7 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 
 		\subsubsection{Normal mode analysis}
 		Assuming that the approximation of the GNM is too crude and considering the fact that there are $3N-6$ degree of freedom.
-		To be more rigorous the atomistic force field should be used and expand the potential function through a Taylor expansion around an equilibrium position:
+		To be more rigorous the atomistic force field should be used and the potential function should be expanded through a Taylor expansion around an equilibrium position:
 
 		$$U = U_0 + \sum\limits_i\frac{\partial U}{\partial q_i}\biggr\rvert_{q^0}(q_i-q_i^0) + \frac{1}{2}\sum\limits_i\sum\limits_j\frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\rvert_{q^0}(q_i-q_i^0)(q_j-q_j^0) + \cdots$$
 
@@ -148,7 +147,7 @@ The instantaneous separation between two beads $i$ and $j$: $\vec{r}_{ij} = \vec
 		\subsubsection{Correlated motions}
 		Computing now the correlation between amino-acids and focussing on the specific motion of each mode represented by an eigenvector.
 
-		$$\langle\Delta\vec{r}_i\cdot\Delta\vec{r}_j\rangle = \frac{3kT}{\gamma}[U\Lambda^{-1}U^T]_{ij} = \frac{3kT}{\gamma}\sum\limits_{k}\lambda_k^{-1}[\vec{u}_k\vec{u}_k^T]_[ij]$$
+		$$\langle\Delta\vec{r}_i\cdot\Delta\vec{r}_j\rangle = \frac{3kT}{\gamma}[U\Lambda^{-1}U^T]_{ij} = \frac{3kT}{\gamma}\sum\limits_{k}\lambda_k^{-1}[\vec{u}_k\vec{u}_k^T]_{ij}$$
 
 		The displacement of a protein can be computed from the modes.
 		The direction of each mode is considered.
@@ -198,12 +197,12 @@ They can be computed starting from the result of a molecular dynamics simulation
 		It is better to select on a subset of atoms, focussing on $\alpha$-carbons or on one sub-region of the protein.
 	\item Obtain the covariance matrix:
 
-		$$C_{ij} = \bar{(x_i(t) - \bar{x_i(t)})(x_j(t)-\bar{x_j(t)})}$$
+		$$C_{ij} = \overline{(x_i(t) - \overline{x_i(t)})(x_j(t)-\overline{x_j(t)})}$$
 
 		The covariance matrix is an average in time.
 	\item If the fluctuations display some non-homogeneous behaviour, for example when there are loops that fluctuates a lot, it is better to employ the correlation matrix:
 
-		$$R_{ij} = \frac{\bar{(x_i(t)-\bar{x_i(t)})}\bar{(x_j(t)-\bar{x_j(t)})}}{\sigma_{x_i}\sigma_{x_j}}$$
+		$$R_{ij} = \frac{\overline{(x_i(t)-\overline{x_i(t)})}\overline{(x_j(t)-\overline{x_j(t)})}}{\sigma_{x_i}\sigma_{x_j}}$$
 
 		Which is the covariance matrix normalized by the standard deviation.
 	\item Diagonalize $C$ or $R$ employing eigenvalue decomposition EVD as in elastic network models.
@@ -231,7 +230,7 @@ They can be computed starting from the result of a molecular dynamics simulation
 
 \item Construct the weighted RMSD modes $\langle\Delta\vec{r}_i^2\rangle_k = \lambda_k[\vec{u}_k\vec{u}_k^T]_{ij}$.
 	Visualize which residues contribute most to the fluctuation of each PCA mode.
-	Comparing against the overall RMSF and looking where the most important contribution on the movement as in \ref{fig:weighted-rmsd}
+	Comparing against the overall RMSD and looking where the most important contribution on the movement as in \ref{fig:weighted-rmsd}
 
 	\begin{figure}[H]
 	\centering
@@ -240,7 +239,7 @@ They can be computed starting from the result of a molecular dynamics simulation
 		\label{fig:weighted-rmsd}
 	\end{figure}
 
-\item Construct the displacement vectors $\vec{d}_i(t) = \vec{r}_i(t)-\bar{\vec{r}_i}$ for each snapshot and construct the PCs projecting the displacement vectors onto the eigenvectors obtained:
+\item Construct the displacement vectors $\vec{d}_i(t) = \vec{r}_i(t)-\overline{\vec{r}_i}$ for each snapshot and construct the PCs projecting the displacement vectors onto the eigenvectors obtained:
 
 	$$PC_k(t) = \sum\limits_{i=1}^N\vec{d}_i(t)\cdot\vec{u}_i^k\qquad\text{ with }k=1, \dots, 3N-6$$
 
@@ -264,10 +263,10 @@ They can be computed starting from the result of a molecular dynamics simulation
 
 \item Examine the cosine content for each mode $k$, defined as the superposition with the cosine obtained from a simple diffusion in a high dimensional harmonic potential:
 
-	$$c_k = \frac{2}{T_{sim}}\biggl(\int_0^{T_{sim}}\cos\biggl(\pi\frac{k_BT}{\lambda_k}t\biggr)PC_k(t)dt\biggr)^2\biggl(\int_0^{T_{sim}}PC_k^2(t)dt\biggr)^{-1}$$
+	$$c_k = \frac{2}{T_{sim}}\left(\int_0^{T_{sim}}\cos\left(\pi\frac{k_BT}{\lambda_k}t\right)PC_k(t)dt\right)^2\left(\int_0^{T_{sim}}PC_k^2(t)dt\right)^{-1}$$
 
 	The cosine content compares the principal component, which are a function of time, representing a time-series to the trajectory with the cosine that represents the diffusion of the system in a high-dimensional harmonic potential.
-	If it is equal to $1$ one single basin is being explore, so the smaller the better, so that the system explores more basins and has equilibrated.
+	If it is equal to $1$ one single basin is being explored, so the smaller the better, so that the system explores more basins and has equilibrated.
 	An example can be seen in \ref{fig:cosine-content}.
 	It can be seen how the cosine content decrees along the time of the simulation.
 	The error bars can be obtained performing several simulation or dividing a simulation into pieces.
@@ -282,7 +281,7 @@ They can be computed starting from the result of a molecular dynamics simulation
 
 \item Examine the similarity between trajectories or between portions of the same trajectory by examining the Covariance overlap:
 
-	$$\Omega_{A, B} = 1 - \biggl[\frac{\sum\limits_{k=1}^{3N-6}(\lambda_k^A+\lambda_k^B)-2\sum\limits_{k=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sqrt{\lambda_k^A\lambda_j^B}(\vec{u}_k^A\cdot\vec{u}_j^B)^2}{\sum\limits_{k=1}^{3N-6}(\lambda_k^A+\lambda_k^B)}\biggr]^{\frac{1}{2}}$$
+	$$\Omega_{A, B} = 1 - \left[\frac{\sum\limits_{k=1}^{3N-6}(\lambda_k^A+\lambda_k^B)-2\sum\limits_{k=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sqrt{\lambda_k^A\lambda_j^B}(\vec{u}_k^A\cdot\vec{u}_j^B)^2}{\sum\limits_{k=1}^{3N-6}(\lambda_k^A+\lambda_k^B)}\right]^{\frac{1}{2}}$$
 
 	$\Omega_{A, B} = 1$ if and only if the two covariance matrices are identical, while it is zero when the sampled subspaces are completely orthogonal.
 \end{enumerate}
