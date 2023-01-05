@@ -34,7 +34,7 @@ Different points can be recognized like:
 \begin{multicols}{2}
 	\begin{itemize}
 		\item Saddle point.
-		\item Local maximums.
+		\item Local maxima.
 		\item Local minimum.
 	\end{itemize}
 \end{multicols}
@@ -69,8 +69,8 @@ Different points can be recognized like:
 	This term is really small if $r$ is really close to the equilibrium so it can be neglected.
 
 	\begin{align*}
-		U(r)&=U(r_{eq}) + \frac{dU}{dr}|_{r=r_{eq}}(r-r_{eq})+\frac{1}{2!}\frac{d^2U}{dr^2}|_{r=r_{eq}}(r-r_{eq}^2)+\frac{1}{3!}\frac{d^3U}{dr^3}|_{r=r_{eq}}(r-r_{eq}^3)+\cdots\\
-		U(r)&=U(r_{eq}) + \xcancel{\frac{dU}{dr}|_{r=r_{eq}}(r-r_{eq}})+\frac{1}{2!}\frac{d^2U}{dr^2}|_{r=r_{eq}}(r-r_{eq}^2)+\xcancel{\frac{1}{3!}\frac{d^3U}{dr^3}|_{r=r_{eq}}(r-r_{eq}^3)}+\cdots\\
+		U(r)&=U(r_{eq}) + \frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq}^2)+\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq}^3)+\cdots\\
+		U(r)&=U(r_{eq}) + \xcancel{\frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq}})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq}^2)+\xcancel{\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq}^3)}+\cdots\\
 	\end{align*}
 
 	So that in the end the typical harmonic potential is obtained.
@@ -231,7 +231,7 @@ In this case if the distance is too small the energy becomes very high.
 	$$U(r_{AB}) = \epsilon_{AB}\biggl[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\biggl(\frac{r^*_{AB}}{r_{AB}}\biggr)^6\biggr]$$
 
 	In some force fields $1$-$4$ interactions (successive bonds atoms can be numbered) are reduced by a scaled factor.
-	Atom $1$ and $4$ are cose to each other in a proper torsion but attraction and repulsion has been already described by the torsion, so in some force fields, the torsions takes into account the proximity of those atoms.
+	Atom $1$ and $4$ are close to each other in a proper torsion but attraction and repulsion has been already described by the torsion, so in some force fields, the torsions takes into account the proximity of those atoms.
 	So the Van der Waals interactions are excluded for $1$-$4$ atoms as they are already been described by the torsion interaction.
 
 
@@ -282,7 +282,7 @@ This is a very costly procedure but accurate.
 	$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
 
 	The dielectric constant can assume different values.
-	If they are connected by a chemical bond or if there is a valence angle between the atoms the dielectric constant if $\infty$ and the interaction is not computed as it is already taken into account by other terms.
+	If they are connected by a chemical bond or if there is a valence angle between the atoms the dielectric constant is $\infty$ and the interaction is not computed as it is already taken into account by other terms.
 	In several force field a factor of $2$ is added for $1$-$4$ interaction.
 	In the last case the value depend on the force field.
 
@@ -293,9 +293,9 @@ There are also cross terms: angle bending and bond stretching and other movement
 This is done only by some force fields.
 
 \begin{align*}
-	U(\vec{q}) = &U(\vec{q}_{eq}) + \sum\limits_{i=1}^{3N-6}(q_i-q_{i,eq})\frac{\partial U}{\partial q_i}|_{\vec{q}=\vec{q}_{eq}} + \\
-							 &+\frac{1}{2!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}(q_i-q_{i.eq})(q_j-q_{j,eq})\frac{\partial^2 U}{\partial q_i\partial q_j}|_{\vec{q}=\vec{q}_{eq}} +\\
-							 &=\frac{1}{3!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sum\limits_{k=1}^{3N-6}(q_i-q_{i,eq})(q_j-q_{j.eq})(q_k-q_{k,eq})\frac{\partial^3 U}{\partial q_i\partial q_j\partial q_k}|_{\vec{q}=\vec{q}_{eq}} + \cdots
+	U(\vec{q}) = &U(\vec{q}_{eq}) + \sum\limits_{i=1}^{3N-6}(q_i-q_{i,eq})\frac{\partial U}{\partial q_i}\biggr\vert_{\vec{q}=\vec{q}_{eq}} + \\
+							 &+\frac{1}{2!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}(q_i-q_{i.eq})(q_j-q_{j,eq})\frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\vert_{\vec{q}=\vec{q}_{eq}} +\\
+							 &=\frac{1}{3!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sum\limits_{k=1}^{3N-6}(q_i-q_{i,eq})(q_j-q_{j.eq})(q_k-q_{k,eq})\frac{\partial^3 U}{\partial q_i\partial q_j\partial q_k}\biggr\vert_{\vec{q}=\vec{q}_{eq}} + \cdots
 \end{align*}
 
 This is done by starting from a Lagrangian describing all the interaction and compute all the terms.
@@ -358,11 +358,11 @@ So parametrizing the force field is very complicated.
 
 	$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k_{AB}^{(3)}(r_{AB}-r_{AB, eq}) + k_{AB}^{(4)}(r_{AB}-r_{AB, eq})^2](r_{AB}-r_{AB,eq})^2$$
 
-	With the respect on the distance:
+	With respect to the distance:
 
 	$$\frac{\partial U}{\partial r_{Ai}} = \frac{1}{2}[2k_{Ai}+3k_{Ai}^{(3)}r_{Ai}-r_{Ai, eq}) + 4k^{(4)}_{Ai}(r_{Ai}-r_{Ai, eq})^2](r_{Ai}-r_{Ai, eq})$$
 
-	In order to take the derivative with respect to $r$ with respect to $x$ need to be known:
+	In order to take the derivative with respect to $r$ the derivative with to $x$ needs to be known:
 
 	$$\frac{\partial r_{Ai}}{\partial x_A} = \frac{x_A-x_i}{\sqrt{(x_A-x_i)^2+(y_A-y_i)^2+(z_A-z_i)^2}}$$
 
@@ -378,7 +378,7 @@ So parametrizing the force field is very complicated.
 		This is done to find eventually the coordinates at iteration $k+1$ which are unknown.
 		Where $H$ is the Hessian matrix built:
 
-		$$H_{ij}^{(k)} = \frac{\partial^2 U}{\partial q_i\partial q_j}|_{\vec{q}=\vec{q}^{(k)}}$$
+		$$H_{ij}^{(k)} = \frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\vert_{\vec{q}=\vec{q}^{(k)}}$$
 
 		Everything is computed from a Taylor expansion from coordinates at iteration $k$.
 		And:

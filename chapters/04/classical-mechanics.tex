@@ -47,7 +47,7 @@ The index $i$ in a simulation represent a particle, usually atoms.
 	Each microscopic state at time $t$ is completely specified by $6N$ numbers, as each position and momenta need to be described.
 	This creates the phase space vector which is $6N$ dimensional:
 
-	$$\vec{x} + \{\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N\}$$
+	$$\vec{x} = \{\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N\}$$
 
 	A state of a system is a point in this $6N$ dimensional space.
 	The trajectory represent a curve in the space:
@@ -237,7 +237,7 @@ It can be seen how the kinetic energy depends only on the velocity and the poten
 
 	$$b(g^{-1}(s)) = f(g^{-1}(s))-sg^{-1}(s) \equiv\tilde{f}(s)$$
 
-	The Legendre transom is then:
+	The Legendre transform is then:
 
 	$$\tilde{f}(s) = f(x(s))-sx(s)$$
 
@@ -318,7 +318,7 @@ Another equation needs to be added.
 
 	\subsection{Conservation laws}
 	This process can be generalized for any conserved quantity.
-	Let $a(x_t)$ a property that depend on the trajectory of the system.
+	Let $a(x_t)$ a property that depends on the trajectory of the system.
 	In order to check if the property is conserved or not the derivative with respect to time have to be taken:
 
 	$$\frac{da}{dt} = \frac{\partial a}{\partial x_t} \dot{x}_t = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\dot{q}_\alpha + \frac{\partial a}{\partial p_\alpha}\dot{p}_\alpha\biggr] = \sum\limits_\alpha\biggl[\frac{\partial a}{\partial q_\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha} - \frac{\partial a}{\partial p_\alpha}\frac{\partial\mathcal{H}}{\partial q_\alpha}\biggr] = \{a, \mathcal{H}\}$$
