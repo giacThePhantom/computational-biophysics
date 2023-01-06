@@ -7,7 +7,7 @@
 	This is intrinsic in the Newton's equations.
 	In reality this is not the case: some of the processes cannot be traced back and are irreversible.
 	This is	Loschmidts' paradox: the problem is that macroscopic systems are composed of a too large number of particles.
-	And although in principle, the trajectory of each of them can be known, in the macroscopic process things are not obvious and a reasoning in term of probability have to be done.
+	And although in principle, the trajectory of each of them can be known, in the macroscopic process things are not obvious and a reasoning in term of probability has to be done.
 	This is the objective of statistical mechanics: try to describe system with a very large number of degrees of freedom.
 
 \section{Thermodynamics}
@@ -102,7 +102,7 @@
 	\subsection{First law of thermodynamics}
 	In any thermodynamic transformation if a system absorbs an amount of heat $\Delta Q$ and has an amount of work $\Delta W$ performed on it, its internal energy will change by an amount $\Delta E$ given by:
 
-	$$\Delta e = \Delta Q + \Delta W$$
+	$$\Delta E = \Delta Q + \Delta W$$
 
 	This law is the conservation of energy: adding heat or performing work on the system energy is being provided.
 	Where $E$ is a state function, although $Q$ and $W$ are not:
@@ -150,7 +150,7 @@ So any macroscopic observable is an average of the ensemble.
 So during a simulation there are several copies of a system, then a simulation of each copy must be taken and the average will be the result.
 
 	\subsection{Phase space volume}
-	Let a microstate of a system is a point in the phase space:
+	A microstate of a system is a point in the phase space:
 
 	$$x_0 = (q_1(0), \dots, q_{3N}(0), p_1(0), \dots, p_{3N}(0))$$
 
@@ -178,7 +178,7 @@ So during a simulation there are several copies of a system, then a simulation o
 		$$det J = e^{Tr(\ln J)}$$
 
 		This is the exponential of the trace of the logarithm of $J$ and this allow to take easier derivatives.
-		The trace operator is the some of the diagonal element of the matrix and it has the property to be always the same of a matrix: it is an invariant.
+		The trace operator is the sum of the diagonal element of the matrix and it has the property to be always the same of a matrix: it is an invariant.
 		In the case of the Jacobian:
 
 		$$Tr J = \sum\limits_k J_{kk} = \sum\limits_k\lambda_k$$
@@ -266,7 +266,7 @@ So during a simulation there are several copies of a system, then a simulation o
 	$$\frac{\partial f(x_t, t)}{\partial t} + \dot{x}_t\cdot\nabla_{x_t}f(x_t, t) = 0\Rightarrow \frac{df(x_t, t)}{dt} = 0$$
 
 	So that the total derivative of $f$ is equal to zero.
-	This means that the ensemble distribution function, won't change in time.
+	This means that the ensemble distribution function won't change in time.
 
 		\subsubsection{Consequence on averages}
 		Considering the previous result:
