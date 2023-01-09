@@ -57,7 +57,7 @@ The strategy is to divide en impera the long and short ranged contributions: the
 	Looking at the error function it is a representation of a long range function, while the complement is a short range function.
 	An interaction that goes with the reciprocal of the distance can be represented as the sum of the complementary and normal error function, respectively for long and short range contribution.
 
-	$$\frac{1}{r} = \overbrace{\frac{erfc)\alpha r)}{r}}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}$$
+	$$\frac{1}{r} = \overbrace{\frac{erfc(\alpha r)}{r}}^{\text{short-ranged}} + \overbrace{\frac{erf(\alpha r)}{r}}^{\text{long-ranged}}$$
 
 	So the complement take care of the short range contribution of the electrostatic interaction and the normal of the long range part.
 
@@ -86,7 +86,7 @@ The strategy is to divide en impera the long and short ranged contributions: the
 	The factor $\alpha$ has as dimension the reciprocal of length and has to be found during the simulation.
 	In this representation charges are point-like.
 	To each point charge a Gaussian distribution of charges of opposite sign is summed up.
-	Then the same distribution is summed with the same sign, so to not change anything, but from the point of view of electrostatic then in this case a distribution of charges is obtained.
+	Then the same distribution is summed with the same sign as to not change anything, but from the point of view of electrostatic then in this case a distribution of charges is obtained.
 	From Gauss' theorem the electric field will be equal to zero, so after a given distance there is no more electric charge.
 	So the point-charge is screened with the cloud and then the opposite cloud is used to compute the long-range contribution.
 	This allow to separate the long and short contributions.
@@ -105,7 +105,7 @@ Now the problem is that the cutoff is used to assume that beyond a given distanc
 $$\tilde{U}_{short}(r_{ij}) = \begin{cases} U_{short}(r_{ij}) - U_{short}(r_C) & r<r_C\\ 0 & r>r_C\end{cases}$$
 
 The short contribution are shifted by $r_C$ so that when the distance is the cutoff radius the potential is assumed exactly equal to zero, eliminating the problem of the Lennard-Jones potential.
-Doing something like this, the derivative of the potential is not continuous, so the force is discontinuous, which means that when travelling across the cutoff the force goes abruptly from $0$ to a high amount, generating problems, allowing to violates the third law of thermodynamics, and the new force will affect the constraint equations, making satisfying them impossible and making the simulation stop.
+Doing something like this, the derivative of the potential is not continuous, so the force is discontinuous, which means that when travelling across the cutoff the force goes abruptly from $0$ to a high amount, generating problems, allowing to violate the third law of thermodynamics, and the new force will affect the constraint equations, making satisfying them impossible and making the simulation stop.
 
 	\subsection{Switching function}
 	To avoid this discontinuity switching functions are applied so that they will provide a continuous potential and derivative:
@@ -135,7 +135,7 @@ Doing something like this, the derivative of the potential is not continuous, so
 
 	\subsection{Verlet Neighbour list}
 	Another trick to compute short functions quicker is to compute the Verlet Neighbour list.
-	For each particle a list of close particles is built, so particles that are beyond a cutoff and a small distance or skin depth $\delta$ and the interactions only in the list are computed.
+	For each particle a list of close particles is built, so particles that are beyond a cutoff and a small distance or skin depth $\delta$ are added onto the list and the interactions only in the list are computed.
 
 	\begin{multicols}{2}
 		\begin{enumerate}
@@ -183,10 +183,10 @@ So the sum is truncated with $|\vec{g}|<g_{max}$.
 
 	Looking at this formula it can be seen how the two sums are independent and the sum over $q_e^{i\vec{g}\vec{r}_i}$ is the structure factor and doing the same with $j$ is the complex conjugate of the structure factor, a measurable of the system, indicated as the modulus squared:
 
-	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}\underbrace{|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2}_{\text{Structure factor}} - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
+	$$U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}\underbrace{\biggr\vert\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}\biggr\vert^2}_{\text{Structure factor}} - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$$
 
 	\subsection{Ewald sum}
-	The Ewald sums allow to speed up computations:
+	The Ewald sum allows to speed up computations:
 
 	\begin{align*}
 		U_{long} &= \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}^2}{4\alpha^2}}|\sum\limits_{i}q_ie^{\vec{g}\cdot\vec{r}_i}|^2 - \frac{1}{V}\sum\limits_iq_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}} = \\
