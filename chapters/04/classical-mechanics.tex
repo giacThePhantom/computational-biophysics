@@ -1,25 +1,63 @@
 \chapter{Classical mechanics}
 
+\section{Introduction}
+The laws of classical mechanics are a good approximation at the molecular level.
+Molecular dynamics is based on the applicability of the laws of classical mechanics to microscopic systems.
+
 \section{Newton's laws}
-So the mass times the acceleration is equal to the force.
-A dot on top of a vector is a derivative with respect to the time.
+Newton's introduced three laws that govern the motion of interacting objects:
 
-$$m_i\frac{d^2 \vec{r}_i}{dt^2} = m_i\ddot{\vec{r}}_i = \vec{F}_i$$
+\begin{itemize}
+	\item In the absence of external forces, a body will be either at rest or execute motion along a straight line with constant velocity $\vec{v}$.
+	\item The action of an external force $\vec{F}$ on a body produces an acceleration $\vec{a}$ equal to the force divided by the mass $m$ of the body:
 
-The index $i$ in a simulation represent a particle, usually atoms.
+		$$\vec{a} = \frac{\vec{F}}{m}\qquad\qquad \vec{F} = m\vec{a}$$
+
+	\item If a body $A$ exerts a force on body $B$, then body $B$ exerts an equal and opposite force on body $A$.
+		That is, if $\vec{F}_{AB}$ is the force $A$ exerts on $B$, then $\vec{F}_{BA}$ exerted by $B$ on $A$ satisfies:
+
+		$$\vec{F}_{BA} = -\vec{F}_{AB}$$
+
+\end{itemize}
+
+In general two objects can exert attractive or repulsive forces on each other depending on their relative spatial location, and the precise dependence of the force on the relative location of the objects is specified by a particular force law.
+Most atoms are massive enough that their motions can be treated within a classical framework.
+
+	\subsection{Motion of an object}
+	The motion of an object can be described by specifying the Cartesian position vector of the object in space at any time $t$:
+
+	\begin{equation}
+		\vec{r}(t) = (x(t), y(t), z(t))
+	\end{equation}
+
+	It can be further noted that:
+
+	$$\vec{v}(t) = \frac{d\vec{r}}{dt}\qquad\qquad \vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{r}}{dt^2}$$
+
+	Therefore Newton's second law can be expressed as a differential equation:
+
+	\begin{equation}
+		m\frac{d^2\vec{r}}{dt^2} = \vec{F}
+		\label{eqs:diff-newt}
+	\end{equation}
+
+	Since equation \label{eqs:diff-newt} is a second order equation two initial conditions are necessary to uniquely specify the motion of the object for all time, namely the initial position $\vec{r}(0)$ and the initial velocity $\vec{v}(0)$.
 
 	\subsection{Forces}
-	In all the force fields the forces come always from pairs of atoms: all the forces depend on the distance between atom.
+	In all the force fields used for molecular dynamics the forces are derived from pairs of atoms and they depend on the distance between them.
 	This is not true for angles and torsions, but they can be re-conducted to forces that involve two atoms, respecting Newton's third law.
-	The forces acting on each particle depend on the coordinates of all the atoms and they might depend on the velocity of atom $i$.
-	Sometimes some frictional forces depend on the velocity.
-	All the forces can be represented as forces between pairs of atom that depend on their mutual distance, in particular $\vec{f}_{ij} = -\vec{f}_{ji}$.
-	All the external forces like friction or some fields depend on the position of atom $i$ and its velocity.
+	The forces acting on each particle depend on the coordinates of all the atoms in the simulation and, in some cases, on its velocity, like for example frictional forces.
+	In particular, to satisfy Newton's third law:
+
+	$$\vec{F}_{ij} = -\vec{F}_{ji}$$
+
+	External forces and fields depend on the position of the atom they act on and its velocity.
 	In the case of biological system viscosity and temperature are the major external forces.
+	The total force acting on atom $i$ in a force field containing $N$ atoms can be computed as:
 
-	$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{f}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{f}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$$
+	$$\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{F}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{F}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$$
 
-	The forces are computed starting from the interactions:
+	Where each $F_{ij}$ will be due to one of the following events:
 
 	\begin{itemize}
 		\item Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$.
