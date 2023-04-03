@@ -77,7 +77,7 @@ These are the angles between the subsequent planes.
 Some of the angles will require more energy.
 
 	\subsection{Difficulty of rotation}
-	It can be seen how a rotation of the $\phi$ angle could cause the two $C'$ to come at a distance of $2.9\si{\angstrom}$ (where $r_{min} = 3.0\si{\angstrom}$.
+	It can be seen how a rotation of the $\phi$ angle could cause the two $C'$ to come at a distance of $2.9\si{\angstrom}$ (where $r_{min} = 3.0\si{\angstrom}$).
 	On the other hand a rotation of the $\psi$ angle could cause the two $N$ to come at the same distance, but in this case $r_{min}(N-N) = 2.7\si{\angstrom}$.
 	In the case of carbon atoms the distance is less than the minimum distance, while in the case of nitrogen it is greater than the minimum allowed value.
 	Looking at this it can be seen how the $\psi$ rotation is easier.
@@ -210,7 +210,7 @@ This is a tabulated file containing different columns:
 		\item Residue sequence number: the number of the residue in the chain.
 		\item $x$, $y$, $z$: the coordinates in angstrom.
 		\item Occupancy: the probability of an atom to be in that space (confidence space).
-		\item B-factor: how mobile that atom is in the crystal, it represent the noise in the x-ray diffraction map (it represents the fluctuations for the coordinate of the atoms. For example, loops in trans-membrane proteins are very mobile and a high B-factor is to be expected).
+		\item B-factor: how mobile that atom is in the crystal, it represent the noise in the x-ray diffraction map or the fluctuations for the coordinate of the atoms. For example, loops in trans-membrane proteins are very mobile and a high B-factor is to be expected).
 		\item Element symbol: the symbol of the element of the atom.
 	\end{itemize}
 \end{multicols}
@@ -275,7 +275,7 @@ Once the coordinates of a protein is obtained, some geometrical properties can b
 	The native state is the functional state of a protein.
 	It is not the state found for a crystallized protein, but only closely related to it, it is rather an ensemble in space and time of structures.
 	This is due to proximity effect and the fact that the protein is not a static system.
-	Proteins are extremely flexible and are moving a lot because the temperature corresponds to a constant movement of water molecule around causes movement in the protein.
+	Proteins are extremely flexible and are moving a lot: temperature causes the movement of the water molecules proximal to it.
 	The native state is an ensemble of closely related states, all compatible with the conditions of the situation studied.
 	Proteins need to be studied in the isothermal-isobaric ensemble.
 	All the calculation need to be done at constant temperature and pressure.
@@ -293,22 +293,22 @@ Once the coordinates of a protein is obtained, some geometrical properties can b
 	\begin{itemize}
 		\item $\langle \vec{r}_i\rangle = \frac{1}{M}\sum\limits_{f=1}^M\vec{r}_{i,f}$, the average position of atom $i$.
 		\item $\Delta\vec{r}_{i,f} = \vec{r}_{i,f}-\langle\vec{r}_i\rangle$, the displacement of each atom in each frame with respect to its average.
-		\item $\langle \Delta\vec{r}_o^w\rangle = \frac{1}{M}\sum\limits_{f=1}^M(\vec{r}_{i,f}-\langle\vec{r}_i\rangle)^2$, the average squared distance over the frames.
+		\item $\langle \Delta\vec{r}_i^2\rangle = \frac{1}{M}\sum\limits_{f=1}^M(\vec{r}_{i,f}-\langle\vec{r}_i\rangle)^2$, the average squared distance over the frames.
 	\end{itemize}
 
 	So, the root mean squared fluctuation is:
 
-	$$RMSF_i = \sqrt{\langle\Delta\vec{r}_i\rangle^2}$$
+	$$RMSF_i = \sqrt{\langle\Delta\vec{r}_i^2\rangle}$$
 
-	Plotting the $RMSF$ with respect to residue number and the more mobile residue can be identified.
+	Plotting the $RMSF$ with respect to residue number allows to identify the more mobile residues.
 	This can be mapped onto the sequence so loops, helices and strands can be recognized.
 	Usually the fluctuating part correspond to loops.
 	The terminus have the highest $RMSF$.
 
 		\subsubsection{B-factors}
-		$RMSF$ can be translated into B-factors.
-		They are the Debye-Waller factors and are a scaled version of the $RMSF$ squared.
-		So the result of a simulation can be compared with the B-factor and a strong correspondence can be seen.
-		The differences are due to the fact that the crystal is a different environment with respect to the normal one and packing effect can happen (some regions of the protein can interact with the image of the protein in the crystal).
+		$RMSF$ is a scaled version of the B or Debye-Waller factors.
+		In fact comparing the $RMSF$ obtained from a simulation and the B-factors obtained from the crystal structure shows how the two measures are strongly correlated.
+		The differences between the two measures are due to environmental effects and to packing effect in the crystal (where some regions of the protein interact with the image of the protein in the crystal).
+		A B-factor can be computed from $RMSF$ as:
 
 		$$B_i = \frac{8\pi^2}{3}\langle\Delta\vec{r}_i^2\rangle = \frac{8\pi^2}{3}RMSF^2_i$$

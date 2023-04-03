@@ -2,237 +2,248 @@
 \chapter{Semi-empirical force fields}
 
 \section{Introduction}
-A protein system can be modelled using a force field.
-Whenever a simulation is started the interactions between atoms need to be determined.
-To do so a topology file is built.
-This file will contain the connecting information.
-This is important because the kind of force field is specified here.
-Semi-empirical force field will be used because a very complicated process is modelled using formula that can be easily computed.
-These formulae are not rigorous and what it is done is to compare the result of the simulation with an experiment.
-Because of these the used force fields will be called semi-empirical.
+A protein system can be modelled using a force field, a description of the interactions between elements in the system.
+A simulation needs a topology file which describes all of the interactions, the connecting information between atoms and the kind of force field that will be used.
+To model protein systems semi-empirical force field are used.
+The formula used in these kind of force fields are not rigorous: all the results from a simulation need to be validated through an experiment.
 
-\section{Potential energy surface}
-Any system will correspond to a given potential energy surface.
-There are states which correspond to minima of this energy where the system will spend most of its time.
-In the global minimum the system is expected to be in equilibrium.
-There are also local minima where the system can spend some time and the system will go from the global to some other local minima and the time spent there depends on how deep that minimum is.
-There will be transitions from one minimum to another exploring the potential energy surface passing through a set of points.
-In principle the potential energy surface is known because it is assumed that there is a potential energy for all the interaction that there are in the system.
-This is not that simple because of temperature: at $0$ temperature the potential energy surface will tell everything: the system goes through the global minimum and stay there.
-At finite and high temperatures the system will jump with a certain frequency, which depends on temperature, from one state to another.
-In this case statistical mechanics is necessary to compute the potential energy and the free energy surface and the entropy.
-The entropy part is the most difficult.
-In order to compute entropy the conformational space need to be explored: so the compatible conformation in certain condition need to be found.
-The phase space, the possibilities of a molecule need to be explored.
-These are so many in the case of a protein that estimating entropy will be the more costly process.
-In order to estimate entropy long simulation are needed as the conformational space will be explored as much as possible.
-In this chapter entropy will not be considered.
+	\subsection{Potential energy surface}
+	The state of any system can be described through a potential energy surface.
+	The minima of the potential energy surface represents states in which the system will spend most of its time.
+	The equilibrium state is found in the global minima of the surface.
+	Lots of local minima are usually found on the surface and the system will jump between them during a simulation, with a frequency that depends on the deepness of the minima and the temperature of the environment.
+	Statistical mechanics is necessary to compute the potential energy and the free energy surfaces at finite temperature, or when the jumping frequency is not zero.
 
-The potential energy surface or PES is the landscape of what values the potential energy of an atom can assume.
-Different points can be recognized like:
+		\subsubsection{Entropy}
+		When dealing with these kind of computations entropy needs to be taken into account.
+		To do so the conformational space, or the phase space, of the system needs to be explored so that compatible conformations for a certain condition can be found.
 
-\begin{multicols}{2}
-	\begin{itemize}
-		\item Saddle point.
-		\item Local maxima.
-		\item Local minimum.
-	\end{itemize}
-\end{multicols}
+
+\section{Computing the potential energy between bonded atoms}
+When computing the potential energy of an atom its interactions with the other with which it forms a chemical bond needs to be considered.
+The chemical bond can assume different conformations, each with a different value of potential energy.
+Because the objective is to consider conformational transitions, the system will be completely modelled using classical mechanics, so bonds are unbreakable.
+The potential energy surface used to describe an unbreakable bond can be seen in figure \ref{fig:chem-bond}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{chem-bond}
+	\caption{Typical potential energy of a chemical bond}
+	\label{fig:chem-bond}
+\end{figure}
 
 	\subsection{Bond stretching}
-	In figure \ref{fig:chem-bond} the typical potential energy for a chemical bond can be seen.
-	Let $r_{eq}$ the distance for which the energy is minimal, where the equilibrium is.
+	During bond stretching the distance of two bonded atoms changes.
+	To model this process consider the typical potential energy for a chemical bond in figure \ref{fig:chem-bond}.
+	Let $r_{eq}$ the distance for which the energy is minimal, or where the equilibrium is.
 	Moving from it the energy increases.
-	There are transitions between different states and in that case quantum physics should be used.
+	When close to the minimum the well can be assumed symmetric.
+	Asymmetry arises far from the minimum: it can be seen how the left part is steeper.
+	Using a Taylor expansion the potential energy is approximated at point $r$ by taking the value at the equilibrium and then constructing all the corrections:
 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.5\textwidth]{chem-bond}
-		\caption{Typical potential energy of a chemical bond}
-		\label{fig:chem-bond}
-	\end{figure}
+	$$U(r)=U(r_{eq}) + \frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq})^2+\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq})^3+\cdots$$
 
-	Everything will be assumed to be described using classical mechanics.
-	This is valid when dealing with conformational transitions.
-	So all variables are continuous.
-	Using this assumption light absorption and a chemical reactions cannot be described.
-	The potential energy surface used to describe an unbreakable bond can be seen in figure \ref{fig:chem-bond}.
-	When close to the minimum the well can be assumed symmetric, but with some asymmetry later: the left part is steeper.
-	An approximation for these potential energy is built into the force field.
-	The potential energy surface can be reconstructed using vibrational spectroscopy and then it is reconstructed using a mathematical model.
-	Using a Taylor expansion the potential energy is approximated at point $r$ by taking the value at the equilibrium and then constructing all the corrections.
-	The first one is the first derivative at the value at equilibrium multiplied by the distance.
-	Then for the second correction the second derivative and so on.
-	If the potential is symmetric the first derivative is $0$, as it happens near the equilibrium.
-	So the first correction can be neglected.
-	Also the third order term is either $0$ because the third derivative is $0$ if the minimum is really shallow.
-	This term is really small if $r$ is really close to the equilibrium so it can be neglected.
+	Considering this expansion:
+
+	\begin{multicols}{2}
+	  \begin{itemize}
+	    \item The first term is the value at equilibrium multiplied by the distance.
+			\item The second term is the correction for the second derivative and so on.
+	  \end{itemize}
+	\end{multicols}
+
+	Now a number of assumptions can be made:
+
+	\begin{multicols}{2}
+	  \begin{itemize}
+	    \item If the potential is symmetric the first term is $0$ as it happens near the equilibrium.
+				This makes the first term negligible.
+			\item If the minimum is shallow the third term is $0$ and happens near the equilibrium.
+				This makes the third term negligible.
+	  \end{itemize}
+	\end{multicols}
 
 	\begin{align*}
-		U(r)&=U(r_{eq}) + \frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq}^2)+\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq}^3)+\cdots\\
-		U(r)&=U(r_{eq}) + \xcancel{\frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq}})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq}^2)+\xcancel{\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq}^3)}+\cdots\\
+		U(r)&=U(r_{eq}) + \xcancel{\frac{dU}{dr}\biggr\vert_{r=r_{eq}}(r-r_{eq}})+\frac{1}{2!}\frac{d^2U}{dr^2}\biggr\vert_{r=r_{eq}}(r-r_{eq})^2+\xcancel{\frac{1}{3!}\frac{d^3U}{dr^3}\biggr\vert_{r=r_{eq}}(r-r_{eq})^3}+\cdots\\
 	\end{align*}
 
-	So that in the end the typical harmonic potential is obtained.
+	So that in the end the typical harmonic potential is obtained:
 
 	$$U(r_{AB}) = \frac{1}{2}k_{AB}(r_{AB}-r_{AB,eq})^2$$
 
-	The constant $k$ is related to the second derivative with respect to the distance.
-	The distances and the $k$ constants are labelled with $A$ and $B$, which stand for the fact that this interaction has to be described for each couple of atom.
-	Transferability of these parameter is an issue: using a particular force field then the parameters cannot be used for another.
-	So each force field will come with its own set of parameters.
+	Considering that:
+
+	\begin{multicols}{2}
+	  \begin{itemize}
+			\item $k$ is related to $\frac{d^2 U}{dr^2}$.
+			\item The distances and $k$ are unique for each couple of atoms.
+				An important issue for these parameters is transferability: these type of parameters need to be computed for each type of force field.
+	  \end{itemize}
+	\end{multicols}
 
 		\subsubsection{Anharmonic force constant}
-		Considering that the shape is not completely symmetric the third order term can be inserted because it can be important.
-		This introduces an asymmetry in the system: an anharmonic force constant.
+		Considering that the shape is not completely symmetric the third order term can be re-inserted in the formula when necessary.
+		This introduces an asymmetry in the system, or an anharmonic force constant:
 
 		$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k^{(3)}_{AB}(r_{AB}-r_{AB, eq})](r_{AB}-r_{AB, eq})^2$$
 
 		\subsubsection{Quartic correction}
-		Also the fourth order term can be inserted.
+		Also the fourth order term can be inserted for better accuracy:
 
 		$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k^{(3)}_{AB}(r_{AB}-r_{AB, eq}) + k^{(4)}_{AB}(r_{AB}-r_{AB,eq})^2](r_{AB}-r_{AB, eq})^2$$
 
 		\subsubsection{Morse potential}
-		The Morse potential is used in implicit solvent simulation and uses the exponential because it can describe screen interaction that happens with implicit solvent.
-		The exponential is quite expensive for a computer to compute.
-		It is useful also for soft-systems or coarse grained systems.
+		The Morse potential is used in implicit solvent simulation.
+		The exponential allows to describe screen interactions that happen with the implicit solvent.
+		This is more difficult to compute, but it is also useful for soft or coarse-grained systems.
 
-		$$U(r_{AB}) = D_{AB}[1-e^{-\alpha_{AB}(r_AB-r_{AB,eq})^2}]$$
+		$$U(r_{AB}) = D_{AB}\left[1-e^{-\alpha_{AB}(r_{AB}-r_{AB,eq})^2}\right]$$
 
-\section{Valence angle bending}
-Chemical bonds are not described only by strings and beads but also bending of the bonds can happen.
-These are valence angle bending, like the one in figure \ref{fig:valence-angle-bending}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{valence-angle-bending}
-	\caption{A valence angle}
-	\label{fig:valence-angle-bending}
-\end{figure}
-
-These bonds cannot be broken during a classical molecular dynamic simulation.
-In order to describe them a Taylor expansion introducing an equilibrium angle is built.
-The first order term is not considered as it will be equal to $0$.
-Then the second introduces the harmonic and the third for the anharmonic one, in principle also the quartic correction could be added.
-This formula is similar to the previous one but all the constant have to be described between each triplet of atoms.
-
-$$U(\theta_{ABC}) = \frac{1}{2}[k_{ABC}+k^{(3)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})+k^{(4)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})^2+\cdots](\theta_{ABC}-\theta_{ABC, eq})^2$$
-
-	\subsection{Multiple minima}
-	There is another problem with valence angle bending: angles are not varying continuously: the Taylor expansion is good if the angles are not varying to much.
-	If the angles invert the Taylor expansion cannot take track of it.
-	In order to take this into account the potential energy is built using a Fourier expansion.
-	A Fourier expansion introduces a periodic function like $\cos$ that contains oscillations in a period, allowing to model any possible periodic potential.
-	Since the angles are being considered the potential is periodic.
-	So in the parametrization of the angle bending interaction the Fourier term is introduced, labelling terms with the value $j$.
-	So the amplitude, the value that multiplies each Fourier component is decreasing with $j$ and a cut-off of the given value of $j$ is given.
-	In this case only low-frequency component are considered.
-
-	$$U(\theta_{ABC}) = \sum\limits_{\{j\}_{ABC}}k^{fourier}_{j,ABC}[1+\cos(j\theta_{ABC}+\psi_j)]$$
-
-	Where the amplitude:
-
-	$$k_{j, ABC}^{fourier} = \frac{2k^{harmonic}_{ABC}}{j^2}$$
-
-	Dividing by $j^2$ makes the contribution smaller for higher $j$.
-
-\section{Torsions}
-In order to describe torsion $4$ atoms bonded by subsequent bonds are considered $A->B->C->D$, like if figure \ref{fig:torsions}.
-
-\begin{figure}[H]
-	\includegraphics[width=\textwidth]{torsions}
-	\caption{An example of torsion}
-	\label{fig:torsions}
-\end{figure}
-
-In this case two planes $ABC$ and $BCD$ are built and the angle $\omega$ between two plane is built.
-If they are on the same plane the angle is $0$.
-So an angle $\omega$ is computed to describe the torsion that is around the bond $B->C$.
-In order to compute the angle the perpendicular vectors between the planes is computed and the angle between these two vector is $\omega$.
-In this case the harmonic oscillation and the Taylor expansion are not used but the Fourier expansion and the periodic potential is used.
-This is because the value of the energy will be the same after a rotation.
-In principle torsions will be explored during a simulation.
-All the possible groups with permutations and repetitions of $4$ atoms need to be considered to parametrize torsions.
-
-$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
-
-	\subsection{Improper torsions}
-	Improper torsions happen when the bonds are $A->B->C$ and $B->D$ like in figure \ref{fig:improper-torsions}.
+	\subsection{Valence angle bending}
+	When an atom makes multiple bonds with different atom the angle between the bonds can fluctuate around an equilibrium value.
+	These events are described as valence angle bending.
+	A valence angle is represented in \ref{fig:valence-angle-bending}.
 
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{improper-torsions}
-		\caption{An example of improper torsion}
-		\label{fig:improper-torsions}
+		\centering
+		\includegraphics[width=0.3\textwidth]{valence-angle-bending}
+		\caption{A valence angle}
+		\label{fig:valence-angle-bending}
 	\end{figure}
 
-	$B$ can be in the same plane of $A, C, D$ or it can pop out.
-	In this case two planes are built, usually $ABC$ and $BCD$ and the angle between them will be built.
-	The potential will describe the energy of the angle.
-	The angle can be described as the out of plane angle $OOP$, obtaining the equation for the plane $ACD$ and how much $B$ is out of that plane.
-	Here all possibilities of an atoms connected with other $3$ atoms need to be considered.
-	In the case of $sp^2$ the four atoms need to be in a plane.
+	In order to describe valence angle bending a Taylor expansion introducing an equilibrium angle is built.
+	The first order term is not considered as it will be equal to $0$.
+	Then the second introduces the harmonic potenital and the third for the anharmonic one, in principle also the quartic correction could be added.
+	This formula is similar to the previous one but all the constant have to be described between each triplet of atoms:
 
-	$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
+	$$U(\theta_{ABC}) = \frac{1}{2}[k_{ABC}+k^{(3)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})+k^{(4)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})^2+\cdots](\theta_{ABC}-\theta_{ABC, eq})^2$$
 
-\section{Van der Waals interactions}
-Van der Waals interactions happen whenever two atoms come close to one another without any chemical bond connecting them.
-This interaction is called dispersion interaction and depends on the interaction between the electron clouds that become correlated.
-Even if electrons are not shared the fluctuation of the electron clouds of an atom will interact with the one of an atom close to it.
-Looking at the interaction energy in figure \ref{fig:van-der-waals}.
-This can be computed and described by an attraction that goes with the $6$th power of the distance.
-This interaction is the Van der Waals interaction.
-This attraction is an attractive force and will decrease with the $6$th power of the distance.
-Also a repulsion happen.
-The repulsion is due to the occupancy of the possible orbitals.
-The problem is then Pauli's exclusion principle: whenever two atoms come close the energy level becomes occupied and the atoms cannot come to close to one another.
-This is difficult to compute but it can be modelled assuming that is a repulsion with an hard limit.
-The energy becomes very high when the distance becomes less than the equilibrium.
-If the attraction is modelled with the $6$th power this interaction can be modelled by the $12$th power.
-In this case if the distance is too small the energy becomes very high.
+		\subsubsection{Multiple minima}
+		Another thing to consider when studying valence angle bending is that angles do not vary continuously: they wrap around at $\pi$ and $0$.
+		This introduces a problem as the Taylor expansion cannot account for this event.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{van-der-waals}
-	\caption{Energy of a Van der Waals interaction}
-	\label{fig:van-der-waals}
-\end{figure}
+			\paragraph{Fourier expansion}
+			To solve this problem the potential energy can be modelled thought a Fourier expansion.
+			This operation introduces a periodic function that contains oscillations around a period, allowing to model any possible periodic potential, as the one for angles.
 
-	\subsection{Lennard-Jones potential}
-	The discussion done above lead to the introduction of the Lennard-Jones potential.
-	This models Van der Waals interaction using the $6$th power for the dispersion and the repulsion due to Pauli's exclusion principle is modelled by the $12$th power.
-	This power is used to make the computation cheap and has no physical basis.
-	In this way this formula is obtained:
+			\paragraph{Valence angle bending with a Fourier expansion}
+			To parametrize the valence angle bending interaction a Fourier term is introduced, such that the terms are labelled with $j$.
+			The amplitude, which multiplies each Fourier component decreases with $j$ and a cut-off on it is given, so to consider only low-frequency components.
+			Now the potential energy for a valence angle bending interaction can be described by:
 
-	\begin{align*}
-		U_(r_{AB}) &= \frac{a_{AB}}{r^{12}_{AB}}-\frac{b_{AB}}{r^6_{AB}}=\\
-							 &= 4\epsilon_{AB}\biggl[\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^{12}-\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^6\biggr]
-	\end{align*}
+			$$U(\theta_{ABC}) = \sum\limits_{\{j\}_{ABC}}k^{fourier}_{j,ABC}[1+\cos(j\theta_{ABC}+\psi_j)]$$
 
-	And the distance with minimum energy or equilibrium.
+			Where:
 
-	$$r^*_{AB} = 2^{\frac{1}{6}}\sigma_{AB}$$
+			\begin{multicols}{2}
+			  \begin{itemize}
+			    \item $\psi_j$ is the phase angle.
+					\item The amplitude is computed as:
 
-	And it can be seen how it is a multiple of $\sigma_{AB}$ or the Van der Waals radius, the distance where the value of the energy if exactly equal to $0$.
-	$-\epsilon$ is the minimum value of the energy (equilibrium).
-	In this way dispersion and repulsion of any couple of atoms can be described.
-	A value of $\sigma_{AB}$ have to be introduced for any couple of atom type.
+						$$k_{j, ABC}^{fourier} = \frac{2k^{harmonic}_{ABC}}{j^2}$$
 
-	\subsection{Morse potential}
-	The Morse potential and the Hill potential can be used with coarse grained system.
-	Dealing only with all-atom simulation these will be rarely used.
-	Working in soft-matter simulation these could be used.
-	These have the same features of the Lennard-Jones potential.
+			  \end{itemize}
+			\end{multicols}
 
-	$$U(r_{AB}) = D_{AB}[1-e^{-a_{AB}(r_{AB}-r_{AB,eq})^2}]$$
+	\subsection{Torsions}
+	Let $A, B, C$ and $D$ be $4$ atoms, bound according to $A->B->C->D$, like in figure \ref{fig:torsions}.
+	Torsions describe the relative rotations of atoms $A$ and $D$ around the bond between $C$ and $D$.
 
-	\subsection{Hill potential}
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{torsions}
+		\caption{An example of torsion}
+		\label{fig:torsions}
+	\end{figure}
 
-	$$U(r_{AB}) = \epsilon_{AB}\biggl[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\biggl(\frac{r^*_{AB}}{r_{AB}}\biggr)^6\biggr]$$
+	To model this movement the planes $ABC$ and $BCD$ are built and the angle $\omega$ between them is considered.
+	$\omega$ will describe the torsion around the bond.
+	The angle is computed as the angle between the vectors perpendicular to the planes.
+	The potential is computed through a Fourier expansion because it is periodic:
 
-	In some force fields $1$-$4$ interactions (successive bonds atoms can be numbered) are reduced by a scaled factor.
-	Atom $1$ and $4$ are close to each other in a proper torsion but attraction and repulsion has been already described by the torsion, so in some force fields, the torsions takes into account the proximity of those atoms.
-	So the Van der Waals interactions are excluded for $1$-$4$ atoms as they are already been described by the torsion interaction.
+	$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}\left[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})\right]$$
+
+	All the possible groups of $4$ atoms, considering permutations and repetitions need to be parametrized to describe this potential.
+
+		\subsubsection{Improper torsions}
+		Improper torsions are a particular type of torsion that happens when the four atoms $A, B, C$ and $D$ are bound according to $A->B->C$ and $B->D$, like in figure \ref{fig:improper-torsions}.
+
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{improper-torsions}
+			\caption{An example of improper torsion}
+			\label{fig:improper-torsions}
+		\end{figure}
+
+		$B$ can be in the same plane of $A, C, D$ or it can pop out.
+		In this case two planes are built, usually $ABC$ and $BCD$ and the angle $\omega$ between them is considered.
+		The potential will describe the energy of the angle.
+		The angle can be computed as the out of plane angle $OOP$, obtaining the equation for the plane $ACD$ and computing how much $B$ is out of that plane.
+		The potential is again described through a Fourier expansion:
+
+		$$U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$$
+
+		To parameterize this potential all possible groups of an atom connected with $3$ others need to be considered.
+		The $sp^2$ hybridization constraints all the atoms in a plane.
+
+\section{Non bonded interactions}
+
+	\subsection{Van der Waals interactions}
+	Van der Waals interactions happen whenever two atoms come close to one another without any chemical bond connecting them.
+	This interaction is called dispersion interaction and depends on the interaction between the electron clouds that become correlated.
+	Even if electrons are not shared the fluctuation of the electron clouds of an atom will interact with the one of an atom close to it.
+	Looking at the interaction energy in figure \ref{fig:van-der-waals}.
+	This can be computed and described by an attraction that goes with the $6$th power of the distance.
+	This interaction is the Van der Waals interaction.
+	This attraction is an attractive force and will decrease with the $6$th power of the distance.
+	Also a repulsion happen.
+	The repulsion is due to the occupancy of the possible orbitals.
+	The problem is then Pauli's exclusion principle: whenever two atoms come close the energy level becomes occupied and the atoms cannot come to close to one another.
+	This is difficult to compute but it can be modelled assuming that is a repulsion with an hard limit.
+	The energy becomes very high when the distance becomes less than the equilibrium.
+	If the attraction is modelled with the $6$th power this interaction can be modelled by the $12$th power.
+	In this case if the distance is too small the energy becomes very high.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{van-der-waals}
+		\caption{Energy of a Van der Waals interaction}
+		\label{fig:van-der-waals}
+	\end{figure}
+
+		\subsection{Lennard-Jones potential}
+		The discussion done above lead to the introduction of the Lennard-Jones potential.
+		This models Van der Waals interaction using the $6$th power for the dispersion and the repulsion due to Pauli's exclusion principle is modelled by the $12$th power.
+		This power is used to make the computation cheap and has no physical basis.
+		In this way this formula is obtained:
+
+		\begin{align*}
+			U_(r_{AB}) &= \frac{a_{AB}}{r^{12}_{AB}}-\frac{b_{AB}}{r^6_{AB}}=\\
+								 &= 4\epsilon_{AB}\biggl[\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^{12}-\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^6\biggr]
+		\end{align*}
+
+		And the distance with minimum energy or equilibrium.
+
+		$$r^*_{AB} = 2^{\frac{1}{6}}\sigma_{AB}$$
+
+		And it can be seen how it is a multiple of $\sigma_{AB}$ or the Van der Waals radius, the distance where the value of the energy if exactly equal to $0$.
+		$-\epsilon$ is the minimum value of the energy (equilibrium).
+		In this way dispersion and repulsion of any couple of atoms can be described.
+		A value of $\sigma_{AB}$ have to be introduced for any couple of atom type.
+
+		\subsection{Morse potential}
+		The Morse potential and the Hill potential can be used with coarse grained system.
+		Dealing only with all-atom simulation these will be rarely used.
+		Working in soft-matter simulation these could be used.
+		These have the same features of the Lennard-Jones potential.
+
+		$$U(r_{AB}) = D_{AB}[1-e^{-a_{AB}(r_{AB}-r_{AB,eq})^2}]$$
+
+		\subsection{Hill potential}
+
+		$$U(r_{AB}) = \epsilon_{AB}\biggl[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\biggl(\frac{r^*_{AB}}{r_{AB}}\biggr)^6\biggr]$$
+
+		In some force fields $1$-$4$ interactions (successive bonds atoms can be numbered) are reduced by a scaled factor.
+		Atom $1$ and $4$ are close to each other in a proper torsion but attraction and repulsion has been already described by the torsion, so in some force fields, the torsions takes into account the proximity of those atoms.
+		So the Van der Waals interactions are excluded for $1$-$4$ atoms as they are already been described by the torsion interaction.
 
 
 \section{Electrostatic interactions}
@@ -404,7 +415,7 @@ So parametrizing the force field is very complicated.
 			\item All atoms: one atom corresponds to one bead.
 			\item More atoms: more atoms correspond to one bead.
 			\item Corse grained: groups of atoms correspond to one bead.
-			\item Polarizable force fields: point charges are variables.
+			\item Polarizzarle force fields: point charges are variables.
 		\end{itemize}
 	\end{multicols}
 
