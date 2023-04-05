@@ -18,6 +18,20 @@ The formula used in these kind of force fields are not rigorous: all the results
 		When dealing with these kind of computations entropy needs to be taken into account.
 		To do so the conformational space, or the phase space, of the system needs to be explored so that compatible conformations for a certain condition can be found.
 
+	\subsection{Types of force fields}
+	Force fields can be categorized as:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item All atoms: one atom corresponds to one bead.
+			\item More atoms: more atoms correspond to one bead.
+			\item Corse grained: groups of atoms correspond to one bead.
+			\item Polarizzarle force fields: point charges are variables.
+		\end{itemize}
+	\end{multicols}
+
+	As a golden rule parameters from different force fields should never be mixed.
+
 
 \section{Computing the potential energy between bonded atoms}
 When computing the potential energy of an atom its interactions with the other with which it forms a chemical bond needs to be considered.
@@ -188,19 +202,12 @@ The potential energy surface used to describe an unbreakable bond can be seen in
 
 	\subsection{Van der Waals interactions}
 	Van der Waals interactions happen whenever two atoms come close to one another without any chemical bond connecting them.
-	This interaction is called dispersion interaction and depends on the interaction between the electron clouds that become correlated.
-	Even if electrons are not shared the fluctuation of the electron clouds of an atom will interact with the one of an atom close to it.
-	Looking at the interaction energy in figure \ref{fig:van-der-waals}.
-	This can be computed and described by an attraction that goes with the $6$th power of the distance.
-	This interaction is the Van der Waals interaction.
-	This attraction is an attractive force and will decrease with the $6$th power of the distance.
-	Also a repulsion happen.
-	The repulsion is due to the occupancy of the possible orbitals.
-	The problem is then Pauli's exclusion principle: whenever two atoms come close the energy level becomes occupied and the atoms cannot come to close to one another.
-	This is difficult to compute but it can be modelled assuming that is a repulsion with an hard limit.
-	The energy becomes very high when the distance becomes less than the equilibrium.
-	If the attraction is modelled with the $6$th power this interaction can be modelled by the $12$th power.
-	In this case if the distance is too small the energy becomes very high.
+	It is a dispersion interaction and depends on the correlation of the electron clouds.
+	This happens even if the electrons are not shared between atoms and depend only on the distance between them.
+	The potential energy of a Van der Waals interaction is visualized in figure \ref{fig:van-der-waals}.
+	Van der Waals interactions are a type of attractive forces that decrease with the $6$th power of the distance and it is closely related to a repulsion.
+	The repulsion is due to Pauli's exclusion principle: whenever two atoms come close an energy level becomes occupied and it stops them to become closer.
+	This is difficult to compute, so it is modelled through an hard limit, modelled by the $12$th power of the distance, making the energy become very high whenever the distance becomes less than the equilibrium.
 
 	\begin{figure}[H]
 		\centering
@@ -209,214 +216,186 @@ The potential energy surface used to describe an unbreakable bond can be seen in
 		\label{fig:van-der-waals}
 	\end{figure}
 
-		\subsection{Lennard-Jones potential}
-		The discussion done above lead to the introduction of the Lennard-Jones potential.
-		This models Van der Waals interaction using the $6$th power for the dispersion and the repulsion due to Pauli's exclusion principle is modelled by the $12$th power.
-		This power is used to make the computation cheap and has no physical basis.
-		In this way this formula is obtained:
+		\subsubsection{Lennard-Jones potential}
+		The Lennard-Jones potential models both the attraction due to the Van der Waals interaction and the repulsion due to Pauli's exclusion principle.
+		The corresponding formula is cheap to compute but has no physical basis:
 
 		\begin{align*}
 			U_(r_{AB}) &= \frac{a_{AB}}{r^{12}_{AB}}-\frac{b_{AB}}{r^6_{AB}}=\\
 								 &= 4\epsilon_{AB}\biggl[\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^{12}-\biggl(\frac{\sigma_{AB}}{r_{AB}}\biggr)^6\biggr]
 		\end{align*}
 
-		And the distance with minimum energy or equilibrium.
+		And the distance with minimum energy or equilibrium is:
 
 		$$r^*_{AB} = 2^{\frac{1}{6}}\sigma_{AB}$$
 
-		And it can be seen how it is a multiple of $\sigma_{AB}$ or the Van der Waals radius, the distance where the value of the energy if exactly equal to $0$.
-		$-\epsilon$ is the minimum value of the energy (equilibrium).
-		In this way dispersion and repulsion of any couple of atoms can be described.
-		A value of $\sigma_{AB}$ have to be introduced for any couple of atom type.
+		Where $\sigma_{AB}$ is the Van der Waals radius, where the energy is $-\epsilon$.
+		A value of $\sigma_{AB}$ have to be introduced for any couple of types of atoms.
 
-		\subsection{Morse potential}
-		The Morse potential and the Hill potential can be used with coarse grained system.
-		Dealing only with all-atom simulation these will be rarely used.
-		Working in soft-matter simulation these could be used.
-		These have the same features of the Lennard-Jones potential.
+		\subsubsection{Morse potential}
+		The Morse potential is usually used with coarse grained systems or with soft-matter simulations.
+		This potential has the same features of the Lennard-Jones potential:
 
 		$$U(r_{AB}) = D_{AB}[1-e^{-a_{AB}(r_{AB}-r_{AB,eq})^2}]$$
 
-		\subsection{Hill potential}
+		\subsubsection{Hill potential}
+		The Hill potential is usually used with coarse grained systems or with soft-matter simulations.
+		This potential has the same features of the Lennard-Jones potential:
 
 		$$U(r_{AB}) = \epsilon_{AB}\biggl[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\biggl(\frac{r^*_{AB}}{r_{AB}}\biggr)^6\biggr]$$
 
-		In some force fields $1$-$4$ interactions (successive bonds atoms can be numbered) are reduced by a scaled factor.
-		Atom $1$ and $4$ are close to each other in a proper torsion but attraction and repulsion has been already described by the torsion, so in some force fields, the torsions takes into account the proximity of those atoms.
-		So the Van der Waals interactions are excluded for $1$-$4$ atoms as they are already been described by the torsion interaction.
+		\subsubsection{Scaling for already accounted interactions}
+		In some force fields $1$-$4$ interactions are reduced by a scaled factor, while in other are completely removed.
+		This is because in these force fields the torsions are modelled such that they already take into account these proximity effects.
 
+	\subsection{Electrostatic interactions}
+	Electrostatic interactions happen between charged or polar molecules.
+	To model these kind of interactions the distribution of charges needs to be described.
+	In principle a multiple expansion should be performed.
+	The shape of the clouds of charges should be given for each molecules and each interaction should be described by the matrix multiplication of all the matrices:
 
-\section{Electrostatic interactions}
-Electrostatic interactions, together with Van der Waals one are two kind of non-bonded interactions.
-Moreover interactions between molecules that might be charged or that can be polar.
-The distribution of charges need to be described.
-In principle a multiple expansion should be performed: the cloud of positive and negative charges should be described by using given shapes of the clouds.
-And each molecule should be described and all the molecules should be described by these multiple expansion and they should be multiplied as matrix.
+	$$U_{AB} = \vec{M}^{(A)}V^{(B)}$$
 
-$$U_{AB} = \vec{M}^{(A)}V^{(B)}$$
+	Now, summing over all molecules:
 
-Now, summing over all molecules:
+	$$U_{AB} = \sum\limits_{A}\sum\limits_{B>A}\vec{M}^{(A)}\vec{V}^{(B)}$$
 
-$$U_{AB} = \sum\limits_{A}\sum\limits_{B>A}\vec{M}^{(A)}\vec{V}^{(B)}$$
+	This is a very costly procedure but provides accurate results.
 
-This is a very costly procedure but accurate.
+		\subsubsection{Point like charges}
+		To make the computation easier molecules are represented as point-like partial charges.
+		Each atom in a molecule is assumed to be point like and to have a partial charge.
+		The electron cloud is displaced toward the negative cloud and away from the positive one.
+		In this way the distribution of charges can be represented by numbers placed on each atom.
+		Once this is done an electric charge is associated with each bead and the Coulomb interaction is used to compute the energy:
 
-	\subsection{Point like charges}
-	To make the computation easier molecules are represented as point-like partial charges.
-	In a chemical molecule partial charges can be assumed that are point-like and are located on the atom.
-	The electron cloud is displaced toward the negative cloud and away from the positive one.
-	In this way the distribution of charges can be represented by number placed on each atom.
-	Once this is done an electric charge is associated with each bead and the Coulomb interaction is used:
+		$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
 
-	$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
+		Where $\epsilon_{AB}$ is the dielectric constant and depends on the type of solvent ($1$ for explicit ones).
 
-	The dielectric constant is $1$ in the case of explicit solvent, but in the case of the implicit one it will be the one of the solvent.
+		\subsubsection{Dipolar interactions}
+		Dipolar interaction can be included when considering electrostatic forces.
+		These formulae are mostly used in corse grained models: approximation of single charges one a bead cannot be made.
+		The interaction takes a functional form with a number of parameters:
 
-	\subsection{Dipolar interactions}
-	Dipolar interaction can be included when considering electrostatic forces.
-	These formulae are mostly used in corse grained models.
-	Because in that case the approximation of single charges on a bead cannot be made and dipoles are considered.
-	In this case a functional form and the parameters need to be included.
-	$\mu$ is the dipole of two molecules.
-	Then there is the dielectric constant, the cube of the distance and the cosine term represent the orientation of the two dipoles.
+		Because in that case the approximation of single charges on a bead cannot be made and dipoles are considered.
+		In this case a functional form and the parameters need to be included.
+		The energy is computed as:
 
-	$$U_{AB/CD} = \frac{\mu_{AB}\mu_{CD}}{\epsilon_{AB/CD}r^3_{AB/CD}}(\cos\chi_{AB/CD}-3\cos\alpha_{AB}\cos\alpha_{CD})$$
+		$$U_{AB/CD} = \frac{\mu_{AB}\mu_{CD}}{\epsilon_{AB/CD}r^3_{AB/CD}}(\cos\chi_{AB/CD}-3\cos\alpha_{AB}\cos\alpha_{CD})$$
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{dipolar-interactions}
-		\caption{An example of a dipolar interaction}
-		\label{fig:dipolar-interactions}
-	\end{figure}
+		Where:
 
-	\subsection{Dielectric constants}
+		\begin{multicols}{2}
+		  \begin{itemize}
+		    \item $\mu$ is the dipole of two molecules.
+				\item $\epsilon_{AB/CD}$ is the dielectric constant.
+				\item The cosine term represents the orientation of the two dipoles.
+		  \end{itemize}
+		\end{multicols}
 
-	$$U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$$
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{dipolar-interactions}
+			\caption{An example of a dipolar interaction}
+			\label{fig:dipolar-interactions}
+		\end{figure}
 
-	The dielectric constant can assume different values.
-	If they are connected by a chemical bond or if there is a valence angle between the atoms the dielectric constant is $\infty$ and the interaction is not computed as it is already taken into account by other terms.
-	In several force field a factor of $2$ is added for $1$-$4$ interaction.
-	In the last case the value depend on the force field.
+		\subsubsection{Dielectric constants}
+		The dielectric constant changes depending on the type of interaction the atom.
+		For example:
 
-	$$\epsilon_{AB} = \begin{cases}\infty&\text{ if }A\land B\text{are 1,2- or 1,3-related}\\3.0&\text{ if }A\land B\text{are 1,4-related}\\1.5&\text{otherwise}\end{cases}$$
+		$$\epsilon_{AB} = \begin{cases}\infty&\text{ if }A\land B\text{ are 1,2- or 1,3-related}\\3.0&\text{ if }A\land B\text{ are 1,4-related}\\1.5&\text{otherwise}\end{cases}$$
+
+		These scaling factors depend on the force field chosen.
 
 \section{Cross terms}
-There are also cross terms: angle bending and bond stretching and other movement are not independent: all the possible degrees of freedom should be considered together.
-This is done only by some force fields.
+Different type of interactions depend between each other, so all the possible degree of freedom should be considered together:
 
 \begin{align*}
 	U(\vec{q}) = &U(\vec{q}_{eq}) + \sum\limits_{i=1}^{3N-6}(q_i-q_{i,eq})\frac{\partial U}{\partial q_i}\biggr\vert_{\vec{q}=\vec{q}_{eq}} + \\
-							 &+\frac{1}{2!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}(q_i-q_{i.eq})(q_j-q_{j,eq})\frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\vert_{\vec{q}=\vec{q}_{eq}} +\\
+							 &+\frac{1}{2!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}(q_i-q_{i,eq})(q_j-q_{j,eq})\frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\vert_{\vec{q}=\vec{q}_{eq}} +\\
 							 &=\frac{1}{3!}\sum\limits_{i=1}^{3N-6}\sum\limits_{j=1}^{3N-6}\sum\limits_{k=1}^{3N-6}(q_i-q_{i,eq})(q_j-q_{j.eq})(q_k-q_{k,eq})\frac{\partial^3 U}{\partial q_i\partial q_j\partial q_k}\biggr\vert_{\vec{q}=\vec{q}_{eq}} + \cdots
 \end{align*}
 
 This is done by starting from a Lagrangian describing all the interaction and compute all the terms.
-In practice everything is done without considering them.
+In practice, besides some force fields, everything is done without considering them:
 
 $$U(r_{AB}, \theta_{ABC}) = \frac{1}{2}k_{AB,ACB}(r_{AB}-r_{AB, eq})(\theta_{ABC}-\theta_{ABC, eq})$$
 
 \section{Parametrization}
-All the interactions need a large set of parameters.
-The number of parameters increases with the number of atoms $N$:
+All the interactions need a large set of parameters to be computed, which grows with the number of atoms $N$ as:
 
 $$p = N + (N-1)+(N-2)+\cdots = N\frac{N+1}{2}$$
 
-In order to obtain these parameters data from experiments are used.
-This is the reason why the force-field are semi-empirical.
-To do so the results of the experiments are compared from the results of simulations.
-Then the penalty function:
 
-$$Z = \biggl[\sum\limits_{i}^{observables}\sum\limits_{j}^{occurrences}\frac{(calc_{i,j}-expt_{i,j})^2}{w_i^2}\biggr]^{\frac{1}{2}}$$
+	\subsection{Obtaining the parameters}
+	The parameters are obtained comparing experimental data (from which the term semi-empirical) with the results of a simulation.
+	Then the penalty function is introduced:
 
-Sums over all the data from all the observables and all possibilities.
-Then all the observable are measured and are compared with the simulation result.
-Then the square is taken to not compensate the error and it is divided by a weight.
-This penalty function is minimized changing the parameters until some reasonable compromise is obtained.
-The more experimental data is obtained the more accurate the description.
-This is the reason for the constant update of the force fields.
-A way to reduce the number of parameters is to employ a strategy so that a parameter to each atom is computed and then it is computed the interaction between two atoms:
+	$$Z = \biggl[\sum\limits_{i}^{observables}\sum\limits_{j}^{occurrences}\frac{(calc_{i,j}-expt_{i,j})^2}{w_i^2}\biggr]^{\frac{1}{2}}$$
 
-\begin{align*}
-	\sigma_{AB} &= \sigma_A+\sigma_B\\
-	\epsilon_{AB} &= (\epsilon_A\epsilon_B)^{\frac{1}{2}}
-\end{align*}
+	This is summed over all the data from all the observables.
+	Then it is minimized by changing the simulation's parameters until a reasonable compromise is reached.
+	This is the reason for the constant update of the force fields.
 
-\section{Force field energies}
-In molecules the ground state of one molecule is different from the ground state of another.
-Molecules can have different states and when they come in contact the ground state have to be taken into account.
-So parametrizing the force field is very complicated.
+	\subsection{Reducing the number of parameters}
+	To reduce the number of parameters, they are factorized so that they need to be defined only for each atom:
+
+	\begin{align*}
+		\sigma_{AB} &= \sigma_A+\sigma_B\\
+		\epsilon_{AB} &= (\epsilon_A\epsilon_B)^{\frac{1}{2}}
+	\end{align*}
 
 	\subsection{Geometry optimization}
-	Once the force fields are obtained some atoms can be missing from the model and have to be included by hand.
-	Sometimes it may happen that two atoms are too close to each other and by using the potential energy it can be high leading to high forces, causing the atom that experience them to be kicked out.
-	So the simulation will explode.
-	In order to avoid this a geometry optimization is done to obtain the parameters or to minimize so to avoid high forces values at the start of a simulation.
-	When starting a simulation the system will be at an energy value which be greater than the equilibrium.
-	The gradient of the energy is computed and the system is moved toward the minimum energy.
+	It may happen that two atoms are too close to each other at the start of a simulation, leading to high forces, kicking out the atom and causing the simulation to explode.
+	Geometry optimization is done to obtain the parameters or to minimize them so to avoid high forces values at the start of a simulation.
+	To do so the gradient of the energy is computed and the system is moved toward the minimum energy.
 	The derivative need to be computed of $U$ with respect to each component in the system.
 
 	$$\vec{g}(\vec{q}) = \begin{bmatrix} \frac{\partial U}{\partial q_1} \\ \frac{\partial U}{\partial q_2} \\ \vdots \\ \frac{\partial U}{\partial q_n}\end{bmatrix}$$
 
-	Such that the cost reaches a global minimum $J_{min}(\vec{w})$.
+	Such that the cost reaches the global minimum $J_{min}(\vec{w})$.
 
-	\subsection{Derivative of the potential function}
-	First the derivatives need to be computed.
-	All the potentials are given in term of the mutual distance of two atoms.
-	So, considering $x$ the coordinates of a point:
+		\subsubsection{Derivative of the potential function}
+		First the derivatives need to be computed.
+		All the potentials are given in term of the mutual distance of two atoms.
+		So, considering $x$ the coordinates of a point:
 
-	$$\frac{\partial U}{\partial x_A} = \sum\limits_{i\in A}\frac{\partial U}{\partial r_{Ai}}\frac{\partial r_{Ai}}{\partial x_A}$$
+		$$\frac{\partial U}{\partial x_A} = \sum\limits_{i\in A}\frac{\partial U}{\partial r_{Ai}}\frac{\partial r_{Ai}}{\partial x_A}$$
 
-	Taking the derivative of this:
+		Taking the derivative of this:
 
-	$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k_{AB}^{(3)}(r_{AB}-r_{AB, eq}) + k_{AB}^{(4)}(r_{AB}-r_{AB, eq})^2](r_{AB}-r_{AB,eq})^2$$
+		$$U(r_{AB}) = \frac{1}{2}[k_{AB}+k_{AB}^{(3)}(r_{AB}-r_{AB, eq}) + k_{AB}^{(4)}(r_{AB}-r_{AB, eq})^2](r_{AB}-r_{AB,eq})^2$$
 
-	With respect to the distance:
+		With respect to the distance:
 
-	$$\frac{\partial U}{\partial r_{Ai}} = \frac{1}{2}[2k_{Ai}+3k_{Ai}^{(3)}r_{Ai}-r_{Ai, eq}) + 4k^{(4)}_{Ai}(r_{Ai}-r_{Ai, eq})^2](r_{Ai}-r_{Ai, eq})$$
+		$$\frac{\partial U}{\partial r_{Ai}} = \frac{1}{2}[2k_{Ai}+3k_{Ai}^{(3)}(r_{Ai}-r_{Ai, eq}) + 4k^{(4)}_{Ai}(r_{Ai}-r_{Ai, eq})^2](r_{Ai}-r_{Ai, eq})$$
 
-	In order to take the derivative with respect to $r$ the derivative with to $x$ needs to be known:
+		In order to take the derivative with respect to $r$ the derivative with to $x$ needs to be known:
 
-	$$\frac{\partial r_{Ai}}{\partial x_A} = \frac{x_A-x_i}{\sqrt{(x_A-x_i)^2+(y_A-y_i)^2+(z_A-z_i)^2}}$$
+		$$\frac{\partial r_{Ai}}{\partial x_A} = \frac{x_A-x_i}{\sqrt{(x_A-x_i)^2+(y_A-y_i)^2+(z_A-z_i)^2}}$$
 
-	Then this formula can plugged in according to the chain rule.
+		Then this formula can plugged in according to the chain rule.
 
 		\subsubsection{Newton-Raphson}
-		To perform the minimization as an iterative procedure, the Newton-Raphson to find a local minimum is employed.
-		Here $(n)$ refers to the iteration.
-		This allow to obtain iteration $k+1$ starting from iteration $k$ and is a Taylor expansion of coordinates at iteration $k$:
+		The minimization for geometry optimization is performed as an iterative procedure: the Newton-Raphson.
+		Consider $(n)$ as the identifier for the $n$th iteration.
+		This allow to obtain iteration $k+1$ via a Taylor expansion of coordinates at iteration $k$:
 
 		$$U(\vec{q}^{(k+1)}) = U(\vec{q}^{(k)}) + (\vec{q}^{(k+1)} -\vec{q}^{(k)})\vec{g}^{(k)} + \frac{1}{2}(\vec{q}^{(k+1)}-\vec{q}^{(k)})H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})$$
 
-		This is done to find eventually the coordinates at iteration $k+1$ which are unknown.
-		Where $H$ is the Hessian matrix built:
+		Where $H$ is the Hessian matrix:
 
 		$$H_{ij}^{(k)} = \frac{\partial^2 U}{\partial q_i\partial q_j}\biggr\vert_{\vec{q}=\vec{q}^{(k)}}$$
 
-		Everything is computed from a Taylor expansion from coordinates at iteration $k$.
 		And:
 
 		$$\frac{\partial U(\vec{q}^{(k+1)})}{\partial q_i^{(k+1)}} = \frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}\vec{g}^{(k)}+ \frac{1}{2}\frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})+\frac{1}{2}(\vec{q}^{(k+1)}-\vec{q}^{(k)})H^{(k)}\frac{\partial \vec{q}^{(k+1)}}{\partial q_i^{(k+1)}}$$
 
-		This formula tells that:
+		So that:
 
 		$$\vec{g}_i^{(k+1)} = \vec{g}_i^{(k)} + [H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})]_i$$
 
-		Where at the end it should be obtained a stationary condition, where the system does not change after an iteration:
+		After enough iterations the system reaches a stationary conditions, where the system won't change in successive iterations:
 
 		$$\vec{0} = \vec{g}^{(k)} + H^{(k)}(\vec{q}^{(k+1)}-\vec{q}^{(k)})\Rightarrow \vec{q}^{(k+1)} = \vec{q}^{(k)} - [H^{(k)}]^{-1}\vec{g}^{(k)}$$
-
-		Because the starting point was a Taylor expansion the new coordinates will not be exact, and so other iterations will be needed.
-		This process is repeated until convergence is reached, choosing a given tolerance on $\vec{0}$.
-
-	\subsection{Types of force fields}
-	Force fields can be categorized as:
-
-	\begin{multicols}{2}
-		\begin{itemize}
-			\item All atoms: one atom corresponds to one bead.
-			\item More atoms: more atoms correspond to one bead.
-			\item Corse grained: groups of atoms correspond to one bead.
-			\item Polarizzarle force fields: point charges are variables.
-		\end{itemize}
-	\end{multicols}
-
-	As a golden rule parameters from different force fields should never be mixed.
