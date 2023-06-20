@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage[a2paper, landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{130 Cheat Sheet}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{shapes,decorations}
+
+\advance\topmargin-1.9in
+\advance\textheight1in
+\advance\textwidth1in
+\advance\oddsidemargin-3in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+\begin{document}
+
+\begin{center}{\huge{\textbf{Computational biophysics}}}\\
+\end{center}
+\begin{multicols*}{3}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{multicols}{2}
+                Centre of mass $\vec{R}_{cm} = \frac{\sum\limits_{i=1}^Nm_i\vec{r}_i}{\sum\limits_{i=1}^Nm_i}$ \\
+                Radius of gyration $r_g = \sqrt{\frac{\sum\limits_{i=1}^Nm_i(\vec{r}_i-\vec{R}_{cm})^2}{\sum\limits_{i=1}^Nm_i}}$\\
+                $RMSD(t) = \sqrt{\frac{1}{N}\sum\limits_{i=1}^N(\vec{r}_{i}(t)-\vec{r}_{i}(0))^2}$\\
+                $RMSF_i = \sqrt{\langle\Delta r_i^2\rangle} = \sqrt{\frac{1}{M}\sum\limits_{f=1}^M(\vec{r}_{i,f}-\langle\vec{r}_i\rangle)^2}$\\
+                $B_i = \frac{8\pi^2}{3}RMSF_i^2$\\
+            \end{multicols}
+
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Protein's geometry};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Harmonic $U(r_{AB}) = \frac{1}{2}k_{AB}(r_{AB}-r_{AB,eq})^2$\\
+                        Anarmonic $U(r_{AB}) = \frac{1}{2}\left[k_{AB} + k_{AB}^{(3)}(r_{AB}-r_{AB,eq})\right](r_{AB}-r_{AB, eq})^2$\\
+                        Quartic correction $\begin{aligned}U(r_{AB}) = \frac{1}{2}&\left[k_{AB} + k_{AB}^{(3)}(r_{AB}-r_{AB,eq}) + k_{AB}^{(4)}(r_{AB}-r_{AB,eq})^2\right]\cdot\\
+                            &\cdot(r_{AB}-r_{AB, eq})^2\end{aligned}$\\
+                        Morse $U(r_{AB}) = D_{AB}\left[1-e^{-\alpha_{AB}(r_{AB}-r_{AB,eq}^2)}\right]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) { Bond stretching};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Potential $\begin{aligned}U(\theta_{ABC}) &= \frac{1}{2}[k_{ABC}+k^{(3)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})+\\
+                        &+k^{(4)}_{ABC}(\theta_{ABC}-\theta_{ABC,eq})^2+\cdots](\theta_{ABC}-\theta_{ABC, eq})^2\end{aligned}$\\
+                            Fourier $\begin{aligned}U(\theta_{ABC}) &= \sum\limits_{\{j\}_{ABC}}k^{fourier}_{j,ABC}[1+\cos(j\theta_{ABC}+\psi_j)]\\
+                                k_{j, ABC}^{fourier} &= \frac{2k^{harmonic}_{ABC}}{j^2}\end{aligned}$\\
+
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Valence angle bending};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+	                Potential $U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}\left[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})\right]$\\
+                        Improper $U(\omega_{ABCD}) = \frac{1}{2}\sum\limits_{\{j\}_{ABCD}}V_{j,ABCD}[1+(-1)^{j+1}\cos(j\omega_{ABCD}+\psi_{j,ABCD})]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Torsions};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Lennard-Jones $U(r_{AB}) = 4\epsilon_{AB}\left[\left(\frac{\sigma_{AB}}{r_{AB}}\right)^{12}-\left(\frac{\sigma_{AB}}{r_{AB}}\right)^6\right]$\\
+                        Morse $U(r_{AB}) = D_{AB}\left[1-e^{-\alpha_{AB}(r_{AB}-r_{AB,eq}^2)}\right]^2$\\
+                        Hill $U(r_{AB}) = \epsilon\left[\frac{6}{\beta_{AB}-6}e^{\beta_{AB}\frac{1-r_{AB}}{r^*_{AB}}}-\frac{\beta_{AB}}{\beta_{AB}-6}\left(\frac{r^*_{AB}}{r_{AB}}\right)^6\right]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Van der Waals};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Distribution of charges $U_{AB} = \sum\limits_A\sum\limits_{B>A}\vec{M}^{(A)}\vec{V}^{(B)}$\\
+                        Point like $U_{AB} = \frac{q_Aq_B}{\epsilon_{AB}r_{AB}}$\\
+                        Dipolar interactions $U_{AB/CD} = \frac{\mu_{AB}\mu_{CD}}{\epsilon_{AB/CD}r^3_{AB/CD}}(\cos\chi_{AB/CD}-3\cos\alpha_{AB}\cos\alpha_{CD})$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Electrostatic interactions};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Parameters $Z = \sqrt{\sum\limits_i^{observables}\sum\limits_j^{occurrences}\frac{(calc_{i,j}-expt_{i,j})^2}{w_i^2}}$\\
+                        $\sigma_{AB} = \sigma_A + \sigma_B\qquad\qquad \epsilon_{AB} = \sqrt{\epsilon_A\epsilon_B}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Parameterization};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Semi-empirical force fields};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\vec{F} = m\vec{a}\qquad \vec{F}_{BA} = -\vec{F}_{AB}$\\
+                        $\vec{v}(t) = \frac{d\vec{r}}{dt}\qquad \vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{r}}{dt^2}\qquad m\frac{d^2\vec{r}}{dt^2} = \vec{F}$\\
+                        Force acting on atom $\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_i) = \sum\limits_{j\neq i}\vec{F}_{ij}(\vec{r}_i-\vec{r}_j)+\vec{F}^{(ext)}(\vec{r}_i, \dot{\vec{r}}_i)$\\
+                        Bond stretching: $U = \frac{k_l}{2}(l-l^0)^2$\\
+                        Bond bending: $U = \frac{k_\theta}{2}(\theta-\theta^0)^2$\\
+                        Bond torsion: $U = k_\phi[1+\cos(n\phi-\phi^0)]$\\
+                        Van der Waals interactions: $U = \biggl[\frac{a_{ij}}{r_{ij}^{12}}-\frac{b_{ij}}{r_{ij}^6}\biggr]$\\
+                        Electrostatic interactions: $U = \frac{332q_iq_j}{\epsilon r_{ij}}$\\
+                        $\vec{p}_i = m_i\vec{v}_i = m\dot{\vec{r}}_i\qquad \vec{F}_i = m_i\ddot{\vec{r}}_i = \dot{\vec{p}}_i$\\
+                        $\vec{x}(t) = \{\vec{r}_1(t),\dots, \vec{r}_N(t), \vec{p}_1(t), \dots, \vec{p}_N(t)\}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Newton's laws};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\vec{F}_i(\vec{r}_1, \dots, \vec{r}_N) = -\Delta_i U(\vec{r}_1, \dots, \vec{r}_N)$\\
+                        $W_{AB} = \int_A^B\vec{F}_id\vec{l} = U_A - U_B = - \Delta U_{AB}\qquad \oint\vec{F}_id\vec{l}=0$\\
+                        Kinetic energy $K(\dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = \frac{1}{2}\sum\limits_{i}m_i\dot{\vec{r}}_i^2$\\
+                        $\mathcal{L}(\vec{r}_1, \dots, \vec{r}_N, \dot{\vec{r}}_1, \dots, \dot{\vec{r}}_N) = K(\dot{\vec{r}}_1, \dot{\vec{r}}_N) - U(\vec{r}_1, \dots, \vec{r}_N)$\\
+                        Euler-Lagrange $\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial\dot{\vec{r}}_i}\right) -\frac{\partial\mathcal{L}}{\partial\vec{r}_i} = 0$\\
+                        $E = \frac{1}{2}\sum\limits_i m_i\dot{\vec{r}}_i^2 + U(\vec{r}_1, \dots, \vec{r}_N)\\quad \frac{dE}{dt} = 0$\\
+
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Lagrangian formulation};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+	                $q_\alpha = f_\alpha(\vec{r_1}, \dots, \vec{r}_N)\qquad \alpha = 1, \dots, 3N\qquad\vec{r}_i =\vec{g}_i(q_1, d\dots, q_{3N})\qquad i =1, \dots, N$\\
+                        $\dot{\vec{r}}_i = \sum\limits_{\alpha=1}^{3N}\frac{\partial \vec{r}_i}{\partial q_\alpha}\dot{q}_\alpha\qquad\qquad\qquad\qquad\mathcal{L}(q, \dot{q}) =\frac{1}{2}\sum\limits_{\alpha=1}^{3N}\sum\limits_{\beta=1}^{3N}G_{\alpha\beta}\dot{q}_\alpha\dot{q}_\beta - U(q_1, \dots, q_{3N})$\\
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Generalized coordinates};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $s = f'(x) \equiv g(x)\qquad f'(x) = g(x) = s\Rightarrow x = g^{-1}(s)$\\
+                        $b(g^{-1}(s)) = f(g^{-1}(s))-sg^{-1}(s)\equiv\tilde{f}(s) = f(x(s))-sx(s)$\\
+                        $\tilde{f}(s_1,\dots,s_n) = f(x_1(s_1, \dots, s_n),\dots x_n(s_1, \dots, s_n))-\sum\limits_i s_ix_i(s_1, \dots, s_n)$\;
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Legendre transforms};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = -\tilde{\mathcal{L}}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N)$\\
+                        $\mathcal{H}(\vec{r}_1, \dots, \vec{r}_N, \vec{p}_1, \dots, \vec{p}_N) = \sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + U(\vec{r}_1, \dots, \vec{r}_N)$\\
+                        $\mathcal{H}(q_1, \dots, q_{3N}, p_1, \dots, p_{3N}) =\frac{1}{2}\sum\limits_\alpha\sum\limits_\beta p_\alpha G_{\alpha\beta}^{-1}p_\beta + U(q_1, \dots, q_{3N})$\\
+                        Hamilton equations $\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad\dot{p}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha}\qquad\frac{\mathcal{H}}{dt} = 0\qquad\mathcal{H} = const$\\
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Hamiltonian formulation};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Conservation laws $\frac{da}{dt} = \frac{\partial a}{\partial x_t}\dot{x}(t) = \{a, \mathcal{H}\} = 0$\\
+                        Incompressibility $\nabla_x\dot(x) = 0$\\
+                        Symplectic structure $M = J^TMJ\qquad J_{kl} = \frac{\partial x_k(t)}{\partial x_l(0)}$\\
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Some properties};
+            \end{tikzpicture}
+
+
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics};
+\end{tikzpicture}
+
+\end{multicols*}
+\end{document}
