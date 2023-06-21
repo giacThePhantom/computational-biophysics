@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.5)  20 JUN 2023 12:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.5)  21 JUN 2023 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -48,10 +48,6 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layouthoffset=\dimen147
 \Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks17
-)
-(/usr/share/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip16
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
@@ -169,7 +165,7 @@ LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
 \c@MaxMatrixCols=\count278
-\dotsspace@=\muskip17
+\dotsspace@=\muskip16
 \c@parentequation=\count279
 \dspbrk@lvl=\count280
 \tag@help=\toks19
@@ -190,14 +186,10 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(/usr/share/texmf-dist/tex/latex/esint/esint.sty
-Package: esint 
-\symlargesymbolsA=\mathgroup4
-)
 (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup5
-\symAMSb=\mathgroup6
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
@@ -503,176 +495,64 @@ ons.pathmorphing.code.tex))
 (/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-(/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
-
-(/usr/share/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen282
-\ar@mcellbox=\box110
-\extrarowheight=\dimen283
-\NC@list=\toks35
-\extratabsurround=\skip55
-\backup@length=\skip56
-\ar@cellbox=\box111
-)
-\everycr=\toks36
-\minrowclearance=\skip57
-\rownum=\count306
-)
 (/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
 
 (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count307
-\calc@Bcount=\count308
-\calc@Adimen=\dimen284
-\calc@Bdimen=\dimen285
-\calc@Askip=\skip58
-\calc@Bskip=\skip59
+\calc@Acount=\count306
+\calc@Bcount=\count307
+\calc@Adimen=\dimen282
+\calc@Bdimen=\dimen283
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count309
-\calc@Cskip=\skip60
+\calc@Ccount=\count308
+\calc@Cskip=\skip57
 )
 (/usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count310
-\l_MT_multwidth_dim=\dimen286
-\origjot=\skip61
-\l_MT_shortvdotswithinadjustabove_dim=\dimen287
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen288
-\l_MT_above_intertext_sep=\dimen289
-\l_MT_below_intertext_sep=\dimen290
-\l_MT_above_shortintertext_sep=\dimen291
-\l_MT_below_shortintertext_sep=\dimen292
-\xmathstrut@box=\box112
-\xmathstrut@dim=\dimen293
-)
-(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip62
-\enit@outerparindent=\dimen294
-\enit@toks=\toks37
-\enit@inbox=\box113
-\enit@count@id=\count311
-\enitdp@description=\count312
-)
-(/usr/share/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/02/13 3.86 The Babel package
-\babel@savecnt=\count313
-\U@D=\dimen295
-\l@unhyphenated=\language87
-
-(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read3
-\bbl@dirlevel=\count314
-
-(/usr/share/texmf-dist/tex/generic/babel-portuges/brazilian.ldf
-Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
-Package babel Info: Hyphen rules for 'brazilian' set to \l@portuguese
-(babel)             (\language70). Reported on input line 111.
-Package babel Info: Making " an active character on input line 143.
-))
-(/usr/share/texmf-dist/tex/generic/babel/locale/pt/babel-brazilian.tex
-Package babel Info: Importing font and identification data for brazilian
-(babel)             from babel-pt-BR.ini. Reported on input line 11.
+\g_MT_multlinerow_int=\count309
+\l_MT_multwidth_dim=\dimen284
+\origjot=\skip58
+\l_MT_shortvdotswithinadjustabove_dim=\dimen285
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen286
+\l_MT_above_intertext_sep=\dimen287
+\l_MT_below_intertext_sep=\dimen288
+\l_MT_above_shortintertext_sep=\dimen289
+\l_MT_below_shortintertext_sep=\dimen290
+\xmathstrut@box=\box110
+\xmathstrut@dim=\dimen291
 )
 (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks38
-\inpenc@posthook=\toks39
+\inpenc@prehook=\toks35
+\inpenc@posthook=\toks36
 )
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.code.tex
-File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geomet
-ric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.c
-ode.tex
-File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.symbols.code.tex
-File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbol
-s.code.tex
-File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.arrows.code.tex
-File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows
-.code.tex
-File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.callouts.code.tex
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callou
-ts.code.tex))
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-shapes.multipart.code.tex
-File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multip
-art.code.tex
-File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box114
-\pgfnodeparttwobox=\box115
-\pgfnodepartthreebox=\box116
-\pgfnodepartfourbox=\box117
-\pgfnodeparttwentybox=\box118
-\pgfnodepartnineteenbox=\box119
-\pgfnodeparteighteenbox=\box120
-\pgfnodepartseventeenbox=\box121
-\pgfnodepartsixteenbox=\box122
-\pgfnodepartfifteenbox=\box123
-\pgfnodepartfourteenbox=\box124
-\pgfnodepartthirteenbox=\box125
-\pgfnodeparttwelvebox=\box126
-\pgfnodepartelevenbox=\box127
-\pgfnodeparttenbox=\box128
-\pgfnodepartninebox=\box129
-\pgfnodeparteightbox=\box130
-\pgfnodepartsevenbox=\box131
-\pgfnodepartsixbox=\box132
-\pgfnodepartfivebox=\box133
-))) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count315
-\l__pdf_internal_box=\box134
-) (./build/formulae.aux)
+\l__color_backend_stack_int=\count310
+\l__pdf_internal_box=\box111
+)
+(./build/formulae.aux)
 \openout1 = `formulae.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -682,15 +562,15 @@ LaTeX Font Info:    ... okay on input line 37.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: landscape 
-* h-part:(L,W,R)=(253.51663pt, 1183.06041pt, 253.51665pt)
-* v-part:(T,H,B)=(143.40335pt, 836.50737pt, 215.10503pt)
+* h-part:(L,W,R)=(0.0pt, 1690.09369pt, 0.0pt)
+* v-part:(T,H,B)=(0.0pt, 1195.01575pt, 0.0pt)
 * \paperwidth=1690.09369pt
 * \paperheight=1195.01575pt
-* \textwidth=1255.3304pt
-* \textheight=908.77736pt
-* \oddsidemargin=-35.56335pt
-* \evensidemargin=72.84164pt
-* \topmargin=-103.17918pt
+* \textwidth=1690.09369pt
+* \textheight=1195.01575pt
+* \oddsidemargin=-72.26999pt
+* \evensidemargin=-72.26999pt
+* \topmargin=-109.26999pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -710,17 +590,17 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen296
-\scratchbox=\box135
-\nofMPsegments=\count317
-\nofMParguments=\count318
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen297
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count311
+\scratchdimen=\dimen292
+\scratchbox=\box112
+\nofMPsegments=\count312
+\nofMParguments=\count313
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen293
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
+\everyMPtoPDFconversion=\toks38
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -760,150 +640,249 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+esint on input line 5
-1.
-
-(/usr/share/texmf-dist/tex/latex/esint/uesint.fd
-File: uesint.fd 
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (5.93846pt too wide) in paragraph at lines 51--56
-\OML/cmm/m/it/10 RMSF[] \OT1/cmr/m/n/10 = [] = []$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--56
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
 
  []
 
 
-Overfull \hbox (5.86pt too wide) in paragraph at lines 70--75
-\OT1/cmr/m/n/10 Quartic cor-rec-tion $[][]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--75
-
- []
-
-
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 78--79
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 38--39
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 91--92
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 55--56
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 101--102
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 68--69
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 112--113
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 78--79
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--120
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 123--124
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 89--90
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--130
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 133--134
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 100--101
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--155
+Underfull \hbox (badness 10000) in paragraph at lines 105--107
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 158--159
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 110--111
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--169
-
- []
-
-
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 173--174
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 114--115
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--180
+Underfull \hbox (badness 10000) in paragraph at lines 122--132
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 184--185
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 135--136
 [][] 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 140--146
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 150--151
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--205
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 209--210
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 161--162
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--217
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 167--168
+[][] 
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 183--184
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--192
 
  []
 
 
-Overfull \hbox (2.36868pt too wide) in paragraph at lines 221--222
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 196--197
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--204
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 208--209
+[][] 
+ []
+
+
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 214--215
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--229
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 234--235
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--245
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 249--250
+[][] 
+ []
+
+
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 256--257
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--270
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 274--275
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--285
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 288--289
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--297
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 300--301
+[][] 
+ []
+
+
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 306--307
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--317
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 320--321
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--329
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 332--333
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--342
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 345--346
+[][] 
+ []
+
+
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 349--350
 [][] 
  []
 
@@ -911,13 +890,13 @@ Overfull \hbox (2.36868pt too wide) in paragraph at lines 221--222
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./build/formulae.aux) ) 
 Here is how much of TeX's memory you used:
- 18921 strings out of 476025
- 395021 string characters out of 5796533
- 1911388 words of memory out of 5000000
- 39022 multiletter control sequences out of 15000+600000
- 515101 words of font info for 46 fonts, out of 8000000 for 9000
+ 15429 strings out of 476025
+ 312305 string characters out of 5796533
+ 1958388 words of memory out of 5000000
+ 35609 multiletter control sequences out of 15000+600000
+ 514900 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,17n,104p,430b,1344s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,20n,104p,430b,1341s stack positions out of 5000i,500n,10000p,200000b,80000s
 </
 usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/t
@@ -929,12 +908,11 @@ ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/esint-type1/esint10.pfb>
-Output written on ./build/formulae.pdf (1 page, 180821 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on ./build/formulae.pdf (1 page, 192989 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

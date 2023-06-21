@@ -1,44 +1,21 @@
 \documentclass{article}
-\usepackage[a2paper, landscape]{geometry}
-\usepackage{url}
+\usepackage[a2paper, landscape, margin = 0in]{geometry}
 \usepackage{multicol}
 \usepackage{amsmath}
-\usepackage{esint}
 \usepackage{amsfonts}
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing}
 \usepackage{amsmath,amssymb}
 
-\usepackage{colortbl}
-\usepackage{xcolor}
 \usepackage{mathtools}
 \usepackage{amsmath,amssymb}
-\usepackage{enumitem}
-\makeatletter
 
-\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
-\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
-\makeatother
-
-\title{130 Cheat Sheet}
-\usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
-\usetikzlibrary{shapes,decorations}
-
-\advance\topmargin-1.9in
-\advance\textheight1in
-\advance\textwidth1in
-\advance\oddsidemargin-3in
-\advance\evensidemargin-1.5in
-\parindent0pt
-\parskip2pt
-\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
-%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 \begin{document}
 
 \begin{center}{\huge{\textbf{Computational biophysics}}}\\
 \end{center}
-\begin{multicols*}{3}
+\begin{multicols*}{4}
 
 \tikzstyle{mybox} = [draw=black, fill=white, very thick,
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
@@ -46,7 +23,7 @@
 
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.3\textwidth}
+        \begin{minipage}{0.23\textwidth}
             \begin{multicols}{2}
                 Centre of mass $\vec{R}_{cm} = \frac{\sum\limits_{i=1}^Nm_i\vec{r}_i}{\sum\limits_{i=1}^Nm_i}$ \\
                 Radius of gyration $r_g = \sqrt{\frac{\sum\limits_{i=1}^Nm_i(\vec{r}_i-\vec{R}_{cm})^2}{\sum\limits_{i=1}^Nm_i}}$\\
@@ -62,7 +39,7 @@
 
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.3\textwidth}
+        \begin{minipage}{0.23\textwidth}
 
             \begin{tikzpicture}
                 \node [mybox] (box1){%
@@ -138,7 +115,7 @@
 
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.3\textwidth}
+        \begin{minipage}{0.23\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -183,6 +160,16 @@
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Generalized coordinates};
             \end{tikzpicture}
 
+
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
+
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -223,8 +210,142 @@
 
         \end{minipage}
     };
-    \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics};
+    \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics (contd)};
 \end{tikzpicture}
 
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        \begin{multicols}{2}
+                            Equilibrium $g(N, P, V, T) = 0$\\
+                            State function $f(n, P, V, T)$\\
+                            Reversible work $dW_{rev} = -PdV+\mu dN$\\
+                            Heat $dQ_{rev} = CdT$\\
+                            First law $\Delta E = \Delta Q + \Delta W$\\
+                            Entropy $\Delta S = \int_1^2\frac{dQ_{rev}}{T}$\\
+                        \end{multicols}
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Thermodynamics};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Average $A = \frac{1}{Z}\sum\limits_{\lambda=1}^Na(x_\lambda)\equiv\langle a\rangle$\\
+                        Microstate $x_0 = (q_1(0), \dots, q_{3N}(0), p_1(0), \dots, p_{3N}(0))$\\
+                        Phase space volume $dx_t = J(x_t;x_0)dx_0\qquad \frac{dJ}{dt} = 0\Rightarrow J(x_t;x_0) = 1\Rightarrow dx_t=dx_0$\\
+                        Distribution function $\begin{aligned}f(x_t):\int f(x)dx &= 1\land \frac{df(x_t,t)}{dt} = 0\Rightarrow\\ f(x_t, t)dx_t &= f(x_0,0)dx_0\Rightarrow\\\frac{\partial f(x,t)}{\partial t} &+ \{f(x,t), \mathcal{H}(x,t)\} = 0\end{aligned}$\\
+                        Equilibrium $\begin{aligned}A &= \int a(x)f(x,t)dx\Rightarrow \frac{\partial f(x,t)}{\partial t} = 0\land \{f(x,t), \mathcal{H}(x,t) = 0\}\Rightarrow\\ f(x)&\propto\mathcal{F}(\mathcal{H}(x))\end{aligned}$\\
+                        $Z = \int dx\mathcal{F}(\mathcal{H}(x))\Rightarrow f(x) = \frac{1}{Z}\mathcal{F}(\mathcal{H}(x))$\\
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {The ensemble};
+            \end{tikzpicture}
+
+
+        \end{minipage}
+
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Theoretical foundations of statistical mechanics};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        State function $dS = \frac{1}{T}dE + \frac{P}{T}dV - \frac{\mu}{T}dN$\\
+                        $\left(\frac{\partial S}{\partial E}\right)_{V, N} = \frac{1}{T}\qquad\left(\frac{\partial S}{\partial V}\right)_{N, E} = \frac{P}{T}\qquad\left(\frac{\partial S}{\partial N}\right)_{V, N} = \frac{\mu}{T}$\\
+                        Boltzmann relation $S(N, V, E) = k\ln\omega(N, V, E)$\\
+                        Distribution function $\begin{aligned}\Omega(N, V, E) &= M_N\int d\vec{p}\int_{D(V)}d\vec{r}\delta(\mathcal{H}(\vec{r}, \vec{p})-E) \\&= M_N\int dx\delta(\mathcal{H}(x)-E)\\ M_N &= \frac{E_0}{N!h^{3N}}\end{aligned}$\\
+                        $A = \langle a\rangle = \frac{M_N}{\Omega(N, V, E)}\int dxa(x)\delta(\mathcal{H}(x)-E) = \frac{\int dxa()\delta(\mathcal{H}(x)-E)}{\int dx\delta(\mathcal{H}-E)}$\\
+                        $\left\langle x_i\frac{\partial\mathcal{H}}{\partial x_j}\right\rangle = \frac{M_N}{\Omega(N, V, E)}\frac{\partial}{\partial E}\int_{\mathcal{H}(x)<E}dxx_i\frac{\partial(\mathcal{H}-E)}{\partial x_j}$\\
+                    \end{minipage}
+
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {State and distribution function};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\left\langle x_i\frac{\partial\mathcal{H}}{\partial x_j} \right\rangle= \delta_{ij}\frac{\Sigma(E)}{\frac{\partial\Sigma(E)}{\partial E}}$\\
+                        $\Sigma(N, V, E) = \frac{1}{N!h^{3N}}\int dx\theta(E-\mathcal{H})$\\
+                        $\Omega(N, V, E) = E_0\frac{\partial\Sigma(N, V, E)}{\partial E}$\;
+                        $\left\langle x_i\frac{\partial\mathcal{H}}{\partial x_j} \right\rangle= \delta_{ij}\left(\frac{\ln\Sigma(E)}{\partial E}\right)^{-1}$\\
+                        $S(N,V,E) = k\ln\Omega(N, V, E)\simeq k\ln\Sigma(N, V, E)=\tilde{S}(N, V, E)$\\
+                        $\left\langle x_i\frac{\partial\mathcal{H}}{\partial x_j} \right\rangle\simeq \delta_{ij}\left(\frac{S(E)}{\partial E}\right)^{-1} = kT\delta_{ij}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Virial theorem};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\Omega(N, V, E) = M_N\int dx\delta(\mathcal{H}_1(x_1) + \mathcal{H}_2(x_2)-E)$\\
+                        $\Omega(N, V, E) = \int dE_1\Omega_1(N_1, V_1, E_1)\Omega_2(N_2, V_2, E-E_1)$\\
+                        $\begin{aligned}S(N, V, E) &= k\ln\Omega_1(N_1,V_1, \bar{E}_1) + k\ln\Omega_2(N_2, V_2, E-\bar{E}_1) \\&=S_1(N_1, V_1, \bar{E}_1) + S_2(N_2,V_2,E-\bar{E}_1)\end{aligned}$\\
+                        $T_1 = T_2$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Thermal contact};
+            \end{tikzpicture}
+
+        \end{minipage}
+
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Microcanonical ensemble};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\vec{r}_i(t+\Delta t) = 2\vec{r}_i(t) - \vec{r}_i(t-\Delta t) + \frac{\Delta t^2}{m_i}\vec{F}_i(t)$\\
+                        $\vec{v}_i(t+\Delta t) = \vec{v}_i(t) + \frac{\Delta t}{2m_i}\left[\vec{F}_i(t) + \vec{F}_i(t+\Delta t)\right]$\\
+                        Initial conditions $f(v) = \sqrt{\frac{m}{2\pi kT}}e^{-\frac{mv^2}{2kT}}\qquad f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Verlet algorithm};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $Q\equiv\{q_1, \dots, q_{3N}\}\qquad \dot{Q}\equiv\{\dot{q}_1, \dots, \dot{q}_{3N}\}$\\
+                        $A[Q] = \int_{t_1}^{t^2}\mathcal{L}(Q(t), \dot{Q}(t))dt$\\
+                        $\delta Q(t_1) = \delta Q(t_2) =0\qquad \delta\dot{Q}(t_1) = \delta\dot{Q}(t_2) =0$\\
+                        $\delta A = \int_{\alpha=1}^{3N}\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\delta q_\alpha(t)\bigg|_{t_1}^{t_2}dt + \int_{t_1}^{t_2}\sum\limits_{\alpha=1}^{3N}\left[\frac{\partial\mathcal{L}}{\partial q_\alpha}\delta q_\alpha(t) - \frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\right)\delta q_\alpha(t)\right]dt=0$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Action integral};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\sum\limits_{\alpha=1}^{3N}a_{k\alpha}dq_\alpha + a_{kt}dt = 0, k = 1, \dots, N_C$\\
+                        Holomonic $a_{k\alpha} = \frac{\partial\sigma_k}{\partial q_\alpha}\qquad a_{kt} = \frac{\partial\sigma_k}{\partial t}$\\
+                        Non-holonomic $\begin{aligned}\frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_i^2 - C &= 0\Rightarrow \frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_id\vec{r}_i -Cdt = 0\\\Rightarrow &a_{1i} = \frac{1}{2}m_i\dot{\vec{r}}_i\land a_{1t} = -C\end{aligned}$\\
+                        Lagrange multiplier $\frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\right)-\frac{\partial\mathcal{L}}{\partial q_\alpha} = \sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}$\\
+                        $\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad \dot{p}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha}-\sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}\qquad\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}=0$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Constraints};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Introduction to molecular dynamics};
+\end{tikzpicture}
 \end{multicols*}
 \end{document}
