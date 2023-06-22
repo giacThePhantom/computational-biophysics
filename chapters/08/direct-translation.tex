@@ -143,13 +143,13 @@ $$e^{iLt} = e^{iL_1t+iL_2t} = \lim\limits_{P\rightarrow\infty}[e^{\frac{iL_2t}{2
 	\begin{align*}
 		\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} &= e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}e^{\Delta t\frac{p(0)}{m}\frac{\partial }{\partial x(0)}}\begin{pmatrix} x(0)\\p(0) + \frac{\Delta t}{2}F(x(0))\end{pmatrix} =\\
 																													 & = e^{\frac{\Delta t}{2}F(x(0))\frac{\partial}{\partial p(0)}}\begin{pmatrix}x(0) + \Delta t\frac{p(0)}{m}\\p(0) + \frac{\Delta t}{2}F(x(0) + \Delta t\frac{p(0)}{m})\end{pmatrix} =\\
-																													 &= \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}
+																													 &= \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{2}F\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}
 	\end{align*}
 
 \section{Trotter algorithm}
 This is the result of Trotter algorithm:
 
-$$\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} =\begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{m}\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}$$
+$$\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} = \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{2}F\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}$$
 
 Looking at the first line:
 

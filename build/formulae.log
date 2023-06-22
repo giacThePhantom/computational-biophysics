@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.5)  21 JUN 2023 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.22)  22 JUN 2023 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,56 +847,106 @@ Overfull \hbox (1.76306pt too wide) in paragraph at lines 300--301
  []
 
 
-Overfull \hbox (9.89088pt too wide) in paragraph at lines 306--307
+Underfull \hbox (badness 10000) in paragraph at lines 313--316
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 319--320
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--317
+Underfull \hbox (badness 10000) in paragraph at lines 332--336
 
  []
 
 
-Overfull \hbox (1.76306pt too wide) in paragraph at lines 320--321
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 339--340
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--329
+Underfull \hbox (badness 10000) in paragraph at lines 344--353
 
  []
 
 
-Overfull \hbox (1.76306pt too wide) in paragraph at lines 332--333
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 356--357
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--342
+Underfull \hbox (badness 10000) in paragraph at lines 367--371
 
  []
 
 
-Overfull \hbox (1.76306pt too wide) in paragraph at lines 345--346
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 374--375
 [][] 
  []
 
 
-Overfull \hbox (9.89088pt too wide) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 379--382
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 385--386
 [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--393
+[] \OT1/cmr/m/n/10 = []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--393
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 397--398
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
+
+ []
+
+
+Overfull \hbox (1.76306pt too wide) in paragraph at lines 409--410
+[][] 
+ []
+
+
+Overfull \hbox (9.89088pt too wide) in paragraph at lines 306--414
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--414
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--414
+[]
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./build/formulae.aux) ) 
 Here is how much of TeX's memory you used:
- 15429 strings out of 476025
- 312305 string characters out of 5796533
- 1958388 words of memory out of 5000000
- 35609 multiletter control sequences out of 15000+600000
+ 15429 strings out of 476872
+ 312305 string characters out of 5820378
+ 1984388 words of memory out of 5000000
+ 35526 multiletter control sequences out of 15000+600000
  514900 words of font info for 43 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 102i,20n,104p,430b,1341s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 725 hyphenation exceptions out of 8191
+ 102i,21n,104p,430b,1341s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </
 usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/t
@@ -909,7 +959,7 @@ ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1
 /cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ./build/formulae.pdf (1 page, 192989 bytes).
+Output written on ./build/formulae.pdf (1 page, 203258 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream

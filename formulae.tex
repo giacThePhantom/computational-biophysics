@@ -304,7 +304,6 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Microcanonical ensemble};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
         \begin{minipage}{0.23\textwidth}
@@ -318,6 +317,14 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Verlet algorithm};
             \end{tikzpicture}
+        \end{minipage}
+
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Introduction to molecular dynamics};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
 
             \begin{tikzpicture}
                 \node [mybox] (box1){%
@@ -339,13 +346,70 @@
                         Non-holonomic $\begin{aligned}\frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_i^2 - C &= 0\Rightarrow \frac{1}{2}\sum\limits_im_i\dot{\vec{r}}_id\vec{r}_i -Cdt = 0\\\Rightarrow &a_{1i} = \frac{1}{2}m_i\dot{\vec{r}}_i\land a_{1t} = -C\end{aligned}$\\
                         Lagrange multiplier $\frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial\dot{q}_\alpha}\right)-\frac{\partial\mathcal{L}}{\partial q_\alpha} = \sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}$\\
                         $\dot{q}_\alpha = \frac{\partial\mathcal{H}}{\partial p_\alpha}\qquad \dot{p}_\alpha = -\frac{\partial\mathcal{H}}{\partial q_\alpha}-\sum\limits_{k=1}^{N_C}\lambda_ka_{k\alpha}\qquad\sum\limits_{\alpha=1}^{3N}a_{k\alpha}\frac{\partial\mathcal{H}}{\partial p_\alpha}=0$\\
+                        Simulation $m_i\ddot{\vec{r}}_i = \vec{F}_i + \sum\limits_{k=1}^{N_C}\lambda_k\nabla_i\sigma_k\qquad \dot{\sigma}_k = \sum\limits_{i=1}^{N}\nabla_i\sigma_k\cdot\dot{\vec{r}}_i=0$\\
+                        Velocity Verlet $\vec{r}_i(\Delta t) = \vec{r}_i(0) + \Delta t\vec{v}_i(0) + \frac{\Delta t^2}{2m_i}\vec{F}_i(0)+\frac{\Delta t^2}{2m_i}\sum\limits_k\lambda_k\nabla_i\sigma_k(0)$\\
+                        $\vec{r}_i(\Delta t) = \vec{r}_i + \frac{1}{m_i}\sum\limits_{k}\tilde{\lambda}_k\nabla_i\sigma_k(0)\qquad \tilde{\lambda}_k = \frac{\Delta t^2}{2}\lambda_k$\\
+                        $\sigma_l\left(\vec{r}_1^{(1)},\dots, \vec{r}_N^{(1)}\right)+\sum\limits_{i=1}^N\sum\limits_{k=1}^{N_C}\frac{1}{m_i}\nabla_i\sigma_k\left(\vec{r}_1^{(1)},\dots, \vec{r}_N^{(1)}\right)\cdot\nabla_i\sigma_k\left(\vec{r}_1(0),\cdots,\vec{r}_N(0)\right)\delta\tilde{\lambda}_k\approx0$\\
                     \end{minipage}
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Constraints};
             \end{tikzpicture}
         \end{minipage}
     };
-    \node[fancytitle, right=10pt] at (box.north west) {Introduction to molecular dynamics};
+    \node[fancytitle, right=10pt] at (box.north west) {Introduction to molecular dynamics (contd)};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.23\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Computable on $a:\frac{da}{dt} = \{a,\mathcal{H}\}$\\
+                        $iL = \sum\limits_\alpha\left[\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial}{\partial q_\alpha}-\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial}{\partial p_\alpha}\right]\Rightarrow iLa = \{a, \mathcal{H}\}\Rightarrow\frac{da}{dt} = iLa\Rightarrow a(x_t) = e^{iLt}a(x_0)$\\
+                        Split $iL_1 = \sum\limits_\alpha\frac{\partial\mathcal{H}}{\partial p_\alpha}\frac{\partial}{\partial q_\alpha}\qquad iL_2 = -\sum\limits_\alpha\frac{\partial\mathcal{H}}{\partial q_\alpha}\frac{\partial}{\partial p_\alpha}$\\
+                        $iL_1iL_2\phi(x)\neq iL_2iL_1\phi(x)\Rightarrow iL_1iL_2-iL_2iL_1 \equiv[iL_1,iL_2]\neq 0$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Liouville operator};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $[iL_1, iL_2]\neq 0\Rightarrow e^{iLt}\neq e^{iL_1t}e^{iL_2t}$\\
+                        $e^{A+B} = \lim\limits_{P\rightarrow\infty}\left[e^{\frac{B}{2P}}e^{\frac{A}{P}}e^{\frac{B}{2P}}\right]^P \qquad e^{iLt} = \lim\limits_{P\rightarrow\infty}\left[e^{\frac{iL_2t}{2P}}e^{\frac{iL_1t}{P}}e^{\frac{iL_2t}{2P}}\right]^P$\\
+                        $e^{iLt}\approx e^{\frac{iL_2\Delta t}{2}e^{iL_1\Delta t}e^{\frac{iL_2\Delta t}{2}}}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Trotter theorem};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Exponential operator $e^{c\frac{\partial}{\partial x}}g(x) = g(x+c)$\\
+                        $\begin{pmatrix} x(\Delta t)\\ p(\Delta t)\end{pmatrix} = \begin{pmatrix} x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr) \\ p(0) + \frac{\Delta t}{2}F(x(0)) + \frac{\Delta t}{2}F\biggl(x(0) + \frac{\Delta t}{m}\biggl(p(0) + \frac{\Delta t}{2}F(x(0))\biggr)\biggr)\end{pmatrix}$
+                        $x(\Delta t) = x(0) + v(0) \Delta t + \frac{\Delta t^2}{2m}F(0)\qquad p(\Delta t) = v(0) + \frac{\Delta t}{2m}\left[ F(0) + F(\Delta t)\right]$\\
+
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Trotter algorithm};
+            \end{tikzpicture}
+
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $iL = \frac{p}{m}\frac{\partial}{\partial x} + \left[F_{fast}(x) + F_{slow}(x)\right]\frac{\partial}{\partial p} = iL_{fast} + iL_{slow}\qquad \mathcal{H}_{ref} = \frac{p^2}{2m} + U_{fast}(x)$\\
+                        $e^{iL\Delta t} = e^{iL_{slow}\frac{\Delta t}{2}}e^{iL_{fast}\Delta t}e^{iL_{slow}\frac{\Delta t}{2}}$\\
+                        $e^{iL_{fast}\Delta t} = \left[e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}e^{\delta t\frac{p}{m}\frac{\partial}{\partial x}}e^{\frac{\delta t}{2}F_{fast}\frac{\partial}{\partial p}}\right]^n\qquad \delta t = \frac{\Delta t}{n}$\\
+
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {RESPA};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Direct translation};
 \end{tikzpicture}
 \end{multicols*}
 \end{document}
