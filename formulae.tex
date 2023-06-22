@@ -11,19 +11,19 @@
 \usepackage{amsmath,amssymb}
 
 \usepackage[utf8]{inputenc}
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
 \begin{document}
 
 \begin{center}{\huge{\textbf{Computational biophysics}}}\\
 \end{center}
+\noindent
 \begin{multicols*}{4}
-
-\tikzstyle{mybox} = [draw=black, fill=white, very thick,
-    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
-\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
-
+\noindent
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{multicols}{2}
                 Centre of mass $\vec{R}_{cm} = \frac{\sum\limits_{i=1}^Nm_i\vec{r}_i}{\sum\limits_{i=1}^Nm_i}$ \\
                 Radius of gyration $r_g = \sqrt{\frac{\sum\limits_{i=1}^Nm_i(\vec{r}_i-\vec{R}_{cm})^2}{\sum\limits_{i=1}^Nm_i}}$\\
@@ -31,15 +31,13 @@
                 $RMSF_i = \sqrt{\langle\Delta r_i^2\rangle} = \sqrt{\frac{1}{M}\sum\limits_{f=1}^M(\vec{r}_{i,f}-\langle\vec{r}_i\rangle)^2}$\\
                 $B_i = \frac{8\pi^2}{3}RMSF_i^2$\\
             \end{multicols}
-
         \end{minipage}
     };
     \node[fancytitle, right=10pt] at (box.north west) {Protein's geometry};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
 
             \begin{tikzpicture}
                 \node [mybox] (box1){%
@@ -53,7 +51,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) { Bond stretching};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -66,7 +63,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Valence angle bending};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -76,7 +72,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Torsions};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -87,7 +82,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Van der Waals};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -98,7 +92,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Electrostatic interactions};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -112,10 +105,9 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Semi-empirical force fields};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -133,7 +125,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Newton's laws};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -148,7 +139,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Lagrangian formulation};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -165,11 +155,9 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
-
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -181,7 +169,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Legendre transforms};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -194,7 +181,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Hamiltonian formulation};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -212,10 +198,9 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Classical mechanics (contd)};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -232,7 +217,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Thermodynamics};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -254,10 +238,9 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Theoretical foundations of statistical mechanics};
 \end{tikzpicture}
-
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -272,7 +255,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {State and distribution function};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -286,7 +268,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Virial theorem};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -306,7 +287,7 @@
 \end{tikzpicture}
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -324,8 +305,7 @@
 \end{tikzpicture}
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
-
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -337,7 +317,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Action integral};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -360,7 +339,7 @@
 \end{tikzpicture}
 \begin{tikzpicture}
     \node [mybox] (box){%
-        \begin{minipage}{0.23\textwidth}
+        \begin{minipage}{0.233\textwidth}
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -372,7 +351,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Liouville operator};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -383,7 +361,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Trotter theorem};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -395,7 +372,6 @@
                 };
                 \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Trotter algorithm};
             \end{tikzpicture}
-
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
@@ -410,6 +386,102 @@
         \end{minipage}
     };
     \node[fancytitle, right=10pt] at (box.north west) {Direct translation};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Non bonded interaction $U_{nb}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{i<j\in nb}\left\{4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^6\right]+\frac{q_iq_j}{r_{ij}}\right\}$\\
+                        Error function $erf(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}dt\qquad\lim\limits_{x\to\infty}erf(x) = 1\qquad erf(0) = 0$\\
+                        Complement error $erfc(x) = 1-erf(x) = \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt\qquad\lim\limits_{x\to\infty}erf(x) = 0\qquad erf(0) = 1$\\
+                        $\frac{1}{r} = \frac{\overbrace{erfc(\alpha r)}^{\text{short-ranged}}}{r} + \frac{\overbrace{erf(\alpha r)}^{\text{long-ranged}}}{r}\qquad U_{nb} = U_{short} + U_{long}\qquad \vec{r}_{ij} = |\vec{r}_i-\vec{r}_j + \vec{S}|\qquad \vec{S} = \vec{m}L$\\
+                        $U_{short}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>j\in nb}\left\{4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij,\vec{S}}}\right)^{12} - \left(\frac{\sigma_{ij}}{r_{ij, \vec{S}}}\right)^6\right]+\frac{q_iq_jerfc(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}\right\}$\\
+                        $U_{long}(\vec{r}_1, \dots, \vec{r}_N) = \sum\limits_{\vec{S}}\sum\limits_{i>h\in nb}\frac{q_iq_jerf(\alpha r_{ij, \vec{S}})}{r_{ij, \vec{S}}}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Periodic boundary condition};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\tilde{U}_{short} = U_{short}(\vec{r}_{ij})S(\vec{r}_{ij})\qquad S(r) = \begin{cases} 1 & r < r_C-\lambda\\1+\left(\frac{r-r_C+\lambda}{\lambda}\right)^2\left(2\frac{r-r_C+\lambda}{\lambda}-3\right) &r_C-\lambda z r \le r_C\\0 & r>r_C\end{cases}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Short range forces};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Evaluation of energy and forces};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $C_{\vec{g}} = \frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}\qquad \frac{1}{V}\sum\limits_{\vec{g}}C_{\vec{g}}e^{i\vec{g}\cdot\vec{r}} = \frac{1}{V}\sum\limits_{i\neq j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{2\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}$\\
+                        $U_{long} = \frac{1}{V}\sum\limits_{i,j}q_iq_j\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}e^{i\vec{g}\cdot(\vec{r}_i-\vec{r}_j)}-\frac{1}{V}\sum\limits_{i}q_i^2\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}$\\
+                        $U_{long} = \frac{1}{V}\sum\limits_{\vec{g}\in\mathcal{S}}\frac{4\pi}{|\vec{g}|^2}e^{-\frac{|\vec{g}|^2}{4\alpha^2}}|S(\vec{g})|^2-\frac{\alpha}{\sqrt{\pi}}\sum\limits_i q_i^2$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Long range forces};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\rho(\vec{r})= \sum\limits_iq_i\delta(\vec{r}-\vec{r}_i)\qquad \rho(\vec{g}) = \int d\vec{r}\rho(\vec{r})e^{i\vec{g}\cdot\vec{r}} = \sum\limits_i q_ie^{i\vec{g}\cdot\vec{r}_i}$\\
+                        $\nabla^2\phi(\vec{r}) = -\nabla\cdot\vec{E}=-4\pi\rho(\vec{r})\qquad g^2\phi(\vec{g}) = -4\pi\rho(\vec{g})= 4\pi S(\vec{g})$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Particle-particle particle-mesh Ewald};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Evaluation of energy and forces (contd)};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Helmholtz free energy $A(N, V, T) = E(N, V, T) -TS(N, V, T)$\\
+                        $dA = SdT-PdV+\mu dN\qquad S = -\left(\frac{\partial A}{\partial T}\right)_{N, V}\qquad P = -\left(\frac{\partial A}{\partial V}\right)_{N, T}\qquad \mu = \left(\frac{\partial A}{\partial N}\right)_{V, T}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Thermodynamics};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Microcanonical $\Omega(N, V, E) = M_N\int dx_1dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E)$\\
+                        Distribution function $\ln f(x_1) = \ln\int dx_2\delta(\mathcal{H}_1(x_1)+\mathcal{H}_2(x_2)-E)$\\
+                        $\ln f(x_1)\approx \ln\int dx_2\delta(\mathcal{H}_2(x_2)-E)-\frac{\partial}{\partial E}\ln\int dx_2\delta(\mathcal{H}_2(x_2)-E)\mathcal{H}_1(x_1)$\\
+                        $Q(N, V, T) = \frac{1}{N!h^{3N}}\int dxe^{-\beta\mathcal{H}(x)}\qquad \beta = \frac{1}{kT}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Thermal contact};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $A = E-\beta\left(\frac{\partial A}{\partial \beta}\right)_{N,V}$\\
+                        $E = \langle\mathcal{H}\rangle = \frac{1}{N!h^{3N}}\frac{\int dx\mathcal{H}(x)e^{-\beta\mathcal{H}(x)}}{\int dxe^{-\beta\mathcal{H}(x)}}=-\frac{1}{Q(N, V, \beta)}\frac{\partial Q(N, V, \beta)}{\partial\beta} = -\frac{\partial\ln Q(N, V, \beta)}{\partial\beta}$\\
+                        $A + \frac{\partial\ln Q}{\partial\beta} + \beta\frac{\partial A}{\partial \beta} = 0\Rightarrow \ln Q(N, V, \beta) = -\beta A(N, V, \beta)$\\
+                        $A(N, V, T) = -kT\ln Q(N, V, T)\qquad C_N = \frac{1}{N!h^{3N}}$\\
+                        Energy $E = \langle\mathcal{H}\rangle = \frac{1}{Q}\frac{\partial Q}{\partial\beta} = 0$\\
+                        Temperature estimator $\mathcal{T}(x) + \frac{1}{3Nk}\sum\limits_i\frac{\vec{p}_i^2}{m_i}\qquad T = \langle\mathcal{T}(x)\rangle = \frac{C_N\int dx\mathcal{T}(x)e^{-\beta\mathcal{H}(x)}}{C_N\int dx e^{-\beta\mathcal{H}(x)}}$\\
+                        Energy fluctuation $\Delta E^2 = \frac{\partial^2 \ln Q}{\partial \beta^2} = kT^2C_V\qquad \frac{\Delta E}{E} \sim \frac{1}{\sqrt{N}}$\\
+                        Pressure estimator $\mathcal{P}(\vec{r}, \vec{p}) = \frac{1}{3V}\sum\limits_i\left[\frac{\vec{p}_i^2}{m_i} + \vec{F}_i\cdot\vec{r}_i\right]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {From micro to macro};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Canonical ensemble};
 \end{tikzpicture}
 \end{multicols*}
 \end{document}
