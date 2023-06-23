@@ -483,5 +483,182 @@
     };
     \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Canonical ensemble};
 \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\bar{K} = \frac{N_j}{2\beta}\qquad K = \frac{1}{2}\sum\limits_{i}m_i\vec{v}_i^2\qquad\vec{v}_i\to\frac{\vec{v}_i}{\alpha}\qquad \alpha = \sqrt{\frac{\bar{K}}{K}}$\\
+                        $\bar{K} = \frac{1}{2}\sum\limits_{i}m_i\frac{\vec{v}_i^2}{\alpha^2} = \frac{\bar{K}}{2K}\sum\limits_{i}m_i\vec{v}_i^2$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Velocity rescaling};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $P(p) = \left(\frac{\beta}{2\pi m}\right)^{\frac{3}{2}e^{-\beta\frac{p^2}{2m}}}$\\
+                        $P(K_t)dK_t\propto K_t^{\frac{N_f}{2}-1}e^{-\beta K_t}dK_t$\\
+                        $K_t = \frac{1}{2}\sum\limits_{i}m_i\frac{\vec{v}_i^2}{\alpha^2} = \frac{K_t}{2K}\sum\limits_{i}m_i\vec{v}_i^2$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Andersen-Heyes Thermostat};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\dot{\vec{r}}_i(t) = \beta D\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t)) + \eta_i(t)\qquad\frac{\partial}{\partial t}P(\vec{x}, t) = D\sum\limits_{i=1}^N\nabla_i\cdot\left[\nabla_i + \beta\nabla\mathcal{H}(\vec{x})\right]$\\
+                        $P(\vec{x}) = Ce^{-\beta\mathcal{H}(\vec{x})}\qquad\langle\eta_i(t)\eta_j(t)\rangle = 6 D\delta_{ij}\frac{\delta_{kl}}{\Delta t}\qquad \sigma^2 = \frac{6D}{\Delta t}$\\
+                        $\xi_i(t_k) = \sqrt{\frac{\Delta t}{6D}}\eta_i(t_k)\qquad\langle\xi_i(t_k)\rangle = 0\qquad \langle\xi_i(t_k)\xi_j(t_l)\rangle = \delta_{ij}\delta_{kl} $\\
+                        $\vec{r}_i(t+\Delta t) = \vec{r}_i(t) +\Delta t\frac{\vec{F}_i(\vec{r}_1(t), \dots, \vec{r}_N(t))}{m_i\gamma} + \sqrt{\frac{6kT\Delta t}{m_i\gamma}}\xi_i(t)$\\j
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Langevin Thermostat};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $dK = \left(D(K)\frac{\partial\log P(K)}{\partial K}+\frac{\partial D(K)}{\partial K}\right)dt + \sqrt{2D(K)}dW\qquad P(K_t)dK_t\propto K_t^{\frac{N_f}{2}_1}e^{\beta K_t}dK$\\
+                        $dK = \left(\frac{N_f D(K)}{2K\bar{K}}(K-\bar{K})-\frac{D(K)}{K}+\frac{\partial D(K)}{\partial K}\right)dt + \sqrt{2D(K)}dW\qquad D(K) = \frac{2K\bar{K}}{N_f\tau}$
+                        $dK = (K-\bar{K})\frac{dt}{\tau} + \sqrt{\frac{2K\bar{K}}{N_f}}\frac{dW}{\sqrt{\tau}}$\\
+                        Berendsen's thermostat $dK = (K-\bar{K})\frac{dt}{\tau}$\\
+                        $\alpha^2 = e^{-\frac{\Delta t}{\tau}} + \frac{\bar{K}}{N_f K}\left(1-e^{-\frac{\Delta t}{\tau}}\right)\sum\limits_{i=1}^{N_f}R_i^2+2e^{-\frac{\Delta t}{2\tau}}\sqrt{\frac{\bar{K}}{N_f K}\left(1-e^{-\frac{\Delta t}{\tau}}R_1\right)}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Bussi velocity Verlet};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\mathcal{H}_N = \sum\limits_{i}\frac{\vec{p}_i^2}{2m_is^2} + U(\vec{r}_1, \dots, \vec{r}_n)+\frac{p_s^2}{2Q} + gkT\log s$\\
+                        $\Omega = \int d^N\vec{r}d^N\vec{p}dsdp_ss^{dN}\delta\left(\mathcal{H} + \frac{p_s^2}{2Q} + gkT\log s - E\right)$\\
+                        $\Omega = \frac{1}{dkT}\int d^N\vec{r}d^N\vec{p}dp_se^{\frac{dN+1}{gkT}\left(E-\mathcal{H}-\frac{p_s^2}{2Q}\right)}$\\\
+                        $g = dN + 1 \Rightarrow \Omega  = \frac{e^{\frac{e}{kT}}\sqrt{2\pi QkT}}{(dN+1)kT}\int d^N\vec{r}d^N\vec{p}e^{-\frac{\mathcal{H}}{kT}}$\\
+                        $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}s^2\qquad \dot{\vec{p}}_i = \vec{F}_i\qquad \dot{s} = \frac{p_s}{Q}\qquad \dot{p}_s = \frac{1}{s}\left[\sum\limits_{i}\frac{\vec{p}_i^2}{m_is^2}-gkT\right]$
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Nos\`e Hamiltonian};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Thermostats};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\vec{p}'_i = \frac{\vec{p}_i}{s}\qquad \vec{p}'_s = \frac{p_s}{s}\qquad dt' = \frac{dt}{s}\qquad \frac{d\vec{r}_i}{dt'} = \frac{\vec{p}'_i}{m_i}\qquad\frac{d\vec{p}'_i}{dt'} =\vec{F}_i -\frac{sp'_s}{Q}\vec{p}'_i$\\
+                        $\frac{ds}{dt'} = \frac{s^2p_s'}{Q}\qquad \frac{dp'_s}{dt'} = \frac{1}{2}\left[\sum\limits_{i}\frac{(\vec{p}'_i)^2}{m_i}-gkT\right]^2 - \frac{s(p'_s)^2}{Q}\qquad \frac{1}{2}\frac{ds}{dt'} = \frac{d\eta}{dt'}\qquad p_s = p_\eta = sp'_s$\\
+                        $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}\qquad \dot{\vec{p}}_i = \vec{F}_i - \frac{P_\eta}{Q}\vec{p}_i\qquad\dot{\eta} = \frac{p_\eta}{Q}\qquad \dot{p}_\eta = \sum\limits_i\frac{\vec{p}_i^2}{m_i} - dNkT$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Nos\`e-Hoover equations};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\dot{x} = \xi(x, t)\qquad\nabla\cdot\dot{x} = \nabla\cdot\xi(x, t) = \kappa(x,t)\neq 0$\\
+                        $J(x_t;x_0) = e^{\int_0^tds\kappa(x_s, s)}\qquad \kappa(x_t, t) = \frac{dw(x_t, t)}{dt}\Rightarrow J(x_t;x_0) = e^{w(x_t, t)-w(x_0, 0)}\qquad e^{-w(x_t, t)}dx_t = e^{-w(x_0, 0)}dx_0$\\
+                        $J(x_t;x_0) = \frac{\sqrt{g(x_0,0)}}{\sqrt{g(x_t,t)}}\qquad \sqrt{g(x_t,t)} = e^{-w(x_t,t)}$\\
+                        $\frac{\partial}{\partial t}\left[f(x,t)\sqrt{g(x,t)}\right]+\nabla\cdot\left[\dot{x}\sqrt{g(x,t)}f(x,t)\right] = 0\qquad f(x_t, t)\sqrt{g(x_t,t)}dx_t = f(x_0)\sqrt{g(x_0)}dx_0\qquad \xi(x)\cdot\nabla f(x) = 0$\\
+                        $\Lambda_k(x_t) -C_k = 0\qquad\frac{d\Lambda_k(x_t)}{dt} = 0\Rightarrow f(x) = \prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t)-C_k)$\\
+                        Microcanonical $\mathcal{E} = \int dx\sqrt{g(x)}f(x) = \int dx\sqrt{g(x)}\prod\limits_{k=1}^{N_C}\delta(\Lambda_k(x_t)-C_k)$\\
+                        Nos\`e=Hoover: $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r},\vec{P}) + \frac{p_\eta^2}{2Q} + dNkT\eta\qquad\frac{d\mathcal{H}'}{dt} = 0$\\
+                        $\kappa = -Nd\dot{\eta}\Rightarrow \sqrt{g} = e^{dN\eta}$\\
+                        Partition function $\mathcal{E}_T(N, V, C_1) = \frac{e^{\beta C_1}\sqrt{2\pi QkT}}{dNkT}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$\\
+                        $\vec{P} = \sum\limits_{i=1}^N\vec{p}_1\qquad\vec{K} = \vec{P}e^\eta\Rightarrow \frac{d\vec{K}}{dt} = 0$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Non Hamiltonian statistical mechanics};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+			$\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i}\qquad\dot{\vec{p}}_i = \vec{F}_i - \frac{p_{\eta_1}}{Q_1}\vec{p_i}\qquad\dot{\eta}_j = \frac{p_{\eta_j}}{Q_j}\quad j = 1, \dots, M$\\
+                        $\dot{p}_{\eta_1} = \biggl[\sum\limits_i\frac{\vec{p}_i^2}{m_i}-dNkT\biggr] - \frac{p_{\eta_2}}{Q_2}p_{\eta_1}\qquad\dot{p}_{\eta_j} = \biggl[\sum\limits_i\frac{\vec{p}_{\eta_{j-1}}^2}{Q_{j-1}}-kT\biggr] - \frac{p_{\eta_{j+1}}}{Q_{j+1}}p_{\eta_j}\quad j = 2, \dots, M-1$\\
+                        $\dot{p}_{\eta_M} = \frac{p^2_{\eta_{M-1}}}{Q_{M-1}}-kT$\\
+	                $\mathcal{H}'(\vec{r}, \eta, \vec{p}, p_\eta) = \mathcal{H}(\vec{r}, \vec{p}) + \sum\limits_{j=1}^M\frac{p_{\eta_j}^2}{2Q_j} + dNkT\eta_1 + kT\sum\limits_{j=2}^M\eta_j$\\
+                        $\kappa  = -dN\dot{\eta}_1 - \dot{\eta}_c\qquad \eta_c = \sum\limits_{j=2}^M\eta_j\qquad \sqrt{g} = e^{dN\eta_1+\eta_c}$\\
+                        Partition function $\mathcal{E}_T(N, V, C_1) = \mathcal{M}\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Nos\`e-Hoover chains};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Thermostats (contd)};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Enthalpy $dH = TdS + \mu dN + VdP\quad T = \left(\frac{\partial H}{\partial S}\right)_{N, P}\quad \langle V\rangle = \left(\frac{\partial H}{\partial P}\right)_{N, S}\quad \mu = \left(\frac{\partial H}{\partial N}\right)_{P, S}$\\
+                        Gibbs $dG = \mu dN + VdP - SdT\quad S = -\left(\frac{\partial G}{\partial T}\right)_{N, P}\quad \langle V\rangle = -\left(\frac{\partial G}{\partial P}\right)_{N, T}\quad \mu = -\left(\frac{\partial G}{\partial N}\right)_{P, T}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Legendre transforms};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $H = \mathcal{H}(v) + PV\qquad f(x) = F(\mathcal{H}(x)) = \mathcal{M}\delta(\mathcal{H}(x) +PV -H)$\\
+                        $\Gamma(N, P, H) = \mathcal{M}\int_0^\infty dV\int d^N\vec{p}\int_{\mathcal{D}(V)}d^N\vec{r}\delta(\mathcal{H}(\vec{r}m \vec{p}) + PV - H)$\\
+                        $S(N, P, H) = k\ln\Gamma(N, P, H)\quad \frac{1}{T} = \left(\frac{\partial S}{\partial H}\right)_{N, P}\quad \frac{\langle V\rangle}{T} = -\left(\frac{\partial S}{\partial P}\right)_{N, H}\quad \frac{\mu}{T} = -\left(\frac{\partial S}{\partial N}\right)_{P, H}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Isoenthalpic-isobaric ensemble};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $Q(N, V, T)\propto Q(N_1, V_1, T)Q(N_2, V_2, T)$\\
+                        $f(x_1) = I_{N_1}e^{\beta\mu N_1}e^{-\beta PV_1}C_{N_1}e^{-\beta\mathcal{H}_1(x_1)}\qquad I_{N_1} = \frac{1}{V_0N_1!h^{3N_1}}$\\
+                        $\Delta(N, P, T) = \frac{1}{V_0}\int_0^{\infty}dV e^{-\beta PV}Q(N, V, T)$\\
+                        $G(N, P, \beta) = -\frac{\partial\ln\Delta(N, P, \beta)}{\partial \beta}-\beta\frac{\partial G}{\partial \beta}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Isothermal-isobaric ensemble};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Pressure $\langle P^{(int)}\rangle = \frac{P}{\Delta(N, P, T)}\int_0^{\infty} dVe^{-\beta PV}Q(N, V, T) = P$
+                        Work $\langle P^{(int)}V\rangle + kT = P\langle V\rangle$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Virial theorems};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\mathcal{H}_A = \sum\limits_{i=1}^N\frac{V^{-\frac{2}{3}}\pi_i^2}{2m_i} + U(V^{\frac{1}{3}\vec{s}_1, \dots, V^{\frac{1}{3}}\vec{s}_N}) + \frac{p^2_V}{2W} + PV\qquad W = (3N+1)kT\tau_b^2$\\
+	                $\dot{\vec{s}}_i = \frac{p_i}{m_i} + \frac{\dot{V}}{3V} r_i\quad \dot{\pi}_i = - \frac{\partial U}{\partial r_i} - \frac{\dot{V} }{3V} p_i\quad \dot{V} = \frac{p_V}{W}\quad \dot{p}_V = \frac{1}{3V} \sum^N_{i=1} [\frac{p^2_i}{m_i} - \frac{\partial U}{\partial r_i} r_i] -P$\\
+                        $\dot{\vec{r}}_i = \frac{\vec{p}}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i\quad \dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} -\frac{\dot{V}}{3V}\vec{p}_i\quad \dot{V} = \frac{p_V}{W}\quad \dot{p}_V = \frac{1}{3V}\sum\limits_{i=1}^N\biggl[\frac{\vec{p}_i^2}{m_i}-\frac{\partial U}{\partial\vec{r}_i}\cdot\vec{r}_i\biggr]-P$\\
+	                $\biggl\langle\frac{p_V^2}{2W}\biggr\rangle = k\frac{T}{2}\Rightarrow \mathcal{H}(\vec{r},\vec{p}) + PV\text{ is conserved}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Andersen's Hamiltonian};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\epsilon = \frac{1}{3}\ln\frac{V}{V_0}\Rightarrow\dot{\epsilon} = \frac{\dot{V}}{3V}=\frac{p_\epsilon}{W}$\\
+                        $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{p_\epsilon}{W}\vec{r}_i\quad\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i} - \frac{p_\epsilon}{W}\vec{p}_i\quad\dot{V} = \frac{dVp_\epsilon}{W}\quad\dot{p}_\epsilon = dV(\mathcal{P}^{(int)}-P)$\\
+                        $\kappa = \frac{\dot{V}}{V}\qquad \dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i}-\left(1+\frac{d}{N_F}\right)\frac{p_\epsilon}{W}\vec{p}_i\quad\dot{p}_\epsilon = dV(\mathcal{P}^{(int)}-P) + \frac{d}{N_f}\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{m_i}$\\
+                        Langevin piston $\dot{\vec{r}}_i = \frac{\vec{p}_i}{m_i} + \frac{\dot{V}}{3V}\vec{r}_i\quad\dot{\vec{p}}_i = -\frac{\partial U}{\partial\vec{r}_i}-\frac{\dot{V}}{3V}\vec{p}_i\quad\dot{V} = \frac{p_V}{W}$\\
+                        $\dot{p}_V = \frac{1}{3V}\sum\limits_{i=1}^N\biggl[\frac{\vec{p}_i^2}{m_i}-\frac{\partial U}{\partial\vec{r}_i}\cdot\vec{r}_i\biggr]-P-\gamma\dot{V}+R(t)\quad\langle R(0)R(t)\rangle = \frac{2\gamma kT}{W}\delta(t)$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {MTK algorithm};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Isobaric ensemble};
+\end{tikzpicture}
 \end{multicols*}
 \end{document}
