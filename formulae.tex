@@ -660,5 +660,19 @@
     };
     \node[fancytitle, right=10pt] at (box.north west) {Isobaric ensemble};
 \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.95\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {MTK algorithm};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Grand canonical ensemble};
+\end{tikzpicture}
 \end{multicols*}
 \end{document}
