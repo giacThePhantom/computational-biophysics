@@ -777,5 +777,19 @@
     };
     \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Protein motions};
 \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Essential dynamics};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Monte Carlo methods};
+\end{tikzpicture}
 \end{multicols*}
 \end{document}
