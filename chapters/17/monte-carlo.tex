@@ -314,7 +314,7 @@ If there are two micro states it is the probability to move to a microstate $x$ 
 
 	Now the distribution function is obtained and the acceptance probability will be:
 
-	$$A(V'|V) = \min\bigl[1, e^{-\beta P(V'-V)e^{N\ln \frac{V'}{V}}e^{-\beta(U(r')-U(r))}}\bigr]$$
+	$$A(V'|V) = \min\bigl[1, e^{-\beta P(V'-V)}e^{N\ln \frac{V'}{V}}e^{-\beta(U(r')-U(r))}\bigr]$$
 
 	$\delta$, the variation on the volume, should be small to accept the move because if inflating the system too much the difference in energy would be huge.
 	This is computational demanding because the coordinates of all the particles are being changed so the force has to be recomputed for all of them, so it is less frequent with higher acceptance.
@@ -332,7 +332,7 @@ If there are two micro states it is the probability to move to a microstate $x$ 
 
 	Considering particle deletion:
 
-	$$A(N-1|N) = \min\biggl[1, \frac{\lambda^3V}{V}e^{-\beta\mu}e^{-\beta(U(r')-U(r))}\biggr]$$
+	$$A(N-1|N) = \min\biggl[1, \frac{\lambda^3N}{V}e^{-\beta\mu}e^{-\beta(U(r')-U(r))}\biggr]$$
 
 	Now it can be simulated at constant chemical potential.
 	This is not so expensive: $U(r')$ requires only the change in energy due to one particle.

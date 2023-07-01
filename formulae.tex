@@ -783,13 +783,102 @@
             \begin{tikzpicture}
                 \node [mybox] (box1){%
                     \begin{minipage}{0.95\textwidth}
+                        $f(x) \ge 0\land\int f(x)dx = 1\qquad I = \int dx\phi(x)f(x)\equiv\langle\phi\rangle_f$\\
+                        $\tilde{I}_M = \frac{1}{M}\int_{i=1}^M\phi(x_i)\qquad\lim\limits_{M\to\infty}\tilde{I}_M = I$\\
+                        $\int dx\phi(x)f(x) = \frac{1}{M}\int_{i=1}^M\phi(x_i)\pm\frac{1}{\sqrt{M}}\left[\langle\phi^2\rangle_f-\langle\phi\rangle_f^2\right]^{\frac{1}{2}}$\\
+                        $P(X) = \int_a^Xf(x)dx\quad f(X) = \frac{dP}{dX}\quad X\ge x\Rightarrow g(X)\ge g(x)\quad \tilde{P}(Y=g(X)) = P(X)$\\
                     \end{minipage}
                 };
-                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Essential dynamics};
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Introduction};
             \end{tikzpicture}
         \end{minipage}
     };
     \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Monte Carlo methods};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $I = \int dx\phi(x)f(x) = \int dx\left[\frac{\phi(x)f(x)}{h(x)}\right]h(x) = \int dx\psi(x)h(x) = \frac{1}{M}\sum\limits_{i=1}^M\psi(x_i)\pm\frac{1}{\sqrt{M}}\left[\langle\psi^2\rangle_h-\langle\psi\rangle_h^2\right]^{\frac{1}{2}}$\\
+                        $\sigma^2[h] = \int dx\frac{\phi^2(x)f^2(x)}{h(x)}-\left[\int dx\phi(x)f(x)\right]^2$\\
+                        $\delta F[h] = -\frac{\phi^2(x)f^2(x)}{h^2(x)}\delta h(x)-\lambda\delta h(x)\qquad \frac{\delta F[h]}{\delta h(x)} = 0\Rightarrow h(x) = \frac{1}{\sqrt{-\lambda}}\phi(x)f(x)$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Importance sampling};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Detailed balance $R(x|y)f(y) = R(y|x)f(x)$\\
+                        Rejection method $R(x|y) = A(x|y)T(x|y)\qquad r(x|y) = \frac{T(y|x)f(x)}{T(x|y)f(y)}$\\
+                        $\qquad A(x|y) = \min[1, r(x|y)]$\\
+                        Metropolis algorithm $r(x_{k+1}|x_k) = \frac{T(x_k|x_{k+1})f(x_{k+1})}{T(x_{k+1}|x_k)f(x_k)}$\\
+                        Canonical distribution $A(r'|r) = \min\left[1,e^{-\beta(U(r')-U(r))}\right]$\\
+                        Trial move $\begin{cases} x'_i = x_i+\frac{1}{\sqrt{3}}(\xi_x-0.5)\Delta\\y'_i = y_i+\frac{1}{\sqrt{3}}(\xi_y-0.5)\Delta\\z'_i = z_i+\frac{1}{\sqrt{3}}(\xi_z-0.5)\Delta\end{cases}$\\
+                        Isothermal-isobaric $A(V'|V) = \min\left[1, e^{-\beta P(V'-V)}e^{N\ln\frac{V'}{V}}e^{-\beta(U(r')-I)}\right]$\\
+                        Gran canonical $\begin{cases} A(N+1|N) = min\left[1, \frac{V}{\lambda^3(N+1)}e^{\beta\mu}e^{-\beta(U(r')-U(r))}\right]\\A(N-1|N) = \min\left[1,\frac{\lambda^3 N}{V}e^{-\beta\mu}e^{-\beta(U(r')-U(r))}\right]\end{cases}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Markov chains};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $A(r', p'|r, p) = \min\left[1, e^{-\beta\Delta\mathcal{H}}\right]\qquad T(r', p'|r, p) = T(r,-p|r', -p')$\\
+                        $\int d^Npd^Np' T(r',p'|r,p)A(r', p'|r,p)f(r,p) = \int d^Npd^Np' T(r, p|r', p')A(r,p|r',p')f(r',p')$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Hybrid Monte Carlo};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Monte Carlo methods (contd)};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\Delta A_{AB} = -kT\ln\frac{Z_B}{Z_A}\qquad \frac{Z_B}{Z_A} = \left\langle e^{-\beta[U_B(\vec{r}_1, \dots, \vec{r}_N)-U_A(\vec{r}_1, \dots, \vec{r}_N)]}\right\rangle_A$\\
+                        $\Delta A_{AB} = -kT\ln\left\langle e^{-\beta[U_B(\vec{r}_1, \dots, \vec{r}_N)-U_A(\vec{r}_1, \dots, \vec{r}_N)]}\right\rangle_A$\\
+                        Adiabatic switching: $\frac{kT}{Z}\frac{\partial Z}{\partial\lambda} = \frac{kT}{Z}\int d^N\vec{r}\left(-\beta\frac{\partial U}{\partial\lambda}\right)e^{-\beta U(\vec{r}_1, \dots, \vec{r}_N)} = -\langle\frac{\partial U}{\partial\lambda}\rangle$\\
+                        Thermodynamics integration: $\Delta A_{AB} = \int_0^1\left(\frac{\partial A}{\partial \lambda}\right)d\lambda = \int_0^1\left\langle\frac{\partial U}{\partial\lambda}\right\rangle_\lambda d\lambda$\\
+                        Adiabatic free energy dynamics: $\left\langle\frac{p_\lambda^2}{2m_\lambda}\right\rangle = kT_\lambda\qquad Z(\lambda, \beta) = \int d^N\vec{r}e^{-\beta U(\vec{r}, \lambda)}$\\
+                        $\mathcal{H}_{eff}(\lambda, p_\lambda) = \frac{p_\lambda^2}{2m_\lambda}-\frac{1}{\beta}\ln Z(\lambda, \beta)\qquad \tilde{P}_{adb}(\lambda, \beta, \beta_\lambda) = \left[Z(\lambda, \beta)\right]^{\frac{\beta_\lambda}{\beta}}$\\
+                        $A(\lambda) = -kT\ln Z(\lambda, \beta) + const$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Free energy perturbation theory};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $W_{AB} = \langle\mathcal{W}_{AB}(x)\rangle_A \ge \Delta A_{AB}\qquad \langle e^{-\beta\mathcal{W}_{AB}(x_0)}\rangle_A = e^{-\beta\Delta A_{AB}}$\\
+                        Pulling experiment: $U(\vec{r}_1, \dots, \vec{r}_N, t) = U_0(\vec{r}_1, \dots, \vec{r}_N) + \frac{1}{2}k(|\vec{r}_1-\vec{r}_N|-r_{eq}-vt)^2$\\
+                        $\langle e^{-\beta\mathcal{W}_\tau}\rangle = \int\mathcal{W}_\tau P(\mathcal{W}_\tau)e^{-\beta\mathcal{W}_\tau}$\\
+                        $P(\mathcal{W}_\tau)\sim N\Rightarrow \ln\langle e^{-\beta\mathcal{W}_\tau}\simeq -\beta\langle\mathcal{W}_\tau\rangle + \frac{\beta^2}{2}(\langle\mathcal{W}_\tau^2\rangle - \langle\mathcal{W}_\tau\rangle^2)$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Jarzynski's equality};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $F\left(\vec{r}^{(1)}, \dots, \vec{r}^{(M)}\right) = \prod\limits_{K=1}^Mf_K\left(\vec{r}^{(K)}\right)\qquad f_K\left(\vec{r}^{(K)}\right) = \frac{e^{-\beta_K U\left(\vec{r}^{(K)}\right)}}{Q(N, V, T_K}$\\
+                        $T\left(\tilde{\vec{r}}^{(K)}, \tilde{\vec{r}}^{(K+1)}|\vec{r}^{(K)}, \vec{r}^{(K+1)}\right) = T\left(\vec{r}^{(K)}, \vec{r}^{(K+1)}|\tilde{\vec{r}}^{(K)}, \tilde{\vec{r}}^{(K+1)}\right)$\\
+                        $A(\vec{r}^{(K+1)}, \vec{r}^{(K)} | \vec{r}^{(K)}, \vec{r}^{(K+1)}) = \min\left[1, e^{-\Delta_{K, K+1}}\right]$\\
+                        $\Delta_{K, K+1} = (\beta_K-\beta_{K +1})\left[U\left(\vec{r}^{(K+1)}\right)-U\left(\vec{r}^{(K)}\right)\right]$\\
+                        Wang-Landau sampling $Q(\beta) = \int_0^{\infty}dE e^{-\beta E}\Omega(E)\qquad A(E_2|E_1) = \min\left[1, \frac{\Omega(E_2)}{\Omega(E_1)}\right]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Replica exchange Monte Carlo};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Free energy calculations};
 \end{tikzpicture}
 \end{multicols*}
 \end{document}

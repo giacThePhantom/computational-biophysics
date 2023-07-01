@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.22)  28 JUN 2023 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.1)  1 JUL 2023 13:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,87 +1210,172 @@ Overfull \hbox (1.50903pt too wide) in paragraph at lines 753--776
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 786--790
+
+ []
+
+
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 793--794
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 804--807
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 814--822
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 829--831
+
+ []
+
+
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 810--835
+[][]
+ []
+
+
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 810--835
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 810--835
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 845--852
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 859--863
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 870--875
+
+ []
+
+
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 855--879
+[][]
+ []
+
+
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 855--879
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Overfull \hbox (1.50903pt too wide) in paragraph at lines 855--879
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--780
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--883
 []
  []
 
@@ -1300,8 +1385,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--780
 (./build/formulae.aux) ) 
 Here is how much of TeX's memory you used:
  15430 strings out of 476872
- 312313 string characters out of 5820378
- 2115388 words of memory out of 5000000
+ 312313 string characters out of 5820379
+ 2137388 words of memory out of 5000000
  35527 multiletter control sequences out of 15000+600000
  514900 words of font info for 43 fonts, out of 8000000 for 9000
  725 hyphenation exceptions out of 8191
@@ -1317,7 +1402,7 @@ are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ./build/formulae.pdf (2 pages, 262077 bytes).
+Output written on ./build/formulae.pdf (2 pages, 275700 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream

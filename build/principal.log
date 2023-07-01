@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.22)  22 JUN 2023 11:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.1)  1 JUL 2023 12:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1707,7 +1707,7 @@ Package rerunfilecheck Info: File `principal.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  26033 strings out of 476872
- 487070 string characters out of 5820378
+ 487070 string characters out of 5820379
  1924388 words of memory out of 5000000
  45268 multiletter control sequences out of 15000+600000
  533915 words of font info for 83 fonts, out of 8000000 for 9000
@@ -1743,7 +1743,7 @@ cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm07
 are/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/
 fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (191 pages, 6627612 bytes).
+Output written on ./build/principal.pdf (191 pages, 6627323 bytes).
 PDF statistics:
  2898 PDF objects out of 2984 (max. 8388607)
  2485 compressed objects within 25 object streams
