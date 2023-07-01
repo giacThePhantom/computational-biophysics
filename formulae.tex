@@ -880,5 +880,115 @@
     };
     \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Free energy calculations};
 \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $P(s_1, \dots, s_n) = \frac{C_N}{Q(N, V, T)}\int d^N\vec{p}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}\prod\limits_{\alpha=1}^n\delta(f_\alpha(\vec{r}_1, \dots, \vec{r}_N)-s_\alpha)$\\
+                        $A(s_1, \dots, s_n) = -fT\ln P(s_1, \dots, s_n)$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Reaction coordinates};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $\frac{dA}{ds} = -\frac{kT}{P(s)}\frac{dP}{ds}\qquad A(q) = A\left(s^{(i)}\right) + \int_{s^{(i)}}^q\frac{dA}{ds}ds\qquad\Delta A=\int_{s^{(i)}}^{s^{(f)}}\frac{dA}{ds}ds$\\
+                        $P(s) = \langle\delta(f_1(\vec{r}_1, \dots, \vec{r}_N)-s)\rangle\qquad \frac{1}{P(s)}\frac{dP}{ds} = -\beta\left\langle\frac{\partial\tilde{\mathcal{H}}}{\partial q_1}\right\rangle^{cond}$\\
+                        $A(q) = A\left(s^{(i)}\right) + \int_{s^{(i)}}^q\left\langle\frac{\partial\tilde{\mathcal{H}}}{\partial q_1}\right\rangle^{cond}_sds$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Blue moon ensemble};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        Umbrella sampling $W_k(f_1(\vec{r}_1, \dots, \vec{r}_N), s_k) = \frac{1}{k}\left[f_1(\vec{r}_1, \dots, \vec{r}_N)-s_k\right]^2\Rightarrow P\left(s, s^{(k)}\right)$\\
+                        $\tilde{P}\left(q, s^{(k)}\right) = e^{\beta A_k}\int d^N\vec{r} e^{-\beta U(\vec{r})}e^{-\beta W_k\left(f_1(\vec{r}), s^{(k)}\right)}\delta(f_1(\vec{r})-q)$\\
+                        $e^{-\beta A_k} = e^{-\beta A_0}\left\langle e^{-\beta W_k\left(f_1(\vec{r}), s^{(k)}\right)}\right\rangle\qquad e^{-\beta A_0} = \int d^N\vec{r}e^{-\beta U(\vec{r})}$\\
+                        $P_k(q) = e^{-\beta(A_k-A_0)\beta W_k\left(q, s^{(k)}\right)}\tilde{P}\left(q, s^{(k)}\right)$\\
+                        $P(q) = \sum\limits_{k=1}^n C_k(q)P_k(q)\qquad \sum\limits_{k=1}^nC_k(q) = 1\qquad \tilde{P}\left(q, s^{(k)}\right)\sim \frac{1}{n_k\Delta q}\tilde{H}_k(q)$\\
+                        $\tilde{\sigma}_k^2 = \frac{\epsilon_k(q)\tilde{H}_k(q)}{n_k\Delta q}\qquad\sigma_k^2 = e^{-2\beta(A_k-A_0)}e^{2\beta W_k\left(q, s^{(k)}\right)}\tilde{\sigma}_k^2\qquad \sigma^2 = \sum\limits_{k=1}^n C_k^2(q)\sigma_k^2$\\
+                        $C_k(q) = \frac{n_ke^{\beta A_k}e^{-\beta W_k\left(q, s^{(k)}\right)}}{\sum\limits_{j=1}^nn_je^{\beta A_k}e^{-\beta W_k\left(q, s^{(j)}\right)}}$\\
+                        $P(q) = \frac{\sum\limits_{k=1}^nn_k\tilde{P}\left( q, s^{(k)}\right)}{\sum\limits_{k=1}^n n_k e^{\beta(A_k-A_0)}e^{-\beta W_k\left(q, s^{(k)}\right)}}\qquad e^{\beta(A_k-A_0)} = \int dqP(q)e^{-\beta W_k\left(q, s^{(k)}\right)}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {WHAM};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Rare events};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $A(\vec{r}_2|\vec{r}_1) = \min\left[1,\frac{\Omega(E_1)}{\Omega(E_2)}\right] =\min\left[1,\frac{e^{-\beta U(\vec{r}_2}}{e^{-\beta U(\vec{r}_1)}}\frac{e^{-h(s_1)}}{e^{-h(s_2)}}\right]  $\\
+                        $h(s_2)\to h(s_2) + \alpha\Leftrightarrow g(s_2)\to fg(s_2)\qquad \alpha = \ln f$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Wang-Landau sampling};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Rare events (contd)};
+\end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.233\textwidth}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $Q(N, V, T) = C_n\int d^N\vec{p}d^{3N}qe^{-\beta\left[\sum\limits_{i=1}^N\frac{\vec{p}_i^2}{2m_i} + \tilde{V}(q_1, \dots, q_{3N}, \beta)\right]}$\\
+                        $\tilde{V}(q_1, \dots, q_{3N}, \beta) = \tilde{U}(q_1, \dots, q_{3N})-kT\ln J(q_1, \dots, q_{3N})$\\
+                        $\tilde{\mathcal{H}}(q, p, \beta) = \sum\limits_{\alpha=1}^{3N}\frac{p_\alpha^2}{2m'_\alpha}+\tilde{V}(q_1, \dots, q_{3N}, \beta)$\\
+                        TAMD: $\dot{q}_\alpha = \frac{p_\alpha}{m'_\alpha}\qquad \dot{p}_\alpha = -\frac{\partial\tilde{V}}{\partial q_\alpha} -\frac{p_{\eta_1}}{Q_1}p_\alpha\qquad \dot{p}_\alpha = -\frac{\partial\tilde{V}}{\partial q_\alpha}-\frac{p_{\eta_e}}{Q_2}p_\alpha\qquad\dot{\eta}_j = \frac{p_{\eta_j}}{Q_j}$\\
+                        $\dot{p}_{\eta_1} = \sum\limits_{\alpha=1}^n\frac{p_\alpha^2}{2m'_\alpha}-nkT_q\qquad \dot{p}_{\eta_2} = \sum\limits_{\alpha = n+1}^{3N}\frac{p_\alpha^2}{2m'_\alpha}-(3N-n)kT$\\
+                        $A(q_1, \dots, q_n) = -kT_q\ln P_{adb}(q_1, \dots, q_n)+const$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Adiabatic dynamics};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $P(s_1, \dots, s_n) = \left\langle\prod\limits_{\alpha=1}^n\delta(f_\alpha(\vec{r}_1, \dots, \vec{r}_N)-s_\alpha)\right\rangle$\\
+                        $P(s_1, \dots, s_n= \lim\limits_{\mathcal{T}\to\infty}\frac{1}{\mathcal{T}}\int_0^{\mathcal{T}}dt\prod\limits_{\alpha=1}^n\delta(f_\alpha(\vec{r}_1, \dots, \vec{r}_N)-s_\alpha)$\\
+                        $P(s_1, \dots, s_n) = \lim\limits_{\mathcal{T}\to\infty}\lim\limits_{\Delta s\to 0}\frac{1}{\mathcal{T}}\frac{1}{\sqrt{2\pi\Delta s^2}}\int_0^{\mathcal{T}}dt\prod\limits_{\alpha=1}^ne^{-\frac{(s_\alpha-f_\alpha(\vec{r}_1(t), \dots, \vec{r}_N(t)))^2}{2\Delta s^2}}$\\
+                        $U_G(\vec{r}_1, \dots, \vec{r}_N, t) = W\sum\limits_{t-\mathcal{T}_G, 2\mathcal{T}_G, \dots}e^{-\sum\limits_{\alpha=1}^n\frac{(f_\alpha(\vec{r})-f_\alpha(\vec{r}_G(t)))^2}{2\Delta s^2}}$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Metadynamics};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $x_{(k+1)\Delta} t = e^{iL_2\frac{\Delta t}{2}}e^{iL_1\Delta t}e^{iL_2\frac{\Delta t}{2}}\equiv \phi_{\Delta t}(x_{k\Delta t})$\\
+                        $T(x_{(k+1)\Delta t}|x_{k\Delta t}) = \delta(x_{(k+1)\Delta t}-\phi_{\Delta t}(x_{k\Delta t}))$\\
+                        $\mathcal{P}[\mathcal{X}(\mathcal{T})] = f(x_0)\prod\limits_{k=0}^{n-1}T(x_{(k+1)\Delta t}|x_{k\Delta t})\qquad f(x_0) = \frac{e^{-\beta\mathcal{H}(x_0)}}{Q(N, V, T)}$\\
+                        $\mathcal{P}_{AB}[\mathcal{X}(\mathcal{T})] = \frac{1}{\mathcal{F}_{AB}(\mathcal{T})}h_A(x_0)\mathcal{P}[\mathcal{X}(\mathcal{T})]h_B(x_{n\Delta t})$\\
+                        $\mathcal{F}_{AB}(\mathcal{T}) = \int dx_0\cdots dx_{n\Delta t}h_A(x_0)\mathcal{P}[\mathcal{X}(\mathcal{T})]h_B(x_{n\Delta t}) = \int dx_0h_A(x_0)f(x_0)h_B(x_{n\Delta t}(x_0))$\\
+                        $\mathcal{R}_{AB}[X(\mathcal{T})|Y(\mathcal{T})] = \Lambda_{AB}[X(\mathcal{T})|Y(\mathcal{T})]\mathcal{T}_{AB}[X(\mathcal{T})|Y(\mathcal{T})]$\\
+                        $\Lambda_{AB}[X(\mathcal{T})|Y(\mathcal{T})] = h_A(x_0)h_B(x_{n\Delta t})\min\left[1, \frac{f(x_0)}{f(y_0)}\right]$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {Transition path ensemble};
+            \end{tikzpicture}
+            \begin{tikzpicture}
+                \node [mybox] (box1){%
+                    \begin{minipage}{0.95\textwidth}
+                        $P(p) = \frac{C_N}{Q(N, V, T)}\int d^N\vec{p}\int_{q(\vec{r})=q^{\ddagger}}d^N\vec{r}e^{-\beta\mathcal{H}(\vec{r}, \vec{p})}\delta(p_B(\vec{r}_1, \dots, \vec{r}_N)-p)$\\
+                    \end{minipage}
+                };
+                \node[fancytitle, inner sep = 1pt, right=10pt] at (box1.north west) {The committor distribution};
+            \end{tikzpicture}
+        \end{minipage}
+    };
+    \node[fancytitle, inner sep = 1pt, right=10pt] at (box.north west) {Advanced methods};
+\end{tikzpicture}
 \end{multicols*}
 \end{document}
